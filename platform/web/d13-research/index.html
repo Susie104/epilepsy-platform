@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0;url=/workspace?view=single&amp;scenario=stroke">
+  <script>location.replace('/workspace?view=single&scenario=stroke');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>卒中后癫痫 · D13 正向预测研究演示</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>癫痫研究平台</a>
+    <nav aria-label="页面导航"><a href="/">研究入口</a><a href="/knowledge-graph/">知识图谱</a></nav>
+  </header>
+  <main>
+    <p class="eyebrow">真实队列 · D13 冻结模型 · 正向预测</p>
+    <h1>卒中后癫痫<span>正向预测</span></h1>
+    <p class="lead">接入已冻结的 D13-S1-LR-Platt-v0.3 参数。模型基于 D13 第 8 版公开真实数据的筛选队列，输出“一年内继发性癫痫”二分类标签的研究估计。</p>
+    <div class="facts"><div><strong>21,457</strong><span>主分析记录</span></div><div><strong>28</strong><span>模型输入字段</span></div><div><strong>4,226</strong><span>内部测试集记录</span></div></div>
+    <section class="boundary" aria-label="适用边界"><strong>使用边界</strong><p>这是公开真实队列上的研究演示，不是临床验证或诊疗建议。D13 是筛选队列，公开数据经过上游插补；结果不能解释为所有卒中患者的临床风险，也不用于减药后复发、首次晚期无诱因发作或治疗效果判断。</p></section>
+    <section class="panel" aria-labelledby="form-title">
+      <div class="section-head"><div><p class="eyebrow">MODEL INPUT</p><h2 id="form-title">D13 编码字段</h2></div><button id="example" type="button" class="button secondary" disabled>载入训练中位数示例</button></div>
+      <p class="hint">请填写全部 28 项原始 D13 编码。0/1 是源数据编码，其中性别的编码方向未在交付说明中明确；不应从临床文字自行换算。示例值是训练集中位数，不代表真实患者。</p>
+      <form id="predict-form"><div id="fields" class="field-groups"></div><div class="form-actions"><button id="predict" class="button primary" type="submit" disabled>计算研究估计</button><span id="load-status" role="status">正在校验模型包…</span></div></form>
+    </section>
+    <section id="result" class="panel result" aria-live="polite" hidden></section>
+    <section class="panel sources"><h2>数据与证据</h2><p>D13 v0.3 主模型使用 21,457 例成人筛选队列，测试集 4,226 行；训练、验证、测试为重复内容组感知拆分。页面仅下载冻结模型参数并在本机浏览器计算，不下载或上传患者级训练数据。</p><div class="links"><a href="/knowledge-graph/">查看知识图谱 ↗</a><a href="/knowledge-graph/assets/sources/D13_v0.3_模型卡.md">模型卡 ↗</a><a href="/knowledge-graph/assets/sources/五套算法架构_跑数结果汇编.pdf">五套算法跑数结果 ↗</a></div></section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0;url=/workspace?view=single&amp;scenario=first">
+  <script>location.replace('/workspace?view=single&scenario=first');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>首次发作 · 温州 D 研究预测</title>
+  <link rel="stylesheet" href="/static/d13-research/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>癫痫研究平台</a>
+    <nav aria-label="页面导航"><a href="/">研究入口</a><a href="/knowledge-graph/">知识图谱</a></nav>
+  </header>
+  <main>
+    <p class="eyebrow">真实队列 · D 研究 · 正向预测</p>
+    <h1>首次发作<span>后的预测</span></h1>
+    <p class="lead">用于卒中后 7 天内发生首次急性症状性发作的人群，按温州 D 研究的核心 8 变量 LR 模型，估计后续是否发展为晚期卒中后癫痫。</p>
+    <div class="facts"><div><strong>167</strong><span>去标识真实队列记录</span></div><div><strong>8</strong><span>模型输入字段</span></div><div><strong>0.7101</strong><span>重复交叉验证 AUROC</span></div></div>
+    <section class="boundary" aria-label="适用边界"><strong>使用边界</strong><p>本页用已核对的 D 研究数据重训并冻结全队列模型，50 个验证折次的指标与交付结果一致。结局是随访期间的晚期 PSE，随访长度不一致，因此输出没有固定的 1 年或 2 年时间含义。没有外部临床验证；仅供研究演示，不能用于诊疗决策。</p></section>
+    <section class="panel" aria-labelledby="form-title">
+      <div class="section-head"><div><p class="eyebrow">MODEL INPUT</p><h2 id="form-title">首次发作时的 8 项信息</h2></div><button id="example" type="button" class="button secondary" disabled>载入训练中位数示例</button></div>
+      <p class="hint">按温州队列的原始定义填写所有字段。示例值由训练集统计得到，不代表真实患者；输入仅在本机浏览器计算，不会提交逐例信息。</p>
+      <form id="predict-form"><div id="fields" class="field-groups"></div><div class="form-actions"><button id="predict" class="button primary" type="submit" disabled>计算研究估计</button><span id="load-status" role="status">正在校验模型包…</span></div></form>
+    </section>
+    <section id="result" class="panel result" aria-live="polite" hidden></section>
+    <section class="panel sources"><h2>数据与证据</h2><p>来源为交付的温州 167 例去标识队列，原文件 SHA-256 与跑数汇编一致。网页只提供冻结参数，没有发布逐例训练数据。D 研究的核心 8 变量 LR 在 5 折 × 10 次重复交叉验证中 AUROC 0.7101、AUPRC 0.5331、Brier 0.1825；这些是内部验证指标。</p><div class="links"><a href="/knowledge-graph/">查看 D 研究证据 ↗</a><a href="/knowledge-graph/assets/sources/五套算法架构_跑数结果汇编.pdf">跑数结果汇编 ↗</a><a href="/knowledge-graph/assets/sources/五套算法架构_代码汇编.pdf">算法代码汇编 ↗</a></div></section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

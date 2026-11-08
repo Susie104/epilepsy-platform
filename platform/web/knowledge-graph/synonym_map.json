@@ -1,0 +1,3543 @@
+[
+  {
+    "normalized_term": "2014癫痫临床定义",
+    "entity_ids": [
+      "concept_pse_def_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "72hnihss",
+    "entity_ids": [
+      "score_component_modified_select_2_0_nihss_72h"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "72hourposttreatmentnihss",
+    "entity_ids": [
+      "concept_select_post_treatment_nihss",
+      "score_component_modified_select_2_0_nihss_72h"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "72小时nihss",
+    "entity_ids": [
+      "concept_select_post_treatment_nihss",
+      "score_component_modified_select_2_0_nihss_72h"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "72小时nihss修改版select20",
+    "entity_ids": [
+      "model_modified_select_2_0_meletti_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "7天界线",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "abraira2019",
+    "entity_ids": [
+      "study_abraira_2019"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "aca",
+    "entity_ids": [
+      "field_aca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "acuteischaemicstroke",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "acuteischemicstroke",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "acutesymptomaticseizure",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "acutesymptomaticseizuretypeandtiming",
+    "entity_ids": [
+      "concept_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "acutesymptomaticstatusepilepticus",
+    "entity_ids": [
+      "concept_select_status_epilepticus",
+      "score_component_select_2_0_04"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "adultacuteischemicstrokecohort",
+    "entity_ids": [
+      "population_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "adultswithearlyeegandnoacutesymptomaticseizures",
+    "entity_ids": [
+      "population_select_eeg_without_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "adultswithfirstischemicstrokeafterreperfusiontreatment",
+    "entity_ids": [
+      "population_post_reperfusion_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "adultswithimagingconfirmedischemicstroke",
+    "entity_ids": [
+      "population_select_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "adultswithischemicstrokeandacutesymptomaticseizures",
+    "entity_ids": [
+      "population_select_asys_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "adultswithnewonsetischemicorlacunarstroke",
+    "entity_ids": [
+      "population_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "age",
+    "entity_ids": [
+      "field_age"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ais",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "albumin",
+    "entity_ids": [
+      "field_albumin"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "alt",
+    "entity_ids": [
+      "field_alt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "aniongap",
+    "entity_ids": [
+      "field_anion_gap"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "antcircle",
+    "entity_ids": [
+      "field_ant_circle"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "aptt",
+    "entity_ids": [
+      "field_aptt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ass",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ast",
+    "entity_ids": [
+      "field_ast"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "asysse",
+    "entity_ids": [
+      "concept_select_status_epilepticus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "asystypeandtiming",
+    "entity_ids": [
+      "concept_select_asys_timing_type",
+      "score_component_select_asys_timing_type"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "asystypetiming",
+    "entity_ids": [
+      "concept_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "asys时相与类型",
+    "entity_ids": [
+      "concept_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "atrialfibrillation",
+    "entity_ids": [
+      "field_atrial_fibrillation"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ba",
+    "entity_ids": [
+      "field_ba"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "basalganglia",
+    "entity_ids": [
+      "field_basal_ganglia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "bilirubin",
+    "entity_ids": [
+      "field_bilirubin"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "brainstem",
+    "entity_ids": [
+      "field_brainstem"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "bua",
+    "entity_ids": [
+      "field_bua"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ca",
+    "entity_ids": [
+      "field_ca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "capsulainterna",
+    "entity_ids": [
+      "field_capsula_interna"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ccaplaque",
+    "entity_ids": [
+      "field_cca_plaque"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "centrumsemiovale",
+    "entity_ids": [
+      "field_centrum_semiovale"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "cerebralhernia",
+    "entity_ids": [
+      "field_cerebral_hernia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "cerebralinfarction",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "cis",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ck",
+    "entity_ids": [
+      "field_ck"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ckmb",
+    "entity_ids": [
+      "field_ck_mb"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "cl",
+    "entity_ids": [
+      "field_cl"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "coronarydisease",
+    "entity_ids": [
+      "field_coronary_disease"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "corticalinfarction",
+    "entity_ids": [
+      "concept_select_cortical_involvement"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "corticalinvolvement",
+    "entity_ids": [
+      "concept_cortical_lobes",
+      "concept_select_cortical_involvement",
+      "score_component_select_1_0_04",
+      "score_component_select_2_0_05",
+      "score_component_select_asys_cortical"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "corticallobes",
+    "entity_ids": [
+      "concept_cortical_lobes"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "creatinine",
+    "entity_ids": [
+      "field_creatinine"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "crp",
+    "entity_ids": [
+      "field_crp"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "c反应蛋白",
+    "entity_ids": [
+      "field_crp"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13binarypselabel",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13dataset",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13demo",
+    "entity_ids": [
+      "model_d13_s2_lr_platt_v0_2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13demomodel",
+    "entity_ids": [
+      "model_d13_s2_lr_platt_v0_2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13laboratoryunitconflict",
+    "entity_ids": [
+      "issue_d13_unit_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13laboratoryunitconflicts",
+    "entity_ids": [
+      "issue_d13_unit_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13population",
+    "entity_ids": [
+      "population_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13poststrokeepilepsydataset",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1",
+    "entity_ids": [
+      "feature_set_d13_s1_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1featureset",
+    "entity_ids": [
+      "feature_set_d13_s1_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1featuresetv02",
+    "entity_ids": [
+      "feature_set_d13_s1_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1lrplattv03",
+    "entity_ids": [
+      "model_d13_s1_lr_platt_v0_3"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1v03主模型建模特征集",
+    "entity_ids": [
+      "feature_set_d13_s1_v03_modeling"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1v03替代编码特征集",
+    "entity_ids": [
+      "feature_set_d13_s1_alt_v03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s1核心基线特征集",
+    "entity_ids": [
+      "feature_set_d13_s1_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s2",
+    "entity_ids": [
+      "feature_set_d13_s2_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s2featureset",
+    "entity_ids": [
+      "feature_set_d13_s2_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s2featuresetv02",
+    "entity_ids": [
+      "feature_set_d13_s2_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s2lrplattv02",
+    "entity_ids": [
+      "model_d13_s2_lr_platt_v0_2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s2v03实验室探索特征集",
+    "entity_ids": [
+      "feature_set_d13_s2_v03_exploratory"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s2实验室扩展特征集",
+    "entity_ids": [
+      "feature_set_d13_s2_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s3",
+    "entity_ids": [
+      "feature_set_d13_s3_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s3featureset",
+    "entity_ids": [
+      "feature_set_d13_s3_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s3featuresetv02",
+    "entity_ids": [
+      "feature_set_d13_s3_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s3v03泄漏敏感性特征集",
+    "entity_ids": [
+      "feature_set_d13_s3_v03_sensitivity"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13s3全信息敏感性特征集",
+    "entity_ids": [
+      "feature_set_d13_s3_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13secondepilepsylabel",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13secondepilepsy的可用范围",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v02duplicatecontentgroupawarereanalysis",
+    "entity_ids": [
+      "study_d13_v02_group_aware_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v02reanalysis",
+    "entity_ids": [
+      "study_d13_v02_group_aware_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v02再分析",
+    "entity_ids": [
+      "study_d13_v02_group_aware_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v02重复内容组感知再分析",
+    "entity_ids": [
+      "study_d13_v02_group_aware_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v03",
+    "entity_ids": [
+      "model_d13_s1_lr_platt_v0_3"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v03correctedinternalreanalysis",
+    "entity_ids": [
+      "study_d13_v03_internal_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v03再分析",
+    "entity_ids": [
+      "study_d13_v03_internal_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13v03校正内部再分析",
+    "entity_ids": [
+      "study_d13_v03_internal_reanalysis"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13一年内继发性癫痫校正演示模型基线",
+    "entity_ids": [
+      "model_d13_s1_lr_platt_v0_3"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13一年内继发性癫痫演示模型",
+    "entity_ids": [
+      "model_d13_s2_lr_platt_v0_2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13公开数据",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13公开数据模型",
+    "entity_ids": [
+      "model_d13_s2_lr_platt_v0_2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13卒中后癫痫公开数据",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13单位冲突",
+    "entity_ids": [
+      "issue_d13_unit_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13基线模型",
+    "entity_ids": [
+      "model_d13_s1_lr_platt_v0_3"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13校正演示模型",
+    "entity_ids": [
+      "model_d13_s1_lr_platt_v0_3"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13演示模型",
+    "entity_ids": [
+      "model_d13_s2_lr_platt_v0_2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13研究人群",
+    "entity_ids": [
+      "population_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13结局标签",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d13继发性癫痫标签",
+    "entity_ids": [
+      "outcome_second_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ddimer",
+    "entity_ids": [
+      "concept_d_dimer",
+      "field_d_dimer"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "death",
+    "entity_ids": [
+      "concept_pse_def_08"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "diabetes",
+    "entity_ids": [
+      "field_diabetes"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "dinç2023",
+    "entity_ids": [
+      "study_din_2023"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "dryadpoststrokeepilepsydataset",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "dvt",
+    "entity_ids": [
+      "field_dvt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "dvt可能被误归为住院并发症",
+    "entity_ids": [
+      "issue_d13_dvt_definition"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "d二聚体",
+    "entity_ids": [
+      "concept_d_dimer",
+      "field_d_dimer"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "earlyeegepileptiformactivity",
+    "entity_ids": [
+      "concept_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlylateseizureboundary",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlypoststrokeseizure",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlypoststrokeseizurewithin7days",
+    "entity_ids": [
+      "concept_select_any_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlyregionaleegslowing",
+    "entity_ids": [
+      "concept_select_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlyseizure",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlyseizure7days",
+    "entity_ids": [
+      "score_component_select_1_0_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlyshortseizure",
+    "entity_ids": [
+      "concept_select_early_short_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "earlystatusepilepticus",
+    "entity_ids": [
+      "concept_select_status_epilepticus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ecaplaque",
+    "entity_ids": [
+      "field_eca_plaque"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "eegea",
+    "entity_ids": [
+      "concept_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "eegepileptiformactivity",
+    "entity_ids": [
+      "concept_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "eegrs",
+    "entity_ids": [
+      "concept_select_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "eeg区域慢波",
+    "entity_ids": [
+      "score_component_select_eeg_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "eeg癫痫样活动",
+    "entity_ids": [
+      "concept_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "electrographiconlyseizure",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "electrographicseizure",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "epencephalon",
+    "entity_ids": [
+      "field_epencephalon"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "fattyliver",
+    "entity_ids": [
+      "field_fatty_liver"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "featuresetd13s1altv03",
+    "entity_ids": [
+      "feature_set_d13_s1_alt_v03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "featuresetd13s1v03modeling",
+    "entity_ids": [
+      "feature_set_d13_s1_v03_modeling"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "featuresetd13s2v03exploratory",
+    "entity_ids": [
+      "feature_set_d13_s2_v03_exploratory"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "featuresetd13s3v03sensitivity",
+    "entity_ids": [
+      "feature_set_d13_s3_v03_sensitivity"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "fibrinogen",
+    "entity_ids": [
+      "field_fibrinogen"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "firstlateunprovokedpoststrokeseizure",
+    "entity_ids": [
+      "outcome_late_unprovoked_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "focalawareseizure",
+    "entity_ids": [
+      "concept_pse_def_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "frontallobe",
+    "entity_ids": [
+      "field_frontal_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "galovic2018",
+    "entity_ids": [
+      "study_galovic_2018"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "gender",
+    "entity_ids": [
+      "field_gender"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "gruber2023",
+    "entity_ids": [
+      "study_gruber_2023"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "gruber2025",
+    "entity_ids": [
+      "study_gruber_2025"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hba1c",
+    "entity_ids": [
+      "field_hba1c"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hbdh",
+    "entity_ids": [
+      "field_hbdh"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hdl",
+    "entity_ids": [
+      "field_hdl"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hydrocephalus",
+    "entity_ids": [
+      "field_hydrocephalus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hyperlipidaemia",
+    "entity_ids": [
+      "field_hyperlipidaemia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hypertension",
+    "entity_ids": [
+      "field_hypertension"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hyperuricemia",
+    "entity_ids": [
+      "field_hyperuricemia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "hypoproteinemia",
+    "entity_ids": [
+      "field_hypoproteinemia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "icaplaque",
+    "entity_ids": [
+      "field_ica_plaque"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ilae2014epilepsydefinition",
+    "entity_ids": [
+      "concept_pse_def_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ilae2014癫痫定义",
+    "entity_ids": [
+      "concept_pse_def_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ima",
+    "entity_ids": [
+      "field_ima"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "indeterminatewindow",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "infarctioninmcaterritory",
+    "entity_ids": [
+      "concept_select_mca_territory",
+      "score_component_select_1_0_05",
+      "score_component_select_2_0_06"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "inhospitalcomplications",
+    "entity_ids": [
+      "concept_post_baseline_complications"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "inr",
+    "entity_ids": [
+      "field_inr"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "insufficientfollowup",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "insularlobe",
+    "entity_ids": [
+      "field_insular_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ischaemicstroke",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ischemicstroke",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13ageprotocolconflict",
+    "entity_ids": [
+      "issue_d13_age_protocol_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13dvtdefinition",
+    "entity_ids": [
+      "issue_d13_dvt_definition"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13nopatientid",
+    "entity_ids": [
+      "issue_d13_no_patient_id"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13nopublicexternalvalidation",
+    "entity_ids": [
+      "issue_d13_no_public_external_validation"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13rangelobecollinearity",
+    "entity_ids": [
+      "issue_d13_range_lobe_collinearity"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13s2mainmodel",
+    "entity_ids": [
+      "issue_d13_s2_main_model"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13selectedpopulation",
+    "entity_ids": [
+      "issue_d13_selected_population"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13subcortexlobeoverlap",
+    "entity_ids": [
+      "issue_d13_subcortex_lobe_overlap"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13temporalavailability",
+    "entity_ids": [
+      "issue_d13_temporal_availability"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issued13upstreamimputation",
+    "entity_ids": [
+      "issue_d13_upstream_imputation"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issuenetworksourcesnotcombinable",
+    "entity_ids": [
+      "issue_network_sources_not_combinable"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issuesuzhounoseizureoutcome",
+    "entity_ids": [
+      "issue_suzhou_no_seizure_outcome"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issuewenzhoudeathdocsmissing",
+    "entity_ids": [
+      "issue_wenzhou_death_docs_missing"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issuewenzhouearlyseizureselection",
+    "entity_ids": [
+      "issue_wenzhou_early_seizure_selection"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "issuewindercaseseriesnofollowup",
+    "entity_ids": [
+      "issue_winder_case_series_no_followup"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "janský2026",
+    "entity_ids": [
+      "study_jansk_2026"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "k",
+    "entity_ids": [
+      "field_k"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "laa",
+    "entity_ids": [
+      "concept_select_laa"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "lactate",
+    "entity_ids": [
+      "field_lactate"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "largearteryatherosclerosis",
+    "entity_ids": [
+      "concept_select_laa"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "largearteryatherosclerosisstratifiedbysex",
+    "entity_ids": [
+      "score_component_select_asys_laa_sex"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "largearteryatheroscleroticaetiology",
+    "entity_ids": [
+      "concept_select_laa",
+      "score_component_select_1_0_02",
+      "score_component_select_2_0_02"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "largevesas",
+    "entity_ids": [
+      "field_large_ves_as"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "lateseizure",
+    "entity_ids": [
+      "concept_pse_def_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "lateunprovokedseizure",
+    "entity_ids": [
+      "concept_pse_def_03",
+      "outcome_late_unprovoked_seizure"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "ldh",
+    "entity_ids": [
+      "field_ldh"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ldl",
+    "entity_ids": [
+      "field_ldl"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "leung2026ischemiacomparison",
+    "entity_ids": [
+      "study_leung_2026_ischemia_comparison"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "losstofollowup",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ltfu",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "lus",
+    "entity_ids": [
+      "outcome_late_unprovoked_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "mca",
+    "entity_ids": [
+      "field_mca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "mcaterritory",
+    "entity_ids": [
+      "concept_select_mca_territory"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "mcaterritoryinfarction",
+    "entity_ids": [
+      "concept_select_mca_territory"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "mca供血区梗死",
+    "entity_ids": [
+      "concept_select_mca_territory",
+      "score_component_select_eeg_mca"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "meletti2024",
+    "entity_ids": [
+      "study_meletti_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "modifiedselect20",
+    "entity_ids": [
+      "model_modified_select_2_0_meletti_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "modifiedselect2072小时nihss",
+    "entity_ids": [
+      "model_modified_select_2_0_meletti_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "modifiedselect20using72hournihss",
+    "entity_ids": [
+      "model_modified_select_2_0_meletti_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "modifiedselect20using72hourposttreatmentnihss",
+    "entity_ids": [
+      "model_modified_select_2_0_meletti_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "modifiedselect20治疗后72小时nihss",
+    "entity_ids": [
+      "score_component_modified_select_2_0_nihss_72h"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "modifiedselect20适用人群",
+    "entity_ids": [
+      "population_post_reperfusion_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "mortality",
+    "entity_ids": [
+      "concept_pse_def_08"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "na",
+    "entity_ids": [
+      "field_na"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "nationalinstitutesofhealthstrokescale",
+    "entity_ids": [
+      "concept_nihss"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "nihss",
+    "entity_ids": [
+      "concept_nihss",
+      "field_nihss",
+      "score_component_select_eeg_nihss"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "nihssatadmission",
+    "entity_ids": [
+      "score_component_select_1_0_01",
+      "score_component_select_2_0_01"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "nihss评分",
+    "entity_ids": [
+      "concept_nihss",
+      "field_nihss"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "nih卒中量表",
+    "entity_ids": [
+      "concept_nihss"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "occipitallobe",
+    "entity_ids": [
+      "field_occipital_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "p",
+    "entity_ids": [
+      "field_p"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "paraventricular",
+    "entity_ids": [
+      "field_paraventricular"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "parietallobe",
+    "entity_ids": [
+      "field_parietal_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "pca",
+    "entity_ids": [
+      "field_pca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "pendingindextime",
+    "entity_ids": [
+      "decision_index_time"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "plt",
+    "entity_ids": [
+      "field_plt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "postbaselinecomplications",
+    "entity_ids": [
+      "concept_post_baseline_complications"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "postcircle",
+    "entity_ids": [
+      "field_post_circle"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "postreperfusionischemicstrokepopulation",
+    "entity_ids": [
+      "population_post_reperfusion_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "poststrokeepilepsy",
+    "entity_ids": [
+      "disease_post_stroke_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "posttreatmentnihss",
+    "entity_ids": [
+      "concept_select_post_treatment_nihss"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "practicalclinicaldefinitionofepilepsy",
+    "entity_ids": [
+      "concept_pse_def_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "predictionindextime",
+    "entity_ids": [
+      "decision_index_time"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "proposedprimarypseendpoint",
+    "entity_ids": [
+      "concept_pse_def_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "pse",
+    "entity_ids": [
+      "disease_post_stroke_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef01",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef02",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef03",
+    "entity_ids": [
+      "concept_pse_def_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef04",
+    "entity_ids": [
+      "concept_pse_def_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef05",
+    "entity_ids": [
+      "concept_pse_def_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef06",
+    "entity_ids": [
+      "concept_pse_def_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef07",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef08",
+    "entity_ids": [
+      "concept_pse_def_08"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef09",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "psedef10",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "pseoutcomelabel",
+    "entity_ids": [
+      "outcome_second_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "pt",
+    "entity_ids": [
+      "field_pt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "ptnihss",
+    "entity_ids": [
+      "concept_select_post_treatment_nihss"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "rangelobe",
+    "entity_ids": [
+      "field_range_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "rangelobe与五个脑叶完全共线",
+    "entity_ids": [
+      "issue_d13_range_lobe_collinearity"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "rbc",
+    "entity_ids": [
+      "field_rbc"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "regionalslowing",
+    "entity_ids": [
+      "concept_select_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "remotesymptomaticseizure",
+    "entity_ids": [
+      "concept_pse_def_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "s1",
+    "entity_ids": [
+      "feature_set_d13_s1_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "s2",
+    "entity_ids": [
+      "feature_set_d13_s2_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "s2实验室模型只能作为探索性演示",
+    "entity_ids": [
+      "issue_d13_s2_main_model"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "s3",
+    "entity_ids": [
+      "feature_set_d13_s3_v02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "sasys",
+    "entity_ids": [
+      "concept_select_early_short_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "schubert2025selectasys",
+    "entity_ids": [
+      "study_schubert_2025_select_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "schubert2025selecteeg",
+    "entity_ids": [
+      "study_schubert_2025_select_eeg"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "secondaryepilepsywithinoneyear",
+    "entity_ids": [
+      "outcome_second_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "secondepilepsy",
+    "entity_ids": [
+      "field_second_epilepsy",
+      "outcome_second_epilepsy"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "secondepilepsy标签",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select",
+    "entity_ids": [
+      "model_select_1_0"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select10",
+    "entity_ids": [
+      "model_select_1_0"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select10卒中严重度",
+    "entity_ids": [
+      "score_component_select_1_0_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select10大动脉粥样硬化病因",
+    "entity_ids": [
+      "score_component_select_1_0_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select10大脑中动脉供血区梗死",
+    "entity_ids": [
+      "score_component_select_1_0_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select10早期发作",
+    "entity_ids": [
+      "concept_select_any_early_seizure",
+      "score_component_select_1_0_03"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "select10皮质受累",
+    "entity_ids": [
+      "score_component_select_1_0_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20",
+    "entity_ids": [
+      "model_select_2_0"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20卒中严重度",
+    "entity_ids": [
+      "score_component_select_2_0_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20大动脉粥样硬化病因",
+    "entity_ids": [
+      "score_component_select_2_0_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20大脑中动脉供血区梗死",
+    "entity_ids": [
+      "score_component_select_2_0_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20早期癫痫持续状态",
+    "entity_ids": [
+      "score_component_select_2_0_04"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20早期短发作",
+    "entity_ids": [
+      "score_component_select_2_0_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select20皮质受累",
+    "entity_ids": [
+      "score_component_select_2_0_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectasys",
+    "entity_ids": [
+      "model_select_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectasyspopulation",
+    "entity_ids": [
+      "population_select_asys_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectasys大动脉粥样硬化病因按性别分层",
+    "entity_ids": [
+      "score_component_select_asys_laa_sex"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectasys早期发作类型与时相",
+    "entity_ids": [
+      "score_component_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectasys皮质受累",
+    "entity_ids": [
+      "score_component_select_asys_cortical"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectasys适用人群",
+    "entity_ids": [
+      "population_select_asys_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteeg",
+    "entity_ids": [
+      "model_select_eeg"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteegeeg区域慢波",
+    "entity_ids": [
+      "score_component_select_eeg_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteegmca供血区梗死",
+    "entity_ids": [
+      "score_component_select_eeg_mca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteegnihss",
+    "entity_ids": [
+      "score_component_select_eeg_nihss"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteegpopulation",
+    "entity_ids": [
+      "population_select_eeg_without_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteeg任一癫痫样活动",
+    "entity_ids": [
+      "score_component_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteeg大动脉粥样硬化病因",
+    "entity_ids": [
+      "score_component_select_eeg_laa"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteeg皮质受累",
+    "entity_ids": [
+      "score_component_select_eeg_cortical"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selecteeg适用人群",
+    "entity_ids": [
+      "population_select_eeg_without_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "selectscore",
+    "entity_ids": [
+      "model_select_1_0"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select早期发作更新",
+    "entity_ids": [
+      "model_select_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select更新版",
+    "entity_ids": [
+      "model_select_2_0"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select脑电更新",
+    "entity_ids": [
+      "model_select_eeg"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "select评分",
+    "entity_ids": [
+      "model_select_1_0"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "sevendayboundary",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "shen2021",
+    "entity_ids": [
+      "study_shen_2021"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "shortacutesymptomaticseizure",
+    "entity_ids": [
+      "concept_select_early_short_seizure",
+      "score_component_select_2_0_03"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "simplepartialseizure",
+    "entity_ids": [
+      "concept_pse_def_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "sinka2023",
+    "entity_ids": [
+      "study_sinka_2023"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "subclinicalelectrographicseizure",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "subcortexlobe",
+    "entity_ids": [
+      "field_subcortex_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "subcortexlobe与皮质下分量高度重叠",
+    "entity_ids": [
+      "issue_d13_subcortex_lobe_overlap"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "suzhouanhui149caseacuteischemicstrokedataset",
+    "entity_ids": [
+      "network_dataset_suzhou_anhui_149"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "suzhouanhuiacuteischemicstrokepatients",
+    "entity_ids": [
+      "network_population_suzhou_anhui_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "suzhouanhuistrokedataset",
+    "entity_ids": [
+      "network_dataset_suzhou_anhui_149"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "tanaka2023",
+    "entity_ids": [
+      "study_tanaka_2023"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "tco2",
+    "entity_ids": [
+      "field_tco2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "temporallobe",
+    "entity_ids": [
+      "field_temporal_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "tg",
+    "entity_ids": [
+      "field_tg"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "thalamus",
+    "entity_ids": [
+      "field_thalamus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "tt",
+    "entity_ids": [
+      "field_tt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "urea",
+    "entity_ids": [
+      "field_urea"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "uremia",
+    "entity_ids": [
+      "field_uremia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "va",
+    "entity_ids": [
+      "field_va"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "verburgt2025",
+    "entity_ids": [
+      "study_verburgt_2025"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wbc",
+    "entity_ids": [
+      "concept_wbc",
+      "field_wbc"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "wbc计数",
+    "entity_ids": [
+      "concept_wbc"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wenzhou100casefieldfeasibilityassessment",
+    "entity_ids": [
+      "study_wenzhou_100_field_feasibility"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wenzhou167casepublicstrokedataset",
+    "entity_ids": [
+      "network_dataset_wenzhou_167"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wenzhouearlypoststrokeseizurecohort",
+    "entity_ids": [
+      "network_population_wenzhou_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wenzhouearlyseizurecohort",
+    "entity_ids": [
+      "network_population_wenzhou_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wenzhoupselabel",
+    "entity_ids": [
+      "network_outcome_wenzhou_pse"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "wenzhoustrokedataset",
+    "entity_ids": [
+      "network_dataset_wenzhou_167"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "whitebloodcellcount",
+    "entity_ids": [
+      "concept_wbc"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winder28casepubliccaseseries",
+    "entity_ids": [
+      "network_dataset_winder_28"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winder28例",
+    "entity_ids": [
+      "network_population_winder_case_series"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winder28例公开病例系列",
+    "entity_ids": [
+      "network_dataset_winder_28"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "windercaseseries",
+    "entity_ids": [
+      "network_dataset_winder_28"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winderpoststrokeseizurecaseseries",
+    "entity_ids": [
+      "network_population_winder_case_series"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winder卒中后发作病例系列人群",
+    "entity_ids": [
+      "network_population_winder_case_series"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winder数据是病例系列",
+    "entity_ids": [
+      "issue_winder_case_series_no_followup"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "winder病例系列",
+    "entity_ids": [
+      "network_dataset_winder_28"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "yu2024",
+    "entity_ids": [
+      "study_yu_2024"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "α羟丁酸脱氢酶",
+    "entity_ids": [
+      "field_hbdh"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "一年内继发性癫痫",
+    "entity_ids": [
+      "outcome_second_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "一年继发性癫痫01标签",
+    "entity_ids": [
+      "concept_pse_def_10"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "丘脑受累",
+    "entity_ids": [
+      "field_thalamus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "乳酸",
+    "entity_ids": [
+      "field_lactate"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "乳酸脱氢酶",
+    "entity_ids": [
+      "field_ldh"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "亚临床电图发作",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "仅有电图发作",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "仅有电图异常或电图发作",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "任一癫痫样活动",
+    "entity_ids": [
+      "score_component_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "低密度脂蛋白胆固醇",
+    "entity_ids": [
+      "field_ldl"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "低蛋白血症",
+    "entity_ids": [
+      "field_hypoproteinemia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "住院并发症",
+    "entity_ids": [
+      "concept_post_baseline_complications"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "公开数据不含原论文外部队列",
+    "entity_ids": [
+      "issue_d13_no_public_external_validation"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "公开数据年龄与原论文纳排标准不完全一致",
+    "entity_ids": [
+      "issue_d13_age_protocol_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "公开文件已上游随机森林插补",
+    "entity_ids": [
+      "issue_d13_upstream_imputation"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "内囊受累",
+    "entity_ids": [
+      "field_capsula_interna"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "冠心病",
+    "entity_ids": [
+      "field_coronary_disease"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "凝血酶原时间",
+    "entity_ids": [
+      "field_pt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "凝血酶时间",
+    "entity_ids": [
+      "field_tt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "前循环",
+    "entity_ids": [
+      "field_ant_circle"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "区域慢波",
+    "entity_ids": [
+      "concept_select_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "半卵圆中心受累",
+    "entity_ids": [
+      "field_centrum_semiovale"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中严重度",
+    "entity_ids": [
+      "score_component_select_1_0_01",
+      "score_component_select_2_0_01"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "卒中后7天内发作",
+    "entity_ids": [
+      "concept_select_any_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后住院并发症",
+    "entity_ids": [
+      "concept_post_baseline_complications"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后发作分界",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后早期发作",
+    "entity_ids": [
+      "concept_pse_def_01",
+      "concept_select_any_early_seizure"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "卒中后晚期无诱因癫痫发作",
+    "entity_ids": [
+      "outcome_late_unprovoked_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后癫痫",
+    "entity_ids": [
+      "disease_post_stroke_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后癫痫公开数据集",
+    "entity_ids": [
+      "dataset_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后继发性癫痫",
+    "entity_ids": [
+      "disease_post_stroke_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "卒中后首次晚期无诱因发作",
+    "entity_ids": [
+      "outcome_late_unprovoked_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "单纯部分性发作",
+    "entity_ids": [
+      "concept_pse_def_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "发生早期发作的成人缺血性卒中",
+    "entity_ids": [
+      "population_select_asys_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "受累脑叶汇总额顶颞枕岛叶之和",
+    "entity_ids": [
+      "field_range_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "变量统一时点无法验证",
+    "entity_ids": [
+      "issue_d13_temporal_availability"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "后循环",
+    "entity_ids": [
+      "field_post_circle"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "国际标准化比值",
+    "entity_ids": [
+      "field_inr"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "基底动脉",
+    "entity_ids": [
+      "field_ba"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "基底节受累",
+    "entity_ids": [
+      "field_basal_ganglia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大动脉粥样硬化性卒中",
+    "entity_ids": [
+      "concept_select_laa"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大动脉粥样硬化病因",
+    "entity_ids": [
+      "concept_select_laa",
+      "score_component_select_1_0_02",
+      "score_component_select_2_0_02",
+      "score_component_select_eeg_laa"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "大动脉粥样硬化病因按性别分层",
+    "entity_ids": [
+      "score_component_select_asys_laa_sex"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大脑中动脉",
+    "entity_ids": [
+      "field_mca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大脑中动脉供血区梗死",
+    "entity_ids": [
+      "concept_select_mca_territory",
+      "score_component_select_1_0_05",
+      "score_component_select_2_0_06"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "大脑前动脉",
+    "entity_ids": [
+      "field_aca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大脑后动脉",
+    "entity_ids": [
+      "field_pca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大脑皮质分区",
+    "entity_ids": [
+      "concept_cortical_lobes"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "大血管动脉粥样硬化",
+    "entity_ids": [
+      "field_large_ves_as"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "失访",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "失访随访不足与窗口不确定",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "完成早期eeg且无早期发作的成人缺血性卒中",
+    "entity_ids": [
+      "population_select_eeg_without_asys"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "实验室量纲待核对",
+    "entity_ids": [
+      "issue_d13_unit_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "小脑受累",
+    "entity_ids": [
+      "field_epencephalon"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "尿毒症共病",
+    "entity_ids": [
+      "field_uremia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "尿素",
+    "entity_ids": [
+      "field_urea"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "局灶保留意识发作",
+    "entity_ids": [
+      "concept_pse_def_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "局灶保留意识发作旧称单纯部分性发作",
+    "entity_ids": [
+      "concept_pse_def_06"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "岛叶受累",
+    "entity_ids": [
+      "field_insular_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "年龄岁",
+    "entity_ids": [
+      "field_age"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "建议pse主结局",
+    "entity_ids": [
+      "concept_pse_def_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "心房颤动",
+    "entity_ids": [
+      "field_atrial_fibrillation"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "急性症状性发作",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "急性症状性发作早期发作",
+    "entity_ids": [
+      "concept_pse_def_01"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "急性症状性癫痫持续状态",
+    "entity_ids": [
+      "concept_select_status_epilepticus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "急性缺血性卒中",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "性别01编码方向readme未说明",
+    "entity_ids": [
+      "field_gender"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "总二氧化碳",
+    "entity_ids": [
+      "field_tco2"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "总胆红素",
+    "entity_ids": [
+      "field_bilirubin"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "成人影像确认的缺血性卒中人群",
+    "entity_ids": [
+      "population_select_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "成人急性缺血性卒中队列",
+    "entity_ids": [
+      "population_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "成人新发缺血性或缺隙性卒中住院患者",
+    "entity_ids": [
+      "population_d13"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "接受再灌注治疗的首次缺血性卒中成人",
+    "entity_ids": [
+      "population_post_reperfusion_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "新发缺血性卒中",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期eeg区域慢波",
+    "entity_ids": [
+      "concept_select_regional_slow"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期eeg癫痫样活动",
+    "entity_ids": [
+      "concept_select_eeg_epileptiform"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期发作",
+    "entity_ids": [
+      "concept_pse_def_01",
+      "concept_select_any_early_seizure",
+      "score_component_select_1_0_03"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "早期发作与晚期发作的界线",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期发作时相",
+    "entity_ids": [
+      "concept_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期发作类型与发生日",
+    "entity_ids": [
+      "concept_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期发作类型与时相",
+    "entity_ids": [
+      "score_component_select_asys_timing_type"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期晚期分界",
+    "entity_ids": [
+      "concept_pse_def_02"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "早期癫痫持续状态",
+    "entity_ids": [
+      "concept_select_status_epilepticus",
+      "score_component_select_2_0_04"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "早期短发作",
+    "entity_ids": [
+      "concept_select_early_short_seizure",
+      "score_component_select_2_0_03"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "早期短时急性症状性发作",
+    "entity_ids": [
+      "concept_select_early_short_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "晚期发作",
+    "entity_ids": [
+      "concept_pse_def_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "晚期无诱因发作",
+    "entity_ids": [
+      "concept_pse_def_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "本项目pse主结局",
+    "entity_ids": [
+      "concept_pse_def_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "本项目建议的pse主结局",
+    "entity_ids": [
+      "concept_pse_def_05"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "枕叶受累",
+    "entity_ids": [
+      "field_occipital_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "椎动脉",
+    "entity_ids": [
+      "field_va"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "死亡",
+    "entity_ids": [
+      "concept_pse_def_08"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "死亡事件",
+    "entity_ids": [
+      "concept_pse_def_08"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "氯",
+    "entity_ids": [
+      "field_cl"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "没有患者级标识和事件日期",
+    "entity_ids": [
+      "issue_d13_no_patient_id"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "治疗后72小时nihss",
+    "entity_ids": [
+      "concept_select_post_treatment_nihss",
+      "score_component_modified_select_2_0_nihss_72h"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "活化部分凝血活酶时间",
+    "entity_ids": [
+      "field_aptt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "深静脉血栓",
+    "entity_ids": [
+      "field_dvt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州100例字段可行性验证",
+    "entity_ids": [
+      "study_wenzhou_100_field_feasibility"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州100例字段验证",
+    "entity_ids": [
+      "study_wenzhou_100_field_feasibility"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州167例公开卒中逐例数据",
+    "entity_ids": [
+      "network_dataset_wenzhou_167"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州pse标签",
+    "entity_ids": [
+      "network_outcome_wenzhou_pse"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州卒中后7天内早期发作患者",
+    "entity_ids": [
+      "network_population_wenzhou_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州卒中网络数据",
+    "entity_ids": [
+      "network_dataset_wenzhou_167"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州数据仅包含早期发作患者",
+    "entity_ids": [
+      "issue_wenzhou_early_seizure_selection"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州数据缺死亡绝对日期和文书证据",
+    "entity_ids": [
+      "issue_wenzhou_death_docs_missing"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州早期发作队列",
+    "entity_ids": [
+      "network_population_wenzhou_early_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "温州队列的卒中后癫痫标签",
+    "entity_ids": [
+      "network_outcome_wenzhou_pse"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "甘油三酯",
+    "entity_ids": [
+      "field_tg"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "电图发作",
+    "entity_ids": [
+      "concept_pse_def_07"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "白细胞",
+    "entity_ids": [
+      "concept_wbc",
+      "field_wbc"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "白细胞计数",
+    "entity_ids": [
+      "concept_wbc"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "白蛋白",
+    "entity_ids": [
+      "field_albumin"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "皮质下受累",
+    "entity_ids": [
+      "field_subcortex_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "皮质受累",
+    "entity_ids": [
+      "concept_select_cortical_involvement",
+      "score_component_select_1_0_04",
+      "score_component_select_2_0_05",
+      "score_component_select_asys_cortical",
+      "score_component_select_eeg_cortical"
+    ],
+    "resolution": "context_required"
+  },
+  {
+    "normalized_term": "皮质梗死",
+    "entity_ids": [
+      "concept_select_cortical_involvement"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "皮质脑叶",
+    "entity_ids": [
+      "concept_cortical_lobes"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "磷",
+    "entity_ids": [
+      "field_p"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "窗口不确定",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "糖化血红蛋白",
+    "entity_ids": [
+      "field_hba1c"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "糖尿病",
+    "entity_ids": [
+      "field_diabetes"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "索引时点待确认",
+    "entity_ids": [
+      "decision_index_time"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "红细胞",
+    "entity_ids": [
+      "field_rbc"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "纤维蛋白原",
+    "entity_ids": [
+      "field_fibrinogen"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "继发性癫痫一年内二分类结局",
+    "entity_ids": [
+      "field_second_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "缺血修饰白蛋白",
+    "entity_ids": [
+      "field_ima"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "缺血性卒中",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "缺血性脑卒中",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "网络卒中数据不能直接合并",
+    "entity_ids": [
+      "issue_network_sources_not_combinable"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "美国国立卫生研究院卒中量表",
+    "entity_ids": [
+      "concept_nihss"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "肌酐",
+    "entity_ids": [
+      "field_creatinine"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "肌酸激酶",
+    "entity_ids": [
+      "field_ck"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "肌酸激酶同工酶mb",
+    "entity_ids": [
+      "field_ck_mb"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脂肪肝",
+    "entity_ids": [
+      "field_fatty_liver"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑卒中后癫痫",
+    "entity_ids": [
+      "disease_post_stroke_epilepsy"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑叶受累",
+    "entity_ids": [
+      "concept_cortical_lobes"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑室旁受累",
+    "entity_ids": [
+      "field_paraventricular"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑干受累",
+    "entity_ids": [
+      "field_brainstem"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑梗死",
+    "entity_ids": [
+      "disease_ischemic_stroke"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑疝",
+    "entity_ids": [
+      "field_cerebral_hernia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "脑积水",
+    "entity_ids": [
+      "field_hydrocephalus"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "苏州安徽149例急性缺血性卒中数据",
+    "entity_ids": [
+      "network_dataset_suzhou_anhui_149"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "苏州安徽急性缺血性卒中人群",
+    "entity_ids": [
+      "network_population_suzhou_anhui_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "苏州安徽急性缺血性卒中患者",
+    "entity_ids": [
+      "network_population_suzhou_anhui_ischemic"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "苏州安徽数据无癫痫结局",
+    "entity_ids": [
+      "issue_suzhou_no_seizure_outcome"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "苏州安徽网络数据",
+    "entity_ids": [
+      "network_dataset_suzhou_anhui_149"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "血小板",
+    "entity_ids": [
+      "field_plt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "血尿酸",
+    "entity_ids": [
+      "field_bua"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "谷丙转氨酶",
+    "entity_ids": [
+      "field_alt"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "谷草转氨酶",
+    "entity_ids": [
+      "field_ast"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "远期症状性发作",
+    "entity_ids": [
+      "concept_pse_def_03"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "部分实验室字段单位与量级不一致或未注明",
+    "entity_ids": [
+      "issue_d13_unit_conflict"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "钙",
+    "entity_ids": [
+      "field_ca"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "钠",
+    "entity_ids": [
+      "field_na"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "钾",
+    "entity_ids": [
+      "field_k"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "队列经过结局相关筛选",
+    "entity_ids": [
+      "issue_d13_selected_population"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "阴离子间隙",
+    "entity_ids": [
+      "field_anion_gap"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "随访不足",
+    "entity_ids": [
+      "concept_pse_def_09"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "顶叶受累",
+    "entity_ids": [
+      "field_parietal_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "预测起点待确认",
+    "entity_ids": [
+      "decision_index_time"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "颈内动脉斑块",
+    "entity_ids": [
+      "field_ica_plaque"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "颈外动脉斑块",
+    "entity_ids": [
+      "field_eca_plaque"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "颈总动脉斑块",
+    "entity_ids": [
+      "field_cca_plaque"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "额叶受累",
+    "entity_ids": [
+      "field_frontal_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "颞叶受累",
+    "entity_ids": [
+      "field_temporal_lobe"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "首次晚期无诱因发作",
+    "entity_ids": [
+      "outcome_late_unprovoked_seizure"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "高密度脂蛋白胆固醇",
+    "entity_ids": [
+      "field_hdl"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "高尿酸血症",
+    "entity_ids": [
+      "field_hyperuricemia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "高脂血症",
+    "entity_ids": [
+      "field_hyperlipidaemia"
+    ],
+    "resolution": "exact"
+  },
+  {
+    "normalized_term": "高血压",
+    "entity_ids": [
+      "field_hypertension"
+    ],
+    "resolution": "exact"
+  }
+]

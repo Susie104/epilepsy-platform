@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>联系项目组 · 癫痫复发预测平台</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f5f2fa;
+      --muted: #b8afc2;
+      --violet: #d79bea;
+      --line: #e6c5ef30;
+      font-family: "Inter Tight", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100svh; margin: 0; display: flex; flex-direction: column;
+      padding: clamp(16px, 4vw, 48px); color: var(--ink);
+      background:
+        radial-gradient(ellipse at 86% 12%, #8040c144, transparent 52%),
+        linear-gradient(110deg, #0a0810f5, #0a0810aa),
+        #0a0810 url("assets/neural-background.png") center / cover no-repeat;
+    }
+    header, main { width: min(100%, 1120px); margin-inline: auto; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 13px; font-weight: 700; }
+    .back {
+      flex: none; padding: 9px 15px; border: 1px solid var(--line); border-radius: 999px;
+      color: var(--ink); font-size: 13px; text-decoration: none;
+    }
+    .back:hover { background: #d79bea20; }
+    .back:focus-visible { outline: 2px solid var(--violet); outline-offset: 4px; }
+    main {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);
+      gap: clamp(28px, 7vw, 96px); align-items: center;
+      margin-block: auto; padding-block: clamp(48px, 11vh, 110px);
+    }
+    .eyebrow {
+      margin: 0; color: var(--violet); font: 700 11px/1.5 Consolas, monospace;
+      letter-spacing: .2em;
+    }
+    h1 {
+      margin: 16px 0 20px; font-size: clamp(3.1rem, 7.4vw, 6.4rem);
+      line-height: 1.07; font-weight: 900; letter-spacing: -.075em;
+    }
+    h1 span { color: var(--violet); }
+    .intro { max-width: 28em; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .topics { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 24px 0 0; list-style: none; }
+    .topics li {
+      padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px;
+      color: var(--muted); font-size: 12px;
+    }
+    .contact-card {
+      padding: clamp(22px, 4vw, 42px); border: 1px solid var(--line); border-radius: 24px;
+      background: linear-gradient(140deg, #21172eee, #12101bed);
+      box-shadow: 0 18px 60px #07060a66;
+    }
+    .contact-card h2 { margin: 9px 0 21px; font-size: clamp(21px, 3vw, 27px); line-height: 1.25; }
+    dl { margin: 0; }
+    dl div {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 6px 16px; padding: 15px 0; border-top: 1px solid var(--line);
+    }
+    dl div:last-child { padding-bottom: 0; }
+    dt { font-weight: 700; font-size: 14px; }
+    dd { margin: 0; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+    dd a { color: inherit; text-decoration-color: var(--violet); text-underline-offset: 3px; }
+    dd a:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+    @media (max-width: 760px) {
+      main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">癫痫复发预测平台</span>
+    <a class="back" href="index.html?intro=0">← 返回路演</a>
+  </header>
+  <main>
+    <div>
+      <p class="eyebrow" lang="en">Q&amp;A / CONTACT</p>
+      <h1>联系<span>项目组</span></h1>
+      <p class="intro">欢迎就平台功能、研究进展和院内试点与我们交流。</p>
+      <ul class="topics" aria-label="交流方向">
+        <li>平台演示</li>
+        <li>研究交流</li>
+        <li>院内合作</li>
+      </ul>
+    </div>
+    <section class="contact-card" aria-labelledby="details-title">
+      <p class="eyebrow" lang="en">RESEARCH TEAM</p>
+      <h2 id="details-title">项目组联系方式</h2>
+      <dl>
+        <div><dt>联系人</dt><dd>梁苏蕾</dd></div>
+        <div><dt>公开邮箱</dt><dd><a href="mailto:18137203550@163.com">18137203550@163.com</a></dd></div>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "epilepsy_duration_before_remission_years": 4.0,
+  "seizure_free_months": 48.0,
+  "age_at_onset": 12.0,
+  "febrile_seizure_history": 0.0,
+  "seizure_count_before_remission": 8.0,
+  "self_limiting_syndrome": 0.0,
+  "developmental_delay": 0.0,
+  "eeg_epileptiform": 0.0
+}

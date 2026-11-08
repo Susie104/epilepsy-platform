@@ -1,0 +1,11 @@
+{
+  "source_status": "交付包核对；D 核心 LR 已按原始队列复算",
+  "model_demo": "/workspace?view=single&scenario=stroke",
+  "study_d_prediction": "/workspace?view=single&scenario=first",
+  "results_pdf_sha256": "bbcd1a25a4b59d5634b8334e2ea3c9b340e4c5969a4f61b9965e0bc1eddbbb50",
+  "code_pdf_sha256": "f072571ad789ae3d29361445ced2f7b2e6860f0d0b1ff3766c1814b0b3e38d48",
+  "nodes": 192,
+  "edges": 653,
+  "claims": 57,
+  "sources": 41
+}

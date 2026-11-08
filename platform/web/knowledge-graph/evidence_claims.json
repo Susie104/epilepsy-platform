@@ -1,0 +1,927 @@
+[
+  {
+    "claim_id": "C001",
+    "subject": "dataset_d13",
+    "predicate": "contains",
+    "object": "population_d13",
+    "statement": "D13 包含 21,459 名新发缺血性或缺隙性卒中患者。",
+    "direction": "事实",
+    "population": "成人急性缺血性卒中",
+    "time_context": "2017-06 至 2022-06 开发队列",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Materials and methods / Research patients",
+    "status": "已核对"
+  },
+  {
+    "claim_id": "C002",
+    "subject": "outcome_second_epilepsy",
+    "predicate": "occurs_in",
+    "object": "population_d13",
+    "statement": "21,459 名患者中，936 人在一年内被标记为继发性癫痫，占 4.36%。",
+    "direction": "事实",
+    "population": "成人急性缺血性卒中",
+    "time_context": "一年内二分类标签",
+    "source_id": "SRC_DRYAD",
+    "source_locator": "data.csv / second_epilepsy",
+    "status": "已复算"
+  },
+  {
+    "claim_id": "C003",
+    "subject": "field_nihss",
+    "predicate": "reported_association_with",
+    "object": "outcome_second_epilepsy",
+    "statement": "NIHSS 越高，原研究报告的卒中后癫痫风险越高。",
+    "direction": "正向",
+    "population": "成人急性缺血性卒中",
+    "time_context": "入院时评分",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Results / Analysis of SHAP risk factors",
+    "status": "原研究报告，非因果"
+  },
+  {
+    "claim_id": "C004",
+    "subject": "field_wbc",
+    "predicate": "reported_association_with",
+    "object": "outcome_second_epilepsy",
+    "statement": "白细胞计数是原研究识别出的重要预测因素之一。",
+    "direction": "正向",
+    "population": "成人急性缺血性卒中",
+    "time_context": "入院后首组实验室检验",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Abstract / Results and Conclusions",
+    "status": "原研究报告，非因果"
+  },
+  {
+    "claim_id": "C005",
+    "subject": "field_d_dimer",
+    "predicate": "reported_association_with",
+    "object": "outcome_second_epilepsy",
+    "statement": "D-二聚体是原研究识别出的重要预测因素之一。",
+    "direction": "正向",
+    "population": "成人急性缺血性卒中",
+    "time_context": "入院后首组实验室检验",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Abstract / Results and Conclusions",
+    "status": "原研究报告，非因果"
+  },
+  {
+    "claim_id": "C006",
+    "subject": "field_age",
+    "predicate": "reported_association_with",
+    "object": "outcome_second_epilepsy",
+    "statement": "年龄是原研究中的卒中后癫痫相关因素。",
+    "direction": "正向",
+    "population": "18–90 岁缺血性卒中患者",
+    "time_context": "入院时",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Results / Characteristics of study participants",
+    "status": "原研究报告，非因果"
+  },
+  {
+    "claim_id": "C007",
+    "subject": "concept_post_baseline_complications",
+    "predicate": "reported_association_with",
+    "object": "outcome_second_epilepsy",
+    "statement": "脑疝、脑积水和深静脉血栓在原研究中与卒中后癫痫相关。",
+    "direction": "正向",
+    "population": "成人急性缺血性卒中",
+    "time_context": "住院期间，具体采集时间未公开",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Abstract / Results",
+    "status": "后验信息风险"
+  },
+  {
+    "claim_id": "C008",
+    "subject": "concept_cortical_lobes",
+    "predicate": "reported_association_with",
+    "object": "outcome_second_epilepsy",
+    "statement": "额叶、顶叶和颞叶受累在原研究中与卒中后癫痫风险相关。",
+    "direction": "正向",
+    "population": "成人急性缺血性卒中",
+    "time_context": "初始CT或MRI",
+    "source_id": "SRC_PAPER",
+    "source_locator": "Abstract / Results and Characteristics",
+    "status": "原研究报告，非因果"
+  },
+  {
+    "claim_id": "PSE-DEF-01",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_01",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "卒中发生后1周内（≤7天）出现的临床癫痫发作，按急性症状性发作处理。它是卒中急性损伤相关事件，不等同于卒中后癫痫。",
+    "direction": "定义",
+    "population": "卒中人群；本课题聚焦成人缺血性卒中",
+    "time_context": "急性症状性发作 / 早期发作",
+    "source_id": "BEHGI2010",
+    "source_ids": [
+      "BEHGI2010",
+      "GALOVIC2021"
+    ],
+    "source_locator": "Beghi 2010 Results；Galovic 2021 Introduction and Management",
+    "status": "权威定义（ILAE相关建议）"
+  },
+  {
+    "claim_id": "PSE-DEF-02",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_02",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "卒中后≤7天为早期发作；>7天为晚期发作。第7天仍属早期，第8天进入晚期。两段对应不同的机制假设和研究含义。",
+    "direction": "定义",
+    "population": "缺血性及出血性卒中研究均常用此时间界线；本课题用于缺血性卒中",
+    "time_context": "早期发作与晚期发作的界线",
+    "source_id": "BEHGI2010",
+    "source_ids": [
+      "BEHGI2010",
+      "GALOVIC2021"
+    ],
+    "source_locator": "Beghi 2010 Results；Galovic 2021 Introduction / Management",
+    "status": "权威定义与研究综述一致"
+  },
+  {
+    "claim_id": "PSE-DEF-03",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_03",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "卒中7天后发生的首次临床确认无诱因发作属于晚期/远期症状性发作。其后续无诱因发作风险高，单个事件在卒中背景下可具有癫痫诊断意义。",
+    "direction": "定义",
+    "population": "卒中后患者，尤其是存在远端结构性病灶者",
+    "time_context": "晚期无诱因发作",
+    "source_id": "GALOVIC2021",
+    "source_ids": [
+      "GALOVIC2021",
+      "FISHER2014"
+    ],
+    "source_locator": "Galovic 2021 Introduction；Fisher 2014 practical definition",
+    "status": "研究综述支持"
+  },
+  {
+    "claim_id": "PSE-DEF-04",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_04",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "满足任一条件可诊断为癫痫：①≥2次无诱因或反射性发作，间隔>24小时；②1次无诱因发作且未来10年再发风险至少60%；③诊断为癫痫综合征。",
+    "direction": "定义",
+    "population": "全年龄；本课题仅在成人缺血性卒中范围应用",
+    "time_context": "ILAE 2014癫痫定义",
+    "source_id": "FISHER2014",
+    "source_ids": [
+      "FISHER2014"
+    ],
+    "source_locator": "Fisher 2014 abstract and practical definition",
+    "status": "ILAE官方定义"
+  },
+  {
+    "claim_id": "PSE-DEF-05",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_05",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "卒中起病或预先确定的索引时点后>7天，首次经临床确认的无诱因癫痫发作；排除既往癫痫和急性症状性发作；事件日期必须可追溯。",
+    "direction": "定义",
+    "population": "成人、新发缺血性卒中，纳入和排除标准由团队冻结",
+    "time_context": "本项目建议的PSE主结局",
+    "source_id": "FISHER2014",
+    "source_ids": [
+      "FISHER2014",
+      "GALOVIC2021",
+      "PROJECTBOUNDARY"
+    ],
+    "source_locator": "ILAE definition；Galovic 2021 Introduction；项目边界规范第1、5节",
+    "status": "项目综合建议，待临床审核"
+  },
+  {
+    "claim_id": "PSE-DEF-06",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_06",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "ILAE 2017以“focal aware”替代旧术语simple partial。它是可观察的局灶性临床发作；若主结局定义为“任何临床确认的无诱因癫痫发作”，原则上应计入。",
+    "direction": "定义",
+    "population": "癫痫患者通用分类；本课题用于卒中后发作表型",
+    "time_context": "局灶保留意识发作（旧称单纯部分性发作）",
+    "source_id": "FISHER2017",
+    "source_ids": [
+      "FISHER2017"
+    ],
+    "source_locator": "Fisher 2017 abstract: awareness classifier; partial becomes focal",
+    "status": "ILAE分类"
+  },
+  {
+    "claim_id": "PSE-DEF-07",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_07",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "间期癫痫样放电不是癫痫发作。仅有电图演变而无临床可见症状可以构成电图发作，但不能自动等同于临床复发性PSE事件。",
+    "direction": "定义",
+    "population": "接受EEG监测的卒中患者，尤其重症或意识障碍患者",
+    "time_context": "仅有电图异常或电图发作",
+    "source_id": "GALOVIC2021",
+    "source_ids": [
+      "GALOVIC2021",
+      "FISHER2017"
+    ],
+    "source_locator": "Galovic 2021 Electroencephalogram After Stroke；Fisher 2017 operational classification",
+    "status": "研究与综述支持，具体纳入方式需预先定义"
+  },
+  {
+    "claim_id": "PSE-DEF-08",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_08",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "死亡不是“未发生癫痫”的证据。若死亡发生在首次PSE事件前，应作为竞争事件；若癫痫已发生后再死亡，该事件仍应保留。",
+    "direction": "定义",
+    "population": "所有进入时间结局分析的患者",
+    "time_context": "死亡",
+    "source_id": "PROJECTBOUNDARY",
+    "source_ids": [
+      "PROJECTBOUNDARY"
+    ],
+    "source_locator": "项目边界规范第5.2节",
+    "status": "项目研究规范"
+  },
+  {
+    "claim_id": "PSE-DEF-09",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_09",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "最后一次可靠无复发评估早于窗口终点时，应删失或标为unknown，不能自动记作0。若事件日期区间跨越窗口终点，结局待定。",
+    "direction": "定义",
+    "population": "所有固定时间窗研究者",
+    "time_context": "失访、随访不足与窗口不确定",
+    "source_id": "PROJECTBOUNDARY",
+    "source_ids": [
+      "PROJECTBOUNDARY",
+      "D13PAPER"
+    ],
+    "source_locator": "项目边界规范第4.2、5.1、5.2节；D13论文Materials and methods",
+    "status": "项目研究规范"
+  },
+  {
+    "claim_id": "PSE-DEF-10",
+    "claim_group": "卒中后癫痫定义",
+    "subject": "concept_pse_def_10",
+    "predicate": "defines_rule_for",
+    "object": "outcome_second_epilepsy",
+    "statement": "D13只提供一年内继发性癫痫的0/1标签，不能确认其是否严格满足“>7天、首次、临床确认、无诱因”以及死亡/随访处理要求。",
+    "direction": "定义",
+    "population": "D13公开数据：21,459名成人缺血性或缺隙性卒中患者",
+    "time_context": "D13 `second_epilepsy` 的可用范围",
+    "source_id": "D13PAPER",
+    "source_ids": [
+      "D13PAPER",
+      "PROJECTBOUNDARY"
+    ],
+    "source_locator": "D13论文Materials and methods/Data availability；D13数据审计摘要",
+    "status": "数据审计事实"
+  },
+  {
+    "claim_id": "SEL-VAL-001",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_galovic_2018",
+    "statement": "Galovic 2018：开发1200例；外部验证1169例；总体C=0.77；Austria 0.78，Germany 0.74，Italy 0.81。原版模型的核心外部验证证据。",
+    "direction": "评估",
+    "population": "成人首次影像确认缺血性卒中",
+    "time_context": "SeLECT 1.0",
+    "source_id": "SELECT_VAL_001",
+    "source_ids": [
+      "SELECT_VAL_001"
+    ],
+    "source_locator": "10.1016/S1474-4422(17)30404-0",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-002",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_abraira_2019",
+    "statement": "Abraira 2019：发生与未发生PSE者SeLECT评分无显著差异，P=0.635。在早期癫痫持续状态这一特殊高危亚组中区分能力有限。",
+    "direction": "评估",
+    "population": "缺血性卒中后早期癫痫持续状态",
+    "time_context": "SeLECT 1.0",
+    "source_id": "SELECT_VAL_002",
+    "source_ids": [
+      "SELECT_VAL_002"
+    ],
+    "source_locator": "10.1016/j.seizure.2019.04.022",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-003",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_shen_2021",
+    "statement": "Shen 2021：SeLECT AUC=0.756；加IL-1β后AUC=0.933。提示炎症标志物可能补充信息，但不是SeLECT原版的独立外部验证。",
+    "direction": "评估",
+    "population": "成人首次急性缺血性卒中",
+    "time_context": "SeLECT 1.0 + IL-1β",
+    "source_id": "SELECT_VAL_003",
+    "source_ids": [
+      "SELECT_VAL_003"
+    ],
+    "source_locator": "10.2147/NDT.S324271",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-004",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_din_2023",
+    "statement": "Dinç 2023：SeLECT AUC=0.893；加入糖尿病和脑白质疏松后AUC=0.955。样本较小，扩展模型未独立外部验证。",
+    "direction": "评估",
+    "population": "接受静脉溶栓的急性缺血性卒中",
+    "time_context": "SeLECT 1.0 + diabetes + leukoaraiosis",
+    "source_id": "SELECT_VAL_004",
+    "source_ids": [
+      "SELECT_VAL_004"
+    ],
+    "source_locator": "10.1055/s-0043-1767764",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-005",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_gruber_2023",
+    "statement": "Gruber 2023：PSE组与非PSE组SeLECT中位数均为4分，P=0.682。在取栓人群中区分能力不足。",
+    "direction": "评估",
+    "population": "机械取栓的大血管闭塞性卒中（多中心）",
+    "time_context": "SeLECT 1.0",
+    "source_id": "SELECT_VAL_005",
+    "source_ids": [
+      "SELECT_VAL_005"
+    ],
+    "source_locator": "10.1007/s00415-023-11966-x",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-006",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_sinka_2023",
+    "statement": "Sinka 2023：乐观校正C≈0.77；与SeLECT原版总体接近；提高极高风险病例捕获。原研究明确未做外部验证。",
+    "direction": "评估",
+    "population": "成人影像确认缺血性卒中",
+    "time_context": "SeLECT 2.0",
+    "source_id": "SELECT_VAL_006",
+    "source_ids": [
+      "SELECT_VAL_006"
+    ],
+    "source_locator": "10.1001/jamaneurol.2023.0611",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-007",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_tanaka_2023",
+    "statement": "Tanaka 2023：SeLECT AUC=0.78；加皮质表面铁沉积后AUC=0.84。影像标志物可提升局部表现，但扩展模型需外部验证。",
+    "direction": "评估",
+    "population": "急性缺血性卒中",
+    "time_context": "SeLECT 1.0 + cortical superficial siderosis",
+    "source_id": "SELECT_VAL_007",
+    "source_ids": [
+      "SELECT_VAL_007"
+    ],
+    "source_locator": "10.1002/ana.26497",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-008",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_meletti_2024",
+    "statement": "Meletti 2024：36、48、60个月时间依赖AUC约0.88，原版约0.84；净重分类改善。治疗后严重度可能比入院NIHSS更有信息，但属于修改模型评估。",
+    "direction": "评估",
+    "population": "接受静脉溶栓和/或血管内治疗的首次缺血性卒中",
+    "time_context": "Modified SeLECT 2.0 using 72-hour post-treatment NIHSS",
+    "source_id": "SELECT_VAL_008",
+    "source_ids": [
+      "SELECT_VAL_008"
+    ],
+    "source_locator": "10.1111/epi.18114",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-009",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_yu_2024",
+    "statement": "Yu 2024：SeLECT AUC≈0.828，但敏感度约0.15、特异度约0.974；Naive Bayes AUC≈0.831，敏感度0.90、特异度0.672。SeLECT高特异度、低敏感度；阈值和研究方法差异需重视。",
+    "direction": "评估",
+    "population": "急性缺血性卒中",
+    "time_context": "SeLECT 1.0 versus machine learning",
+    "source_id": "SELECT_VAL_009",
+    "source_ids": [
+      "SELECT_VAL_009"
+    ],
+    "source_locator": "10.1016/j.eplepsyres.2024.107397",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-010",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_gruber_2025",
+    "statement": "Gruber 2025：仍然无法区分PSE组与非PSE组，中位数均为4分。取栓人群中的重复验证确认其局限。",
+    "direction": "评估",
+    "population": "机械取栓的大血管闭塞性卒中",
+    "time_context": "SeLECT 1.0",
+    "source_id": "SELECT_VAL_010",
+    "source_ids": [
+      "SELECT_VAL_010"
+    ],
+    "source_locator": "10.1111/ene.70154",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-011",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_schubert_2025_select_asys",
+    "statement": "Schubert 2025 SeLECT-ASyS：开发C=0.68 vs 旧模型0.58；外部验证C=0.70 vs 0.50，但P=0.18。点估计改善明显，但外部验证事件数少且统计不确定。",
+    "direction": "评估",
+    "population": "成人缺血性卒中，包含早期发作的时相与类型分析",
+    "time_context": "SeLECT-ASyS",
+    "source_id": "SELECT_VAL_011",
+    "source_ids": [
+      "SELECT_VAL_011"
+    ],
+    "source_locator": "10.1161/STROKEAHA.124.050045",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-012",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_schubert_2025_select_eeg",
+    "statement": "Schubert 2025 SeLECT-EEG：C=0.75 vs SeLECT2.0 0.71，P<0.001。EEG可补充临床变量，但只适用于早期EEG人群。",
+    "direction": "评估",
+    "population": "卒中后7天内完成EEG的缺血性卒中患者",
+    "time_context": "SeLECT-EEG",
+    "source_id": "SELECT_VAL_012",
+    "source_ids": [
+      "SELECT_VAL_012"
+    ],
+    "source_locator": "10.1002/ana.27301",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-013",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_verburgt_2025",
+    "statement": "Verburgt 2025：C=0.78（0.71-0.84）；5年累计风险3.7%；各评分预测风险总体偏高，但置信区间多重叠。年轻成人中区分度尚可，但绝对风险需要重新校准。",
+    "direction": "评估",
+    "population": "18-49岁急性缺血性卒中患者",
+    "time_context": "SeLECT 2.0",
+    "source_id": "SELECT_VAL_013",
+    "source_ids": [
+      "SELECT_VAL_013"
+    ],
+    "source_locator": "10.1001/jamaneurol.2025.0465",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-014",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_jansk_2026",
+    "statement": "Janský 2026：SeLECT AUC=0.668；用出院NIHSS修改后AUC=0.715。外部区分度低于原验证队列，校正卒中严重度采集时点可能改善。",
+    "direction": "评估",
+    "population": "幕上缺血性卒中幸存者",
+    "time_context": "SeLECT 1.0 and modified scores",
+    "source_id": "SELECT_VAL_014",
+    "source_ids": [
+      "SELECT_VAL_014"
+    ],
+    "source_locator": "10.1097/MD.0000000000047067",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-VAL-015",
+    "claim_group": "SeLECT验证与更新",
+    "subject": "population_select_ischemic_stroke",
+    "predicate": "evaluated_in",
+    "object": "study_leung_2026_ischemia_comparison",
+    "statement": "Leung 2026 IsCHEMiA comparison：IsCHEMiA C=0.848 versus SeLECT C=0.782 across validation。不是SeLECT模型验证，但显示PSE预测仍可由其他变量改进。",
+    "direction": "评估",
+    "population": "首次急性缺血性卒中；含外部验证",
+    "time_context": "IsCHEMiA versus SeLECT and SeLECT2.0",
+    "source_id": "SELECT_VAL_015",
+    "source_ids": [
+      "SELECT_VAL_015"
+    ],
+    "source_locator": "10.1212/WNL.0000000000214486",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-MAP-016",
+    "claim_group": "SeLECT与D13映射",
+    "subject": "field_nihss",
+    "predicate": "mapping_status_for",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "NIHSS at admission：D13映射为exact_concept；D13以中度卒中为主，而SeLECT开发队列61%为NIHSS≤3，人群构成差异明显。",
+    "direction": "映射限制",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年二分类标签演示",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-MAP-017",
+    "claim_group": "SeLECT与D13映射",
+    "subject": "field_large_ves_as",
+    "predicate": "mapping_status_for",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "Large-artery atherosclerotic aetiology：D13映射为proxy_only；D13记录大血管动脉粥样硬化，不一定等同TOAST的大动脉粥样硬化病因分类。",
+    "direction": "映射限制",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年二分类标签演示",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-MAP-018",
+    "claim_group": "SeLECT与D13映射",
+    "subject": "dataset_d13",
+    "predicate": "mapping_status_for",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "Early seizure ≤7 days：D13映射为absent；D13没有7天内早期发作、短发作或癫痫持续状态字段。",
+    "direction": "映射限制",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年二分类标签演示",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-MAP-019",
+    "claim_group": "SeLECT与D13映射",
+    "subject": "concept_cortical_lobes",
+    "predicate": "mapping_status_for",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "Cortical involvement：D13映射为derivable_composite；可由五个脑叶字段推导，但影像采集中点和标准未逐例验证。",
+    "direction": "映射限制",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年二分类标签演示",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-MAP-020",
+    "claim_group": "SeLECT与D13映射",
+    "subject": "field_mca",
+    "predicate": "mapping_status_for",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "Territory of MCA involvement：D13映射为not_equivalent_proxy；D13的MCA字段表示CTA/MRA/DSA所见狭窄或闭塞，不是梗死是否位于MCA供血区。",
+    "direction": "映射限制",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年二分类标签演示",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-MAP-021",
+    "claim_group": "SeLECT与D13映射",
+    "subject": "field_second_epilepsy",
+    "predicate": "mapping_status_for",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "Outcome: late unprovoked seizure：D13映射为not_equivalent；D13是1年二分类标签，没有首次晚发无诱因发作时间。",
+    "direction": "映射限制",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年二分类标签演示",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-C001",
+    "claim_group": "SeLECT核心证据",
+    "subject": "model_select_1_0",
+    "predicate": "predicts",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "SeLECT 1.0以NIHSS、大动脉粥样硬化病因、早期发作、皮质受累和MCA供血区梗死组成0-9分模型；三国外部验证总体C统计量0.77。",
+    "direction": "预测",
+    "population": "成人首次影像确认缺血性卒中",
+    "time_context": "卒中后1年与5年风险",
+    "source_id": "GALOVIC2018",
+    "source_locator": "Panel 1, Tables 2-3, Figure 2",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-C002",
+    "claim_group": "SeLECT核心证据",
+    "subject": "model_select_2_0",
+    "predicate": "predicts",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "SeLECT 2.0将总分扩展到0-13分，早期短发作计3分、早期癫痫持续状态计7分；原更新论文仅做内部多中心验证和乐观校正，未做外部验证。",
+    "direction": "预测",
+    "population": "成人影像确认缺血性卒中",
+    "time_context": "卒中后最长96个月",
+    "source_id": "SINKA2023",
+    "source_locator": "Methods, Table 3, Figure 2, Limitations",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-C003",
+    "claim_group": "SeLECT核心证据",
+    "subject": "model_select_asys",
+    "predicate": "predicts",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "SeLECT-ASyS在早期发作亚组外部验证C统计量为0.70，旧模型约0.50，但P=0.18且外部验证样本有限。",
+    "direction": "预测",
+    "population": "有早期发作的成人缺血性卒中",
+    "time_context": "卒中后癫痫风险",
+    "source_id": "SCHUBERT2025_ASYS",
+    "source_locator": "Abstract and Results",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-C004",
+    "claim_group": "SeLECT核心证据",
+    "subject": "model_select_eeg",
+    "predicate": "predicts",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "SeLECT-EEG研究纳入卒中后7天内完成EEG的患者，加入EEG标志后C统计量为0.75，高于SeLECT 2.0约0.71，但只能外推到接受早期EEG的人群。",
+    "direction": "预测",
+    "population": "卒中后7天内完成EEG的成人缺血性卒中",
+    "time_context": "卒中后癫痫风险",
+    "source_id": "SCHUBERT2025_EEG",
+    "source_locator": "Abstract and Results",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-C005",
+    "claim_group": "D13使用边界",
+    "subject": "dataset_d13",
+    "predicate": "cannot_calculate",
+    "object": "model_select_1_0",
+    "statement": "D13缺少7天内早期发作、早期癫痫持续状态和影像确认的MCA供血区梗死字段，且结局不是首次晚期无诱因发作时间终点，因此不能计算正式SeLECT或SeLECT 2.0评分，也不能作为其外部验证。",
+    "direction": "禁止性结论",
+    "population": "D13成人缺血性卒中",
+    "time_context": "一年继发性癫痫二分类标签",
+    "source_id": "GALOVIC2018",
+    "source_ids": [
+      "GALOVIC2018",
+      "SINKA2023",
+      "SRC_DICTIONARY"
+    ],
+    "source_locator": "SeLECT评分变量与D13数据字典逐项对照",
+    "status": "已核查"
+  },
+  {
+    "claim_id": "SEL-ASYS-COMP-001",
+    "claim_group": "SeLECT-ASyS评分",
+    "subject": "model_select_asys",
+    "predicate": "uses_score_components",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "SeLECT-ASyS为0-7分：皮质受累1分；大动脉粥样硬化女性1分、男性2分；早期发作类型和时相根据FBTC及第0天分层计0-2分，癫痫持续状态4分。",
+    "direction": "预测",
+    "population": "卒中后7天内发生早期发作的成人缺血性卒中",
+    "time_context": "卒中后早期发作至长期随访",
+    "source_id": "SCHUBERT2025_ASYS",
+    "source_ids": [
+      "SCHUBERT2025_ASYS"
+    ],
+    "source_locator": "Stroke 2025;56(7):1748-1757; Table 3, Figure 4",
+    "status": "已核对"
+  },
+  {
+    "claim_id": "SEL-EEG-COMP-001",
+    "claim_group": "SeLECT-EEG评分",
+    "subject": "model_select_eeg",
+    "predicate": "uses_score_components",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "SeLECT-EEG为0-8分：NIHSS 4-10计1分、≥11计2分；大动脉粥样硬化1分；皮质受累2分；MCA供血区1分；区域慢波1分；任一癫痫样活动1分。",
+    "direction": "预测",
+    "population": "卒中后7天内完成EEG且无早期发作的成人缺血性卒中",
+    "time_context": "卒中后0-7天EEG至长期随访",
+    "source_id": "SCHUBERT2025_EEG",
+    "source_ids": [
+      "SCHUBERT2025_EEG"
+    ],
+    "source_locator": "Ann Neurol 2025;98(4):814-825; Table 1, Figure 3",
+    "status": "已核对"
+  },
+  {
+    "claim_id": "SEL-MOD-001",
+    "claim_group": "Modified SeLECT 2.0",
+    "subject": "model_modified_select_2_0_meletti_2024",
+    "predicate": "predicts",
+    "object": "outcome_late_unprovoked_seizure",
+    "statement": "Meletti 2024评估的修改版SeLECT 2.0在再灌注治疗患者中以卒中后72小时NIHSS替代入院NIHSS；公开摘要支持变量替换，具体分数表仍需出版社全文核准。",
+    "direction": "预测",
+    "population": "接受再灌注治疗的首次缺血性卒中成人",
+    "time_context": "卒中后36-60个月评估",
+    "source_id": "MELETTI2024",
+    "source_ids": [
+      "MELETTI2024",
+      "SELECT_VAL_008"
+    ],
+    "source_locator": "Epilepsia 2024;65(11):3234-3243; Abstract Objective/Methods/Results",
+    "status": "部分核对"
+  },
+  {
+    "claim_id": "NET-WENZHOU-001",
+    "claim_group": "网络公开数据",
+    "subject": "network_dataset_wenzhou_167",
+    "predicate": "contains",
+    "object": "network_population_wenzhou_early_seizure",
+    "statement": "温州网络公开逐例数据共167行，其中缺血性卒中111例；111例中PSE阳性31例；全部记录来自7天内发生早期发作的患者。",
+    "direction": "事实",
+    "population": "卒中后早期发作患者",
+    "time_context": "网络公开研究",
+    "source_id": "SRC_NETWORK_WENZHOU",
+    "source_ids": [
+      "SRC_NETWORK_WENZHOU"
+    ],
+    "source_locator": "公开逐例CSV及来源字段说明",
+    "status": "已复算"
+  },
+  {
+    "claim_id": "NET-SUZHOU-001",
+    "claim_group": "网络公开数据",
+    "subject": "network_dataset_suzhou_anhui_149",
+    "predicate": "contains",
+    "object": "network_population_suzhou_anhui_ischemic",
+    "statement": "苏州/安徽网络公开数据包含149例急性缺血性卒中，提供NIHSS、TOAST、住院日期和90天mRS，但没有癫痫结局。",
+    "direction": "事实",
+    "population": "急性缺血性卒中",
+    "time_context": "住院至90天",
+    "source_id": "SRC_NETWORK_SUZHOU",
+    "source_ids": [
+      "SRC_NETWORK_SUZHOU"
+    ],
+    "source_locator": "Mendeley数据说明与149行原始表",
+    "status": "已复算"
+  },
+  {
+    "claim_id": "NET-WINDER-001",
+    "claim_group": "网络公开数据",
+    "subject": "network_dataset_winder_28",
+    "predicate": "contains",
+    "object": "network_population_winder_case_series",
+    "statement": "Winder 28例逐例表提供梗死部位、TOAST和发作类型，但没有逐例发作时间和完整随访。",
+    "direction": "事实",
+    "population": "卒中后发作病例系列",
+    "time_context": "论文表1",
+    "source_id": "SRC_NETWORK_WINDER",
+    "source_ids": [
+      "SRC_NETWORK_WINDER"
+    ],
+    "source_locator": "J Neuroimaging 2023; Table 1",
+    "status": "已复算"
+  },
+  {
+    "claim_id": "NET-FEAS-001",
+    "claim_group": "网络数据可行性",
+    "subject": "network_dataset_wenzhou_167",
+    "predicate": "has_field_feasibility_assessment",
+    "object": "network_population_wenzhou_early_seizure",
+    "statement": "温州111例缺血性卒中抽取100例后，25个最小核心字段中直接可取6项、可推导5项、部分可推导3项、缺失11项。",
+    "direction": "可行性",
+    "population": "温州早期发作卒中人群",
+    "time_context": "字段可行性验证",
+    "source_id": "SRC_NETWORK_FEASIBILITY_20261107",
+    "source_ids": [
+      "SRC_NETWORK_FEASIBILITY_20261107",
+      "SRC_NETWORK_WENZHOU"
+    ],
+    "source_locator": "温州100例字段可行性报告; 字段可行性明细.csv",
+    "status": "已核验"
+  },
+  {
+    "claim_id": "D13-V03-001",
+    "claim_group": "D13校正版模型归档",
+    "subject": "model_d13_s1_lr_platt_v0_3",
+    "predicate": "evaluated_in",
+    "object": "study_d13_v03_internal_reanalysis",
+    "statement": "D13 v0.3 交付包记录：S1 基线主模型在筛选研究队列内部测试集的 AUROC 为 0.8915、AUPRC 为 0.2866；这是公开数据内部再分析，不是外部或临床验证，也不适用于减药后复发预测。",
+    "direction": "模型归档事实",
+    "population": "D13 筛选的成人缺血性或腔隙性卒中队列",
+    "time_context": "一年内继发性癫痫二分类标签",
+    "source_id": "SRC_D13_V03",
+    "source_locator": "模型卡“指标（测试集）”；metrics.json primary_test",
+    "status": "交付包核对"
+  },
+  {
+    "claim_id": "FIVE-ARCH-A-001",
+    "claim_group": "五套算法架构交付包",
+    "subject": "study_five_arch_a_20261107",
+    "predicate": "studies",
+    "object": "outcome_second_epilepsy",
+    "statement": "算法架构A：D13 公开队列 21,459 例；36 项入院特征；比较 LR、LightGBM、TabPFN。固定划分的内部基准研究，非外部验证。",
+    "direction": "项目研究记录",
+    "population": "公开真实队列",
+    "time_context": "卒中后癫痫研究；具体时点见结果汇编",
+    "source_id": "SRC_FIVE_ARCH_RESULTS_20261107",
+    "source_locator": "结果汇编第 0–1 节；A/B/C 第 2–7 节，D 第 8 节，E 第 9 节",
+    "status": "交付包核对"
+  },
+  {
+    "claim_id": "FIVE-ARCH-B-001",
+    "claim_group": "五套算法架构交付包",
+    "subject": "study_five_arch_b_20261107",
+    "predicate": "studies",
+    "object": "outcome_second_epilepsy",
+    "statement": "算法架构B：D13 公开队列 21,459 例；在 36 项入院特征上增加 34 项实验室特征，共 70 项。与 A 共用固定测试集。",
+    "direction": "项目研究记录",
+    "population": "公开真实队列",
+    "time_context": "卒中后癫痫研究；具体时点见结果汇编",
+    "source_id": "SRC_FIVE_ARCH_RESULTS_20261107",
+    "source_locator": "结果汇编第 0–1 节；A/B/C 第 2–7 节，D 第 8 节，E 第 9 节",
+    "status": "交付包核对"
+  },
+  {
+    "claim_id": "FIVE-ARCH-C-001",
+    "claim_group": "五套算法架构交付包",
+    "subject": "study_five_arch_c_20261107",
+    "predicate": "studies",
+    "object": "outcome_second_epilepsy",
+    "statement": "算法架构C：D13 公开队列 21,459 例；在 B 的 70 项上增加 4 项卒中后并发症。后发生变量有时间泄漏风险，不能作为入院时预测字段直接部署。",
+    "direction": "项目研究记录",
+    "population": "公开真实队列",
+    "time_context": "卒中后癫痫研究；具体时点见结果汇编",
+    "source_id": "SRC_FIVE_ARCH_RESULTS_20261107",
+    "source_locator": "结果汇编第 0–1 节；A/B/C 第 2–7 节，D 第 8 节，E 第 9 节",
+    "status": "交付包核对"
+  },
+  {
+    "claim_id": "FIVE-ARCH-D-001",
+    "claim_group": "五套算法架构交付包",
+    "subject": "study_five_arch_d_20261107",
+    "predicate": "studies",
+    "object": "network_outcome_wenzhou_pse",
+    "statement": "算法架构D：温州 167 例去标识单中心队列，均为卒中后 7 天内早期发作；研究后续 PSE，核心 8 项和扩展 24 项特征，重复分层交叉验证，非外部验证。",
+    "direction": "项目研究记录",
+    "population": "单中心真实队列",
+    "time_context": "卒中后癫痫研究；具体时点见结果汇编",
+    "source_id": "SRC_FIVE_ARCH_RESULTS_20261107",
+    "source_locator": "结果汇编第 0–1 节；A/B/C 第 2–7 节，D 第 8 节，E 第 9 节",
+    "status": "交付包核对"
+  },
+  {
+    "claim_id": "FIVE-ARCH-E-001",
+    "claim_group": "五套算法架构交付包",
+    "subject": "study_five_arch_e_20261107",
+    "predicate": "studies",
+    "object": "network_outcome_wenzhou_pse",
+    "statement": "算法架构E：温州同一 167 例去标识队列；比较接受与未接受 ASM 者的后续 PSE。属于观察性关联分析，不是独立预测模型，也不能推断用药因果效果。",
+    "direction": "项目研究记录",
+    "population": "单中心真实队列",
+    "time_context": "卒中后癫痫研究；具体时点见结果汇编",
+    "source_id": "SRC_FIVE_ARCH_RESULTS_20261107",
+    "source_locator": "结果汇编第 0–1 节；A/B/C 第 2–7 节，D 第 8 节，E 第 9 节",
+    "status": "交付包核对"
+  }
+]

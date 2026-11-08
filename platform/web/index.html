@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>癫痫复发预测 · 院内数据接入</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/workspace.css">
+<link rel="stylesheet" href="/static/single-results.css">
+<link rel="stylesheet" href="/static/research-sidebar.css">
+<link rel="stylesheet" href="/static/workspace-sidebar.css">
+</head>
+<body>
+<div class="rings" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>癫痫研究平台</a>
+  <div class="topbar-right">
+    <details class="header-menu" id="identityMenu">
+      <summary><i class="status-dot" aria-hidden="true"></i><span id="actorBadge">身份加载中</span><span class="chevron">⌄</span></summary>
+      <div class="menu-popover identity">
+        <strong>研究演示身份</strong>
+        <label for="actorUser">账号</label><input id="actorUser" class="input-mini" placeholder="账号" value="hosp-user">
+        <label for="actorRole">角色</label><select id="actorRole" class="input-mini"></select>
+        <label for="actorScope">科室 / 项目</label><input id="actorScope" class="input-mini" placeholder="科室/项目" value="neuro-epilepsy">
+        <p class="hint">联调用身份切换；当前未接入医院统一登录。</p>
+      </div>
+    </details>
+    <details class="header-menu" id="toolsMenu">
+      <summary>更多<span class="chevron">⌄</span></summary>
+      <div class="menu-popover tools">
+        <button data-nav="flow">批量数据接入</button>
+        <button data-nav="single">单例结构化录入</button>
+        <button data-nav="history">历史任务</button>
+        <button id="btnDemo">运行配置</button>
+        <button id="btnPlan">方案文档</button>
+        <button data-nav="audit">审计与安全</button>
+        <a href="/knowledge-graph/">知识图谱 ↗</a>
+      </div>
+    </details>
+    <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-controls="research-sidebar" aria-expanded="false" aria-label="打开知识问答侧栏"><span class="sidebar-toggle-icon" aria-hidden="true"></span><span id="sidebar-toggle-label">知识问答</span></button>
+    <button class="btn btn-ghost" id="btnBack">← 返回研究入口</button>
+  </div>
+</header>
+
+<main>
+  <nav class="crumb" aria-label="当前位置"><span>减药后复发</span><span class="crumb-sep">/</span><span id="crumbNum" hidden>01</span><span id="crumbLabel">研究路径</span></nav>
+  <!-- ① 入口 hub -->
+  <section id="view-hub" class="view">
+    <h1 class="hero">减药后复发</h1>
+    <p class="hero-sub">首次实际减低抗发作药物剂量后，探索 730 天内复发风险。</p>
+    <div class="paths">
+      <div class="paths-label">一个场景 · 三种路径</div>
+      <div class="paths-row">
+        <button class="pill-btn pill-white" data-hub="forward">正向预测 ↗</button>
+        <button class="pill-btn pill-violet" data-hub="reverse">逆向设计 ↗</button>
+        <button class="pill-btn pill-green" data-hub="ingest">导入自己的数据 ↗</button>
+      </div>
+      <p class="paths-note" id="hubNote"></p>
+    </div>
+    <div class="hub-meta" id="hubMeta"></div>
+  </section>
+
+  <!-- ② 导入自己的数据：五步 -->
+  <section id="view-flow" class="view hidden">
+    <span id="flowPurposeTag" hidden></span>
+    <div class="flow-head">
+      <div><h1>导入你的<span>研究数据</span></h1><p class="hero-sub">从一份 CSV 开始，按步骤完成校验、确认与预测。</p></div>
+      <div class="flow-head-right">
+        <button class="btn btn-ghost" data-nav="single">单例录入 <span>↗</span></button>
+        <button class="btn btn-ghost" data-nav="history">历史任务 <span>↗</span></button>
+      </div>
+    </div>
+
+    <ol class="steps" id="steps" aria-label="数据接入步骤">
+      <li data-step="1"><button type="button"><span class="step-n">01</span><span>上传与预检</span></button></li>
+      <li data-step="2"><button type="button"><span class="step-n">02</span><span>字段映射</span></button></li>
+      <li data-step="3"><button type="button"><span class="step-n">03</span><span>人工确认</span></button></li>
+      <li data-step="4"><button type="button"><span class="step-n">04</span><span>运行预测</span></button></li>
+      <li data-step="5"><button type="button"><span class="step-n">05</span><span>查看结果</span></button></li>
+    </ol>
+
+    <!-- 步骤 1 -->
+    <div class="panel source-panel" id="panel-1">
+      <div class="workspace-body">
+        <div class="source-main">
+          <div class="main-head"><h2>选择数据来源</h2><div class="source-tabs" role="tablist" aria-label="数据来源">
+            <button class="source-tab selected" id="tab-file" role="tab" aria-selected="true" aria-controls="source-file" data-source="file">上传文件</button>
+            <button class="source-tab" id="tab-link" role="tab" aria-selected="false" aria-controls="source-link" tabindex="-1" data-source="link">内网链接</button>
+          </div></div>
+          <div id="source-file" role="tabpanel" aria-labelledby="tab-file">
+            <div class="dropzone" id="dropzone">
+              <div class="upload-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 15V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5V19a1.5 1.5 0 001.5 1.5h11A1.5 1.5 0 0019 19v-4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>将 CSV 文件拖到这里</h3><p>或点击下方按钮选择文件</p>
+              <button class="btn btn-primary" id="btnChooseFile" type="button">选择 CSV 文件 <span>↗</span></button>
+              <span class="file-hint" id="fileLimitHint">支持 .csv 格式</span>
+              <input type="file" id="fileInput" accept=".csv,text/csv" hidden>
+            </div>
+          </div>
+          <div id="source-link" class="link-source hidden" role="tabpanel" aria-labelledby="tab-link">
+            <label for="linkUrl">医院内网文件链接</label>
+            <input id="linkUrl" class="input" placeholder="https://files.hospital.local/…csv" type="url">
+            <button class="btn btn-outline" id="btnLink">校验链接并读取文件</button>
+            <p class="side-note" id="linkNote">仅支持管理员配置的内网地址。</p>
+          </div>
+          <div class="templates"><span>还没有文件？</span>
+            <a class="text-action" id="templateLink" href="/api/v1/templates/forward" download>下载 CSV 模板 ↓</a><i class="divider" aria-hidden="true"></i>
+            <button class="text-action" id="btnDemoOk">使用合成示例 ↗</button>
+            <details class="extra-files"><summary>更多</summary><div class="extra-files-body">
+              <a class="text-action" href="/api/v1/templates/forward" download>正向 CSV 模板 ↓</a>
+              <a class="text-action" href="/api/v1/templates/reverse" download>逆向 CSV 模板 ↓</a>
+              <button class="text-action" id="btnDemoBad">含违规行的合成示例 ↗</button>
+            </div></details>
+          </div>
+        </div>
+        <aside class="source-aside">
+          <label class="field-label" for="purpose">本次研究用途</label>
+          <select id="purpose" class="input purpose-select">
+            <option value="prediction">批量正向预测</option><option value="reverse">逆向设计（研究）</option>
+            <option value="validation">模型验证</option><option value="retrain">模型重训</option>
+          </select>
+          <p class="purpose-note" id="purposeHint"></p>
+          <div class="boundary"><span aria-hidden="true">◇</span><div><strong>院内文件处理</strong><p>文件保存至当前部署服务器。<br>请使用完成脱敏的研究数据。</p></div></div>
+        </aside>
+      </div>
+      <div class="next-row"><span class="waiting" id="uploadStatus" role="status">选择文件后，开始自动预检</span><button class="btn btn-ghost" id="btnFlowNext" disabled>下一步：字段映射 <span>→</span></button></div>
+      <div id="precheckBox" class="result-box hidden"></div>
+    </div>
+
+    <!-- 步骤 2 -->
+    <div class="panel hidden" id="panel-2">
+      <div class="panel-title">字段映射（医院列名 → 标准字段）</div>
+      <div class="map-toolbar">
+        <span class="tag" id="mapStatusTag">—</span>
+        <button class="btn btn-outline btn-sm" id="btnAutoMap">用预检建议的映射</button>
+        <button class="btn btn-ghost btn-sm" data-go-step="1">查看预检 / 更换文件</button>
+      </div>
+      <div class="table-wrap"><table class="tbl" id="mapTable"><thead></thead><tbody></tbody></table></div>
+      <div class="row">
+        <label class="lbl">单位换算规则</label>
+        <input id="unitRules" class="input" placeholder="例：剂量统一 mg；病程按月→年除以 12">
+      </div>
+      <div class="row">
+        <label class="lbl">空值规则</label>
+        <input id="nullRules" class="input" value="空值不得自动改为 0；未提及不得当作阴性">
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btnSaveMap">保存映射版本</button>
+        <span class="hint" id="mapHint"></span>
+      </div>
+    </div>
+
+    <!-- 步骤 3 -->
+    <div class="panel hidden" id="panel-3">
+      <div class="panel-title">人工确认（审核员）</div>
+      <div class="grid2">
+        <div class="kv" id="confirmInfo"></div>
+        <div class="form">
+          <div class="row"><label class="lbl">伦理批件 / DUA 编号</label>
+            <input id="ethicsRef" class="input" placeholder="院伦审〔2026〕—000"></div>
+          <div class="row"><label class="lbl">索引时间判定规则</label>
+            <input id="indexRule" class="input" value="以病历与审核人确认的首次实际减药日为准"></div>
+          <div class="row"><label class="lbl">备注</label>
+            <input id="confirmNote" class="input" placeholder="可选"></div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btnConfirm">确认并锁定批次</button>
+        <button class="btn btn-ghost" data-go-step="2">返回字段映射</button>
+        <span class="hint" id="confirmHint"></span>
+      </div>
+    </div>
+
+    <!-- 步骤 4 -->
+    <div class="panel hidden" id="panel-4">
+      <div class="panel-title">运行批量任务</div>
+      <div class="row">
+        <label class="lbl">研究路径 scenario</label>
+        <select id="runScenario" class="input input-sm">
+          <option value="forward">正向预测</option>
+          <option value="reverse">逆向设计</option>
+        </select>
+        <label class="lbl" id="lblTarget">目标风险 target_risk</label>
+        <input id="runTarget" class="input input-sm input-num" type="number" step="0.01" min="0.01" max="1" value="0.35">
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btnRun">开始运行</button>
+        <button class="btn btn-ghost btn-sm" id="btnCancel">取消任务</button>
+        <span class="hint" id="runHint"></span>
+      </div>
+      <div id="runBox" class="result-box hidden"></div>
+    </div>
+
+    <!-- 步骤 5 -->
+    <div class="panel hidden" id="panel-5">
+      <div class="panel-title">结果与导出</div>
+      <div class="result-toolbar" id="resultToolbar"></div>
+      <div class="table-wrap"><table class="tbl" id="resultTable"><thead></thead><tbody></tbody></table></div>
+      <div class="pager" id="pager"></div>
+      <div class="actions">
+        <button class="btn btn-outline btn-sm" data-fmt="csv">导出 CSV</button>
+        <button class="btn btn-outline btn-sm" data-fmt="xlsx">导出 XLSX</button>
+        <button class="btn btn-outline btn-sm" data-fmt="json">导出 JSON</button>
+        <span class="hint" id="exportHint">仅院内受控目录；导出需“导出授权者”角色并留审计</span>
+      </div>
+      <div id="exportBox" class="result-box hidden"></div>
+    </div>
+  </section>
+
+  <!-- ③ 单例录入 -->
+  <section id="view-single" class="view hidden">
+    <h2>单例结构化录入</h2>
+    <p class="hero-sub">与批量共用同一字段校验与推理逻辑；字段不齐或非法时拒绝推理，不返回部分结果。</p>
+    <div class="panel">
+      <div class="row"><label class="lbl">路径</label>
+        <select id="singleScenario" class="input input-sm">
+          <option value="forward">正向预测</option>
+          <option value="reverse">逆向情景</option>
+        </select>
+        <label class="lbl" id="lblSingleTarget">目标风险（逆向）</label>
+        <input id="singleTarget" class="input input-sm input-num" type="number" step="0.01" min="0.01" max="1" value="0.35">
+      </div>
+      <div class="grid2" id="singleForm"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btnSingle">提交并推理</button>
+        <button class="btn btn-ghost btn-sm" id="btnSingleFill">填入教学示例</button>
+        <span class="hint" id="singleHint">case_id 须为院内 HMAC 生成的代号，禁止姓名/身份证/手机号</span>
+      </div>
+      <div id="singleBox" class="result-box hidden" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ④ 历史任务 -->
+  <section id="view-history" class="view hidden">
+    <h2>历史任务</h2>
+    <div class="panel">
+      <div class="table-wrap"><table class="tbl" id="historyTable"><thead></thead><tbody></tbody></table></div>
+      <div class="actions"><button class="btn btn-ghost btn-sm" id="btnReloadHist">刷新</button></div>
+    </div>
+  </section>
+
+  <!-- ⑤ 审计与安全 -->
+  <section id="view-audit" class="view hidden">
+    <h2>审计与安全自检</h2>
+    <div class="panel">
+      <div class="panel-title">通道 2 · 信封加密自检（需系统管理角色）</div>
+      <div class="actions">
+        <button class="btn btn-outline btn-sm" id="btnSelftest">运行加密自检</button>
+        <span class="hint">X25519 + HKDF-SHA256 + AES-256-GCM + Ed25519；私钥不出院</span>
+      </div>
+      <div id="selftestBox" class="result-box hidden"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">审计日志（链式哈希）</div>
+      <div class="actions">
+        <button class="btn btn-outline btn-sm" id="btnAudit">加载最近 30 条</button>
+        <span class="tag" id="chainTag">—</span>
+      </div>
+      <div class="table-wrap"><table class="tbl" id="auditTable"><thead></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- ⑥ 方案文档 -->
+  <section id="view-plan" class="view hidden">
+    <div class="plan-head">
+      <h2>实施方案 v2.0</h2>
+      <a class="btn btn-outline btn-sm" href="/plan?download=1">下载到桌面</a>
+    </div>
+    <pre class="plan-body" id="planBody"></pre>
+  </section>
+</main>
+
+<footer class="footer">
+  <span id="banner">教学合成模型 · 仅供研究联调，不用于临床决策</span>
+</footer>
+
+<div id="toast" class="toast hidden" role="status"></div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="平台信息"><div class="modal-body" id="modalBody"></div></div>
+<aside class="research-sidebar" id="research-sidebar" aria-label="知识问答" hidden>
+  <div class="sidebar-resize" id="sidebar-resize" role="separator" aria-orientation="vertical" aria-label="拖动调整侧栏宽度" aria-valuemin="300" aria-valuemax="760" aria-valuenow="390" tabindex="0"></div>
+  <div class="sidebar-header"><div class="sidebar-heading"><span class="sidebar-overline">RESEARCH ASSISTANT</span><strong>知识问答</strong></div><button class="sidebar-close" id="sidebar-close" type="button" aria-label="关闭侧栏">×</button></div>
+  <section class="sidebar-view" aria-label="知识库证据检索">
+    <div class="qa-status"><span class="status-dot" aria-hidden="true"></span><span>知识库证据检索 · LLM 服务待接入</span></div>
+    <p class="qa-intro">检索已核对的 D13 卒中后癫痫资料，查看原始证据与来源。</p>
+    <form id="qa-form" class="qa-form"><label for="qa-query">检索知识库</label><div class="qa-input-wrap"><input id="qa-query" type="search" autocomplete="off" maxlength="200" placeholder="例如：NIHSS 与卒中后癫痫"><button type="submit">检索</button></div></form>
+    <div class="qa-example-group"><span>试试这些问题</span><div id="qa-examples" class="qa-examples"><button type="button" data-query="NIHSS">NIHSS</button><button type="button" data-query="D13">D13 样本量</button><button type="button" data-query="SeLECT">SeLECT 评分</button></div></div>
+    <div id="qa-results" class="qa-results" aria-live="polite"></div>
+    <p class="qa-scope">仅展示 D13 卒中后癫痫资料；不适用于减药后复发个体预测或临床决策。</p>
+    <nav class="workspace-sidebar-links" aria-label="相关研究入口"><a href="/knowledge-qa/">进入完整知识问答 ↗</a><a href="/knowledge-graph/">查看知识图谱 ↗</a></nav>
+  </section>
+</aside>
+<script src="/static/app.js"></script>
+<script src="/static/single-results.js"></script>
+<script src="/static/workspace-sidebar.js"></script>
+</body>
+</html>

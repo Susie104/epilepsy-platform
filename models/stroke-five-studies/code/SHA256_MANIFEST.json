@@ -1,0 +1,143 @@
+{
+  "source_document": "五套算法架构代码汇编(2).docx",
+  "verified_scripts": [
+    {
+      "file": "tabpfn_bench.py",
+      "sha256": "af20a2c74b36b41d57c2be27c974545ef215d6e06924461115593480eee8a149",
+      "bytes": 8609,
+      "declared_lines": 186
+    },
+    {
+      "file": "lr_rerun.py",
+      "sha256": "8bb5cc54cc8578d5fbf105053f8574e374de0fa708fad6ce717559a05fd8df10",
+      "bytes": 6076,
+      "declared_lines": 134
+    },
+    {
+      "file": "verify_lr_172.py",
+      "sha256": "13edc1e5e0cf5211bb20cca88d904e29e5356bf559e0cb9da0198efcb88580ef",
+      "bytes": 3396,
+      "declared_lines": 71
+    },
+    {
+      "file": "bench_analysis.py",
+      "sha256": "428c2c3b9e6fd4ef1a6f3cbdda11bdf8d38e5181c71266605aedb8565e546035",
+      "bytes": 8861,
+      "declared_lines": 196
+    },
+    {
+      "file": "table1_baseline.py",
+      "sha256": "7caf7d36894695f4873539f492d9a0317f3b22229e980e5ef11dcc994980cf6d",
+      "bytes": 1725,
+      "declared_lines": 41
+    },
+    {
+      "file": "restore_analyses.py",
+      "sha256": "31bd3af5f67b853a578dab37a6353780764c0f996fe0235d6cf74d8b7c42cb90",
+      "bytes": 14210,
+      "declared_lines": 276
+    },
+    {
+      "file": "bootstrap_ci.py",
+      "sha256": "295501f2f33cf22aee8bd6e4ebc1d01394bbec0c2e38950754125dfde0d6e357",
+      "bytes": 2198,
+      "declared_lines": 65
+    },
+    {
+      "file": "make_figures_restore.py",
+      "sha256": "3c1b29400d043cdd6d6f008aaed65dab22ba268c7d55cff9fd3667a095455d85",
+      "bytes": 7395,
+      "declared_lines": 161
+    },
+    {
+      "file": "wenzhou_de.py",
+      "sha256": "6f9924bbc0ba3bb25520560252f2e851dc95330ac6804f273ec01093e078a3dd",
+      "bytes": 32641,
+      "declared_lines": 698
+    },
+    {
+      "file": "table1_wenzhou.py",
+      "sha256": "ba6304ede96fc9b54feda39dd7d2c14b71e59e52fcc8e4a06ee5a64e573e80fe",
+      "bytes": 3693,
+      "declared_lines": 72
+    },
+    {
+      "file": "tabpfn_smoke.py",
+      "sha256": "95768e5828bc7c1bbab78bf56eb942f1a020adfe002f0202c3d790240ec4077b",
+      "bytes": 2215,
+      "declared_lines": 51
+    },
+    {
+      "file": "build_docx5.py",
+      "sha256": "708b713d48a331094efcf3077b75c28094bd882c022b251a661a73622b755a12",
+      "bytes": 43199,
+      "declared_lines": 870
+    },
+    {
+      "file": "to_pdf5.ps1",
+      "sha256": "13dad6acabc36de92131056a0c8345e6c6e9cd19f37e9cfe93e4ef07c31018c1",
+      "bytes": 539,
+      "declared_lines": 16
+    },
+    {
+      "file": "build_resultsbook.py",
+      "sha256": "fb37fa0228b475e031cbf0cfbefcdf051d2e7075ff3837a99ed28703dbe8d7b5",
+      "bytes": 76734,
+      "declared_lines": 1183
+    },
+    {
+      "file": "build_codebook.py",
+      "sha256": "4fc61cf3f61d02ea5681ddc6fe067630ce81a3539e7f66f664a3459657f08f37",
+      "bytes": 33939,
+      "declared_lines": 587
+    },
+    {
+      "file": "external_transfer.py",
+      "sha256": "4896df27a33ac4c20b3fdeff5c4fad87796d32bde7a00aeadf4c8b390e9ad0d3",
+      "bytes": 6912,
+      "declared_lines": 153
+    },
+    {
+      "file": "debug_lr.py",
+      "sha256": "64016e844df59da59409002a9658843bb5441558b56efafdf6830c875b55a532",
+      "bytes": 3685,
+      "declared_lines": 73
+    },
+    {
+      "file": "debug_loop.py",
+      "sha256": "9c405de97ea077d4e1623c7f32560539a4e3fd6f5be5d8cf3fe961fee80db720",
+      "bytes": 3752,
+      "declared_lines": 79
+    },
+    {
+      "file": "setup_venv_server.sh",
+      "sha256": "c88563058de61094cb5493e9a6cb427944ee90a863c0d83d6182e1387e3dea12",
+      "bytes": 872,
+      "declared_lines": 24
+    },
+    {
+      "file": "requirements.txt",
+      "sha256": "7fcee7d59dc715b2ea98410dde9415d24d7f7d9a13943627fa36974abc7048af",
+      "bytes": 180,
+      "declared_lines": 7
+    },
+    {
+      "file": "model_d13_server.py",
+      "sha256": "1b31510635703876eaebcdc56f1f8812e2331d479ce3d1e0328daecfb50a1f8f",
+      "bytes": 25510,
+      "declared_lines": 564
+    },
+    {
+      "file": "audit_d13.py",
+      "sha256": "e65bcc9795426595d6a76c25d0c21f0585a3741ca71bf2e9224377a146582c09",
+      "bytes": 14118,
+      "declared_lines": 279
+    },
+    {
+      "file": "slurm_d13.sh",
+      "sha256": "21d4a27d07d3ec1e7c09eca18dae52b42c21999e2b56c4a57af17b95af033a40",
+      "bytes": 727,
+      "declared_lines": 27
+    }
+  ]
+}

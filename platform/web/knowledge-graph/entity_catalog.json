@@ -1,0 +1,6392 @@
+[
+  {
+    "entity_id": "dataset_d13",
+    "entity_type": "Dataset",
+    "canonical_name_zh": "D13 卒中后癫痫公开数据",
+    "canonical_name_en": "D13 post-stroke epilepsy dataset",
+    "definition": "D13 第8版公开数据。21,459条记录来自经过多轮筛选、要求关键数据完整且可获得随访的成人缺血性或缺隙性卒中患者，不是连续收治的全部急性卒中人群。公开文件已经完成上游预处理和随机森林插补。",
+    "aliases_zh": [
+      "D13",
+      "D13公开数据",
+      "卒中后癫痫公开数据集"
+    ],
+    "aliases_en": [
+      "D13 dataset",
+      "Dryad post-stroke epilepsy dataset"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "D1",
+      "D3"
+    ],
+    "status": "verified",
+    "properties": {
+      "rows": 21459,
+      "columns": 75,
+      "version": 8,
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_PAPER"
+      ],
+      "source_records": 42079,
+      "included_records": 21459,
+      "selection_conditioned": true,
+      "public_missing_cells": 0,
+      "upstream_imputation": "Random Forest",
+      "row_count": 21459,
+      "column_count": 75,
+      "has_patient_id": false,
+      "has_event_date": false,
+      "has_death_date": false,
+      "provenance_type": "network_public",
+      "license": "CC0 1.0"
+    }
+  },
+  {
+    "entity_id": "disease_ischemic_stroke",
+    "entity_type": "Disease",
+    "canonical_name_zh": "缺血性卒中",
+    "canonical_name_en": "Ischemic stroke",
+    "definition": "脑部供血受阻导致的缺血性脑损伤，是本数据集的研究起始疾病。",
+    "aliases_zh": [
+      "急性缺血性卒中",
+      "新发缺血性卒中",
+      "缺血性卒中",
+      "缺血性脑卒中",
+      "脑梗死"
+    ],
+    "aliases_en": [
+      "acute ischaemic stroke",
+      "acute ischemic stroke",
+      "cerebral infarction",
+      "ischaemic stroke",
+      "ischemic stroke"
+    ],
+    "abbreviations": [
+      "AIS",
+      "CIS"
+    ],
+    "non_synonyms": [
+      "TIA",
+      "hemorrhagic stroke",
+      "脑出血"
+    ],
+    "status": "verified",
+    "properties": {
+      "source_ids": [
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "disease_post_stroke_epilepsy",
+    "entity_type": "Disease",
+    "canonical_name_zh": "卒中后癫痫",
+    "canonical_name_en": "Post-stroke epilepsy",
+    "definition": "卒中后出现的癫痫，在本数据中由一年内继发性癫痫二分类标签表示。",
+    "aliases_zh": [
+      "卒中后癫痫",
+      "卒中后继发性癫痫",
+      "脑卒中后癫痫"
+    ],
+    "aliases_en": [
+      "PSE",
+      "post-stroke epilepsy",
+      "poststroke epilepsy"
+    ],
+    "abbreviations": [
+      "PSE"
+    ],
+    "non_synonyms": [
+      "post-stroke seizure",
+      "早期发作",
+      "急性症状性发作"
+    ],
+    "status": "verified",
+    "properties": {
+      "caveat": "缺少精确随访和事件时间。",
+      "source_ids": [
+        "SRC_PAPER",
+        "SRC_DRYAD"
+      ]
+    }
+  },
+  {
+    "entity_id": "population_d13",
+    "entity_type": "Population",
+    "canonical_name_zh": "成人新发缺血性或缺隙性卒中住院患者",
+    "canonical_name_en": "Adults with new-onset ischemic or lacunar stroke",
+    "definition": "D13公开表中的成人缺血性或缺隙性卒中患者，限定为无既往卒中/TIA、无既往癫痫、排除可能致痫病因、关键数据完整，并排除住院死亡、失访或卒中后约3个月内死亡者。",
+    "aliases_zh": [
+      "D13研究人群",
+      "成人急性缺血性卒中队列"
+    ],
+    "aliases_en": [
+      "D13 population",
+      "adult acute ischemic stroke cohort"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "all stroke patients",
+      "hemorrhagic stroke cohort"
+    ],
+    "status": "verified",
+    "properties": {
+      "size": 21459,
+      "source_ids": [
+        "SRC_PAPER"
+      ],
+      "inclusion_summary": "成人、新发缺血性或腔隙性卒中、关键数据完整且随访可得",
+      "selection": "complete essential data and available follow-up",
+      "excluded_in_hospital_deaths": 1444,
+      "excluded_lost_or_death_within_3_months": 813,
+      "excluded_missing_essential_data": 6496
+    }
+  },
+  {
+    "entity_id": "outcome_second_epilepsy",
+    "entity_type": "Outcome",
+    "canonical_name_zh": "一年内继发性癫痫",
+    "canonical_name_en": "second_epilepsy",
+    "definition": "D13公开表的一年内继发性癫痫二分类标签。公开材料未完整说明一年窗口起点、7天内发作处理、仅有电图发作处理、临床确认者及死亡/失访规则。",
+    "aliases_zh": [
+      "D13继发性癫痫标签",
+      "一年内继发性癫痫"
+    ],
+    "aliases_en": [
+      "PSE outcome label",
+      "secondary epilepsy within one year"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "首次远期无诱因癫痫",
+      "任意时间卒中后癫痫"
+    ],
+    "status": "verified",
+    "properties": {
+      "positive": 936,
+      "negative": 20523,
+      "positive_rate": 0.04361806235146093,
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_PAPER"
+      ],
+      "time_window": "D13标题所示一年，精确起止点未公开",
+      "operational_status": "partially_defined",
+      "strict_late_unprovoked_endpoint": false
+    }
+  },
+  {
+    "entity_id": "concept_cortical_lobes",
+    "entity_type": "AnatomicalStructure",
+    "canonical_name_zh": "皮质脑叶",
+    "canonical_name_en": "Cortical lobes",
+    "definition": "原研究关注额叶、顶叶、颞叶、枕叶和岛叶是否受累。",
+    "aliases_zh": [
+      "大脑皮质分区",
+      "皮质脑叶",
+      "脑叶受累"
+    ],
+    "aliases_en": [
+      "cortical involvement",
+      "cortical lobes"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "subcortical structures"
+    ],
+    "status": "verified",
+    "properties": {
+      "source_ids": [
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_post_baseline_complications",
+    "entity_type": "ClinicalEvent",
+    "canonical_name_zh": "住院并发症",
+    "canonical_name_en": "Post-baseline complications",
+    "definition": "深静脉血栓、脑疝、脑积水和低蛋白血症，可能发生在预测后。",
+    "aliases_zh": [
+      "住院并发症",
+      "卒中后住院并发症"
+    ],
+    "aliases_en": [
+      "in-hospital complications",
+      "post-baseline complications"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "past medical history"
+    ],
+    "status": "verified",
+    "properties": {
+      "time_risk": "高",
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_second_epilepsy",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "继发性癫痫（一年内，二分类结局）",
+    "canonical_name_en": "second_epilepsy",
+    "definition": "继发性癫痫（一年内，二分类结局）",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 1,
+      "field_name": "second_epilepsy",
+      "chapter": "研究结局",
+      "group": "结局",
+      "group_label": "结局",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "一年内（README 仅标题提及 one year，窗口操作化方式未说明）",
+      "leakage": "—",
+      "distribution": "0:20523 / 1:936（阳性率 4.36%）",
+      "readme_unit": "0/1（0=阴性, 1=阳性）",
+      "unit_note": "",
+      "preprocessing": "目标变量；标签固定为「一年内继发性癫痫」，不做改写",
+      "model_sets": [],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_uremia",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "尿毒症（共病）",
+    "canonical_name_en": "uremia",
+    "definition": "尿毒症（共病）",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 2,
+      "field_name": "uremia",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21269 / 1:190（阳性率 0.89%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_dvt",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "深静脉血栓",
+    "canonical_name_en": "dvt",
+    "definition": "深静脉血栓",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 3,
+      "field_name": "dvt",
+      "chapter": "住院并发症",
+      "group": "C",
+      "group_label": "住院并发症",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "住院期间；时间未知，可能发生于癫痫前后",
+      "leakage": "是（住院后并发症，可能发生于癫痫前后，不入主模型）",
+      "distribution": "0:20135 / 1:1324（阳性率 6.17%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "仅入 C 模型；主模型 A/B 不使用",
+      "model_sets": [
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "timing_semantics": "probably_past_history_but_unconfirmed",
+      "primary_model_assignment": "excluded_until_author_confirmation",
+      "sensitivity_assignment": "S3",
+      "unit_or_definition_status": "pending_author_confirmation"
+    }
+  },
+  {
+    "entity_id": "field_fatty_liver",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "脂肪肝",
+    "canonical_name_en": "fatty_liver",
+    "definition": "脂肪肝",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 4,
+      "field_name": "fatty_liver",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:17214 / 1:4245（阳性率 19.78%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_diabetes",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "糖尿病",
+    "canonical_name_en": "diabetes",
+    "definition": "糖尿病",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 5,
+      "field_name": "diabetes",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:14137 / 1:7322（阳性率 34.12%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hypertension",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "高血压",
+    "canonical_name_en": "hypertension",
+    "definition": "高血压",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 6,
+      "field_name": "hypertension",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:6708 / 1:14751（阳性率 68.74%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_coronary_disease",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "冠心病",
+    "canonical_name_en": "coronary_disease",
+    "definition": "冠心病",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 7,
+      "field_name": "coronary_disease",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:11787 / 1:9672（阳性率 45.07%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_atrial_fibrillation",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "心房颤动",
+    "canonical_name_en": "atrial_fibrillation",
+    "definition": "心房颤动",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 8,
+      "field_name": "atrial_fibrillation",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:19416 / 1:2043（阳性率 9.52%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_cerebral_hernia",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "脑疝",
+    "canonical_name_en": "cerebral_hernia",
+    "definition": "脑疝",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 9,
+      "field_name": "cerebral_hernia",
+      "chapter": "住院并发症",
+      "group": "C",
+      "group_label": "住院并发症",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "住院期间；时间未知，可能发生于癫痫前后",
+      "leakage": "是（住院后并发症，可能发生于癫痫前后，不入主模型）",
+      "distribution": "0:21278 / 1:181（阳性率 0.84%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "仅入 C 模型；主模型 A/B 不使用",
+      "model_sets": [
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hydrocephalus",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "脑积水",
+    "canonical_name_en": "hydrocephalus",
+    "definition": "脑积水",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 10,
+      "field_name": "hydrocephalus",
+      "chapter": "住院并发症",
+      "group": "C",
+      "group_label": "住院并发症",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "住院期间；时间未知，可能发生于癫痫前后",
+      "leakage": "是（住院后并发症，可能发生于癫痫前后，不入主模型）",
+      "distribution": "0:21178 / 1:281（阳性率 1.31%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "仅入 C 模型；主模型 A/B 不使用",
+      "model_sets": [
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hyperuricemia",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "高尿酸血症",
+    "canonical_name_en": "hyperuricemia",
+    "definition": "高尿酸血症",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 11,
+      "field_name": "hyperuricemia",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:19112 / 1:2347（阳性率 10.94%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hyperlipidaemia",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "高脂血症",
+    "canonical_name_en": "hyperlipidaemia",
+    "definition": "高脂血症",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 12,
+      "field_name": "hyperlipidaemia",
+      "chapter": "既往疾病",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:16990 / 1:4469（阳性率 20.83%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hypoproteinemia",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "低蛋白血症",
+    "canonical_name_en": "hypoproteinemia",
+    "definition": "低蛋白血症",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 13,
+      "field_name": "hypoproteinemia",
+      "chapter": "住院并发症",
+      "group": "C",
+      "group_label": "住院并发症",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "住院期间；时间未知，可能发生于癫痫前后",
+      "leakage": "是（住院后并发症，可能发生于癫痫前后，不入主模型）",
+      "distribution": "0:19038 / 1:2421（阳性率 11.28%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "仅入 C 模型；主模型 A/B 不使用",
+      "model_sets": [
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_frontal_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "额叶受累",
+    "canonical_name_en": "frontal_lobe",
+    "definition": "额叶受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 14,
+      "field_name": "frontal_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20540 / 1:919（阳性率 4.28%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_parietal_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "顶叶受累",
+    "canonical_name_en": "parietal_lobe",
+    "definition": "顶叶受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 15,
+      "field_name": "parietal_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20796 / 1:663（阳性率 3.09%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_temporal_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "颞叶受累",
+    "canonical_name_en": "temporal_lobe",
+    "definition": "颞叶受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 16,
+      "field_name": "temporal_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20823 / 1:636（阳性率 2.96%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_occipital_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "枕叶受累",
+    "canonical_name_en": "occipital_lobe",
+    "definition": "枕叶受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 17,
+      "field_name": "occipital_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21064 / 1:395（阳性率 1.84%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_insular_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "岛叶受累",
+    "canonical_name_en": "insular_lobe",
+    "definition": "岛叶受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 18,
+      "field_name": "insular_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21180 / 1:279（阳性率 1.30%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_range_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "受累脑叶汇总（额/顶/颞/枕/岛叶之和）",
+    "canonical_name_en": "range_lobe",
+    "definition": "受累脑叶汇总（额/顶/颞/枕/岛叶之和）",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 19,
+      "field_name": "range_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "序数（0–5）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20130, 1:501, 2:353, 3:252, 4:186, 5:37",
+      "readme_unit": "0/1",
+      "unit_note": "README 定义为额/顶/颞/枕/岛叶五字段汇总，可能与各脑叶字段共线",
+      "preprocessing": "序数 0–5 保留；LR 标准化，树模型原值；注明与脑叶字段共线",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_basal_ganglia",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "基底节受累",
+    "canonical_name_en": "basal_ganglia",
+    "definition": "基底节受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 20,
+      "field_name": "basal_ganglia",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20491 / 1:968（阳性率 4.51%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_capsula_interna",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "内囊受累",
+    "canonical_name_en": "capsula_interna",
+    "definition": "内囊受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 21,
+      "field_name": "capsula_interna",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21445 / 1:14（阳性率 0.07%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_brainstem",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "脑干受累",
+    "canonical_name_en": "brainstem",
+    "definition": "脑干受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 22,
+      "field_name": "brainstem",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21187 / 1:272（阳性率 1.27%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_epencephalon",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "小脑受累",
+    "canonical_name_en": "epencephalon",
+    "definition": "小脑受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 23,
+      "field_name": "epencephalon",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21017 / 1:442（阳性率 2.06%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_paraventricular",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "脑室旁受累",
+    "canonical_name_en": "paraventricular",
+    "definition": "脑室旁受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 24,
+      "field_name": "paraventricular",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20412 / 1:1047（阳性率 4.88%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_centrum_semiovale",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "半卵圆中心受累",
+    "canonical_name_en": "centrum_semiovale",
+    "definition": "半卵圆中心受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 25,
+      "field_name": "centrum_semiovale",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20849 / 1:610（阳性率 2.84%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_thalamus",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "丘脑受累",
+    "canonical_name_en": "thalamus",
+    "definition": "丘脑受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 26,
+      "field_name": "thalamus",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21222 / 1:237（阳性率 1.10%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_aca",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "大脑前动脉",
+    "canonical_name_en": "aca",
+    "definition": "大脑前动脉",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 27,
+      "field_name": "aca",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21185 / 1:274（阳性率 1.28%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_mca",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "大脑中动脉",
+    "canonical_name_en": "mca",
+    "definition": "大脑中动脉",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 28,
+      "field_name": "mca",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20631 / 1:828（阳性率 3.86%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_pca",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "大脑后动脉",
+    "canonical_name_en": "pca",
+    "definition": "大脑后动脉",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 29,
+      "field_name": "pca",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21397 / 1:62（阳性率 0.29%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_va",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "椎动脉",
+    "canonical_name_en": "va",
+    "definition": "椎动脉",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 30,
+      "field_name": "va",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20807 / 1:652（阳性率 3.04%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ba",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "基底动脉",
+    "canonical_name_en": "ba",
+    "definition": "基底动脉",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 31,
+      "field_name": "ba",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21268 / 1:191（阳性率 0.89%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_gender",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "性别（0/1，编码方向 README 未说明）",
+    "canonical_name_en": "gender",
+    "definition": "性别（0/1，编码方向 README 未说明）",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 32,
+      "field_name": "gender",
+      "chapter": "患者基本信息",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:10616 / 1:10843（阳性率 50.53%）",
+      "readme_unit": "0/1",
+      "unit_note": "README 未说明 0/1 与性别对应关系，仅影响解释不影响预测",
+      "preprocessing": "0/1 保留原值",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_cca_plaque",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "颈总动脉斑块",
+    "canonical_name_en": "cca_plaque",
+    "definition": "颈总动脉斑块",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 33,
+      "field_name": "cca_plaque",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:16636 / 1:4823（阳性率 22.48%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ica_plaque",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "颈内动脉斑块",
+    "canonical_name_en": "ica_plaque",
+    "definition": "颈内动脉斑块",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 34,
+      "field_name": "ica_plaque",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:19997 / 1:1462（阳性率 6.81%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_eca_plaque",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "颈外动脉斑块",
+    "canonical_name_en": "eca_plaque",
+    "definition": "颈外动脉斑块",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 35,
+      "field_name": "eca_plaque",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:21258 / 1:201（阳性率 0.94%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1；LR 可能完全分离，记录警告（不手动删除）",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_subcortex_lobe",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "皮质下受累",
+    "canonical_name_en": "subcortex_lobe",
+    "definition": "皮质下受累",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 36,
+      "field_name": "subcortex_lobe",
+      "chapter": "脑部影像",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:19016 / 1:2443（阳性率 11.38%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ant_circle",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "前循环",
+    "canonical_name_en": "ant_circle",
+    "definition": "前循环",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 37,
+      "field_name": "ant_circle",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:20046 / 1:1413（阳性率 6.58%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_post_circle",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "后循环",
+    "canonical_name_en": "post_circle",
+    "definition": "后循环",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 38,
+      "field_name": "post_circle",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:16958 / 1:4501（阳性率 20.97%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_large_ves_as",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "大血管动脉粥样硬化",
+    "canonical_name_en": "large_ves_as",
+    "definition": "大血管动脉粥样硬化",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 39,
+      "field_name": "large_ves_as",
+      "chapter": "脑血管",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "二分类（0/1）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "0:15954 / 1:5505（阳性率 25.65%）",
+      "readme_unit": "0/1",
+      "unit_note": "",
+      "preprocessing": "保留 0/1",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_age",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "年龄（岁）",
+    "canonical_name_en": "age",
+    "definition": "年龄（岁）",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 40,
+      "field_name": "age",
+      "chapter": "患者基本信息",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "连续（整数）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "范围 17.0–90.0，中位 67.0",
+      "readme_unit": "岁",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化，树模型原值",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_plt",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "血小板",
+    "canonical_name_en": "plt",
+    "definition": "血小板",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 41,
+      "field_name": "plt",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 12.0–533.0，中位 187.4",
+      "readme_unit": "×10^9/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_wbc",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "白细胞",
+    "canonical_name_en": "wbc",
+    "definition": "白细胞",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 42,
+      "field_name": "wbc",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 2.00–29.7，中位 8.20",
+      "readme_unit": "×10^9/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_rbc",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "红细胞",
+    "canonical_name_en": "rbc",
+    "definition": "红细胞",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 43,
+      "field_name": "rbc",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 1.70–6.40，中位 4.30",
+      "readme_unit": "×10^12/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hba1c",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "糖化血红蛋白",
+    "canonical_name_en": "hba1c",
+    "definition": "糖化血红蛋白",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 44,
+      "field_name": "hba1c",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 4.00–16.6，中位 6.40",
+      "readme_unit": "%",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_crp",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "C反应蛋白",
+    "canonical_name_en": "crp",
+    "definition": "C反应蛋白",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 45,
+      "field_name": "crp",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.00–256.8，中位 9.40",
+      "readme_unit": "mg/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_tg",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "甘油三酯",
+    "canonical_name_en": "tg",
+    "definition": "甘油三酯",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 46,
+      "field_name": "tg",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.30–11.2，中位 1.50",
+      "readme_unit": "mg/dL（README 原文）",
+      "unit_note": "冲突：README 标 mg/dL，实测值域 0.3–11.2 为 mmol/L 量级，疑似 README 单位有误，需与原文 (eLife 2024, doi:10.7554/eLife.98759) 核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": "mg/dL",
+      "inferred_unit": "mmol/L",
+      "unit_status": "conflict_pending_author_confirmation",
+      "model_value_policy": "raw_no_conversion"
+    }
+  },
+  {
+    "entity_id": "field_ldl",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "低密度脂蛋白胆固醇",
+    "canonical_name_en": "ldl",
+    "definition": "低密度脂蛋白胆固醇",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 47,
+      "field_name": "ldl",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.60–9.00，中位 2.70",
+      "readme_unit": "mg/dL（README 原文）",
+      "unit_note": "冲突：README 标 mg/dL，实测值域 0.6–9 为 mmol/L 量级，疑似 README 单位有误，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": "mg/dL",
+      "inferred_unit": "mmol/L",
+      "unit_status": "conflict_pending_author_confirmation",
+      "model_value_policy": "raw_no_conversion"
+    }
+  },
+  {
+    "entity_id": "field_hdl",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "高密度脂蛋白胆固醇",
+    "canonical_name_en": "hdl",
+    "definition": "高密度脂蛋白胆固醇",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 48,
+      "field_name": "hdl",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.30–2.40，中位 1.20",
+      "readme_unit": "mg/dL（README 原文）",
+      "unit_note": "冲突：README 标 mg/dL，实测值域 0.3–2.4 为 mmol/L 量级，疑似 README 单位有误，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": "mg/dL",
+      "inferred_unit": "mmol/L",
+      "unit_status": "conflict_pending_author_confirmation",
+      "model_value_policy": "raw_no_conversion"
+    }
+  },
+  {
+    "entity_id": "field_ast",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "谷草转氨酶",
+    "canonical_name_en": "ast",
+    "definition": "谷草转氨酶",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 49,
+      "field_name": "ast",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 8.00–508.0，中位 23.7",
+      "readme_unit": "U/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_alt",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "谷丙转氨酶",
+    "canonical_name_en": "alt",
+    "definition": "谷丙转氨酶",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 50,
+      "field_name": "alt",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 4.00–249.0，中位 22.6",
+      "readme_unit": "U/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_bilirubin",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "总胆红素",
+    "canonical_name_en": "bilirubin",
+    "definition": "总胆红素",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 51,
+      "field_name": "bilirubin",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 3.20–73.9，中位 14.8",
+      "readme_unit": "µmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_albumin",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "白蛋白",
+    "canonical_name_en": "albumin",
+    "definition": "白蛋白",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 52,
+      "field_name": "albumin",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 17.0–51.9，中位 41.2",
+      "readme_unit": "g/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_urea",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "尿素",
+    "canonical_name_en": "urea",
+    "definition": "尿素",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 53,
+      "field_name": "urea",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 1.70–27.9，中位 6.20",
+      "readme_unit": "mmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_creatinine",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "肌酐",
+    "canonical_name_en": "creatinine",
+    "definition": "肌酐",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 54,
+      "field_name": "creatinine",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 24.0–1556，中位 75.5",
+      "readme_unit": "µmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_bua",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "血尿酸",
+    "canonical_name_en": "bua",
+    "definition": "血尿酸",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 55,
+      "field_name": "bua",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 65.0–876.0，中位 335.3",
+      "readme_unit": "µmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_pt",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "凝血酶原时间",
+    "canonical_name_en": "pt",
+    "definition": "凝血酶原时间",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 56,
+      "field_name": "pt",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 11.2–42.0，中位 13.6",
+      "readme_unit": "s",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_aptt",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "活化部分凝血活酶时间",
+    "canonical_name_en": "aptt",
+    "definition": "活化部分凝血活酶时间",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 57,
+      "field_name": "aptt",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 21.9–106.3，中位 35.3",
+      "readme_unit": "s",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_tt",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "凝血酶时间",
+    "canonical_name_en": "tt",
+    "definition": "凝血酶时间",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 58,
+      "field_name": "tt",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 13.1–39.1，中位 16.4",
+      "readme_unit": "s",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_inr",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "国际标准化比值",
+    "canonical_name_en": "inr",
+    "definition": "国际标准化比值",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 59,
+      "field_name": "inr",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.80–4.70，中位 1.00",
+      "readme_unit": "比值",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_d_dimer",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "D-二聚体",
+    "canonical_name_en": "d_dimer",
+    "definition": "D-二聚体",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 60,
+      "field_name": "d_dimer",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.02–30.0，中位 0.92",
+      "readme_unit": "ng/mL（README 原文）",
+      "unit_note": "冲突：README 标 ng/mL，实测值域 0.02–30 为 mg/L(µg/mL) 量级，疑似 README 单位有误，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": "ng/mL",
+      "inferred_unit": "mg/L_or_ug_per_mL",
+      "assay_unit_status": "FEU_or_DDU_pending_author_confirmation",
+      "model_value_policy": "raw_no_conversion"
+    }
+  },
+  {
+    "entity_id": "field_fibrinogen",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "纤维蛋白原",
+    "canonical_name_en": "fibrinogen",
+    "definition": "纤维蛋白原",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 61,
+      "field_name": "fibrinogen",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.70–12.0，中位 3.60",
+      "readme_unit": "g/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ck",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "肌酸激酶",
+    "canonical_name_en": "ck",
+    "definition": "肌酸激酶",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 62,
+      "field_name": "ck",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 16.0–12038，中位 130.2",
+      "readme_unit": "U/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ck_mb",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "肌酸激酶同工酶MB",
+    "canonical_name_en": "ck_mb",
+    "definition": "肌酸激酶同工酶MB",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 63,
+      "field_name": "ck_mb",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 3.00–397.0，中位 12.6",
+      "readme_unit": "U/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ldh",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "乳酸脱氢酶",
+    "canonical_name_en": "ldh",
+    "definition": "乳酸脱氢酶",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 64,
+      "field_name": "ldh",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 65.0–1742，中位 203.6",
+      "readme_unit": "U/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_hbdh",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "α-羟丁酸脱氢酶",
+    "canonical_name_en": "hbdh",
+    "definition": "α-羟丁酸脱氢酶",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 65,
+      "field_name": "hbdh",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 44.0–1545，中位 170.0",
+      "readme_unit": "U/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_ima",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "缺血修饰白蛋白",
+    "canonical_name_en": "ima",
+    "definition": "缺血修饰白蛋白",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 66,
+      "field_name": "ima",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 12.2–573.1，中位 74.5",
+      "readme_unit": "吸光度单位（absorbance units）",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_na",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "钠",
+    "canonical_name_en": "na",
+    "definition": "钠",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 67,
+      "field_name": "na",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 116.3–151.6，中位 138.7",
+      "readme_unit": "未列（推断 mmol/L）",
+      "unit_note": "README 未列单位，按临床惯例推断为 mmol/L，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": null,
+      "inferred_unit": "mmol/L",
+      "unit_status": "missing_pending_author_confirmation",
+      "final_model_assignment": "excluded_retain_raw_audit_only",
+      "reason": "dropped by public author analysis code"
+    }
+  },
+  {
+    "entity_id": "field_k",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "钾",
+    "canonical_name_en": "k",
+    "definition": "钾",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 68,
+      "field_name": "k",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 2.28–6.19，中位 3.79",
+      "readme_unit": "未列（推断 mmol/L）",
+      "unit_note": "README 未列单位，按临床惯例推断为 mmol/L，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": null,
+      "inferred_unit": "mmol/L",
+      "unit_status": "missing_pending_author_confirmation",
+      "final_model_assignment": "excluded_retain_raw_audit_only",
+      "reason": "dropped by public author analysis code"
+    }
+  },
+  {
+    "entity_id": "field_cl",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "氯",
+    "canonical_name_en": "cl",
+    "definition": "氯",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 69,
+      "field_name": "cl",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 82.4–114.7，中位 103.5",
+      "readme_unit": "未列（推断 mmol/L）",
+      "unit_note": "README 未列单位，按临床惯例推断为 mmol/L，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": null,
+      "inferred_unit": "mmol/L",
+      "unit_status": "missing_pending_author_confirmation",
+      "final_model_assignment": "excluded_retain_raw_audit_only",
+      "reason": "dropped by public author analysis code"
+    }
+  },
+  {
+    "entity_id": "field_ca",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "钙",
+    "canonical_name_en": "ca",
+    "definition": "钙",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 70,
+      "field_name": "ca",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 1.80–3.20，中位 2.20",
+      "readme_unit": "未列（推断 mmol/L）",
+      "unit_note": "README 未列单位，按临床惯例推断为 mmol/L，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": null,
+      "inferred_unit": "mmol/L",
+      "unit_status": "missing_pending_author_confirmation",
+      "final_model_assignment": "excluded_retain_raw_audit_only",
+      "reason": "dropped by public author analysis code"
+    }
+  },
+  {
+    "entity_id": "field_p",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "磷",
+    "canonical_name_en": "p",
+    "definition": "磷",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 71,
+      "field_name": "p",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.37–2.09，中位 0.99",
+      "readme_unit": "未列（推断 mmol/L）",
+      "unit_note": "README 未列单位，按临床惯例推断为 mmol/L，需核对",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ],
+      "declared_unit": null,
+      "inferred_unit": "mmol/L",
+      "unit_status": "missing_pending_author_confirmation",
+      "final_model_assignment": "excluded_retain_raw_audit_only",
+      "reason": "dropped by public author analysis code"
+    }
+  },
+  {
+    "entity_id": "field_lactate",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "乳酸",
+    "canonical_name_en": "lactate",
+    "definition": "乳酸",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 72,
+      "field_name": "lactate",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 0.80–9.20，中位 2.50",
+      "readme_unit": "mmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_anion_gap",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "阴离子间隙",
+    "canonical_name_en": "anion_gap",
+    "definition": "阴离子间隙",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 73,
+      "field_name": "anion_gap",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 2.00–38.6，中位 12.3",
+      "readme_unit": "mmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_tco2",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "总二氧化碳",
+    "canonical_name_en": "tco2",
+    "definition": "总二氧化碳",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 74,
+      "field_name": "tco2",
+      "chapter": "实验室检验",
+      "group": "B",
+      "group_label": "实验室",
+      "variable_type": "连续",
+      "time_availability": "入院检验；采血时间未知",
+      "leakage": "未发现明确后验变量；因无时间戳，时间可用性无法验证，存在残余泄漏风险",
+      "distribution": "范围 6.70–39.4，中位 22.7",
+      "readme_unit": "mmol/L",
+      "unit_note": "",
+      "preprocessing": "连续；LR 标准化 + 明显右偏且非负者 log1p；树模型原值；winsorize 仅按训练折阈值计算",
+      "model_sets": [
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "field_nihss",
+    "entity_type": "ResearchVariable",
+    "canonical_name_zh": "NIHSS 评分",
+    "canonical_name_en": "nihss",
+    "definition": "NIHSS 评分",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "order": 75,
+      "field_name": "nihss",
+      "chapter": "患者基本信息",
+      "group": "A",
+      "group_label": "基线",
+      "variable_type": "序数/评分（0–42）",
+      "time_availability": "发病日/入院初始（真实时间戳未提供，仅按临床含义归类）",
+      "leakage": "否",
+      "distribution": "范围 0.00–42.0，中位 8.00",
+      "readme_unit": "分",
+      "unit_note": "",
+      "preprocessing": "序数 0–42；LR 标准化，树模型原值",
+      "model_sets": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_01",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "急性症状性发作 / 早期发作",
+    "canonical_name_en": "PSE-DEF-01",
+    "definition": "卒中发生后1周内（≤7天）出现的临床癫痫发作，按急性症状性发作处理。它是卒中急性损伤相关事件，不等同于卒中后癫痫。",
+    "aliases_zh": [
+      "卒中后早期发作",
+      "急性症状性发作",
+      "早期发作"
+    ],
+    "aliases_en": [
+      "acute symptomatic seizure",
+      "early post-stroke seizure",
+      "early seizure"
+    ],
+    "abbreviations": [
+      "ASS"
+    ],
+    "non_synonyms": [
+      "post-stroke epilepsy",
+      "late unprovoked seizure"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "不作为主要PSE结局事件；可作为候选风险因素单独编码。",
+      "population": "卒中人群；本课题聚焦成人缺血性卒中",
+      "limitations": "需要卒中起病时间和发作时间；只有日期且同日先后不明时，不能擅自判定先后。",
+      "strict_endpoint": "exclude",
+      "evidence_status": "权威定义（ILAE相关建议）",
+      "source_ids": [
+        "BEHGI2010",
+        "GALOVIC2021"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_02",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "早期发作与晚期发作的界线",
+    "canonical_name_en": "PSE-DEF-02",
+    "definition": "卒中后≤7天为早期发作；>7天为晚期发作。第7天仍属早期，第8天进入晚期。两段对应不同的机制假设和研究含义。",
+    "aliases_zh": [
+      "7天界线",
+      "卒中后发作分界",
+      "早期晚期分界"
+    ],
+    "aliases_en": [
+      "early-late seizure boundary",
+      "seven-day boundary"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "30-day boundary"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "在数据模型中保存发作距卒中起病的精确天数，不把“早期/晚期”仅作为人工标签。",
+      "population": "缺血性及出血性卒中研究均常用此时间界线；本课题用于缺血性卒中",
+      "limitations": "7天是研究/共识界线，不是绝对生物学转折；起病时刻未知时可能产生边界错分。",
+      "strict_endpoint": "include_after_day7",
+      "evidence_status": "权威定义与研究综述一致",
+      "source_ids": [
+        "BEHGI2010",
+        "GALOVIC2021"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_03",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "晚期无诱因发作",
+    "canonical_name_en": "PSE-DEF-03",
+    "definition": "卒中7天后发生的首次临床确认无诱因发作属于晚期/远期症状性发作。其后续无诱因发作风险高，单个事件在卒中背景下可具有癫痫诊断意义。",
+    "aliases_zh": [
+      "晚期发作",
+      "晚期无诱因发作",
+      "远期症状性发作"
+    ],
+    "aliases_en": [
+      "late seizure",
+      "late unprovoked seizure",
+      "remote symptomatic seizure"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "acute symptomatic seizure"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "作为主要PSE事件的核心定义；要求临床确认并保留证据。",
+      "population": "卒中后患者，尤其是存在远端结构性病灶者",
+      "limitations": "需要排除急性症状性、心因性非癫痫发作、晕厥、代谢性发作和仅有不确定症状。",
+      "strict_endpoint": "include",
+      "evidence_status": "研究综述支持",
+      "source_ids": [
+        "GALOVIC2021",
+        "FISHER2014"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_04",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "ILAE 2014癫痫定义",
+    "canonical_name_en": "PSE-DEF-04",
+    "definition": "满足任一条件可诊断为癫痫：①≥2次无诱因或反射性发作，间隔>24小时；②1次无诱因发作且未来10年再发风险至少60%；③诊断为癫痫综合征。",
+    "aliases_zh": [
+      "2014癫痫临床定义",
+      "ILAE 2014癫痫定义"
+    ],
+    "aliases_en": [
+      "ILAE 2014 epilepsy definition",
+      "practical clinical definition of epilepsy"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "single early seizure"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "用于解释单个晚期无诱因卒中后发作为何可具有癫痫诊断意义。",
+      "population": "全年龄；本课题仅在成人缺血性卒中范围应用",
+      "limitations": "第2条需要可靠的复发风险依据；不能对每一次卒中后发作机械套用60%。",
+      "strict_endpoint": "definition_support",
+      "evidence_status": "ILAE官方定义",
+      "source_ids": [
+        "FISHER2014"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_05",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "本项目建议的PSE主结局",
+    "canonical_name_en": "PSE-DEF-05",
+    "definition": "卒中起病或预先确定的索引时点后>7天，首次经临床确认的无诱因癫痫发作；排除既往癫痫和急性症状性发作；事件日期必须可追溯。",
+    "aliases_zh": [
+      "建议PSE主结局",
+      "本项目PSE主结局"
+    ],
+    "aliases_en": [
+      "proposed primary PSE endpoint"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "D13 second_epilepsy label"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "主分析使用“首次PSE事件时间”；未能确认日期或性质者进入unknown/待审核，不强行转为阴性。",
+      "population": "成人、新发缺血性卒中，纳入和排除标准由团队冻结",
+      "limitations": "预测起点目前仍需老师在“卒中发病日”和“出院日”之间确认；不同起点不可混用。",
+      "strict_endpoint": "proposed_primary",
+      "evidence_status": "项目综合建议，待临床审核",
+      "source_ids": [
+        "FISHER2014",
+        "GALOVIC2021",
+        "PROJECTBOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_06",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "局灶保留意识发作（旧称单纯部分性发作）",
+    "canonical_name_en": "PSE-DEF-06",
+    "definition": "ILAE 2017以“focal aware”替代旧术语simple partial。它是可观察的局灶性临床发作；若主结局定义为“任何临床确认的无诱因癫痫发作”，原则上应计入。",
+    "aliases_zh": [
+      "单纯部分性发作",
+      "局灶保留意识发作"
+    ],
+    "aliases_en": [
+      "focal aware seizure",
+      "simple partial seizure"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "absence seizure"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "单独保留aware/impaired-awareness字段；不能因没有意识丧失而自动排除。",
+      "population": "癫痫患者通用分类；本课题用于卒中后发作表型",
+      "limitations": "若研究只关注严重发作或意识受损发作，必须作为预先规定的次要结局，不可无声排除。",
+      "strict_endpoint": "include_if_clinical_event",
+      "evidence_status": "ILAE分类",
+      "source_ids": [
+        "FISHER2017"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_07",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "仅有电图异常或电图发作",
+    "canonical_name_en": "PSE-DEF-07",
+    "definition": "间期癫痫样放电不是癫痫发作。仅有电图演变而无临床可见症状可以构成电图发作，但不能自动等同于临床复发性PSE事件。",
+    "aliases_zh": [
+      "亚临床电图发作",
+      "仅有电图发作",
+      "电图发作"
+    ],
+    "aliases_en": [
+      "electrographic seizure",
+      "electrographic-only seizure",
+      "subclinical electrographic seizure"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "interictal epileptiform discharge",
+      "IEED"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "主结局优先采用临床确认发作；另设“包含电图发作”的敏感性结局并明确EEG判读标准。",
+      "population": "接受EEG监测的卒中患者，尤其重症或意识障碍患者",
+      "limitations": "临床观察可能漏诊非惊厥发作；若纳入电图发作，结局定义和模型适用人群会改变。",
+      "strict_endpoint": "conditional_separate_sensitivity",
+      "evidence_status": "研究与综述支持，具体纳入方式需预先定义",
+      "source_ids": [
+        "GALOVIC2021",
+        "FISHER2017"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_08",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "死亡",
+    "canonical_name_en": "PSE-DEF-08",
+    "definition": "死亡不是“未发生癫痫”的证据。若死亡发生在首次PSE事件前，应作为竞争事件；若癫痫已发生后再死亡，该事件仍应保留。",
+    "aliases_zh": [
+      "死亡",
+      "死亡事件"
+    ],
+    "aliases_en": [
+      "death",
+      "mortality"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "no seizure"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "记录死亡日期和事件日期；同一日先后不明时进入敏感性分析。",
+      "population": "所有进入时间结局分析的患者",
+      "limitations": "这是研究终点实现规则，不是ILAE诊断标准；二分类D13数据无法执行竞争风险。",
+      "strict_endpoint": "competing_event",
+      "evidence_status": "项目研究规范",
+      "source_ids": [
+        "PROJECTBOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_09",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "失访、随访不足与窗口不确定",
+    "canonical_name_en": "PSE-DEF-09",
+    "definition": "最后一次可靠无复发评估早于窗口终点时，应删失或标为unknown，不能自动记作0。若事件日期区间跨越窗口终点，结局待定。",
+    "aliases_zh": [
+      "失访",
+      "窗口不确定",
+      "随访不足"
+    ],
+    "aliases_en": [
+      "indeterminate window",
+      "insufficient follow-up",
+      "loss to follow-up"
+    ],
+    "abbreviations": [
+      "LTFU"
+    ],
+    "non_synonyms": [
+      "confirmed negative"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "记录last_reliable_followup_date、事件上下界和失访原因；固定窗口二分类仅在可靠覆盖完整窗口时使用。",
+      "population": "所有固定时间窗研究者",
+      "limitations": "D13没有患者ID、事件日期和随访截止日期，因此无法恢复这些状态。",
+      "strict_endpoint": "censor_or_unknown_not_negative",
+      "evidence_status": "项目研究规范",
+      "source_ids": [
+        "PROJECTBOUNDARY",
+        "D13PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_pse_def_10",
+    "entity_type": "DefinitionConcept",
+    "canonical_name_zh": "D13 `second_epilepsy` 的可用范围",
+    "canonical_name_en": "PSE-DEF-10",
+    "definition": "D13只提供一年内继发性癫痫的0/1标签，不能确认其是否严格满足“>7天、首次、临床确认、无诱因”以及死亡/随访处理要求。",
+    "aliases_zh": [
+      "D13结局标签",
+      "second_epilepsy标签",
+      "一年继发性癫痫0/1标签"
+    ],
+    "aliases_en": [
+      "D13 binary PSE label",
+      "D13 second_epilepsy label"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "strict clinical PSE endpoint"
+    ],
+    "status": "provisional",
+    "properties": {
+      "project_action": "仅用于一年二分类方法演示；不能将标签改写为严格的首次远期无诱因PSE，不能做Fine-Gray。",
+      "population": "D13公开数据：21,459名成人缺血性或缺隙性卒中患者",
+      "limitations": "无患者ID、事件日期、死亡日期和最后可靠随访日期。",
+      "strict_endpoint": "not_sufficient",
+      "evidence_status": "数据审计事实",
+      "source_ids": [
+        "D13PAPER",
+        "PROJECTBOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "population_select_ischemic_stroke",
+    "entity_type": "Population",
+    "canonical_name_zh": "成人影像确认的缺血性卒中人群",
+    "canonical_name_en": "Adults with imaging-confirmed ischemic stroke",
+    "definition": "SeLECT主要适用的成人缺血性卒中人群；多数研究排除既往癫痫、出血性卒中和TIA。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "成人首次影像确认缺血性卒中",
+      "source_ids": [
+        "GALOVIC2018",
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "outcome_late_unprovoked_seizure",
+    "entity_type": "Outcome",
+    "canonical_name_zh": "卒中后首次晚期无诱因发作",
+    "canonical_name_en": "First late unprovoked post-stroke seizure",
+    "definition": "SeLECT预测的严格时间到事件结局，通常要求晚于卒中后7天。",
+    "aliases_zh": [
+      "卒中后晚期无诱因癫痫发作",
+      "首次晚期无诱因发作"
+    ],
+    "aliases_en": [
+      "first late unprovoked post-stroke seizure",
+      "late unprovoked seizure"
+    ],
+    "abbreviations": [
+      "LUS"
+    ],
+    "non_synonyms": [
+      "D13 second_epilepsy标签",
+      "急性症状性发作"
+    ],
+    "status": "verified",
+    "properties": {
+      "operational_definition": "卒中后>7天首次临床自发性无诱因发作",
+      "time_window": "随研究随访",
+      "status": "defined",
+      "source_ids": [
+        "GALOVIC2018",
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_laa",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "大动脉粥样硬化病因",
+    "canonical_name_en": "Large-artery atherosclerotic aetiology",
+    "definition": "SeLECT所需的卒中病因分类，不等同于任意大血管狭窄或闭塞字段。",
+    "aliases_zh": [
+      "大动脉粥样硬化性卒中",
+      "大动脉粥样硬化病因"
+    ],
+    "aliases_en": [
+      "large artery atherosclerosis",
+      "large-artery atherosclerotic aetiology"
+    ],
+    "abbreviations": [
+      "LAA"
+    ],
+    "non_synonyms": [
+      "任意大血管狭窄或闭塞"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_aetiology",
+      "exact_definition": "TOAST等病因分类中的大动脉粥样硬化病因。",
+      "source_ids": [
+        "GALOVIC2018",
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_early_short_seizure",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "早期短发作",
+    "canonical_name_en": "Short acute symptomatic seizure",
+    "definition": "卒中后7天内发生的短时急性症状性发作，与早期癫痫持续状态分开。",
+    "aliases_zh": [
+      "早期短发作",
+      "早期短时急性症状性发作"
+    ],
+    "aliases_en": [
+      "early short seizure",
+      "short acute symptomatic seizure"
+    ],
+    "abbreviations": [
+      "sASyS"
+    ],
+    "non_synonyms": [
+      "早期癫痫持续状态"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "early_poststroke_event",
+      "time_window": "卒中后0-7天",
+      "source_ids": [
+        "GALOVIC2018",
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_status_epilepticus",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "早期癫痫持续状态",
+    "canonical_name_en": "Acute symptomatic status epilepticus",
+    "definition": "卒中后7天内发生的急性症状性癫痫持续状态。",
+    "aliases_zh": [
+      "急性症状性癫痫持续状态",
+      "早期癫痫持续状态"
+    ],
+    "aliases_en": [
+      "acute symptomatic status epilepticus",
+      "early status epilepticus"
+    ],
+    "abbreviations": [
+      "ASyS-SE"
+    ],
+    "non_synonyms": [
+      "早期短发作"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "early_poststroke_event",
+      "time_window": "卒中后0-7天",
+      "source_ids": [
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_cortical_involvement",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "皮质受累",
+    "canonical_name_en": "Cortical involvement",
+    "definition": "影像显示梗死累及大脑皮质。",
+    "aliases_zh": [
+      "皮质受累",
+      "皮质梗死"
+    ],
+    "aliases_en": [
+      "cortical infarction",
+      "cortical involvement"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "皮质下受累"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_imaging",
+      "source_ids": [
+        "GALOVIC2018",
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_mca_territory",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "大脑中动脉供血区梗死",
+    "canonical_name_en": "Infarction in MCA territory",
+    "definition": "影像确认的梗死位于大脑中动脉供血区，不是单纯的MCA狭窄或闭塞。",
+    "aliases_zh": [
+      "MCA供血区梗死",
+      "大脑中动脉供血区梗死"
+    ],
+    "aliases_en": [
+      "MCA territory infarction",
+      "infarction in MCA territory"
+    ],
+    "abbreviations": [
+      "MCA territory"
+    ],
+    "non_synonyms": [
+      "MCA狭窄",
+      "MCA闭塞"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_imaging",
+      "source_ids": [
+        "GALOVIC2018",
+        "SINKA2023"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_post_treatment_nihss",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "治疗后72小时NIHSS",
+    "canonical_name_en": "72-hour post-treatment NIHSS",
+    "definition": "再灌注治疗后72小时测量的NIHSS，用于修改版SeLECT 2.0评估。",
+    "aliases_zh": [
+      "72小时NIHSS",
+      "治疗后72小时NIHSS"
+    ],
+    "aliases_en": [
+      "72-hour post-treatment NIHSS",
+      "post-treatment NIHSS"
+    ],
+    "abbreviations": [
+      "PT-NIHSS"
+    ],
+    "non_synonyms": [
+      "入院NIHSS"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_clinical_measurement",
+      "source_ids": [
+        "MELETTI2024"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_eeg_epileptiform",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "早期EEG癫痫样活动",
+    "canonical_name_en": "Early EEG epileptiform activity",
+    "definition": "卒中后7天内EEG显示的癫痫样活动，是SeLECT-EEG的附加标志。",
+    "aliases_zh": [
+      "EEG癫痫样活动",
+      "早期EEG癫痫样活动"
+    ],
+    "aliases_en": [
+      "EEG epileptiform activity",
+      "early EEG epileptiform activity"
+    ],
+    "abbreviations": [
+      "EEG-EA"
+    ],
+    "non_synonyms": [
+      "电图发作"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "eeg_measurement",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_regional_slow",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "早期EEG区域慢波",
+    "canonical_name_en": "Early regional EEG slowing",
+    "definition": "卒中后7天内EEG显示的区域性慢波，是SeLECT-EEG的附加标志。",
+    "aliases_zh": [
+      "区域慢波",
+      "早期EEG区域慢波"
+    ],
+    "aliases_en": [
+      "early regional EEG slowing",
+      "regional slowing"
+    ],
+    "abbreviations": [
+      "EEG-RS"
+    ],
+    "non_synonyms": [
+      "癫痫样放电"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "eeg_measurement",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "model_select_1_0",
+    "entity_type": "Model",
+    "canonical_name_zh": "SeLECT 1.0",
+    "canonical_name_en": "select_1_0",
+    "definition": "SeLECT 1.0是一个0-9分的缺血性卒中后癫痫风险评分模型，由入院NIHSS、大动脉粥样硬化病因、7天内早期发作、皮质受累和MCA供血区梗死五个评分项组成。",
+    "aliases_zh": [
+      "SeLECT",
+      "SeLECT 1.0",
+      "SeLECT评分"
+    ],
+    "aliases_en": [
+      "SeLECT 1.0",
+      "SeLECT score"
+    ],
+    "abbreviations": [
+      "SeLECT"
+    ],
+    "non_synonyms": [
+      "SeLECT 2.0",
+      "SeLECT-EEG"
+    ],
+    "status": "verified",
+    "properties": {
+      "model_version": 2018,
+      "score_range": "0-9",
+      "feature_set": [
+        "卒中严重度",
+        "大动脉粥样硬化病因",
+        "早期发作",
+        "皮质受累",
+        "大脑中动脉供血区梗死"
+      ],
+      "development": "瑞士圣加仑，1200名成人，2002-2008，Cox比例风险模型",
+      "external_validation": "奥地利459例、德国311例、意大利399例；合计1169例",
+      "overall_c_statistic": 0.77,
+      "calibration": "原研究报告外部校正图显示预测与观察风险总体一致。",
+      "applicability": "成人首次、影像确认的缺血性卒中；排除既往卒中、既往癫痫、出血性卒中、TIA和可能致痫的其他疾病。仅适用于缺血性卒中。",
+      "limitations": [
+        "纳入年代较早，未覆盖当代完整再灌注治疗体系。",
+        "不同中心影像方式和随访方式不同。",
+        "电话随访不能完全等同于临床癫痫确认金标准。",
+        "卒中严重度不同人群分布会影响校准。"
+      ],
+      "components": [
+        {
+          "variable": "卒中严重度",
+          "field": "NIHSS at admission",
+          "scoring": "≤3分：0分；4-10分：1分；≥11分：2分"
+        },
+        {
+          "variable": "大动脉粥样硬化病因",
+          "field": "Large-artery atherosclerotic aetiology",
+          "scoring": "是：1分；否：0分"
+        },
+        {
+          "variable": "早期发作",
+          "field": "Early seizure ≤7 days",
+          "scoring": "是：3分；否：0分"
+        },
+        {
+          "variable": "皮质受累",
+          "field": "Cortical involvement",
+          "scoring": "是：2分；否：0分"
+        },
+        {
+          "variable": "大脑中动脉供血区梗死",
+          "field": "Infarction in MCA territory",
+          "scoring": "是：1分；否：0分"
+        }
+      ],
+      "validation_status": "development_and_external_validation",
+      "source_ids": [
+        "GALOVIC2018"
+      ],
+      "outcome": "卒中后>7天首次临床确认的自发性无诱因发作"
+    }
+  },
+  {
+    "entity_id": "model_select_2_0",
+    "entity_type": "Model",
+    "canonical_name_zh": "SeLECT 2.0",
+    "canonical_name_en": "select_2_0",
+    "definition": "SeLECT 2.0是SeLECT的多中心更新评分模型，保留原版变量结构，把早期发作拆为短发作3分和早期癫痫持续状态7分，总分扩展到0-13分。",
+    "aliases_zh": [
+      "SeLECT 2.0",
+      "SeLECT更新版"
+    ],
+    "aliases_en": [
+      "SeLECT 2.0"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "SeLECT 1.0"
+    ],
+    "status": "verified",
+    "properties": {
+      "model_version": 2023,
+      "score_range": "0-13",
+      "feature_set": [
+        "卒中严重度",
+        "大动脉粥样硬化病因",
+        "早期短发作",
+        "早期癫痫持续状态",
+        "皮质受累",
+        "大脑中动脉供血区梗死"
+      ],
+      "development": "9个国际中心，4552名成人，2002-2019；包含7个队列和2个病例对照研究",
+      "external_validation": "原论文明确说明未进行外部验证，仅进行内部多中心验证和1000次bootstrap乐观校正。",
+      "overall_c_statistic": 0.77,
+      "calibration": "提供基于更新队列的0-96个月预测曲线；最低分5年风险2%，最高分5年风险100%。",
+      "applicability": "成人影像确认的急性缺血性卒中；排除TIA、既往发作/癫痫、原发性出血、随访中再梗死和潜在致痫共病。",
+      "limitations": [
+        "原更新未进行外部验证。",
+        "癫痫持续状态只有8例，估计不稳定。",
+        "所有早期癫痫持续状态患者均接受ASM治疗。",
+        "非惊厥性持续状态可能被低估。",
+        "长期死亡原因和残疾资料未完整采集。"
+      ],
+      "components": [
+        {
+          "variable": "卒中严重度",
+          "field": "NIHSS at admission",
+          "scoring": "≤3分：0分；4-10分：1分；≥11分：2分"
+        },
+        {
+          "variable": "大动脉粥样硬化病因",
+          "field": "Large-artery atherosclerotic aetiology",
+          "scoring": "是：1分；否：0分"
+        },
+        {
+          "variable": "早期短发作",
+          "field": "Short acute symptomatic seizure",
+          "scoring": "是：3分；否：0分"
+        },
+        {
+          "variable": "早期癫痫持续状态",
+          "field": "Acute symptomatic status epilepticus",
+          "scoring": "是：7分；短发作项不再另计"
+        },
+        {
+          "variable": "皮质受累",
+          "field": "Cortical involvement",
+          "scoring": "是：2分；否：0分"
+        },
+        {
+          "variable": "大脑中动脉供血区梗死",
+          "field": "Infarction in MCA territory",
+          "scoring": "是：1分；否：0分"
+        }
+      ],
+      "validation_status": "internal_multicenter_update",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "outcome": "卒中后>7天首次临床确认的自发性无诱因发作"
+    }
+  },
+  {
+    "entity_id": "model_select_asys",
+    "entity_type": "Model",
+    "canonical_name_zh": "SeLECT-ASyS",
+    "canonical_name_en": "select_asys",
+    "definition": "SeLECT-ASyS是SeLECT系列的早期发作扩展研究，评估急性症状性发作的发生时间和类型对后续卒中后癫痫风险的影响。",
+    "aliases_zh": [
+      "SeLECT-ASyS",
+      "SeLECT早期发作更新"
+    ],
+    "aliases_en": [
+      "SeLECT-ASyS"
+    ],
+    "abbreviations": [
+      "SeLECT-ASyS"
+    ],
+    "non_synonyms": [
+      "SeLECT 2.0"
+    ],
+    "status": "verified",
+    "properties": {
+      "model_version": 2025,
+      "score_range": "0-7",
+      "feature_set": [],
+      "development": "多中心队列，研究早期发作发生于第0天或之后及发作类型的影响",
+      "external_validation": "瑞士、阿根廷、日本3个独立中心共74例早期发作患者",
+      "overall_c_statistic": 0.7,
+      "calibration": "摘要未报告完整校准指标。",
+      "applicability": "有早期发作的成人缺血性卒中患者。",
+      "limitations": [
+        "外部验证事件数仅74例。",
+        "外部验证中优于旧模型的差异P=0.18，未达到常规显著性。",
+        "需等待更大队列确认稳定性。"
+      ],
+      "components": [],
+      "validation_status": "limited_external_validation",
+      "source_ids": [
+        "SCHUBERT2025_ASYS"
+      ],
+      "outcome": "卒中后>7天首次临床确认的自发性无诱因发作",
+      "components_status": "expanded_public_table",
+      "components_note": "公开研究摘要未提供完整可复用的评分项和系数；保留直接临床概念引用，不虚构未公开的ScoreComponent。",
+      "feature_set_status": "not_defined_in_source_summary",
+      "formula": "Cortical involvement + sex-stratified large-artery atherosclerosis + ASyS timing/type",
+      "source_locator": "Stroke 2025;56(7):1748-1757; Table 3"
+    }
+  },
+  {
+    "entity_id": "model_select_eeg",
+    "entity_type": "Model",
+    "canonical_name_zh": "SeLECT-EEG",
+    "canonical_name_en": "select_eeg",
+    "definition": "SeLECT-EEG是在临床变量基础上加入卒中后7天内EEG标志的SeLECT扩展模型。",
+    "aliases_zh": [
+      "SeLECT-EEG",
+      "SeLECT脑电更新"
+    ],
+    "aliases_en": [
+      "SeLECT-EEG"
+    ],
+    "abbreviations": [
+      "SeLECT-EEG"
+    ],
+    "non_synonyms": [
+      "SeLECT 2.0"
+    ],
+    "status": "verified",
+    "properties": {
+      "model_version": 2025,
+      "score_range": "0-8",
+      "feature_set": [],
+      "development": "5国、1105名卒中后7天内接受EEG的患者",
+      "external_validation": "多中心数据评估；是否属于完全独立外部验证仍需按原文判定",
+      "overall_c_statistic": 0.75,
+      "calibration": "摘要未报告具体校准指标。",
+      "applicability": "卒中后7天内完成EEG的成人缺血性卒中患者。",
+      "limitations": [
+        "仅适用于接受早期EEG的患者。",
+        "依赖EEG可及性、判读规范和监测强度。",
+        "不能外推到未做EEG的人群。"
+      ],
+      "components": [],
+      "validation_status": "limited_external_validation",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ],
+      "outcome": "卒中后>7天首次临床确认的自发性无诱因发作",
+      "components_status": "expanded_public_table",
+      "components_note": "公开研究摘要未提供完整可复用的评分项和系数；保留直接临床概念引用，不虚构未公开的ScoreComponent。",
+      "feature_set_status": "not_defined_in_source_summary",
+      "formula": "NIHSS + LAA + cortical involvement + MCA territory + regional slowing + epileptiform activity",
+      "source_locator": "Ann Neurol 2025;98(4):814-825; Table 1"
+    }
+  },
+  {
+    "entity_id": "study_galovic_2018",
+    "entity_type": "Study",
+    "canonical_name_zh": "Galovic 2018",
+    "canonical_name_en": "Galovic 2018",
+    "definition": "原版模型的核心外部验证证据。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Switzerland; Austria; Germany; Italy",
+      "sample_size": 2369,
+      "population": "成人首次影像确认缺血性卒中",
+      "model": "SeLECT 1.0",
+      "result": "开发1200例；外部验证1169例；总体C=0.77；Austria 0.78，Germany 0.74，Italy 0.81",
+      "evidence_type": "development_and_external_validation",
+      "interpretation": "原版模型的核心外部验证证据。",
+      "source_ids": [
+        "SELECT_VAL_001"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_abraira_2019",
+    "entity_type": "Study",
+    "canonical_name_zh": "Abraira 2019",
+    "canonical_name_en": "Abraira 2019",
+    "definition": "在早期癫痫持续状态这一特殊高危亚组中区分能力有限。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Spain",
+      "sample_size": 117,
+      "population": "缺血性卒中后早期癫痫持续状态",
+      "model": "SeLECT 1.0",
+      "result": "发生与未发生PSE者SeLECT评分无显著差异，P=0.635",
+      "evidence_type": "external_validation_subgroup",
+      "interpretation": "在早期癫痫持续状态这一特殊高危亚组中区分能力有限。",
+      "source_ids": [
+        "SELECT_VAL_002"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_shen_2021",
+    "entity_type": "Study",
+    "canonical_name_zh": "Shen 2021",
+    "canonical_name_en": "Shen 2021",
+    "definition": "提示炎症标志物可能补充信息，但不是SeLECT原版的独立外部验证。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "China",
+      "sample_size": 915,
+      "population": "成人首次急性缺血性卒中",
+      "model": "SeLECT 1.0 + IL-1β",
+      "result": "SeLECT AUC=0.756；加IL-1β后AUC=0.933",
+      "evidence_type": "local_evaluation_and_extension",
+      "interpretation": "提示炎症标志物可能补充信息，但不是SeLECT原版的独立外部验证。",
+      "source_ids": [
+        "SELECT_VAL_003"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_din_2023",
+    "entity_type": "Study",
+    "canonical_name_zh": "Dinç 2023",
+    "canonical_name_en": "Dinç 2023",
+    "definition": "样本较小，扩展模型未独立外部验证。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Turkey",
+      "sample_size": 157,
+      "population": "接受静脉溶栓的急性缺血性卒中",
+      "model": "SeLECT 1.0 + diabetes + leukoaraiosis",
+      "result": "SeLECT AUC=0.893；加入糖尿病和脑白质疏松后AUC=0.955",
+      "evidence_type": "local_evaluation_and_extension",
+      "interpretation": "样本较小，扩展模型未独立外部验证。",
+      "source_ids": [
+        "SELECT_VAL_004"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_gruber_2023",
+    "entity_type": "Study",
+    "canonical_name_zh": "Gruber 2023",
+    "canonical_name_en": "Gruber 2023",
+    "definition": "在取栓人群中区分能力不足。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Austria",
+      "sample_size": 348,
+      "population": "机械取栓的大血管闭塞性卒中（多中心）",
+      "model": "SeLECT 1.0",
+      "result": "PSE组与非PSE组SeLECT中位数均为4分，P=0.682",
+      "evidence_type": "local_evaluation",
+      "interpretation": "在取栓人群中区分能力不足。",
+      "source_ids": [
+        "SELECT_VAL_005"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_sinka_2023",
+    "entity_type": "Study",
+    "canonical_name_zh": "Sinka 2023",
+    "canonical_name_en": "Sinka 2023",
+    "definition": "原研究明确未做外部验证。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Switzerland; Austria; Germany; Italy; Portugal; Spain; Colombia",
+      "sample_size": 4552,
+      "population": "成人影像确认缺血性卒中",
+      "model": "SeLECT 2.0",
+      "result": "乐观校正C≈0.77；与SeLECT原版总体接近；提高极高风险病例捕获",
+      "evidence_type": "multicenter_update_internal_validation",
+      "interpretation": "原研究明确未做外部验证。",
+      "source_ids": [
+        "SELECT_VAL_006"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_tanaka_2023",
+    "entity_type": "Study",
+    "canonical_name_zh": "Tanaka 2023",
+    "canonical_name_en": "Tanaka 2023",
+    "definition": "影像标志物可提升局部表现，但扩展模型需外部验证。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Japan",
+      "sample_size": 1100,
+      "population": "急性缺血性卒中",
+      "model": "SeLECT 1.0 + cortical superficial siderosis",
+      "result": "SeLECT AUC=0.78；加皮质表面铁沉积后AUC=0.84",
+      "evidence_type": "local_evaluation_and_extension",
+      "interpretation": "影像标志物可提升局部表现，但扩展模型需外部验证。",
+      "source_ids": [
+        "SELECT_VAL_007"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_meletti_2024",
+    "entity_type": "Study",
+    "canonical_name_zh": "Meletti 2024",
+    "canonical_name_en": "Meletti 2024",
+    "definition": "治疗后严重度可能比入院NIHSS更有信息，但属于修改模型评估。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Italy",
+      "sample_size": 1094,
+      "population": "接受静脉溶栓和/或血管内治疗的首次缺血性卒中",
+      "model": "Modified SeLECT 2.0 using 72-hour post-treatment NIHSS",
+      "result": "36、48、60个月时间依赖AUC约0.88，原版约0.84；净重分类改善",
+      "evidence_type": "independent_modification_evaluation",
+      "interpretation": "治疗后严重度可能比入院NIHSS更有信息，但属于修改模型评估。",
+      "source_ids": [
+        "SELECT_VAL_008"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_yu_2024",
+    "entity_type": "Study",
+    "canonical_name_zh": "Yu 2024",
+    "canonical_name_en": "Yu 2024",
+    "definition": "SeLECT高特异度、低敏感度；阈值和研究方法差异需重视。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "China",
+      "sample_size": 1977,
+      "population": "急性缺血性卒中",
+      "model": "SeLECT 1.0 versus machine learning",
+      "result": "SeLECT AUC≈0.828，但敏感度约0.15、特异度约0.974；Naive Bayes AUC≈0.831，敏感度0.90、特异度0.672",
+      "evidence_type": "external_comparison_high_bias_risk",
+      "interpretation": "SeLECT高特异度、低敏感度；阈值和研究方法差异需重视。",
+      "source_ids": [
+        "SELECT_VAL_009"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_gruber_2025",
+    "entity_type": "Study",
+    "canonical_name_zh": "Gruber 2025",
+    "canonical_name_en": "Gruber 2025",
+    "definition": "取栓人群中的重复验证确认其局限。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Austria",
+      "sample_size": 348,
+      "population": "机械取栓的大血管闭塞性卒中",
+      "model": "SeLECT 1.0",
+      "result": "仍然无法区分PSE组与非PSE组，中位数均为4分",
+      "evidence_type": "external_validation",
+      "interpretation": "取栓人群中的重复验证确认其局限。",
+      "source_ids": [
+        "SELECT_VAL_010"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_schubert_2025_select_asys",
+    "entity_type": "Study",
+    "canonical_name_zh": "Schubert 2025 SeLECT-ASyS",
+    "canonical_name_en": "Schubert 2025 SeLECT-ASyS",
+    "definition": "点估计改善明显，但外部验证事件数少且统计不确定。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Switzerland; Argentina; Japan; multicenter SeLECT registry",
+      "sample_size": 4552,
+      "population": "成人缺血性卒中，包含早期发作的时相与类型分析",
+      "model": "SeLECT-ASyS",
+      "result": "开发C=0.68 vs 旧模型0.58；外部验证C=0.70 vs 0.50，但P=0.18",
+      "evidence_type": "external_validation_partial",
+      "interpretation": "点估计改善明显，但外部验证事件数少且统计不确定。",
+      "source_ids": [
+        "SELECT_VAL_011"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_schubert_2025_select_eeg",
+    "entity_type": "Study",
+    "canonical_name_zh": "Schubert 2025 SeLECT-EEG",
+    "canonical_name_en": "Schubert 2025 SeLECT-EEG",
+    "definition": "EEG可补充临床变量，但只适用于早期EEG人群。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Switzerland; Germany; Italy; Belgium; Portugal",
+      "sample_size": 1105,
+      "population": "卒中后7天内完成EEG的缺血性卒中患者",
+      "model": "SeLECT-EEG",
+      "result": "C=0.75 vs SeLECT2.0 0.71，P<0.001",
+      "evidence_type": "multicenter_validation",
+      "interpretation": "EEG可补充临床变量，但只适用于早期EEG人群。",
+      "source_ids": [
+        "SELECT_VAL_012"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_verburgt_2025",
+    "entity_type": "Study",
+    "canonical_name_zh": "Verburgt 2025",
+    "canonical_name_en": "Verburgt 2025",
+    "definition": "年轻成人中区分度尚可，但绝对风险需要重新校准。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Netherlands",
+      "sample_size": 1231,
+      "population": "18-49岁急性缺血性卒中患者",
+      "model": "SeLECT 2.0",
+      "result": "C=0.78（0.71-0.84）；5年累计风险3.7%；各评分预测风险总体偏高，但置信区间多重叠",
+      "evidence_type": "external_validation",
+      "interpretation": "年轻成人中区分度尚可，但绝对风险需要重新校准。",
+      "source_ids": [
+        "SELECT_VAL_013"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_jansk_2026",
+    "entity_type": "Study",
+    "canonical_name_zh": "Janský 2026",
+    "canonical_name_en": "Janský 2026",
+    "definition": "外部区分度低于原验证队列，校正卒中严重度采集时点可能改善。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "Czech Republic; Austria",
+      "sample_size": 315,
+      "population": "幕上缺血性卒中幸存者",
+      "model": "SeLECT 1.0 and modified scores",
+      "result": "SeLECT AUC=0.668；用出院NIHSS修改后AUC=0.715",
+      "evidence_type": "external_validation",
+      "interpretation": "外部区分度低于原验证队列，校正卒中严重度采集时点可能改善。",
+      "source_ids": [
+        "SELECT_VAL_014"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_leung_2026_ischemia_comparison",
+    "entity_type": "Study",
+    "canonical_name_zh": "Leung 2026 IsCHEMiA comparison",
+    "canonical_name_en": "Leung 2026 IsCHEMiA comparison",
+    "definition": "不是SeLECT模型验证，但显示PSE预测仍可由其他变量改进。",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "region": "United States; Hong Kong; Japan",
+      "sample_size": 3970,
+      "population": "首次急性缺血性卒中；含外部验证",
+      "model": "IsCHEMiA versus SeLECT and SeLECT2.0",
+      "result": "IsCHEMiA C=0.848 versus SeLECT C=0.782 across validation",
+      "evidence_type": "external_comparator",
+      "interpretation": "不是SeLECT模型验证，但显示PSE预测仍可由其他变量改进。",
+      "source_ids": [
+        "SELECT_VAL_015"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_nihss",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "NIHSS评分",
+    "canonical_name_en": "National Institutes of Health Stroke Scale",
+    "definition": "评估卒中神经功能缺损严重程度的临床量表。",
+    "aliases_zh": [
+      "NIHSS",
+      "NIH卒中量表",
+      "美国国立卫生研究院卒中量表"
+    ],
+    "aliases_en": [
+      "National Institutes of Health Stroke Scale"
+    ],
+    "abbreviations": [
+      "NIHSS"
+    ],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_clinical_measurement",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_wbc",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "白细胞计数",
+    "canonical_name_en": "White blood cell count",
+    "definition": "反映外周血白细胞数量的实验室测量。",
+    "aliases_zh": [
+      "白细胞",
+      "WBC计数"
+    ],
+    "aliases_en": [
+      "White blood cell count"
+    ],
+    "abbreviations": [
+      "WBC"
+    ],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_clinical_measurement",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_d_dimer",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "D-二聚体",
+    "canonical_name_en": "D-dimer",
+    "definition": "反映纤维蛋白降解产物的凝血相关实验室测量。",
+    "aliases_zh": [
+      "D二聚体",
+      "D-Dimer"
+    ],
+    "aliases_en": [
+      "D-dimer"
+    ],
+    "abbreviations": [
+      "D-dimer"
+    ],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_clinical_measurement",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "concept_select_any_early_seizure",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "卒中后早期发作",
+    "canonical_name_en": "Early post-stroke seizure within 7 days",
+    "definition": "卒中后7天内发生的临床发作；在SeLECT 1.0中作为一个三分的评分变量。",
+    "aliases_zh": [
+      "早期发作",
+      "卒中后7天内发作",
+      "SeLECT 1.0早期发作"
+    ],
+    "aliases_en": [
+      "Early post-stroke seizure within 7 days"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "domain": "stroke_clinical_measurement",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "decision_index_time",
+    "entity_type": "DecisionPoint",
+    "canonical_name_zh": "预测起点待确认",
+    "canonical_name_en": "Prediction index time",
+    "definition": "尚未确定主模型从卒中发病日还是出院日开始预测。",
+    "aliases_zh": [
+      "索引时点待确认"
+    ],
+    "aliases_en": [
+      "pending index time"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "outcome date"
+    ],
+    "status": "pending",
+    "properties": {
+      "question": "预测起点采用卒中发病日还是出院日？",
+      "options": [
+        "stroke_onset",
+        "discharge"
+      ],
+      "owner": "clinical_teacher",
+      "status": "pending",
+      "source_ids": [
+        "SRC_BOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_1_0_01",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 1.0：卒中严重度",
+    "canonical_name_en": "NIHSS at admission",
+    "definition": "卒中严重度的精确计分项：≤3分：0分；4-10分：1分；≥11分：2分",
+    "aliases_zh": [
+      "卒中严重度",
+      "NIHSS at admission"
+    ],
+    "aliases_en": [
+      "NIHSS at admission"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_1_0",
+      "component_order": 1,
+      "concept_entity_id": "concept_nihss",
+      "source_field_definition": "NIHSS at admission",
+      "scoring_rule": "≤3分：0分；4-10分：1分；≥11分：2分",
+      "time_condition": "入院时",
+      "d13_mapping_status": "exact_concept",
+      "d13_mapping_limitation": "D13入院NIHSS可对应SeLECT的NIHSS概念，但D13以中度卒中为主，与SeLECT开发队列的人群构成存在差异。",
+      "source_ids": [
+        "GALOVIC2018"
+      ],
+      "d13_mapped_field": "nihss",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_1_0_02",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 1.0：大动脉粥样硬化病因",
+    "canonical_name_en": "Large-artery atherosclerotic aetiology",
+    "definition": "大动脉粥样硬化病因的精确计分项：是：1分；否：0分",
+    "aliases_zh": [
+      "大动脉粥样硬化病因",
+      "Large-artery atherosclerotic aetiology"
+    ],
+    "aliases_en": [
+      "Large-artery atherosclerotic aetiology"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_1_0",
+      "component_order": 2,
+      "concept_entity_id": "concept_select_laa",
+      "source_field_definition": "Large-artery atherosclerotic aetiology",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "卒中病因评估完成时",
+      "d13_mapping_status": "proxy_only",
+      "d13_mapping_limitation": "large_ves_as表示大血管动脉粥样硬化，不等同于TOAST定义的大动脉粥样硬化病因。",
+      "source_ids": [
+        "GALOVIC2018"
+      ],
+      "d13_mapped_field": "large_ves_as",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_1_0_03",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 1.0：早期发作",
+    "canonical_name_en": "Early seizure ≤7 days",
+    "definition": "早期发作的精确计分项：是：3分；否：0分",
+    "aliases_zh": [
+      "早期发作",
+      "Early seizure ≤7 days"
+    ],
+    "aliases_en": [
+      "Early seizure ≤7 days"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_1_0",
+      "component_order": 3,
+      "concept_entity_id": "concept_select_any_early_seizure",
+      "source_field_definition": "Early seizure ≤7 days",
+      "scoring_rule": "是：3分；否：0分",
+      "time_condition": "卒中后0-7天",
+      "d13_mapping_status": "absent",
+      "d13_mapping_limitation": "D13没有7天内早期发作字段。",
+      "source_ids": [
+        "GALOVIC2018"
+      ],
+      "d13_mapped_field": null,
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_1_0_04",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 1.0：皮质受累",
+    "canonical_name_en": "Cortical involvement",
+    "definition": "皮质受累的精确计分项：是：2分；否：0分",
+    "aliases_zh": [
+      "皮质受累",
+      "Cortical involvement"
+    ],
+    "aliases_en": [
+      "Cortical involvement"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_1_0",
+      "component_order": 4,
+      "concept_entity_id": "concept_select_cortical_involvement",
+      "source_field_definition": "Cortical involvement",
+      "scoring_rule": "是：2分；否：0分",
+      "time_condition": "索引影像检查",
+      "d13_mapping_status": "derivable_composite",
+      "d13_mapping_limitation": "可由五个脑叶字段的任何受累推导，但影像采集时点和判读标准未逐例验证。",
+      "source_ids": [
+        "GALOVIC2018"
+      ],
+      "d13_mapped_field": "frontal_lobe+parietal_lobe+temporal_lobe+occipital_lobe+insular_lobe",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_1_0_05",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 1.0：大脑中动脉供血区梗死",
+    "canonical_name_en": "Infarction in MCA territory",
+    "definition": "大脑中动脉供血区梗死的精确计分项：是：1分；否：0分",
+    "aliases_zh": [
+      "大脑中动脉供血区梗死",
+      "Infarction in MCA territory"
+    ],
+    "aliases_en": [
+      "Infarction in MCA territory"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_1_0",
+      "component_order": 5,
+      "concept_entity_id": "concept_select_mca_territory",
+      "source_field_definition": "Infarction in MCA territory",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "索引影像检查",
+      "d13_mapping_status": "not_equivalent_proxy",
+      "d13_mapping_limitation": "D13的mca表示CTA/MRA/DSA所见狭窄或闭塞，不是梗死位于MCA供血区。",
+      "source_ids": [
+        "GALOVIC2018"
+      ],
+      "d13_mapped_field": "mca",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_2_0_01",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 2.0：卒中严重度",
+    "canonical_name_en": "NIHSS at admission",
+    "definition": "卒中严重度的精确计分项：≤3分：0分；4-10分：1分；≥11分：2分",
+    "aliases_zh": [
+      "卒中严重度",
+      "NIHSS at admission"
+    ],
+    "aliases_en": [
+      "NIHSS at admission"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_2_0",
+      "component_order": 1,
+      "concept_entity_id": "concept_nihss",
+      "source_field_definition": "NIHSS at admission",
+      "scoring_rule": "≤3分：0分；4-10分：1分；≥11分：2分",
+      "time_condition": "入院时",
+      "d13_mapping_status": "exact_concept",
+      "d13_mapping_limitation": "D13入院NIHSS可对应SeLECT的NIHSS概念，但D13以中度卒中为主，与SeLECT开发队列的人群构成存在差异。",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "d13_mapped_field": "nihss",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_2_0_02",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 2.0：大动脉粥样硬化病因",
+    "canonical_name_en": "Large-artery atherosclerotic aetiology",
+    "definition": "大动脉粥样硬化病因的精确计分项：是：1分；否：0分",
+    "aliases_zh": [
+      "大动脉粥样硬化病因",
+      "Large-artery atherosclerotic aetiology"
+    ],
+    "aliases_en": [
+      "Large-artery atherosclerotic aetiology"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_2_0",
+      "component_order": 2,
+      "concept_entity_id": "concept_select_laa",
+      "source_field_definition": "Large-artery atherosclerotic aetiology",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "卒中病因评估完成时",
+      "d13_mapping_status": "proxy_only",
+      "d13_mapping_limitation": "large_ves_as表示大血管动脉粥样硬化，不等同于TOAST定义的大动脉粥样硬化病因。",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "d13_mapped_field": "large_ves_as",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_2_0_03",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 2.0：早期短发作",
+    "canonical_name_en": "Short acute symptomatic seizure",
+    "definition": "早期短发作的精确计分项：是：3分；否：0分",
+    "aliases_zh": [
+      "早期短发作",
+      "Short acute symptomatic seizure"
+    ],
+    "aliases_en": [
+      "Short acute symptomatic seizure"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_2_0",
+      "component_order": 3,
+      "concept_entity_id": "concept_select_early_short_seizure",
+      "source_field_definition": "Short acute symptomatic seizure",
+      "scoring_rule": "是：3分；否：0分",
+      "time_condition": "卒中后0-7天",
+      "d13_mapping_status": "absent",
+      "d13_mapping_limitation": "D13没有早期短发作字段，也没有发作持续时间。",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "d13_mapped_field": null,
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_2_0_04",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 2.0：早期癫痫持续状态",
+    "canonical_name_en": "Acute symptomatic status epilepticus",
+    "definition": "早期癫痫持续状态的精确计分项：是：7分；短发作项不再另计",
+    "aliases_zh": [
+      "早期癫痫持续状态",
+      "Acute symptomatic status epilepticus"
+    ],
+    "aliases_en": [
+      "Acute symptomatic status epilepticus"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_2_0",
+      "component_order": 4,
+      "concept_entity_id": "concept_select_status_epilepticus",
+      "source_field_definition": "Acute symptomatic status epilepticus",
+      "scoring_rule": "是：7分；短发作项不再另计",
+      "time_condition": "卒中后0-7天",
+      "d13_mapping_status": "absent",
+      "d13_mapping_limitation": "D13没有早期癫痫持续状态字段。",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "d13_mapped_field": null,
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_2_0_05",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 2.0：皮质受累",
+    "canonical_name_en": "Cortical involvement",
+    "definition": "皮质受累的精确计分项：是：2分；否：0分",
+    "aliases_zh": [
+      "皮质受累",
+      "Cortical involvement"
+    ],
+    "aliases_en": [
+      "Cortical involvement"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_2_0",
+      "component_order": 5,
+      "concept_entity_id": "concept_select_cortical_involvement",
+      "source_field_definition": "Cortical involvement",
+      "scoring_rule": "是：2分；否：0分",
+      "time_condition": "索引影像检查",
+      "d13_mapping_status": "derivable_composite",
+      "d13_mapping_limitation": "可由五个脑叶字段的任何受累推导，但影像采集时点和判读标准未逐例验证。",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "d13_mapped_field": "frontal_lobe+parietal_lobe+temporal_lobe+occipital_lobe+insular_lobe",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "score_component_select_2_0_06",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT 2.0：大脑中动脉供血区梗死",
+    "canonical_name_en": "Infarction in MCA territory",
+    "definition": "大脑中动脉供血区梗死的精确计分项：是：1分；否：0分",
+    "aliases_zh": [
+      "大脑中动脉供血区梗死",
+      "Infarction in MCA territory"
+    ],
+    "aliases_en": [
+      "Infarction in MCA territory"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_2_0",
+      "component_order": 6,
+      "concept_entity_id": "concept_select_mca_territory",
+      "source_field_definition": "Infarction in MCA territory",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "索引影像检查",
+      "d13_mapping_status": "not_equivalent_proxy",
+      "d13_mapping_limitation": "D13的mca表示CTA/MRA/DSA所见狭窄或闭塞，不是梗死位于MCA供血区。",
+      "source_ids": [
+        "SINKA2023"
+      ],
+      "d13_mapped_field": "mca",
+      "d13_mapping_authority": "score_component_property"
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s1_v02",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S1核心基线特征集",
+    "canonical_name_en": "D13 S1 feature set v0.2",
+    "definition": "人口学、入院NIHSS、既往史、初始脑影像和血管信息。按字段临床含义归类，不代表逐项时间戳已验证。",
+    "aliases_zh": [
+      "D13 S1"
+    ],
+    "aliases_en": [
+      "D13 S1 feature set"
+    ],
+    "abbreviations": [
+      "S1"
+    ],
+    "non_synonyms": [
+      "S2",
+      "S3"
+    ],
+    "status": "verified",
+    "properties": {
+      "feature_set_id": "d13-s1-v0.2",
+      "feature_count": 36,
+      "features": [
+        "uremia",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "frontal_lobe",
+        "parietal_lobe",
+        "temporal_lobe",
+        "occipital_lobe",
+        "insular_lobe",
+        "range_lobe",
+        "basal_ganglia",
+        "capsula_interna",
+        "brainstem",
+        "epencephalon",
+        "paraventricular",
+        "centrum_semiovale",
+        "thalamus",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "subcortex_lobe",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "nihss"
+      ],
+      "role": "expected_pre_event_baseline",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s2_v02",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S2实验室扩展特征集",
+    "canonical_name_en": "D13 S2 feature set v0.2",
+    "definition": "在S1基础上加入34项入院后首组实验室指标。因缺少逐例采血时间且公开数据已预插补，不应当作已验证的入院可部署主模型。",
+    "aliases_zh": [
+      "D13 S2"
+    ],
+    "aliases_en": [
+      "D13 S2 feature set"
+    ],
+    "abbreviations": [
+      "S2"
+    ],
+    "non_synonyms": [
+      "S1",
+      "S3"
+    ],
+    "status": "verified",
+    "properties": {
+      "feature_set_id": "d13-s2-v0.2",
+      "feature_count": 70,
+      "features": [
+        "uremia",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "frontal_lobe",
+        "parietal_lobe",
+        "temporal_lobe",
+        "occipital_lobe",
+        "insular_lobe",
+        "range_lobe",
+        "basal_ganglia",
+        "capsula_interna",
+        "brainstem",
+        "epencephalon",
+        "paraventricular",
+        "centrum_semiovale",
+        "thalamus",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "subcortex_lobe",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "plt",
+        "wbc",
+        "rbc",
+        "hba1c",
+        "crp",
+        "tg",
+        "ldl",
+        "hdl",
+        "ast",
+        "alt",
+        "bilirubin",
+        "albumin",
+        "urea",
+        "creatinine",
+        "bua",
+        "pt",
+        "aptt",
+        "tt",
+        "inr",
+        "d_dimer",
+        "fibrinogen",
+        "ck",
+        "ck_mb",
+        "ldh",
+        "hbdh",
+        "ima",
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p",
+        "lactate",
+        "anion_gap",
+        "tco2",
+        "nihss"
+      ],
+      "role": "exploratory_post_imputation_laboratory",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s3_v02",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S3全信息敏感性特征集",
+    "canonical_name_en": "D13 S3 feature set v0.2",
+    "definition": "在S2基础上加入DVT、脑疝、脑积水和低蛋白血症。DVT可能为既往史，其余字段发生时间未确认，仅用于敏感性分析。",
+    "aliases_zh": [
+      "D13 S3"
+    ],
+    "aliases_en": [
+      "D13 S3 feature set"
+    ],
+    "abbreviations": [
+      "S3"
+    ],
+    "non_synonyms": [
+      "S1",
+      "S2"
+    ],
+    "status": "verified",
+    "properties": {
+      "feature_set_id": "d13-s3-v0.2",
+      "feature_count": 74,
+      "features": [
+        "uremia",
+        "dvt",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "cerebral_hernia",
+        "hydrocephalus",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "hypoproteinemia",
+        "frontal_lobe",
+        "parietal_lobe",
+        "temporal_lobe",
+        "occipital_lobe",
+        "insular_lobe",
+        "range_lobe",
+        "basal_ganglia",
+        "capsula_interna",
+        "brainstem",
+        "epencephalon",
+        "paraventricular",
+        "centrum_semiovale",
+        "thalamus",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "subcortex_lobe",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "plt",
+        "wbc",
+        "rbc",
+        "hba1c",
+        "crp",
+        "tg",
+        "ldl",
+        "hdl",
+        "ast",
+        "alt",
+        "bilirubin",
+        "albumin",
+        "urea",
+        "creatinine",
+        "bua",
+        "pt",
+        "aptt",
+        "tt",
+        "inr",
+        "d_dimer",
+        "fibrinogen",
+        "ck",
+        "ck_mb",
+        "ldh",
+        "hbdh",
+        "ima",
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p",
+        "lactate",
+        "anion_gap",
+        "tco2",
+        "nihss"
+      ],
+      "role": "sensitivity_with_uncertain_post_baseline_fields",
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "model_d13_s2_lr_platt_v0_2",
+    "entity_type": "Model",
+    "canonical_name_zh": "D13一年内继发性癫痫演示模型",
+    "canonical_name_en": "D13-S2-LR-Platt-v0.2",
+    "definition": "在D13预插补公开数据上训练的L2逻辑回归演示模型，使用S2实验室扩展特征集，并在验证集做Platt概率校准。",
+    "aliases_zh": [
+      "D13演示模型",
+      "D13公开数据模型"
+    ],
+    "aliases_en": [
+      "D13-S2-LR-Platt-v0.2",
+      "D13 demo model"
+    ],
+    "abbreviations": [
+      "D13 demo"
+    ],
+    "non_synonyms": [
+      "SeLECT",
+      "临床验证模型",
+      "时间到事件模型"
+    ],
+    "status": "provisional",
+    "properties": {
+      "model_version": "0.2",
+      "model_status": "research_demo_frozen",
+      "outcome": "outcome_second_epilepsy",
+      "feature_set": "feature_set_d13_s2_v02",
+      "validation_status": "internal_duplicate_group_aware_reanalysis",
+      "test_auc": 0.9714253258962146,
+      "test_auprc": 0.8823140351154453,
+      "test_rows": 4181,
+      "test_positives": 192,
+      "calibration_intercept": -0.29191793955256556,
+      "calibration_slope": 0.8753294680991759,
+      "main_interpretation": "公开数据研究演示，不是临床验证模型",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_PAPER",
+        "SRC_MODEL",
+        "SRC_BOUNDARY"
+      ],
+      "test_brier_raw": 0.012319981600081378,
+      "test_brier_calibrated": 0.012733403083694072,
+      "superseded_by": "model_d13_s1_lr_platt_v0_3"
+    }
+  },
+  {
+    "entity_id": "study_d13_v02_group_aware_reanalysis",
+    "entity_type": "Study",
+    "canonical_name_zh": "D13 v0.2重复内容组感知再分析",
+    "canonical_name_en": "D13 v0.2 duplicate-content-group-aware reanalysis",
+    "definition": "按完全相同记录组隔离训练、验证和测试的D13内部再分析，不代表原论文验证划分。",
+    "aliases_zh": [
+      "D13 v0.2再分析"
+    ],
+    "aliases_en": [
+      "D13 v0.2 reanalysis"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "external validation"
+    ],
+    "status": "provisional",
+    "properties": {
+      "region": "Chongqing, China",
+      "evidence_type": "internal_reanalysis_not_patient_level",
+      "sample_size": 21459,
+      "seed": 20261107,
+      "split_method": "duplicate_content_group_aware_row_split",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_selected_population",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "队列经过结局相关筛选",
+    "canonical_name_en": "issue_d13_selected_population",
+    "definition": "D13排除6,496例重要数据缺失、1,444例住院死亡以及813例失访或卒中后约3个月内死亡者。",
+    "aliases_zh": [
+      "队列经过结局相关筛选"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_selected_population",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_PAPER",
+        "SRC_BOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_upstream_imputation",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "公开文件已上游随机森林插补",
+    "canonical_name_en": "issue_d13_upstream_imputation",
+    "definition": "公开CSV无空值，但实验室和NIHSS曾用随机森林插补；原始缺失位置、插补时机和是否使用结局均无法从公开表恢复。",
+    "aliases_zh": [
+      "公开文件已上游随机森林插补"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_upstream_imputation",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_PAPER",
+        "SRC_CODE",
+        "SRC_BOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_temporal_availability",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "变量统一时点无法验证",
+    "canonical_name_en": "issue_d13_temporal_availability",
+    "definition": "实验室按论文为入院后首组检验，但无逐例采血和报告时间；脑疝、脑积水等发生时间也可能晚于预测起点。",
+    "aliases_zh": [
+      "变量统一时点无法验证"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_temporal_availability",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_PAPER",
+        "SRC_BOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_dvt_definition",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "DVT可能被误归为住院并发症",
+    "canonical_name_en": "issue_d13_dvt_definition",
+    "definition": "原论文结果使用“history of DVT”，公开数据没有逐例时间。当前数据字典把dvt归入住院并发症，可能将其误作后验变量。",
+    "aliases_zh": [
+      "DVT可能被误归为住院并发症"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "provisional",
+    "properties": {
+      "issue_type": "issue_d13_dvt_definition",
+      "severity": "high",
+      "status": "needs_author_confirmation",
+      "source_ids": [
+        "SRC_PAPER",
+        "SRC_DICTIONARY"
+      ],
+      "evidence_favors": "past_history",
+      "current_handling": "exclude_S1_keep_S3_until_confirmed"
+    }
+  },
+  {
+    "entity_id": "issue_d13_range_lobe_collinearity",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "range_lobe与五个脑叶完全共线",
+    "canonical_name_en": "issue_d13_range_lobe_collinearity",
+    "definition": "range_lobe逐行等于额叶、顶叶、颞叶、枕叶和岛叶字段之和，不能与五个组成字段同时作为主模型输入后再解释独立系数。",
+    "aliases_zh": [
+      "range_lobe与五个脑叶完全共线"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_range_lobe_collinearity",
+      "severity": "high",
+      "status": "verified",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_age_protocol_conflict",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "公开数据年龄与原论文纳排标准不完全一致",
+    "canonical_name_en": "issue_d13_age_protocol_conflict",
+    "definition": "原论文纳入18-90岁，但公开CSV存在2例年龄小于18岁。主分析是否排除需按预设方案并做敏感性分析。",
+    "aliases_zh": [
+      "公开数据年龄与原论文纳排标准不完全一致"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_age_protocol_conflict",
+      "severity": "moderate",
+      "status": "verified",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_s2_main_model",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "S2实验室模型只能作为探索性演示",
+    "canonical_name_en": "issue_d13_s2_main_model",
+    "definition": "S2依赖入院后首组实验室变量和上游插补，缺少时间戳，不能作为已证明可在入院时部署的主模型。",
+    "aliases_zh": [
+      "S2实验室模型只能作为探索性演示"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_s2_main_model",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_BOUNDARY",
+        "SRC_PAPER"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_no_patient_id",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "没有患者级标识和事件日期",
+    "canonical_name_en": "issue_d13_no_patient_id",
+    "definition": "无法完成真实患者级拆分、事件时间重建或死亡竞争风险分析。完全相同内容组隔离只能减轻重复模式泄漏。",
+    "aliases_zh": [
+      "没有患者级标识和事件日期"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_no_patient_id",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_BOUNDARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_no_public_external_validation",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "公开数据不含原论文外部队列",
+    "canonical_name_en": "issue_d13_no_public_external_validation",
+    "definition": "原论文另报告536例阳性富集的外部验证队列，但当前公开CSV只有21,459条开发数据，不能把本次再分析称为外部验证。",
+    "aliases_zh": [
+      "公开数据不含原论文外部队列"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_no_public_external_validation",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_PAPER",
+        "SRC_DRYAD"
+      ]
+    }
+  },
+  {
+    "entity_id": "model_modified_select_2_0_meletti_2024",
+    "entity_type": "Model",
+    "canonical_name_zh": "Modified SeLECT 2.0（72小时NIHSS）",
+    "canonical_name_en": "Modified SeLECT 2.0 using 72-hour post-treatment NIHSS",
+    "definition": "Meletti 2024评估的修改版SeLECT 2.0：沿用SeLECT 2.0变量结构，以再灌注治疗后72小时NIHSS替代入院NIHSS。",
+    "aliases_zh": [
+      "Modified SeLECT 2.0",
+      "72小时NIHSS修改版SeLECT 2.0"
+    ],
+    "aliases_en": [
+      "modified SeLECT 2.0 using 72-hour NIHSS"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "SeLECT 2.0原版"
+    ],
+    "status": "provisional",
+    "properties": {
+      "model_version": "2024",
+      "model_status": "independent_modification_evaluation",
+      "outcome": "卒中后首次临床确认的无诱因发作",
+      "feature_set": "SeLECT 2.0 variables with 72-hour post-treatment NIHSS",
+      "inherits_components_from": "model_select_2_0",
+      "replaced_component": "入院NIHSS -> 72小时治疗后NIHSS",
+      "validation_status": "single-country independent_modification_evaluation",
+      "applicability": "接受静脉溶栓和/或血管内治疗的首次缺血性卒中患者",
+      "limitations": [
+        "属于修改模型评估，不是原版SeLECT 2.0的独立外部验证。",
+        "72小时NIHSS只适用于接受再灌注治疗并可完成随访评估者。"
+      ],
+      "source_ids": [
+        "MELETTI2024",
+        "SELECT_VAL_008"
+      ],
+      "score_range": "派生自0-13分SeLECT 2.0",
+      "formula_text": "SeLECT 2.0 formula with admission NIHSS replaced by 72-hour post-treatment NIHSS",
+      "formula_verification": "partially_verified_from_public_abstract",
+      "formula_limitation": "公开摘要确认测量时点替换；完整数值评分表仍需出版社全文核对。"
+    }
+  },
+  {
+    "entity_id": "score_component_modified_select_2_0_nihss_72h",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "Modified SeLECT 2.0：治疗后72小时NIHSS",
+    "canonical_name_en": "72-hour post-treatment NIHSS",
+    "definition": "在Modified SeLECT 2.0中替代入院NIHSS的卒中严重度评分项。",
+    "aliases_zh": [
+      "72小时NIHSS",
+      "治疗后72小时NIHSS"
+    ],
+    "aliases_en": [
+      "72-hour post-treatment NIHSS"
+    ],
+    "abbreviations": [
+      "72h NIHSS"
+    ],
+    "non_synonyms": [
+      "入院NIHSS"
+    ],
+    "status": "provisional",
+    "properties": {
+      "model_id": "model_modified_select_2_0_meletti_2024",
+      "component_order": 1,
+      "concept_entity_id": "concept_select_post_treatment_nihss",
+      "source_field_definition": "72-hour post-treatment NIHSS",
+      "scoring_rule": "以治疗后72小时NIHSS替代入院NIHSS；使用该修改版计算器时需按Meletti 2024原文核对严重度分层和预测公式。",
+      "time_condition": "再灌注治疗后72小时",
+      "d13_mapping_status": "absent",
+      "d13_mapped_field": null,
+      "d13_mapping_limitation": "D13只有入院NIHSS，没有治疗后72小时NIHSS。",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "MELETTI2024",
+        "SELECT_VAL_008"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_unit_conflict",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "部分实验室字段单位与量级不一致或未注明",
+    "canonical_name_en": "D13 laboratory unit conflicts",
+    "definition": "数据字典提示TG、LDL、HDL标注为mg/dL但数值量级符合mmol/L；D-dimer标注ng/mL但数值量级符合mg/L或µg/mL；Na、K、Cl、Ca、P未列单位。在单位经数据方确认前，不进行跨中心量纲合并或临床阈值解释。",
+    "aliases_zh": [
+      "D13单位冲突",
+      "实验室量纲待核对"
+    ],
+    "aliases_en": [
+      "D13 laboratory unit conflict"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "已完成的单位核验"
+    ],
+    "status": "provisional",
+    "properties": {
+      "issue_type": "unit_conflict_and_missing_units",
+      "severity": "moderate",
+      "status": "needs_author_confirmation",
+      "affected_fields": [
+        "tg",
+        "ldl",
+        "hdl",
+        "d_dimer",
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p"
+      ],
+      "source_ids": [
+        "SRC_DICTIONARY",
+        "SRC_PAPER"
+      ],
+      "pending_fields": [
+        "tg",
+        "ldl",
+        "hdl",
+        "d_dimer",
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p"
+      ],
+      "current_handling": "no_conversion; exclude_five_electrolytes_from_model"
+    }
+  },
+  {
+    "entity_id": "concept_select_asys_timing_type",
+    "entity_type": "ClinicalConcept",
+    "canonical_name_zh": "早期发作类型与发生日",
+    "canonical_name_en": "ASyS type and timing",
+    "definition": "区分卒中当天或其他日期发生的短发作类型及癫痫持续状态。",
+    "aliases_zh": [
+      "早期发作时相",
+      "ASyS时相与类型"
+    ],
+    "aliases_en": [
+      "acute symptomatic seizure type and timing"
+    ],
+    "abbreviations": [
+      "ASyS type/timing"
+    ],
+    "non_synonyms": [
+      "晚期无诱因发作"
+    ],
+    "status": "verified",
+    "properties": {
+      "domain": "early_poststroke_event",
+      "time_window": "卒中后0-7天",
+      "source_ids": [
+        "SCHUBERT2025_ASYS"
+      ]
+    }
+  },
+  {
+    "entity_id": "population_select_asys_early_seizure",
+    "entity_type": "Population",
+    "canonical_name_zh": "发生早期发作的成人缺血性卒中",
+    "canonical_name_en": "Adults with ischemic stroke and acute symptomatic seizures",
+    "definition": "卒中后7天内出现急性症状性发作的成人缺血性卒中患者。",
+    "aliases_zh": [
+      "SeLECT-ASyS适用人群"
+    ],
+    "aliases_en": [
+      "SeLECT-ASyS population"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "无早期发作人群"
+    ],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "成人缺血性卒中且存在7天内急性症状性发作",
+      "source_ids": [
+        "SCHUBERT2025_ASYS"
+      ]
+    }
+  },
+  {
+    "entity_id": "population_select_eeg_without_asys",
+    "entity_type": "Population",
+    "canonical_name_zh": "完成早期EEG且无早期发作的成人缺血性卒中",
+    "canonical_name_en": "Adults with early EEG and no acute symptomatic seizures",
+    "definition": "卒中后7天内完成EEG、没有急性症状性发作的成人缺血性卒中患者。",
+    "aliases_zh": [
+      "SeLECT-EEG适用人群"
+    ],
+    "aliases_en": [
+      "SeLECT-EEG population"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "有早期发作人群"
+    ],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "成人缺血性卒中，7天内完成EEG且无ASyS",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "population_post_reperfusion_ischemic",
+    "entity_type": "Population",
+    "canonical_name_zh": "接受再灌注治疗的首次缺血性卒中成人",
+    "canonical_name_en": "Adults with first ischemic stroke after reperfusion treatment",
+    "definition": "接受静脉溶栓和/或血管内治疗并完成72小时临床评估的首次缺血性卒中患者。",
+    "aliases_zh": [
+      "Modified SeLECT 2.0适用人群"
+    ],
+    "aliases_en": [
+      "post-reperfusion ischemic stroke population"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "未接受再灌注治疗人群"
+    ],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "首次缺血性卒中，接受IVT/EVT，完成72小时NIHSS",
+      "source_ids": [
+        "MELETTI2024"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_asys_cortical",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-ASyS：皮质受累",
+    "canonical_name_en": "Cortical involvement",
+    "definition": "是：1分；否：0分",
+    "aliases_zh": [
+      "皮质受累"
+    ],
+    "aliases_en": [
+      "Cortical involvement"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_asys",
+      "concept_entity_id": "concept_select_cortical_involvement",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "索引影像",
+      "d13_mapping_status": "derivable_composite",
+      "d13_mapping_limitation": "可由五脑叶任受累推导，影像标准需核实",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_ASYS"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_asys_laa_sex",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-ASyS：大动脉粥样硬化病因按性别分层",
+    "canonical_name_en": "Large-artery atherosclerosis stratified by sex",
+    "definition": "大动脉粥样硬化且女性：1分；男性：2分；否：0分",
+    "aliases_zh": [
+      "大动脉粥样硬化病因按性别分层"
+    ],
+    "aliases_en": [
+      "Large-artery atherosclerosis stratified by sex"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_asys",
+      "concept_entity_id": "concept_select_laa",
+      "scoring_rule": "大动脉粥样硬化且女性：1分；男性：2分；否：0分",
+      "time_condition": "卒中病因评估完成时",
+      "d13_mapping_status": "proxy_only",
+      "d13_mapping_limitation": "D13的large_ves_as不等同TOAST大动脉粥样硬化病因",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_ASYS"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_asys_timing_type",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-ASyS：早期发作类型与时相",
+    "canonical_name_en": "ASyS type and timing",
+    "definition": "FBTC−且第≥1天：0分；FBTC+或第0天（非持续状态）：1-2分；癫痫持续状态：4分",
+    "aliases_zh": [
+      "早期发作类型与时相"
+    ],
+    "aliases_en": [
+      "ASyS type and timing"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_asys",
+      "concept_entity_id": "concept_select_asys_timing_type",
+      "scoring_rule": "FBTC−且第≥1天：0分；FBTC+或第0天（非持续状态）：1-2分；癫痫持续状态：4分",
+      "time_condition": "卒中后0-7天",
+      "d13_mapping_status": "absent",
+      "d13_mapping_limitation": "D13无早期发作类型和完整7天事件字段",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_ASYS"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_eeg_nihss",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-EEG：NIHSS",
+    "canonical_name_en": "SeLECT-EEG NIHSS",
+    "definition": "NIHSS ≤3：0分；4-10：1分；≥11：2分",
+    "aliases_zh": [
+      "NIHSS"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_eeg",
+      "concept_entity_id": "concept_nihss",
+      "scoring_rule": "NIHSS ≤3：0分；4-10：1分；≥11：2分",
+      "time_condition": "入院时",
+      "d13_mapping_status": "exact_concept",
+      "d13_mapping_limitation": "D13入院NIHSS可精确对应",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_eeg_laa",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-EEG：大动脉粥样硬化病因",
+    "canonical_name_en": "SeLECT-EEG 大动脉粥样硬化病因",
+    "definition": "是：1分；否：0分",
+    "aliases_zh": [
+      "大动脉粥样硬化病因"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_eeg",
+      "concept_entity_id": "concept_select_laa",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "卒中病因评估完成时",
+      "d13_mapping_status": "proxy_only",
+      "d13_mapping_limitation": "D13 large_ves_as仅为代理",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_eeg_cortical",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-EEG：皮质受累",
+    "canonical_name_en": "SeLECT-EEG 皮质受累",
+    "definition": "是：2分；否：0分",
+    "aliases_zh": [
+      "皮质受累"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_eeg",
+      "concept_entity_id": "concept_select_cortical_involvement",
+      "scoring_rule": "是：2分；否：0分",
+      "time_condition": "索引影像",
+      "d13_mapping_status": "derivable_composite",
+      "d13_mapping_limitation": "由五脑叶任受累推导",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_eeg_mca",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-EEG：MCA供血区梗死",
+    "canonical_name_en": "SeLECT-EEG MCA供血区梗死",
+    "definition": "是：1分；否：0分",
+    "aliases_zh": [
+      "MCA供血区梗死"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_eeg",
+      "concept_entity_id": "concept_select_mca_territory",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "索引影像",
+      "d13_mapping_status": "not_equivalent_proxy",
+      "d13_mapping_limitation": "D13 mca为血管狭窄/闭塞",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_eeg_regional_slow",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-EEG：EEG区域慢波",
+    "canonical_name_en": "SeLECT-EEG EEG区域慢波",
+    "definition": "是：1分；否：0分",
+    "aliases_zh": [
+      "EEG区域慢波"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_eeg",
+      "concept_entity_id": "concept_select_regional_slow",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "卒中后0-7天EEG",
+      "d13_mapping_status": "absent",
+      "d13_mapping_limitation": "D13无EEG字段",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "score_component_select_eeg_epileptiform",
+    "entity_type": "ScoreComponent",
+    "canonical_name_zh": "SeLECT-EEG：任一癫痫样活动",
+    "canonical_name_en": "SeLECT-EEG 任一癫痫样活动",
+    "definition": "是：1分；否：0分",
+    "aliases_zh": [
+      "任一癫痫样活动"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "model_id": "model_select_eeg",
+      "concept_entity_id": "concept_select_eeg_epileptiform",
+      "scoring_rule": "是：1分；否：0分",
+      "time_condition": "卒中后0-7天EEG",
+      "d13_mapping_status": "absent",
+      "d13_mapping_limitation": "D13无EEG字段",
+      "d13_mapping_authority": "score_component_property",
+      "source_ids": [
+        "SCHUBERT2025_EEG"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_dataset_wenzhou_167",
+    "entity_type": "Dataset",
+    "canonical_name_zh": "温州167例公开卒中逐例数据",
+    "canonical_name_en": "Wenzhou 167-case public stroke dataset",
+    "definition": "网络公开卒中后发作队列，167行，其中缺血性卒中111例、出血性卒中56例。",
+    "aliases_zh": [
+      "温州卒中网络数据"
+    ],
+    "aliases_en": [
+      "Wenzhou stroke dataset"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "D13"
+    ],
+    "status": "verified",
+    "properties": {
+      "row_count": 167,
+      "column_count": 37,
+      "provenance_type": "network_public",
+      "license": "CC BY",
+      "used_in_d13_training": false,
+      "sha256": "98d04a5eb44813e223f9150913637ccc9368d20e1adff80edb11a6bd1af900d4",
+      "source_ids": [
+        "SRC_NETWORK_WENZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_population_wenzhou_early_seizure",
+    "entity_type": "Population",
+    "canonical_name_zh": "温州卒中后7天内早期发作患者",
+    "canonical_name_en": "Wenzhou early post-stroke seizure cohort",
+    "definition": "温州网络公开数据中发生7天内早期发作的患者；缺血性卒中111例，其中PSE阳性31例。",
+    "aliases_zh": [
+      "温州早期发作队列"
+    ],
+    "aliases_en": [
+      "Wenzhou early seizure cohort"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "一般卒中人群"
+    ],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "卒中后7天内发生早期发作",
+      "ischemic_count": 111,
+      "pse_positive": 31,
+      "source_ids": [
+        "SRC_NETWORK_WENZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_outcome_wenzhou_pse",
+    "entity_type": "Outcome",
+    "canonical_name_zh": "温州队列的卒中后癫痫标签",
+    "canonical_name_en": "Wenzhou PSE label",
+    "definition": "论文定义的PSE二分类结果，并提供首次晚期事件相对天数和随访相对天数。",
+    "aliases_zh": [
+      "温州PSE标签"
+    ],
+    "aliases_en": [
+      "Wenzhou PSE label"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "D13 second_epilepsy"
+    ],
+    "status": "verified",
+    "properties": {
+      "operational_definition": "研究定义PSE",
+      "time_window": "相对卒中时间；无绝对日期",
+      "source_ids": [
+        "SRC_NETWORK_WENZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_dataset_suzhou_anhui_149",
+    "entity_type": "Dataset",
+    "canonical_name_zh": "苏州/安徽149例急性缺血性卒中数据",
+    "canonical_name_en": "Suzhou/Anhui 149-case acute ischemic stroke dataset",
+    "definition": "网络公开149例急性缺血性卒中逐例表，有NIHSS、TOAST、日期和90天mRS，无癫痫结局。",
+    "aliases_zh": [
+      "苏州安徽网络数据"
+    ],
+    "aliases_en": [
+      "Suzhou Anhui stroke dataset"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "卒中后癫痫队列"
+    ],
+    "status": "verified",
+    "properties": {
+      "row_count": 149,
+      "column_count": 18,
+      "provenance_type": "network_public",
+      "license": "CC BY 4.0",
+      "used_in_d13_training": false,
+      "has_seizure_outcome": false,
+      "sha256": "3c5ac869d63371d84419b04353eeed127b65edd87214cdb1df04fdad3c3fe2fa",
+      "source_ids": [
+        "SRC_NETWORK_SUZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_population_suzhou_anhui_ischemic",
+    "entity_type": "Population",
+    "canonical_name_zh": "苏州/安徽急性缺血性卒中患者",
+    "canonical_name_en": "Suzhou/Anhui acute ischemic stroke patients",
+    "definition": "网络公开149例急性缺血性卒中患者。",
+    "aliases_zh": [
+      "苏州安徽急性缺血性卒中人群"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [
+      "出血性卒中"
+    ],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "急性缺血性卒中",
+      "size": 149,
+      "source_ids": [
+        "SRC_NETWORK_SUZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_dataset_winder_28",
+    "entity_type": "Dataset",
+    "canonical_name_zh": "Winder 28例公开病例系列",
+    "canonical_name_en": "Winder 28-case public case series",
+    "definition": "网络公开28例病例表，含梗死部位、TOAST和发作类型，缺完整时间和随访。",
+    "aliases_zh": [
+      "Winder病例系列"
+    ],
+    "aliases_en": [
+      "Winder case series"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "完整随访队列"
+    ],
+    "status": "verified",
+    "properties": {
+      "row_count": 28,
+      "column_count": 6,
+      "provenance_type": "network_public",
+      "license": "CC BY-NC",
+      "used_in_d13_training": false,
+      "sha256": "e9799e45d7fe148057866ad1dc97b260fb97b4f7ae4690b2bb5af4196cc4e576",
+      "source_ids": [
+        "SRC_NETWORK_WINDER"
+      ]
+    }
+  },
+  {
+    "entity_id": "network_population_winder_case_series",
+    "entity_type": "Population",
+    "canonical_name_zh": "Winder卒中后发作病例系列人群",
+    "canonical_name_en": "Winder post-stroke seizure case series",
+    "definition": "从论文表1整理的28例卒中后发作病例；不是分母明确的队列。",
+    "aliases_zh": [
+      "Winder 28例"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [
+      "连续卒中队列"
+    ],
+    "status": "verified",
+    "properties": {
+      "inclusion_summary": "论文表1卒中后发作病例",
+      "size": 28,
+      "source_ids": [
+        "SRC_NETWORK_WINDER"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_wenzhou_100_field_feasibility",
+    "entity_type": "Study",
+    "canonical_name_zh": "温州100例字段可行性验证",
+    "canonical_name_en": "Wenzhou 100-case field feasibility assessment",
+    "definition": "从温州111例缺血性卒中采用固定种子抽取100例，对25个最小核心字段逐项评估直接可取、可推导、部分可推导和缺失情况。",
+    "aliases_zh": [
+      "温州100例字段验证"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [
+      "正式临床验证"
+    ],
+    "status": "verified",
+    "properties": {
+      "region": "Wenzhou, China",
+      "evidence_type": "secondary_public_data_field_feasibility",
+      "sample_size": 100,
+      "direct_fields": 6,
+      "derivable_fields": 5,
+      "partially_derivable_fields": 3,
+      "missing_fields": 11,
+      "source_ids": [
+        "SRC_NETWORK_FEASIBILITY_20261107"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_network_sources_not_combinable",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "网络卒中数据不能直接合并",
+    "canonical_name_en": "issue_network_sources_not_combinable",
+    "definition": "三个网络来源的人群、结局和时间结构不同，且没有跨库患者链接，不能把344行相加后当作一个队列。",
+    "aliases_zh": [
+      "网络卒中数据不能直接合并"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_network_sources_not_combinable",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_NETWORK_WENZHOU",
+        "SRC_NETWORK_SUZHOU",
+        "SRC_NETWORK_WINDER"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_wenzhou_early_seizure_selection",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "温州数据仅包含早期发作患者",
+    "canonical_name_en": "issue_wenzhou_early_seizure_selection",
+    "definition": "温州167例均有7天内发作，缺血性111例中PSE阳性31例；不能代表一般卒中人群，也不能估计总体发病率。",
+    "aliases_zh": [
+      "温州数据仅包含早期发作患者"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_wenzhou_early_seizure_selection",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_NETWORK_WENZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_wenzhou_death_docs_missing",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "温州数据缺死亡、绝对日期和文书证据",
+    "canonical_name_en": "issue_wenzhou_death_docs_missing",
+    "definition": "有相对随访和事件天数，但没有死亡日期、绝对随访日期、失访原因和逐例文书，不能完成Fine-Gray或严格临床裁决。",
+    "aliases_zh": [
+      "温州数据缺死亡、绝对日期和文书证据"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_wenzhou_death_docs_missing",
+      "severity": "critical",
+      "status": "verified",
+      "source_ids": [
+        "SRC_NETWORK_WENZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_suzhou_no_seizure_outcome",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "苏州/安徽数据无癫痫结局",
+    "canonical_name_en": "issue_suzhou_no_seizure_outcome",
+    "definition": "149例包含NIHSS、TOAST、日期和90天mRS，但没有癫痫或晚期无诱因发作结局。",
+    "aliases_zh": [
+      "苏州/安徽数据无癫痫结局"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_suzhou_no_seizure_outcome",
+      "severity": "high",
+      "status": "verified",
+      "source_ids": [
+        "SRC_NETWORK_SUZHOU"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_winder_case_series_no_followup",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "Winder数据是病例系列",
+    "canonical_name_en": "issue_winder_case_series_no_followup",
+    "definition": "28例有部位、TOAST和发作类型，但缺连续分母、发作时间和完整随访。",
+    "aliases_zh": [
+      "Winder数据是病例系列"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_winder_case_series_no_followup",
+      "severity": "high",
+      "status": "verified",
+      "source_ids": [
+        "SRC_NETWORK_WINDER"
+      ]
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s1_v03_modeling",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S1 v0.3主模型建模特征集",
+    "canonical_name_en": "feature_set_d13_s1_v03_modeling",
+    "definition": "Claude校正版v0.3实际建模字段，共28项。",
+    "aliases_zh": [
+      "D13 S1 v0.3主模型建模特征集"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "provisional",
+    "properties": {
+      "feature_set_id": "feature_set_d13_s1_v03_modeling",
+      "features": [
+        "uremia",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "frontal_lobe",
+        "parietal_lobe",
+        "temporal_lobe",
+        "occipital_lobe",
+        "insular_lobe",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "subcortex_lobe",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "nihss"
+      ],
+      "feature_count": 28,
+      "role": "primary_main_candidate",
+      "task3_excluded_fields": [],
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s2_v03_exploratory",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S2 v0.3实验室探索特征集",
+    "canonical_name_en": "feature_set_d13_s2_v03_exploratory",
+    "definition": "D13 v0.3交付模型包记录的实际建模字段，共62项；电解质单位仍待核实。仅用于探索性分析。",
+    "aliases_zh": [
+      "D13 S2 v0.3实验室探索特征集"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "provisional",
+    "properties": {
+      "feature_set_id": "feature_set_d13_s2_v03_exploratory",
+      "features": [
+        "uremia",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "frontal_lobe",
+        "parietal_lobe",
+        "temporal_lobe",
+        "occipital_lobe",
+        "insular_lobe",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "subcortex_lobe",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "plt",
+        "wbc",
+        "rbc",
+        "hba1c",
+        "crp",
+        "tg",
+        "ldl",
+        "hdl",
+        "ast",
+        "alt",
+        "bilirubin",
+        "albumin",
+        "urea",
+        "creatinine",
+        "bua",
+        "pt",
+        "aptt",
+        "tt",
+        "inr",
+        "d_dimer",
+        "fibrinogen",
+        "ck",
+        "ck_mb",
+        "ldh",
+        "hbdh",
+        "ima",
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p",
+        "lactate",
+        "anion_gap",
+        "tco2",
+        "nihss"
+      ],
+      "feature_count": 62,
+      "role": "exploratory_post_imputation_laboratory",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_MODEL",
+        "SRC_D13_V03"
+      ],
+      "pending_unit_verification_fields": [
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p"
+      ]
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s3_v03_sensitivity",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S3 v0.3泄漏敏感性特征集",
+    "canonical_name_en": "feature_set_d13_s3_v03_sensitivity",
+    "definition": "D13 v0.3交付模型包记录的实际建模字段，共66项；电解质单位仍待核实。仅用于泄漏敏感性分析。",
+    "aliases_zh": [
+      "D13 S3 v0.3泄漏敏感性特征集"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "provisional",
+    "properties": {
+      "feature_set_id": "feature_set_d13_s3_v03_sensitivity",
+      "features": [
+        "uremia",
+        "dvt",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "cerebral_hernia",
+        "hydrocephalus",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "hypoproteinemia",
+        "frontal_lobe",
+        "parietal_lobe",
+        "temporal_lobe",
+        "occipital_lobe",
+        "insular_lobe",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "subcortex_lobe",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "plt",
+        "wbc",
+        "rbc",
+        "hba1c",
+        "crp",
+        "tg",
+        "ldl",
+        "hdl",
+        "ast",
+        "alt",
+        "bilirubin",
+        "albumin",
+        "urea",
+        "creatinine",
+        "bua",
+        "pt",
+        "aptt",
+        "tt",
+        "inr",
+        "d_dimer",
+        "fibrinogen",
+        "ck",
+        "ck_mb",
+        "ldh",
+        "hbdh",
+        "ima",
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p",
+        "lactate",
+        "anion_gap",
+        "tco2",
+        "nihss"
+      ],
+      "feature_count": 66,
+      "role": "sensitivity_leakage_risk_only",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_MODEL",
+        "SRC_D13_V03"
+      ],
+      "pending_unit_verification_fields": [
+        "na",
+        "k",
+        "cl",
+        "ca",
+        "p"
+      ]
+    }
+  },
+  {
+    "entity_id": "feature_set_d13_s1_alt_v03",
+    "entity_type": "FeatureSet",
+    "canonical_name_zh": "D13 S1 v0.3替代编码特征集",
+    "canonical_name_en": "feature_set_d13_s1_alt_v03",
+    "definition": "Claude校正版v0.3实际建模字段，共30项。",
+    "aliases_zh": [
+      "D13 S1 v0.3替代编码特征集"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "provisional",
+    "properties": {
+      "feature_set_id": "feature_set_d13_s1_alt_v03",
+      "features": [
+        "uremia",
+        "fatty_liver",
+        "diabetes",
+        "hypertension",
+        "coronary_disease",
+        "atrial_fibrillation",
+        "hyperuricemia",
+        "hyperlipidaemia",
+        "range_lobe",
+        "basal_ganglia",
+        "capsula_interna",
+        "brainstem",
+        "epencephalon",
+        "paraventricular",
+        "centrum_semiovale",
+        "thalamus",
+        "aca",
+        "mca",
+        "pca",
+        "va",
+        "ba",
+        "gender",
+        "cca_plaque",
+        "ica_plaque",
+        "eca_plaque",
+        "ant_circle",
+        "post_circle",
+        "large_ves_as",
+        "age",
+        "nihss"
+      ],
+      "feature_count": 30,
+      "role": "sensitivity_encoding_alternative",
+      "task3_excluded_fields": [],
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "model_d13_s1_lr_platt_v0_3",
+    "entity_type": "Model",
+    "canonical_name_zh": "D13一年内继发性癫痫校正演示模型（基线）",
+    "canonical_name_en": "D13-S1-LR-Platt-v0.3",
+    "definition": "基于D13公开数据、以S1核心基线为主模型的校正演示模型；S2/S3仅作探索和泄漏敏感性。",
+    "aliases_zh": [
+      "D13校正演示模型",
+      "D13基线模型"
+    ],
+    "aliases_en": [
+      "D13-S1-LR-Platt-v0.3"
+    ],
+    "abbreviations": [
+      "D13 v0.3"
+    ],
+    "non_synonyms": [
+      "SeLECT",
+      "临床验证模型"
+    ],
+    "status": "provisional",
+    "properties": {
+      "model_version": "0.3",
+      "model_status": "research_demo_frozen",
+      "outcome": "outcome_second_epilepsy",
+      "feature_set": "feature_set_d13_s1_v03_modeling",
+      "validation_status": "internal_duplicate_group_aware_reanalysis",
+      "test_auc": 0.8914527849369989,
+      "test_auprc": 0.2865507599699314,
+      "test_brier_raw": 0.038532200817410434,
+      "test_brier_calibrated": 0.03828365744952747,
+      "test_rows": 4226,
+      "test_positives": 194,
+      "model_bundle_sha256": "60896dd26ae944f2a89aa13b8a910d8cf7a4d01504c0ccc8efe2a032f9976421",
+      "provenance_type": "network_public",
+      "main_interpretation": "公开网络数据研究演示，不是临床验证模型",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_PAPER",
+        "SRC_MODEL",
+        "SRC_BOUNDARY",
+        "SRC_D13_V03"
+      ],
+      "research_demo_url": "/workspace?view=single&scenario=stroke"
+    }
+  },
+  {
+    "entity_id": "study_d13_v03_internal_reanalysis",
+    "entity_type": "Study",
+    "canonical_name_zh": "D13 v0.3校正内部再分析",
+    "canonical_name_en": "D13 v0.3 corrected internal reanalysis",
+    "definition": "校正版D13内部再分析；主模型从S2改为S1，主分析剔除2例年龄小于18岁，非外部验证。",
+    "aliases_zh": [
+      "D13 v0.3再分析"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [
+      "external validation"
+    ],
+    "status": "provisional",
+    "properties": {
+      "region": "Chongqing, China",
+      "evidence_type": "internal_reanalysis",
+      "sample_size": 21457,
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_MODEL"
+      ]
+    }
+  },
+  {
+    "entity_id": "issue_d13_subcortex_lobe_overlap",
+    "entity_type": "DataQualityIssue",
+    "canonical_name_zh": "subcortex_lobe与皮质下分量高度重叠",
+    "canonical_name_en": "issue_d13_subcortex_lobe_overlap",
+    "definition": "subcortex_lobe是皮质下受累汇总二分类，与basal_ganglia、paraventricular等分量高度相关但并非分量之和。",
+    "aliases_zh": [
+      "subcortex_lobe与皮质下分量高度重叠"
+    ],
+    "aliases_en": [],
+    "abbreviations": [],
+    "non_synonyms": [],
+    "status": "verified",
+    "properties": {
+      "issue_type": "issue_d13_subcortex_lobe_overlap",
+      "severity": "high",
+      "status": "verified",
+      "source_ids": [
+        "SRC_DRYAD",
+        "SRC_DICTIONARY"
+      ]
+    }
+  },
+  {
+    "entity_id": "study_five_arch_a_20261107",
+    "entity_type": "Study",
+    "canonical_name_zh": "架构 A：入院特征基准",
+    "canonical_name_en": "Architecture A: Admission feature benchmark",
+    "definition": "D13 公开队列 21,459 例；36 项入院特征；比较 LR、LightGBM、TabPFN。固定划分的内部基准研究，非外部验证。",
+    "aliases_zh": [
+      "算法架构A"
+    ],
+    "aliases_en": [
+      "study A"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "减药后复发模型",
+      "外部临床验证"
+    ],
+    "status": "provisional",
+    "properties": {
+      "source_ids": [
+        "SRC_FIVE_ARCH_RESULTS_20261107",
+        "SRC_FIVE_ARCH_CODE_20261107"
+      ],
+      "dataset_id": "dataset_d13",
+      "outcome_id": "outcome_second_epilepsy",
+      "data_provenance": "公开真实队列",
+      "analysis_type": "入院基线预测",
+      "feature_count": 36,
+      "validation_status": "交付包核对；非独立复跑或外部验证"
+    }
+  },
+  {
+    "entity_id": "study_five_arch_b_20261107",
+    "entity_type": "Study",
+    "canonical_name_zh": "架构 B：实验室特征增量",
+    "canonical_name_en": "Architecture B: Laboratory feature increment",
+    "definition": "D13 公开队列 21,459 例；在 36 项入院特征上增加 34 项实验室特征，共 70 项。与 A 共用固定测试集。",
+    "aliases_zh": [
+      "算法架构B"
+    ],
+    "aliases_en": [
+      "study B"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "减药后复发模型",
+      "外部临床验证"
+    ],
+    "status": "provisional",
+    "properties": {
+      "source_ids": [
+        "SRC_FIVE_ARCH_RESULTS_20261107",
+        "SRC_FIVE_ARCH_CODE_20261107"
+      ],
+      "dataset_id": "dataset_d13",
+      "outcome_id": "outcome_second_epilepsy",
+      "data_provenance": "公开真实队列",
+      "analysis_type": "实验室增量研究",
+      "feature_count": 70,
+      "validation_status": "交付包核对；非独立复跑或外部验证"
+    }
+  },
+  {
+    "entity_id": "study_five_arch_c_20261107",
+    "entity_type": "Study",
+    "canonical_name_zh": "架构 C：卒中后并发症边界检验",
+    "canonical_name_en": "Architecture C: Post-stroke complication boundary test",
+    "definition": "D13 公开队列 21,459 例；在 B 的 70 项上增加 4 项卒中后并发症。后发生变量有时间泄漏风险，不能作为入院时预测字段直接部署。",
+    "aliases_zh": [
+      "算法架构C"
+    ],
+    "aliases_en": [
+      "study C"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "减药后复发模型",
+      "外部临床验证"
+    ],
+    "status": "provisional",
+    "properties": {
+      "source_ids": [
+        "SRC_FIVE_ARCH_RESULTS_20261107",
+        "SRC_FIVE_ARCH_CODE_20261107"
+      ],
+      "dataset_id": "dataset_d13",
+      "outcome_id": "outcome_second_epilepsy",
+      "data_provenance": "公开真实队列",
+      "analysis_type": "时间泄漏敏感性",
+      "feature_count": 74,
+      "validation_status": "交付包核对；非独立复跑或外部验证"
+    }
+  },
+  {
+    "entity_id": "study_five_arch_d_20261107",
+    "entity_type": "Study",
+    "canonical_name_zh": "架构 D：卒中后首次早期发作时点预测",
+    "canonical_name_en": "Architecture D: Prediction after early post-stroke seizure",
+    "definition": "温州 167 例去标识单中心队列，均为卒中后 7 天内早期发作；研究后续 PSE，核心 8 项和扩展 24 项特征，重复分层交叉验证，非外部验证。",
+    "aliases_zh": [
+      "算法架构D"
+    ],
+    "aliases_en": [
+      "study D"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "减药后复发模型",
+      "外部临床验证"
+    ],
+    "status": "provisional",
+    "properties": {
+      "source_ids": [
+        "SRC_FIVE_ARCH_RESULTS_20261107",
+        "SRC_FIVE_ARCH_CODE_20261107"
+      ],
+      "dataset_id": "network_dataset_wenzhou_167",
+      "outcome_id": "network_outcome_wenzhou_pse",
+      "data_provenance": "单中心真实队列",
+      "analysis_type": "卒中后早期发作预测",
+      "feature_count": 8,
+      "validation_status": "交付包核对；非独立复跑或外部验证",
+      "research_demo_url": "/workspace?view=single&scenario=first"
+    }
+  },
+  {
+    "entity_id": "study_five_arch_e_20261107",
+    "entity_type": "Study",
+    "canonical_name_zh": "架构 E：抗发作药物与晚期 PSE 关联",
+    "canonical_name_en": "Architecture E: ASM and later PSE association",
+    "definition": "温州同一 167 例去标识队列；比较接受与未接受 ASM 者的后续 PSE。属于观察性关联分析，不是独立预测模型，也不能推断用药因果效果。",
+    "aliases_zh": [
+      "算法架构E"
+    ],
+    "aliases_en": [
+      "study E"
+    ],
+    "abbreviations": [],
+    "non_synonyms": [
+      "减药后复发模型",
+      "外部临床验证"
+    ],
+    "status": "provisional",
+    "properties": {
+      "source_ids": [
+        "SRC_FIVE_ARCH_RESULTS_20261107",
+        "SRC_FIVE_ARCH_CODE_20261107"
+      ],
+      "dataset_id": "network_dataset_wenzhou_167",
+      "outcome_id": "network_outcome_wenzhou_pse",
+      "data_provenance": "单中心真实队列",
+      "analysis_type": "观察性关联分析",
+      "feature_count": null,
+      "validation_status": "交付包核对；非独立复跑或外部验证"
+    }
+  }
+]

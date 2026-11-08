@@ -1,0 +1,24 @@
+{
+  "version": "0.6-platform-integrated",
+  "nodes": 187,
+  "edges": 643,
+  "claims": 52,
+  "sources": 39,
+  "feature_set_counts": {
+    "feature_set_d13_s1_v03_modeling": 28,
+    "feature_set_d13_s2_v03_exploratory": 62,
+    "feature_set_d13_s3_v03_sensitivity": 66,
+    "feature_set_d13_s1_alt_v03": 30
+  },
+  "duplicate_node_ids": false,
+  "duplicate_edge_ids": false,
+  "duplicate_claim_ids": false,
+  "duplicate_semantic_edges": [],
+  "dangling_edges": [],
+  "unknown_source_ids": [],
+  "unknown_claim_ids": [],
+  "missing_local_sources": [],
+  "embedded_sidecar_consistent": true,
+  "model_claim_present": true,
+  "passed": true
+}

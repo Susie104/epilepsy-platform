@@ -1,0 +1,12 @@
+# Local runtime files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+*.log
+*.tmp
+platform/var/
+platform/model/
+models/stroke-five-studies/data/wenzhou/*.csv

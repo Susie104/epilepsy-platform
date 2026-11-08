@@ -1,0 +1,724 @@
+{
+  "name": "卒中后癫痫知识图谱网络数据与模型整合版",
+  "version": "0.6",
+  "created_at": "2026-11-07",
+  "principles": [
+    "一个概念只保留一个 canonical entity；同义词作为别名，不建立重复节点。",
+    "数据字段与临床概念分开：field_wbc 是变量，白细胞计数是临床概念。",
+    "卒中后发作不等于卒中后癫痫；早期急性症状性发作不等于晚期无诱因发作。",
+    "模型关联不等于因果关系；关系必须记录来源、人群、时间条件和证据状态。",
+    "未确认问题必须显式标记为 pending，不能写入默认事实。"
+  ],
+  "normalization": {
+    "unicode": "NFKC",
+    "english_case": "lowercase",
+    "strip_characters": [
+      "space",
+      "underscore",
+      "hyphen",
+      "brackets",
+      "slash",
+      "colon",
+      "comma",
+      "period"
+    ],
+    "chinese_policy": "统一全角/半角，去除括号解释后进行别名匹配；诊断裁决仍读取原文。",
+    "abbreviation_policy": "缩写只在实体类型和上下文匹配时使用；PSE、BA、CA等歧义缩写不得全局强制映射。"
+  },
+  "entity_types": {
+    "Dataset": {
+      "definition": "一次可识别、可版本化的数据交付。",
+      "required_properties": [
+        "version",
+        "row_count",
+        "column_count",
+        "source_ids"
+      ],
+      "identity_rule": "同一版本对应一个 Dataset；不同版本保留不同版本号。"
+    },
+    "Population": {
+      "definition": "研究纳入人群及其边界条件。",
+      "required_properties": [
+        "inclusion_summary",
+        "source_ids"
+      ],
+      "identity_rule": "疾病、年龄、卒中类型或索引条件不同，不能合并为同一 Population。"
+    },
+    "Disease": {
+      "definition": "被研究或解释的疾病实体。",
+      "required_properties": [
+        "definition",
+        "source_ids"
+      ],
+      "identity_rule": "缺血性卒中、出血性卒中和卒中后癫痫必须分别建模。"
+    },
+    "Outcome": {
+      "definition": "用于研究判定的事件、标签或结局。",
+      "required_properties": [
+        "operational_definition",
+        "time_window",
+        "status",
+        "source_ids"
+      ],
+      "identity_rule": "数据标签、临床诊断和预测终点必须区分。"
+    },
+    "ResearchVariable": {
+      "definition": "数据库或数据字典中的一个机器字段。",
+      "required_properties": [
+        "field_name",
+        "data_type",
+        "group",
+        "time_availability",
+        "leakage",
+        "source_ids"
+      ],
+      "identity_rule": "一个数据库字段对应一个实体；中文标签只是别名，不另建实体。"
+    },
+    "ClinicalConcept": {
+      "definition": "独立于数据字段的临床测量或风险因素概念。",
+      "required_properties": [
+        "definition",
+        "domain",
+        "source_ids"
+      ],
+      "identity_rule": "同一临床概念可对应多个数据库字段；字段名和临床概念不能混为同一实体。"
+    },
+    "AnatomicalStructure": {
+      "definition": "脑区、血管或其他解剖结构。",
+      "required_properties": [
+        "parents",
+        "source_ids"
+      ],
+      "identity_rule": "同一解剖结构的全称、缩写和中文名合并。"
+    },
+    "ClinicalEvent": {
+      "definition": "发生时间明确或不明确的临床事件。",
+      "required_properties": [
+        "event_definition",
+        "time_basis",
+        "source_ids"
+      ],
+      "identity_rule": "急性症状性发作、晚期无诱因发作、死亡和失访不能合并。"
+    },
+    "DefinitionConcept": {
+      "definition": "用于定义结局、时间窗或研究规则的概念。",
+      "required_properties": [
+        "clinical_rule",
+        "limitations",
+        "status",
+        "source_ids"
+      ],
+      "identity_rule": "旧术语可作为别名保留，但不得覆盖新术语。"
+    },
+    "DecisionPoint": {
+      "definition": "尚未由临床或项目负责人确定的规则选择。",
+      "required_properties": [
+        "question",
+        "options",
+        "owner",
+        "status"
+      ],
+      "identity_rule": "每个未决问题单独建节点，不能伪装成已确认事实。"
+    },
+    "Model": {
+      "definition": "锁定版本、特征集、训练人群和校准方法的预测模型。",
+      "required_properties": [
+        "model_version",
+        "outcome",
+        "feature_set",
+        "validation_status",
+        "source_ids"
+      ],
+      "identity_rule": "不同算法、特征集、训练数据或校准版本分别建实体。"
+    },
+    "Study": {
+      "definition": "针对模型的开发、验证、更新或比较研究。",
+      "required_properties": [
+        "region",
+        "evidence_type",
+        "source_ids"
+      ],
+      "identity_rule": "同一研究版本对应一个 Study；不同外部验证或修改研究不能合并。"
+    },
+    "ScoreComponent": {
+      "definition": "某一锁定模型版本中的独立评分变量及其计分规则。",
+      "required_properties": [
+        "model_id",
+        "concept_entity_id",
+        "scoring_rule",
+        "time_condition",
+        "source_ids"
+      ],
+      "identity_rule": "同一临床概念在不同模型或不同计分版本中分别建立 ScoreComponent。"
+    },
+    "FeatureSet": {
+      "definition": "一组固定版本、固定字段清单的模型输入集合。",
+      "required_properties": [
+        "feature_set_id",
+        "feature_count",
+        "role",
+        "source_ids"
+      ],
+      "identity_rule": "字段、数据版本或用途发生改变时必须创建新的 FeatureSet。"
+    },
+    "DataQualityIssue": {
+      "definition": "影响解释、可部署性、验证或复现的数据与设计问题。",
+      "required_properties": [
+        "issue_type",
+        "severity",
+        "status",
+        "source_ids"
+      ],
+      "identity_rule": "同一问题可影响多个对象，但问题本身只建立一个节点。"
+    }
+  },
+  "relation_types": {
+    "BELONGS_TO_DATASET": {
+      "label_zh": "属于数据集",
+      "domain": [
+        "ResearchVariable"
+      ],
+      "range": [
+        "Dataset"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "MEASURES": {
+      "label_zh": "测量临床概念",
+      "domain": [
+        "ResearchVariable"
+      ],
+      "range": [
+        "ClinicalConcept"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "STUDIES_POPULATION": {
+      "label_zh": "研究人群",
+      "domain": [
+        "Dataset"
+      ],
+      "range": [
+        "Population"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "HAS_INDEX_DISEASE": {
+      "label_zh": "索引疾病",
+      "domain": [
+        "Population"
+      ],
+      "range": [
+        "Disease"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "HAS_OUTCOME": {
+      "label_zh": "研究结局",
+      "domain": [
+        "Population"
+      ],
+      "range": [
+        "Outcome"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "OCCURS_IN": {
+      "label_zh": "发生于人群中",
+      "domain": [
+        "Outcome",
+        "ClinicalEvent"
+      ],
+      "range": [
+        "Population"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "PROXY_FOR": {
+      "label_zh": "代理表示",
+      "domain": [
+        "Outcome"
+      ],
+      "range": [
+        "Disease",
+        "Outcome"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "proxy_limitations",
+        "source_ids",
+        "status"
+      ]
+    },
+    "DEFINES_RULE_FOR": {
+      "label_zh": "定义规则",
+      "domain": [
+        "DefinitionConcept"
+      ],
+      "range": [
+        "Outcome",
+        "ClinicalEvent"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "evidence_locator",
+        "status"
+      ]
+    },
+    "POSITIVELY_ASSOCIATED_WITH": {
+      "label_zh": "正向关联",
+      "domain": [
+        "ResearchVariable",
+        "ClinicalConcept",
+        "ClinicalEvent",
+        "DefinitionConcept",
+        "AnatomicalStructure"
+      ],
+      "range": [
+        "Outcome"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "population",
+        "time_condition",
+        "source_ids",
+        "evidence_locator",
+        "status"
+      ]
+    },
+    "NEGATIVELY_ASSOCIATED_WITH": {
+      "label_zh": "负向关联",
+      "domain": [
+        "ResearchVariable",
+        "ClinicalConcept",
+        "ClinicalEvent",
+        "DefinitionConcept",
+        "AnatomicalStructure"
+      ],
+      "range": [
+        "Outcome"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "population",
+        "time_condition",
+        "source_ids",
+        "evidence_locator",
+        "status"
+      ]
+    },
+    "PREDICTS": {
+      "label_zh": "预测",
+      "domain": [
+        "Model"
+      ],
+      "range": [
+        "Outcome"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "model_id",
+        "population",
+        "time_condition",
+        "status"
+      ]
+    },
+    "USES_CLINICAL_CONCEPT": {
+      "label_zh": "使用临床概念",
+      "domain": [
+        "Model"
+      ],
+      "range": [
+        "ClinicalConcept"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "HAS_SCORE_COMPONENT": {
+      "label_zh": "包含评分变量",
+      "domain": [
+        "Model"
+      ],
+      "range": [
+        "ScoreComponent"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "SCORES_CONCEPT": {
+      "label_zh": "评分临床概念",
+      "domain": [
+        "ScoreComponent"
+      ],
+      "range": [
+        "ClinicalConcept"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "HAS_FEATURE_SET": {
+      "label_zh": "使用特征集合",
+      "domain": [
+        "Model"
+      ],
+      "range": [
+        "FeatureSet"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "CONTAINS_VARIABLE": {
+      "label_zh": "包含研究变量",
+      "domain": [
+        "FeatureSet"
+      ],
+      "range": [
+        "ResearchVariable"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "HAS_DATA_QUALITY_ISSUE": {
+      "label_zh": "存在数据质量问题",
+      "domain": [
+        "Dataset",
+        "Model"
+      ],
+      "range": [
+        "DataQualityIssue"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "AFFECTS": {
+      "label_zh": "影响对象",
+      "domain": [
+        "DataQualityIssue"
+      ],
+      "range": [
+        "Dataset",
+        "FeatureSet",
+        "ResearchVariable",
+        "Model",
+        "Outcome",
+        "Population"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "EVALUATED_IN": {
+      "label_zh": "在研究中评估",
+      "domain": [
+        "Model"
+      ],
+      "range": [
+        "Study"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "CANNOT_CALCULATE": {
+      "label_zh": "无法计算",
+      "domain": [
+        "Dataset"
+      ],
+      "range": [
+        "Model"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "PROXY_ONLY_FOR": {
+      "label_zh": "仅可作为代理",
+      "domain": [
+        "ResearchVariable",
+        "AnatomicalStructure"
+      ],
+      "range": [
+        "ClinicalConcept"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "proxy_limitations",
+        "source_ids",
+        "status"
+      ]
+    },
+    "NOT_EQUIVALENT_TO": {
+      "label_zh": "不等同于",
+      "domain": [
+        "ResearchVariable",
+        "Outcome",
+        "ClinicalConcept"
+      ],
+      "range": [
+        "ClinicalConcept",
+        "Outcome"
+      ],
+      "directed": false,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "EXCLUDED_FROM": {
+      "label_zh": "排除于",
+      "domain": [
+        "DefinitionConcept",
+        "ClinicalEvent"
+      ],
+      "range": [
+        "Outcome"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "rule_basis",
+        "source_ids",
+        "status"
+      ]
+    },
+    "HAS_LEAKAGE_RISK": {
+      "label_zh": "存在泄漏风险",
+      "domain": [
+        "ResearchVariable",
+        "DefinitionConcept",
+        "ClinicalEvent"
+      ],
+      "range": [
+        "DefinitionConcept"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "risk_reason",
+        "source_ids",
+        "status"
+      ]
+    },
+    "APPLIES_TO": {
+      "label_zh": "适用于",
+      "domain": [
+        "DefinitionConcept",
+        "Model",
+        "ClinicalEvent"
+      ],
+      "range": [
+        "Population",
+        "Disease"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "CONFLICTS_WITH": {
+      "label_zh": "与…冲突",
+      "domain": [
+        "DefinitionConcept",
+        "ResearchVariable",
+        "ClinicalEvent"
+      ],
+      "range": [
+        "DefinitionConcept",
+        "ResearchVariable",
+        "ClinicalEvent"
+      ],
+      "directed": false,
+      "causal": false,
+      "required_attributes": [
+        "conflict_reason",
+        "source_ids",
+        "status"
+      ]
+    },
+    "PENDING_DECISION": {
+      "label_zh": "等待决策",
+      "domain": [
+        "Dataset",
+        "Population",
+        "Outcome",
+        "DefinitionConcept"
+      ],
+      "range": [
+        "DecisionPoint"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "status"
+      ]
+    },
+    "STUDY_INCLUDES_POPULATION": {
+      "label_zh": "研究纳入人群",
+      "domain": [
+        "Study"
+      ],
+      "range": [
+        "Population"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status"
+      ]
+    },
+    "DERIVED_FROM": {
+      "label_zh": "派生自模型",
+      "domain": [
+        "Model"
+      ],
+      "range": [
+        "Model"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status",
+        "derivation_note"
+      ]
+    },
+    "NOT_MERGED_WITH": {
+      "label_zh": "未与…合并",
+      "domain": [
+        "Dataset"
+      ],
+      "range": [
+        "Dataset"
+      ],
+      "directed": true,
+      "causal": false,
+      "required_attributes": [
+        "source_ids",
+        "status",
+        "reason"
+      ]
+    }
+  },
+  "provenance_contract": {
+    "required_on_clinical_relation": [
+      "source_ids",
+      "evidence_locator",
+      "population",
+      "time_condition",
+      "status"
+    ],
+    "status_values": [
+      "verified",
+      "provisional",
+      "disputed",
+      "pending",
+      "rejected"
+    ],
+    "causal_claim_default": false
+  },
+  "relation_semantics": {
+    "MODEL_SCORE_PATH": "Model -> ScoreComponent -> ClinicalConcept",
+    "MODEL_TO_OUTCOME": "Model -> PREDICTS -> Outcome",
+    "MODEL_TO_POPULATION": "Model -> APPLIES_TO -> Population",
+    "MODEL_TO_STUDY": "Model -> EVALUATED_IN -> Study",
+    "STUDY_TO_POPULATION": "Study -> STUDY_INCLUDES_POPULATION -> Population",
+    "D13_PROXY": "ResearchVariable or derived structure -> PROXY_ONLY_FOR -> ClinicalConcept",
+    "D13_SELECT_BOUNDARY": "Dataset(D13) -> CANNOT_CALCULATE -> SeLECT model",
+    "OUTCOME_BOUNDARY": "data outcome label -> NOT_EQUIVALENT_TO -> strict clinical outcome"
+  },
+  "mapping_policy": {
+    "authoritative_location": "ScoreComponent.properties.d13_mapping_status",
+    "allowed_values": [
+      "exact_concept",
+      "derivable_composite",
+      "proxy_only",
+      "not_equivalent_proxy",
+      "absent"
+    ],
+    "note": "删除原先6条无状态值且全部指向结局的MAPPING_STATUS_FOR边。"
+  },
+  "network_data_policy": {
+    "provenance_type": "network_public",
+    "datasets": [
+      "network_dataset_wenzhou_167",
+      "network_dataset_suzhou_anhui_149",
+      "network_dataset_winder_28"
+    ],
+    "cannot_combine": true,
+    "used_in_d13_training": false
+  }
+}

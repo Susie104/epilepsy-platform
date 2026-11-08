@@ -1,0 +1,19 @@
+{
+  "nodes": 187,
+  "edges": 633,
+  "duplicate_semantic_edges": [],
+  "clinical_relations_without_locator": [],
+  "model_population_links": {
+    "model_d13_s1_lr_platt_v0_3": true,
+    "model_select_asys": true,
+    "model_select_eeg": true,
+    "model_modified_select_2_0_meletti_2024": true
+  },
+  "network_data_nodes": 3,
+  "network_datasets_not_merged": true,
+  "score_components_asys": 3,
+  "score_components_eeg": 6,
+  "d13_corrected_model_present": true,
+  "provenance_network_marked": true,
+  "passed": true
+}

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>癫痫复发预测平台 · 路演</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,800;0,900;1,400&family=Instrument+Serif:ital@0;1&family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0810; --ink:#f5f2fa; --dim:#9b93a8; --line:rgba(255,255,255,.12);
+    --violet:#c478db; --violet-deep:#8040c1; --lilac:#998ad7;
+    --ice:#afeeff; --lime:#c2f778; --moss:#8fd694;
+    --font-main:"Inter Tight","Noto Sans SC","Microsoft YaHei",sans-serif;
+    --font-serif:"Instrument Serif","Noto Sans SC",serif;
+    --font-mono:"Space Mono","Noto Sans SC",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  html{scrollbar-width:none} body::-webkit-scrollbar{display:none}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-main);overflow:hidden}
+  .mono{font-family:var(--font-mono)}
+
+  /* ---------- deck paging ---------- */
+  #deck{position:relative;isolation:isolate;height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;scrollbar-width:none}
+  #deck::-webkit-scrollbar{display:none}
+  .slide{position:relative;min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;
+    display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:96px 6vw 72px}
+  .slide::before{content:"";position:absolute;inset:0;z-index:-4;pointer-events:none;background:
+    radial-gradient(85% 55% at 50% -6%,rgba(128,64,193,.32),transparent 60%),
+    radial-gradient(60% 45% at 88% 14%,rgba(196,120,219,.16),transparent 62%),
+    radial-gradient(70% 50% at 8% 88%,rgba(46,90,55,.22),transparent 70%)}
+
+  /* ---------- fixed chrome ---------- */
+  .site-head{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;
+    align-items:center;padding:20px 32px;mix-blend-mode:difference;pointer-events:none}
+  .brand{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:#fff;text-decoration:none}
+  .brand b{font-weight:700} .brand span{opacity:.55;margin-left:10px}
+  .pill-btn{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:#0a0810;background:#fff;
+    display:inline-flex;align-items:center;min-height:36px;padding:9px 20px;border-radius:999px;
+    text-decoration:none;white-space:nowrap;pointer-events:auto}
+  .pill-btn:focus-visible{outline:2px solid var(--violet);outline-offset:4px}
+  .page-ind{position:fixed;left:24px;bottom:22px;z-index:120;font-family:var(--font-mono);font-size:12px;
+    letter-spacing:.15em;color:var(--ink);opacity:.85;mix-blend-mode:difference}
+  .page-ind b{color:var(--violet);font-weight:700}
+  .grain{position:fixed;inset:-100px;z-index:150;pointer-events:none;opacity:.06;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ---------- shared type ---------- */
+  .kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.3em;color:var(--dim);margin-bottom:26px}
+  .kicker b{color:var(--violet);font-weight:700}
+  h2.big{font-size:clamp(2.4rem,6.4vw,5.4rem);font-weight:900;letter-spacing:-.03em;line-height:1.02}
+  h2.big em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--violet);letter-spacing:0}
+  .lead{margin-top:22px;font-size:clamp(1.05rem,1.7vw,1.4rem);line-height:1.75;color:var(--ink);max-width:40em}
+  .lead .dim{color:var(--dim)} .lead b{color:var(--violet);font-weight:700}
+  .note{margin-top:26px;font-size:11px;letter-spacing:.14em;color:var(--dim);font-family:var(--font-mono)}
+
+  /* ---------- backgrounds ---------- */
+  .bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: url('assets/arch-synapse-background.jpg') center / cover no-repeat;
+    opacity: .55;
+    pointer-events: none;
+  }
+  .shade{position:absolute;inset:0;z-index:-1;pointer-events:none}
+  .shade.center{background:radial-gradient(ellipse at 50% 45%,rgba(10,8,16,.35),rgba(10,8,16,.82) 78%)}
+  .shade.bottom{background:linear-gradient(to bottom,rgba(10,8,16,.55),rgba(10,8,16,.9))}
+  .sky{position:absolute;inset:0;z-index:-3;background:
+    radial-gradient(90% 60% at 50% -8%,rgba(128,64,193,.5),transparent 60%),
+    radial-gradient(70% 50% at 82% 18%,rgba(196,120,219,.24),transparent 65%),
+    radial-gradient(80% 55% at 12% 26%,rgba(73,111,133,.22),transparent 60%),
+    radial-gradient(100% 60% at 50% 110%,rgba(32,61,39,.6),transparent 70%)}
+
+  /* ---------- cover ---------- */
+  .cover{align-items:center;text-align:center}
+  .cover h1{font-size:clamp(2.8rem,10vw,8.4rem);font-weight:900;letter-spacing:-.03em;line-height:.98}
+  .cover h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--lime)}
+  .cover .sub{margin-top:30px;font-size:clamp(1.05rem,1.8vw,1.5rem);color:var(--ink);opacity:.85;letter-spacing:.02em}
+  .advisors {
+    width: min(100%, 720px);
+    margin-top: clamp(16px, 3vh, 30px);
+    display: grid;
+    grid-template-areas: "left clinical right";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    text-align: left;
+  }
+  .advisor-card {
+    padding: 9px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(10,8,16,.68);
+  }
+  .advisor-left { grid-area: left; }
+  .advisor-right { grid-area: right; }
+  .advisor-clinical {
+    grid-area: clinical;
+    border-color: rgba(194,247,120,.28);
+    background: linear-gradient(135deg, rgba(35,25,49,.87), rgba(10,8,16,.72));
+  }
+  .advisor-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .advisor-initial {
+    flex: 0 0 26px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(196,120,219,.17);
+    color: #e6b5f6;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .advisor-clinical .advisor-initial {
+    background: radial-gradient(circle at 30% 30%, var(--violet), var(--violet-deep));
+    color: #fff;
+  }
+  .advisor-role { display: block; color: var(--violet); font-size: 10px; font-weight: 700; }
+  .advisor-clinical .advisor-role { color: var(--lime); }
+  .advisor-name { margin-top: 2px; font-size: 16px; line-height: 1.2; font-weight: 800; }
+  .advisor-credentials { display: grid; gap: 2px; list-style: none; color: var(--dim); font-size: 12px; line-height: 1.4; }
+  .advisor-credentials li:first-child { color: var(--ink); }
+  .cover > .note { margin-top: 18px; }
+  @media (max-width: 640px) {
+    .advisors {
+      width: min(100%, 390px);
+      grid-template-areas: "clinical clinical" "left right";
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      align-items: stretch;
+    }
+    .advisor-card { padding: 8px 9px; }
+    .advisor-head { gap: 6px; }
+    .advisor-initial { flex-basis: 22px; }
+    .advisor-name { font-size: 15px; }
+  }
+
+  /* ---------- stat cards ---------- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .card{background:rgba(16,12,24,.82);border:1px solid rgba(255,255,255,.09);border-radius:20px;
+    padding:26px 28px;backdrop-filter:blur(8px)}
+  .card .lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;color:var(--violet)}
+  .card .num{margin-top:14px;font-size:clamp(2.6rem,5vw,4.4rem);font-weight:900;letter-spacing:-.04em;line-height:1}
+  .card .num small{font-family:var(--font-mono);font-size:.26em;font-weight:400;color:var(--dim);margin-left:.35em;letter-spacing:0}
+  .card h3{margin-top:12px;font-size:19px;font-weight:800}
+  .card p{margin-top:8px;font-size:13.5px;line-height:1.65;color:var(--dim)}
+  .bar{margin-top:18px;height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+  .bar i{display:block;height:100%;width:var(--p);border-radius:inherit;
+    background:linear-gradient(90deg,var(--violet-deep),var(--violet),var(--ice))}
+  .bar.lime i{background:linear-gradient(90deg,var(--violet-deep),var(--moss),var(--lime))}
+
+  /* ---------- compare bars (停药 vs 服药) ---------- */
+  .cmp{margin-top:40px;display:grid;gap:26px;max-width:820px}
+  .cmp-row .cmp-h{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--dim);margin-bottom:10px}
+  .cmp-row .cmp-h b{color:var(--ink);font-weight:700;font-size:15px}
+  .cmp-bar{height:34px;border-radius:10px;background:rgba(255,255,255,.05);position:relative;overflow:hidden;margin-bottom:8px}
+  .cmp-bar span{position:absolute;inset:0 auto 0 0;border-radius:10px;display:flex;align-items:center;padding-left:14px;
+    font-weight:800;font-size:14px;color:#12091b}
+  .cmp-bar.off span{width:var(--w);background:linear-gradient(90deg,var(--violet-deep),var(--violet))}
+  .cmp-bar.on span{width:var(--w);background:linear-gradient(90deg,#2c6a3a,var(--moss),var(--lime));color:#08140a}
+  .cmp-legend{font-size:12px;color:var(--dim);font-family:var(--font-mono);letter-spacing:.08em}
+
+  /* ---------- code / list card ---------- */
+  .code-card{background:#0d0a16;border:1px solid rgba(196,120,219,.28);border-radius:16px;overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .cc-head{display:flex;align-items:center;gap:8px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03)}
+  .cc-head i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.16)}
+  .cc-head i:first-child{background:rgba(196,120,219,.6)}
+  .cc-head span{margin-left:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.15em;color:var(--dim)}
+  .cc-body{padding:20px 24px;font-family:var(--font-mono);font-size:13px;line-height:2;color:#ddd6ea}
+  .cc-body b{color:var(--violet);font-weight:700} .cc-body .g{color:var(--lime)}
+
+  /* ---------- mock UI (研究入口) ---------- */
+  .mock{background:#0b0915;border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;
+    box-shadow:0 30px 90px rgba(0,0,0,.5);margin-top:40px}
+  .mock-top{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;
+    border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}
+  .mock-top .mbrand{display:flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.1em;font-weight:700}
+  .mock-top .mbrand .mk{width:22px;height:22px;border:1px solid var(--violet);border-radius:50%;
+    box-shadow:0 0 14px #bd83df55;position:relative}
+  .mock-top .mbrand .mk::before{content:"";position:absolute;width:5px;height:5px;background:var(--lime);border-radius:50%;left:3px;top:7px;box-shadow:0 0 8px var(--lime)}
+  .mock-top .mtitle{font-size:12px;color:var(--dim);font-family:var(--font-mono)}
+  .scenes{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;padding:18px}
+  .scene{border:1px solid rgba(209,184,228,.2);border-radius:14px;padding:16px 18px;position:relative;
+    background:linear-gradient(145deg,#241b34ca,#11101dbb);min-height:96px}
+  .scene .st{font-size:10px;letter-spacing:.08em;color:#bdb3c9;border:1px solid rgba(214,191,225,.24);
+    border-radius:99px;padding:3px 9px;background:rgba(255,255,255,.04)}
+  .scene h4{margin-top:14px;font-size:18px;font-weight:800}
+  .scene p{margin-top:5px;font-size:11px;color:#aaa2b8}
+  .scene.active{grid-row:span 2;border-color:rgba(195,247,120,.6);background:linear-gradient(145deg,#2a2742e8,#121919e8)}
+  .scene.active .st{color:var(--lime);border-color:rgba(194,247,120,.45);background:rgba(184,245,102,.08)}
+  .scene.active h4{font-size:24px;margin-top:22px}
+  .scene .cta{position:absolute;left:18px;bottom:16px;display:inline-flex;gap:8px}
+  .scene .cta b{font-size:11px;padding:6px 12px;border-radius:99px;background:#ecf3e6;color:#11151a;font-weight:700}
+  .scene .cta b.inv{background:rgba(186,123,219,.16);color:#f6ecff;border:1px solid rgba(211,163,235,.5);font-weight:500}
+
+  /* ---------- roadmap ---------- */
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .road .ph{position:relative;padding:26px 24px;border-radius:18px;border:1px solid rgba(255,255,255,.1);
+    background:rgba(16,12,24,.7)}
+  .road .ph .pn{font-family:var(--font-serif);font-style:italic;font-size:2.4rem;color:rgba(196,120,219,.55);line-height:1}
+  .road .ph h3{margin-top:10px;font-size:18px;font-weight:800}
+  .road .ph p{margin-top:8px;font-size:13px;line-height:1.6;color:var(--dim)}
+  .road .ph .tag{margin-top:14px;display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;
+    color:var(--violet);border:1px solid rgba(196,120,219,.4);border-radius:99px;padding:4px 12px}
+
+  /* ---------- chips ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .chips span{font-size:13px;padding:7px 15px;border-radius:999px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12)}
+  .chips span b{font-family:var(--font-mono);color:var(--violet);margin-left:8px}
+  .study-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;margin-top:36px}
+  .study-panel{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(16,12,24,.84)}
+  .study-panel .eyebrow{color:var(--violet);font:700 11px/1.5 var(--font-mono);letter-spacing:.18em}
+  .study-panel h3{margin-top:10px;font-size:clamp(21px,2.3vw,30px)}
+  .study-panel p{margin-top:10px;color:var(--dim);font-size:14px;line-height:1.65}
+  .study-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .study-stats span{display:grid;gap:3px;min-width:110px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;color:var(--dim);font-size:11px}
+  .study-stats b{color:var(--lime);font-size:clamp(20px,2.4vw,29px);line-height:1.05}
+  .highlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:38px}
+  .highlight-grid .card{padding:23px 24px}
+  .highlight-grid .card .num{font-size:clamp(2rem,3.9vw,3.7rem)}
+  .finding{margin-top:20px;padding:16px 20px;border-left:3px solid var(--lime);background:rgba(194,247,120,.06);color:var(--ink);font-size:14px;line-height:1.65}
+  @media(max-width:800px){.study-grid{grid-template-columns:1fr}.highlight-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.highlight-grid{grid-template-columns:1fr}.study-stats span{min-width:0;flex:1 1 90px}}
+
+  /* ---------- marquee ---------- */
+  .marquee{position:absolute;left:0;right:0;bottom:0;padding:14px 0;border-top:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .marquee .track{display:inline-block;animation:scroll 26s linear infinite}
+  .marquee span{font-size:clamp(1.4rem,3vw,2.4rem);font-weight:900;padding:0 2.4vw;color:transparent;
+    -webkit-text-stroke:1.2px rgba(196,120,219,.5)}
+  .marquee span.solid{color:var(--lilac);-webkit-text-stroke:0;font-family:var(--font-serif);font-style:italic;font-weight:400}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- quote / end ---------- */
+  .quote{align-items:center;text-align:center}
+  .quote .q{font-size:clamp(2rem,5.4vw,4.6rem);font-weight:900;line-height:1.28;letter-spacing:-.02em;max-width:16em}
+  .quote .q em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--violet)}
+  .team {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: baseline;
+    gap: clamp(12px, 2.5vw, 36px);
+    width: min(100%, 370px);
+    margin-top: 48px;
+    list-style: none;
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 800;
+  }
+  .team-lead { color: var(--violet); font-size: clamp(20px, 2vw, 27px); }
+
+  /* ---------- opening film and curtain ---------- */
+  #roadshow-opening {
+    position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;
+    margin: 0; padding: 0; border: 0; overflow: hidden; background: var(--bg); color: var(--ink);
+  }
+  #roadshow-opening::backdrop { background: transparent; }
+  .opening-film { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .opening-loading {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    background: var(--bg); opacity: 0; visibility: hidden; transition: opacity .35s ease;
+  }
+  #roadshow-opening[data-stage="loading"] .opening-loading { opacity: 1; visibility: visible; }
+  .opening-label {
+    position: absolute; top: clamp(16px,4vw,28px); left: clamp(16px,4vw,32px);
+    font: 700 11px/1.5 var(--font-mono); letter-spacing: .15em; color: var(--violet);
+  }
+  .opening-count {
+    font-size: clamp(5rem,18vw,15rem); line-height: 1; font-weight: 900;
+    letter-spacing: -.04em; font-variant-numeric: tabular-nums;
+  }
+  .opening-count::after {
+    content: '%'; margin-left: .1em; font: 400 .25em/1 var(--font-mono); color: var(--violet);
+  }
+  .opening-progress { position: absolute; inset: auto 0 0; height: 3px; background: var(--line); }
+  .opening-progress i {
+    display: block; height: 100%; transform: scaleX(0); transform-origin: left;
+    background: linear-gradient(90deg,var(--violet-deep),var(--violet),var(--ice));
+  }
+  .opening-skip {
+    position: absolute; right: clamp(14px,3vw,30px); bottom: clamp(14px,3vw,26px);
+    min-height: 42px; padding: 0 16px; border: 1px solid #ffffff55; border-radius: 100px;
+    background: #15101be8; color: var(--ink); font: 700 13px/1 var(--font-main); cursor: pointer;
+  }
+  .opening-skip:hover { background: #302239; }
+  .opening-skip:focus-visible { outline: 2px solid var(--violet); outline-offset: 4px; }
+  #roadshow-opening.is-leaving .opening-skip { visibility: hidden; }
+
+  /* ---------- slide entrances ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .cover > :is(.kicker, h1, .sub, .advisors, .note) {
+      animation: cover-in .64s cubic-bezier(.2,.75,.3,1) backwards;
+    }
+    .cover > :is(.sub, .advisors) { animation-delay: .10s; }
+    .cover > .note { animation-delay: .17s; }
+    @keyframes cover-in { from { opacity: 0; translate: 0 22px; } }
+    #roadshow-opening[open]:not(.is-leaving) ~ #deck .cover > :is(.kicker, h1, .sub, .advisors, .note) {
+      animation-name: none;
+    }
+    #roadshow-opening.is-leaving ~ #deck .cover > .kicker { animation-delay: .30s; }
+    #roadshow-opening.is-leaving ~ #deck .cover > h1 { animation-delay: .39s; }
+    #roadshow-opening.is-leaving ~ #deck .cover > :is(.sub, .advisors) { animation-delay: .51s; }
+    #roadshow-opening.is-leaving ~ #deck .cover > .note { animation-delay: .63s; }
+
+    @supports (animation-timeline: view()) {
+      .slide:not(.cover) { view-timeline-name: --slide-passage; }
+      .slide:not(.cover) > :is(.kicker, h2, .lead, .q, .grid2, .grid3, .grid4, .cmp, .mock, .chips, .road, .team, .note) {
+        --slide-lift: 28px;
+        --slide-opacity: .65;
+        animation: slide-passage ease-out both;
+        animation-timeline: --slide-passage;
+      }
+      .slide:not(.cover) > :is(.grid2, .grid3, .grid4, .cmp, .mock, .road, .team) {
+        --slide-lift: 48px;
+        --slide-opacity: .5;
+        animation-timing-function: ease-in-out;
+      }
+      @keyframes slide-passage {
+        entry 0% { opacity: var(--slide-opacity); translate: 0 var(--slide-lift); }
+        entry 92%, exit 8% { opacity: 1; translate: 0 0; }
+        exit 100% { opacity: var(--slide-opacity); translate: 0 calc(var(--slide-lift) * -.75); }
+      }
+    }
+  }
+  @media(max-width:900px){.grid3,.grid4,.road{grid-template-columns:1fr 1fr}.scenes{grid-template-columns:1fr 1fr}.scene.active{grid-row:span 1}}
+  @media(max-width:600px){.grid3,.grid4,.road,.grid2{grid-template-columns:1fr}.scenes{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){#deck{scroll-behavior:auto}.marquee .track{animation:none}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="site-head">
+  <span class="brand"><b>癫痫复发预测平台</b><span>路演 · 从临床问题到院内落地</span></span>
+  <a class="pill-btn" href="contact.html" aria-label="联系项目组">联系项目组 →</a>
+</header>
+<div class="page-ind"><b id="cur">01</b> / <span id="tot">10</span></div>
+
+<dialog id="roadshow-opening" aria-label="三合医路演开场">
+  <video class="opening-film" muted playsinline preload="auto" data-src="assets/sanhe-roadshow-opening-v2.mp4" aria-label="三合医开场短片"></video>
+  <div class="opening-loading" aria-hidden="true">
+    <span class="opening-label">三合医 · 癫痫复发预测平台</span>
+    <span class="opening-count">000</span>
+    <div class="opening-progress"><i></i></div>
+  </div>
+  <button class="opening-skip" type="button" autofocus>跳过开场 ↗</button>
+</dialog>
+
+<video class="bg-video" muted loop playsinline preload="none" poster="assets/arch-synapse-background.jpg"
+  data-src="assets/arch-synapse-background.mp4" aria-hidden="true"></video>
+<main id="deck" tabindex="-1">
+
+  <!-- 00 封面 -->
+  <section class="slide cover">
+    <div class="sky"></div>
+    <div class="shade center"></div>
+    <div class="kicker mono">HENAN UNIVERSITY · NEUROLOGY <b>×</b> RESEARCH GROUP</div>
+    <h1>癫痫复发<em>预测</em><br>平台</h1>
+    <div class="sub">从一条临床真问题，到院内可落地、可审计的研究工具</div>
+    <div class="advisors" role="group" aria-label="指导老师">
+      <article class="advisor-card advisor-clinical">
+        <div class="advisor-head">
+          <span class="advisor-initial" aria-hidden="true">陈</span>
+          <div>
+            <span class="advisor-role">指导医师</span>
+            <h2 class="advisor-name">陈文武 教授</h2>
+          </div>
+        </div>
+        <ul class="advisor-credentials">
+          <li>河南大学第一附属医院神经内科主任医师</li>
+          <li>曾任该院副院长 · 中国抗癫痫协会理事</li>
+          <li>2025 年当选河南省科学保健学会脑健康专委会首届主任委员</li>
+        </ul>
+      </article>
+      <article class="advisor-card advisor-left">
+        <div class="advisor-head">
+          <span class="advisor-initial" aria-hidden="true">邹</span>
+          <div>
+            <span class="advisor-role">指导老师</span>
+            <h2 class="advisor-name">邹雪艳 教授</h2>
+          </div>
+        </div>
+        <ul class="advisor-credentials">
+          <li>河南大学 · 博士后导师</li>
+          <li>主持或参与国家重点研发计划等 20 余项科研项目</li>
+        </ul>
+      </article>
+      <article class="advisor-card advisor-right">
+        <div class="advisor-head">
+          <span class="advisor-initial" aria-hidden="true">尹</span>
+          <div>
+            <span class="advisor-role">指导老师</span>
+            <h2 class="advisor-name">尹彦彬 博士</h2>
+          </div>
+        </div>
+        <ul class="advisor-credentials">
+          <li>河南大学数学与统计学院</li>
+          <li>机器学习 · 材料性能预测与逆向设计</li>
+        </ul>
+      </article>
+    </div>
+    <div class="note">教学合成模型 · 仅供研究联调，不用于临床决策</div>
+  </section>
+
+  <!-- 01 选题缘起 -->
+  <section class="slide">
+    <div class="kicker mono">CH 01 — WHY THIS <b>选题缘起</b></div>
+    <h2 class="big">一条不该<em>发生</em>的新闻</h2>
+    <p class="lead"><span class="dim">2026 年初，美国一起诉讼把大语言模型推上被告席：</span>31 岁工程师 Bowen Wan 在 <b>GPT-4o</b> 的引导下，把维持数年的抗癫痫药拉莫三嗪在约 25 天内从 400mg 减到 0，最终死于癫痫猝死（SUDEP）。尸检血药浓度仅为有效治疗窗下限的约 <b>1/5</b>。</p>
+    <div class="grid3">
+      <div class="card"><div class="lbl">她曾反复确认</div><div class="num">158<small>次</small></div><h3>AI 每次都答"没事"</h3><p>减药中的失语、迷失等危险信号，被回应成"大脑正在调整"。</p></div>
+      <div class="card"><div class="lbl">撤药速度</div><div class="num">25<small>天</small></div><h3>400mg → 0</h3><p>医学上需数月、且须全程脑电图与浓度监测才能完成的撤药。</p></div>
+      <div class="card"><div class="lbl">风险之大</div><div class="num">16.3–57.1<small>%</small></div><h3>含危及生命的用药建议</h3><p>重症监护研究中，临床医生发现大模型方案里的危险推荐占比。</p></div>
+    </div>
+    <p class="lead" style="margin-top:30px"><b>AI 健康建议的风险，不表现为低水平出错，而是以高度自信、条理清晰的专业表述，输出错误结论。</b><span class="dim"> 这正是本选题的起点。</span></p>
+  </section>
+
+  <!-- 02 临床真问题 -->
+  <section class="slide">
+    <div class="kicker mono">CH 02 — THE CLINICAL GAP <b>临床真问题</b></div>
+    <h2 class="big">减药，是医生<em>最难</em>的判断之一</h2>
+    <p class="lead"><span class="dim">真正危险的不是"减药"这个动作，而是失去</span> 脑电图复查 · 血药浓度监测 · 发作日记 <span class="dim">三重安全网之后的减药。 pooled 分析显示：</span></p>
+    <div class="cmp">
+      <div class="cmp-row">
+        <div class="cmp-h"><b>停药后 1 年复发</b><span class="cmp-legend">Epilsopsia Open 2024 · DOI 10.1002/epi4.12880</span></div>
+        <div class="cmp-bar off" style="--w:32%"><span>停药组 32%</span></div>
+        <div class="cmp-bar on" style="--w:13%"><span>继续服药 13%</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-h"><b>停药后 2 年复发</b><span class="cmp-legend">同一汇总分析 · 两年差距扩大</span></div>
+        <div class="cmp-bar off" style="--w:43%"><span>停药组 43%</span></div>
+        <div class="cmp-bar on" style="--w:21%"><span>继续服药 21%</span></div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:34px"><span class="dim">缺口很明确：临床缺少一个能回答</span> <b>"这一位患者，能不能安全减药？"</b> <span class="dim">的个体化风险工具。</span></p>
+  </section>
+
+  <!-- 03 应用背景 -->
+  <section class="slide">
+    <div class="kicker mono">CH 03 — BLUE OCEAN <b>应用背景</b></div>
+    <h2 class="big">复发预测，是一片<em>蓝海</em></h2>
+    <p class="lead"><span class="dim">现有抗发作药物（ASM）体系关注"选什么药把发作控制住"，而</span> <b>减药后个体化复发风险预测</b> <span class="dim">长期处于临床与研究的空白地带。</span></p>
+    <div class="grid3">
+      <div class="card"><div class="lbl">临床空白</div><h3>决策无工具</h3><p>减药时机、速度、个体差异，多凭经验判断，缺乏量化支持。</p></div>
+      <div class="card"><div class="lbl">数据边界</div><h3>分场景建模</h3><p>D13 卒中后癫痫队列与减药后复发任务分开使用；真实队列的独立验证仍待完成。</p></div>
+      <div class="card"><div class="lbl">政策窗口</div><h3>辅助而非决策</h3><p>AI 医疗监管收紧，"医生在环、不替代判断"的定位正当其时。</p></div>
+    </div>
+    <div class="marquee"><div class="track">
+      <span>复发预测</span><span class="solid">blue ocean</span><span>个体化减药</span><span class="solid">who can taper safely</span><span>医生在环</span><span class="solid">human-in-the-loop</span>
+      <span>复发预测</span><span class="solid">blue ocean</span><span>个体化减药</span><span class="solid">who can taper safely</span><span>医生在环</span><span class="solid">human-in-the-loop</span>
+    </div></div>
+  </section>
+
+  <!-- 04 我们做了什么 -->
+  <section class="slide">
+    <div class="shade bottom"></div>
+    <div class="kicker mono">CH 04 — WHAT WE BUILT <b>我们做了什么</b></div>
+    <h2 class="big">四个功能，<em>一条证据链</em></h2>
+    <p class="lead" style="margin-top:18px">从结构化输入到风险情景，再到数据导入和证据检索；每一步都保留用途、来源和人工核对位置。</p>
+    <div class="grid2">
+      <div class="card"><div class="lbl">FORWARD · 正向预测</div><h3>录入八字段 → 730 天复发风险</h3><p>减药后复发教学模型展示预测值、训练支持范围和版本。合成数据仅用于工程联调。</p></div>
+      <div class="card"><div class="lbl">REVERSE · 逆向情景设计</div><h3>设定目标风险 → 反推情景</h3><p>固定事实、只允许指定字段变化，探索"若要降到某风险区间，需满足什么条件"。情景差异 ≠ 干预效果。</p></div>
+    </div>
+    <div class="chips">
+      <span>首次发作<b>规划中</b></span><span>减药后复发<b>当前</b></span><span>卒中后癫痫<b>规划中</b></span>
+      <span>术后发作<b>规划中</b></span><span>长期控制后<b>规划中</b></span><span>知识图谱<b>187 节点 · 643 关系</b></span>
+      <span>数据导入<b>预检 · 映射 · 复核</b></span><span>知识问答<b>证据 · 来源</b></span>
+    </div>
+    <div class="note">五场景为内部路线图 · 当前仅"减药后复发"可教学演示联调</div>
+  </section>
+
+  <!-- 05 界面 -->
+  <section class="slide">
+    <div class="kicker mono">CH 05 — THE PRODUCT <b>界面 · 研究入口</b></div>
+    <h2 class="big">选择研究<em>入口</em></h2>
+    <div class="mock">
+      <div class="mock-top">
+        <div class="mbrand"><span class="mk"></span>癫痫研究平台</div>
+        <div class="mtitle">导入自己的数据 ↗</div>
+      </div>
+      <div class="scenes">
+        <div class="scene active">
+          <span class="st">教学演示可进入</span>
+          <h4>减药后复发</h4><p>730 天复发风险 · 八字段录入</p>
+          <div class="cta"><b>正向预测 ↗</b><b class="inv">逆向设计 ↗</b></div>
+        </div>
+        <div class="scene"><span class="st">规划中</span><h4>首次发作</h4><p>模型与字段规则待建立</p></div>
+        <div class="scene"><span class="st">规划中</span><h4>卒中后癫痫</h4><p>D13 资料可浏览</p></div>
+        <div class="scene"><span class="st">规划中</span><h4>术后发作</h4><p>模型待建立</p></div>
+        <div class="scene"><span class="st">规划中</span><h4>长期控制后</h4><p>模型待建立</p></div>
+      </div>
+    </div>
+    <div class="note">紫色神经背景 · 玻璃面板 · 荧光绿按钮 — 复刻自院内接入平台实机界面</div>
+  </section>
+
+  <!-- 06 五套算法：研究范围与队列边界 -->
+  <section class="slide">
+    <div class="kicker mono">CH 06 — FIVE STUDIES <b>五套算法架构</b></div>
+    <h2 class="big">两批数据，<em>五个问题</em></h2>
+    <p class="lead"><span class="dim">先把研究对象说清楚：</span>A/B/C 是卒中后癫痫的公开队列基准；D/E 是温州小队列的首次发作后预后与观察性用药比较。</p>
+    <div class="study-grid">
+      <article class="study-panel">
+        <div class="eyebrow">PUBLIC COHORT · A / B / C</div>
+        <h3>入院特征 → 实验室 → 并发症</h3>
+        <p>同一公开队列逐层比较 36、70、74 个特征；逻辑回归、LightGBM、TabPFN 在相同测试协议下评估。</p>
+        <div class="study-stats"><span><b>21,459</b>公开队列记录</span><span><b>936</b>一年内事件</span><span><b>36 → 70 → 74</b>特征递进</span></div>
+      </article>
+      <article class="study-panel">
+        <div class="eyebrow">WENZHOU COHORT · D / E</div>
+        <h3>首次发作后，追踪晚期结局</h3>
+        <p>D 研究比较核心 8 变量与扩展 24 变量；E 研究描述用药与结局的观察性关联。</p>
+        <div class="study-stats"><span><b>167</b>患者</span><span><b>49</b>晚期 PSE 事件</span><span><b>8 / 24</b>D 研究变量</span></div>
+      </article>
+    </div>
+    <div class="note">来源：第五次跑数《结果汇编》及《配置要求与复现说明》 · A/B/C 原表 21,459 例；知识库 D13 v0.3 成人校正版 21,457 例，口径分开 · D/E 不横向比较</div>
+  </section>
+
+  <!-- 07 创新点：同协议学习曲线 -->
+  <section class="slide">
+    <div class="kicker mono">CH 07 — MODELING INSIGHT <b>算法创新点</b></div>
+    <h2 class="big">比较的不只是<em>最高分</em></h2>
+    <p class="lead">A/B/C 中三个模型共用测试协议，沿九档训练规模画学习曲线，再用去重队列和配对重采样检查结论。</p>
+    <div class="highlight-grid">
+      <div class="card"><div class="lbl">数据效率 · 全队列 B/C</div><div class="num">500<small>例</small></div><h3>进入 8,000 例基准的容差</h3><p>TabPFN@500 的 AUROC 达到 LightGBM@8,000 减 0.002 的预设门槛；相当于 16 倍样本量差距。去重队列需要 2,000 例。</p></div>
+      <div class="card"><div class="lbl">同规模比较 · n=8,000</div><div class="num">18<small>/18</small></div><h3>三项指标逐组合核对</h3><p>六个队列与特征组合中，TabPFN 相对 LightGBM 的 AUROC、AUPRC、Brier 均占优；不同指标不等于同一临床价值。</p></div>
+      <div class="card"><div class="lbl">内部测试 · 去重 C</div><div class="num">0.9988</div><h3>AUROC 的最高观测值</h3><p>来自公开数据的内部测试；不能当作减药模型成绩，也不能代替独立外部验证。</p></div>
+    </div>
+    <div class="note">“追平”按 AUROC ≥ LightGBM@8,000 − 0.002 定义 · 高分受队列筛选、特征时点与数据版本影响 · 来源：结果汇编 §3、§5</div>
+  </section>
+
+  <!-- 08 可持续：留给下一位接手人 -->
+  <section class="slide">
+    <div class="kicker mono">CH 08 — REPRODUCIBLE BY DESIGN <b>可持续交付</b></div>
+    <h2 class="big">让下一次重跑，<em>有据可查</em></h2>
+    <p class="lead">交付的不只有一张最好看的曲线；脚本、结果账本、数据与权重指纹，组成可复核的运行链。</p>
+    <div class="highlight-grid">
+      <div class="card"><div class="lbl">代码归档</div><div class="num">23<small>份脚本</small></div><h3>按运行顺序汇编</h3><p>记录用途、输入输出与命令，覆盖基准、复算、汇总、D/E 分析和审计。</p></div>
+      <div class="card"><div class="lbl">拟合记录</div><div class="num">144<small>+ 300</small></div><h3>A/B/C 与 D 分别留痕</h3><p>公共队列 144 次拟合；D 的 5 折 × 10 重复、3 模型 × 2 特征集共 300 次。E 是效应估计，不并入拟合次数。</p></div>
+      <div class="card"><div class="lbl">不确定性与完整性</div><div class="num">2,000<small>次</small></div><h3>配对 bootstrap</h3><p>差值区间用配对重采样计算；两份数据和 TabPFN 权重各有 SHA-256 指纹与复现锚点。</p></div>
+    </div>
+    <div class="note">同环境与相同文件版本是逐位复现的前提 · 来源：《代码汇编》《跑数结果汇编》《配置要求与复现说明》</div>
+  </section>
+
+  <!-- 09 诚实：负结果与方法边界 -->
+  <section class="slide">
+    <div class="kicker mono">CH 09 — WHAT THE DATA CANNOT SAY <b>诚实呈现边界</b></div>
+    <h2 class="big">不利结果，<em>同样展示</em></h2>
+    <div class="highlight-grid">
+      <div class="card"><div class="lbl">C · 并发症特征</div><div class="num">5<small>/6</small></div><h3>增量区间跨过零</h3><p>B→C 的六项增量比较中，五项 95% 区间包含零；多加四个并发症特征没有稳定证明临床增益。</p></div>
+      <div class="card"><div class="lbl">D · 小队列预测</div><div class="num">0.7101</div><h3>核心 8 变量 LR 的 AUROC</h3><p>扩展到 24 变量后为 0.6359。167 例小队列的结果应连同交叉验证方案一起看。</p></div>
+      <div class="card"><div class="lbl">E · 观察性比较</div><div class="num">167<small>例</small></div><h3>不足以判断用药因果效应</h3><p>用药与未用药组差异未达统计显著；未测量混杂与权重不稳定限制解释。</p></div>
+    </div>
+    <div class="finding">当前 A–E 结果没有完成独立外部验证。公开队列内部测试、小队列交叉验证和减药教学模型，分别回答不同问题。</div>
+    <div class="note">来源：第五次跑数《结果汇编》§5、§8、§9 · 结果用于研究展示，不支持个体临床决策</div>
+  </section>
+
+  <!-- 10 安全 -->
+  <section class="slide">
+    <div class="kicker mono">CH 10 — HOW IT'S SAFE <b>怎么保证安全</b></div>
+    <h2 class="big">面向医院的<em>合规底座</em></h2>
+    <div class="grid2" style="margin-top:34px">
+      <div class="code-card">
+        <div class="cc-head"><i></i><i></i><i></i><span>DEPLOYMENT · 边界一 /api/v1 · 边界二 /internal/v1</span></div>
+        <div class="cc-body">
+          <b>院内私有化</b> 部署，数据<span class="g">全部落院内</span>，交付包不含任何私钥<br>
+          <b>六角色鉴权</b>：导入员 · 审核员 · 运行员 · 结果查看者 · 导出授权者 · 系统管理<br>
+          运行员看不到行级结果（<b>E601</b>）— 刻意的角色分离<br>
+          <b>两道接口边界</b> + 信封加密：X25519 · AES-256-GCM · Ed25519 · nonce 防重放<br>
+          <b>审计链式哈希</b> + 日志脱敏，导出防公式注入<br>
+          模型包 <b>SHA-256</b> 完整性校验，失败拒绝启动（<b>E402</b>）
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:0;grid-template-columns:1fr;gap:18px">
+        <div class="card"><div class="lbl">端到端验收</div><div class="num">46<small>项</small></div><h3>方案 A</h3><p>数值复现一致、六类拒绝码、越权拦截、加密回环全覆盖。</p></div>
+        <div class="card"><div class="lbl">浏览器 UI 验收</div><div class="num">43<small>/43</small></div><h3>全部通过</h3><p>五步流程、身份切换、知识图谱入口逐项目视确认。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 红线 -->
+  <section class="slide quote">
+    <div class="sky"></div>
+    <div class="kicker mono">CH 11 — RED LINES <b>合规红线</b></div>
+    <div class="q">所有输出都带 <em>RESEARCH_ONLY</em>，<br>它站在医生<em>身后</em>，不替医生做决定。</div>
+    <div class="chips" style="justify-content:center">
+      <span>教学合成数据<b>仅供工程联调</b></span><span>情景差异<b>≠ 干预效果</b></span>
+      <span>未经授权<b>真实病历不上传外部 LLM</b></span><span>风险差异<b>≠ 治疗效果</b></span>
+    </div>
+  </section>
+
+  <!-- 12 未来展望 -->
+  <section class="slide">
+    <div class="kicker mono">CH 12 — WHAT'S NEXT <b>未来展望</b></div>
+    <h2 class="big">用户端<em>权限放小</em>，<br>继续落地<em>河大一附</em></h2>
+    <div class="road">
+      <div class="ph"><div class="pn">i</div><h3>用户端 · 只做信息</h3><p>面向患者仅做科普与"该问医生什么"的信息助手，用药决策权始终留给医生。</p><span class="tag">权限放小</span></div>
+      <div class="ph"><div class="pn">ii</div><h3>院内 · 阶段 B/C</h3><p>结果风险分层 → 院内 SSO、HTTPS/mTLS、数据库化存储与离线发布包。</p><span class="tag">落地河大一附</span></div>
+      <div class="ph"><div class="pn">iii</div><h3>真实队列 · 阶段 D</h3><p>真实数据接入、患者级拆分、重训与独立验证 — 在此之前所有输出仅为研究联调。</p><span class="tag">独立验证</span></div>
+    </div>
+  </section>
+
+  <!-- 13 收尾 -->
+  <section class="slide quote">
+    <div class="shade center"></div>
+    <div class="kicker mono">THANK YOU <b>谢谢</b></div>
+    <div class="q">让 AI 成为医生的<em>信息助手</em>，<br>而不是患者的<em>决策者</em>。</div>
+    <ul class="team" aria-label="团队成员">
+      <li>司马易</li>
+      <li class="team-lead">梁苏蕾</li>
+      <li>杨永振</li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+  const deck=document.getElementById('deck');
+  const slides=[...deck.querySelectorAll('.slide')];
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const opening=document.getElementById('roadshow-opening');
+  const backgroundVideo=document.querySelector('.bg-video');
+
+  function syncBackground() {
+    if (reducedMotion.matches || document.hidden || (opening.open && !opening.classList.contains('is-leaving'))) {
+      backgroundVideo.pause();
+      return;
+    }
+    if (!backgroundVideo.src) backgroundVideo.src = backgroundVideo.dataset.src;
+    backgroundVideo.play().catch(() => {});
+  }
+
+  document.getElementById('tot').textContent=String(slides.length).padStart(2,'0');
+  let idx=0;
+  function setCur(i){idx=i;document.getElementById('cur').textContent=String(i+1).padStart(2,'0');}
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({block:'start'});setCur(i);}
+  // track scroll position for the counter
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)setCur(slides.indexOf(e.target))})},{root:deck,threshold:.6});
+  slides.forEach(s=>io.observe(s));
+  let wheelStep = null;
+  deck.addEventListener('wheel', event => {
+    if (reducedMotion.matches || !event.cancelable || event.ctrlKey || event.shiftKey ||
+        !event.deltaY || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+    const direction = Math.sign(event.deltaY);
+    if (wheelStep?.direction === direction &&
+        (event.timeStamp < wheelStep.until || event.timeStamp - wheelStep.last < 150)) {
+      event.preventDefault();
+      wheelStep.last = event.timeStamp;
+      return;
+    }
+    wheelStep = null;
+    const viewport = deck.getBoundingClientRect();
+    const current = slides.findLastIndex(slide => slide.getBoundingClientRect().top <= viewport.top + 3);
+    if (current < 0 || !slides[current + direction]) return;
+    const {top, bottom} = slides[current].getBoundingClientRect();
+    // Help small wheel steps at a snap point while leaving tall slides scrollable.
+    const atEdge = direction > 0 ? bottom <= viewport.bottom + 3 : top >= viewport.top - 3;
+    if (!atEdge) return;
+    event.preventDefault();
+    wheelStep = {direction, last: event.timeStamp, until: event.timeStamp + 650};
+    go(current + direction);
+  }, {passive: false});
+  deck.addEventListener('scrollend', () => { if (wheelStep) wheelStep.until = 0; });
+  addEventListener('keydown',e=>{
+    if(opening.open || e.defaultPrevented) return;
+    if(e.key==='Enter' && e.target instanceof Element && e.target.closest('a[href]')) return;
+    if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(idx+1);}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(idx-1);}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(slides.length-1);}
+  });
+  function startOpening() {
+    if (reducedMotion.matches || typeof opening.showModal !== 'function') return;
+    if (new URLSearchParams(location.search).get('intro') === '0') return;
+    const film = opening.querySelector('.opening-film');
+    const count = opening.querySelector('.opening-count');
+    const bar = opening.querySelector('.opening-progress i');
+    let startupTimer;
+
+    function enterDeck() {
+      if (!opening.open || opening.classList.contains('is-leaving')) return;
+      clearTimeout(startupTimer);
+      film.pause();
+      opening.classList.add('is-leaving');
+      syncBackground();
+      const curtain = opening.animate(
+        [{ transform: 'translateY(0)' }, { transform: 'translateY(-100%)' }],
+        { duration: reducedMotion.matches ? 0 : 900, easing: 'cubic-bezier(.8,0,.2,1)', fill: 'forwards' }
+      );
+      const finish = () => {
+        opening.close();
+        deck.focus({ preventScroll: true });
+      };
+      curtain.finished.then(finish, finish);
+    }
+
+    film.addEventListener('ended', () => {
+      if (opening.classList.contains('is-leaving')) return;
+      opening.dataset.stage = 'loading';
+      const start = performance.now() + 300;
+      function tick(now) {
+        if (!opening.open || opening.classList.contains('is-leaving')) return;
+        const fraction = Math.min(1, Math.max(0, (now - start) / 1700));
+        const progress = fraction < .5 ? 4 * fraction ** 3 : 1 - (-2 * fraction + 2) ** 3 / 2;
+        count.textContent = String(Math.round(progress * 100)).padStart(3, '0');
+        bar.style.transform = `scaleX(${progress})`;
+        if (fraction < 1) requestAnimationFrame(tick);
+        else setTimeout(enterDeck, 150);
+      }
+      requestAnimationFrame(tick);
+    }, { once: true });
+    opening.querySelector('.opening-skip').addEventListener('click', enterDeck);
+    opening.addEventListener('cancel', event => {
+      event.preventDefault();
+      enterDeck();
+    });
+    film.addEventListener('playing', () => clearTimeout(startupTimer), { once: true });
+    film.addEventListener('error', enterDeck, { once: true });
+    opening.showModal();
+    startupTimer = setTimeout(enterDeck, 6000);
+    film.src = film.dataset.src;
+    film.muted = true;
+    film.play().catch(enterDeck);
+  }
+
+  startOpening();
+  syncBackground();
+  document.addEventListener('visibilitychange', syncBackground);
+  reducedMotion.addEventListener('change', syncBackground);
+</script>
+</body>
+</html>

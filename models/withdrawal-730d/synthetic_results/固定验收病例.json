@@ -1,0 +1,17 @@
+{
+  "origin": "SYNTHETIC_DEMO",
+  "input": {
+    "epilepsy_duration_before_remission_years": 4.0,
+    "seizure_free_months": 48.0,
+    "age_at_onset": 12.0,
+    "febrile_seizure_history": 0.0,
+    "seizure_count_before_remission": 8.0,
+    "self_limiting_syndrome": 0.0,
+    "developmental_delay": 0.0,
+    "eeg_epileptiform": 0.0
+  },
+  "risk_730": 0.3265533883539704,
+  "training_k3_distance": 1.3033407160593324,
+  "status": "SYNTHETIC_INTERFACE_ONLY",
+  "model_sha256": "3eefcfc66de9e62c15aa0cc666b3e0a0b10e5630d855bc2319562aeed716c0e6"
+}

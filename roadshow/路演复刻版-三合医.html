@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>三合医 · 癫痫研究平台路演</title>
+  <style>
+    :root {
+      --ink: #1e1a1b;
+      --muted: #6b605c;
+      --paper: #f4f0ed;
+      --white: #fffdfb;
+      --orange: #d65d38;
+      --dark-orange: #a83e24;
+      --line: #e8dfd9;
+      --ease: cubic-bezier(.22,.75,.22,1);
+      --font: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    }
+    * { box-sizing: border-box }
+    body { margin: 0; min-height: 100dvh; display: grid; place-items: center; background: #151416; font: 16px/1.55 var(--font) }
+    h1, h2, h3, p { margin: 0 }
+    button { font: inherit; cursor: pointer }
+    button:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px }
+    .player {
+      width: min(100vw, calc(100dvh * 16 / 9)); aspect-ratio: 16 / 9;
+      position: relative; overflow: clip; background: var(--paper); color: var(--ink);
+    }
+    .player:fullscreen { width: 100%; height: 100%; display: grid; place-items: center; background: #151416 }
+    .player:fullscreen .canvas { top: 50%; left: 50%; margin: -360px 0 0 -640px; transform-origin: center }
+    .canvas { position: absolute; inset: 0 auto auto 0; width: 1280px; height: 720px; overflow: clip; transform: scale(var(--scale,1)); transform-origin: top left }
+    .site { position: absolute; inset: 0 0 auto; background: var(--paper); transition: transform 1.22s var(--ease) }
+    .site.cut { transition: none }
+    .player[data-frozen] .canvas * { animation-play-state: paused !important }
+
+    .desk-shot, .brand-shot { position: absolute; inset: 0; pointer-events: none; visibility: hidden; opacity: 0 }
+    .desk-shot { z-index: 4; overflow: hidden }
+    .desk-camera, .phone-camera { position: absolute; inset: 0; overflow: hidden }
+    .desk-camera { transform-origin: 526px 278px }
+    .shot-photo { width: 100%; height: 100%; display: block; object-fit: fill }
+    .desk-display {
+      position: absolute; inset: 0; overflow: hidden; transform-origin: 0 0;
+      /* Map the 1280 × 720 layout to the photographed monitor's four inner corners. */
+      transform: matrix3d(.567799341,.00200657104,0,.00000834627463,.00870430187,.515967459,0,.0000196691105,0,0,1,0,168.421053,95.642933,0,1);
+      box-shadow: inset 0 0 3px #1b1717;
+    }
+    .desk-display::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(115deg,#fff2 8%,transparent 39%,#493c3612 92%);
+      box-shadow: inset 0 0 12px #21191535;
+    }
+    .desk-display .hero { min-height: 720px }
+    .desk-display .top nav,
+    .desk-display :is(.top,.hero-actions) button { font-size: 16px }
+    .desk-display .top nav button { font-weight: 650 }
+    .desk-display .intro p { font-size: 19px; font-weight: 550; color: #514640 }
+    .desk-display :is(.overline,.flags) { font-size: 15px; font-weight: 650 }
+    .desk-display :is(.dash-top span,.tile small,.item) { font-size: 15px; font-weight: 550 }
+    .desk-display .tile h3 { font-size: 19px }
+    .player:is([data-scene="desk"],[data-scene="return"]) .desk-shot { visibility: visible; opacity: 1 }
+    .player[data-scene="desk"] .desk-camera { animation: desk-drift 2.75s ease-out both }
+    .player[data-scene="return"] .desk-shot { animation: shot-arrive .65s ease-out both }
+    .player[data-scene="return"] .desk-camera { animation: desk-pull 1.9s var(--ease) both }
+    .player[data-scene="brand"][data-previous="desk"] .desk-shot { visibility: visible; animation: desk-dissolve .94s ease both }
+    .player[data-scene="brand"][data-previous="desk"] .desk-camera { animation: desk-push .94s var(--ease) both }
+    @keyframes desk-drift { to { transform: scale(1.024) } }
+    @keyframes desk-push {
+      from { transform: scale(1.024) }
+      to { transform: translate(114px,82px) scale(2.12) }
+    }
+    @keyframes desk-pull {
+      from { transform: translate(114px,82px) scale(2.12) }
+      to { transform: scale(1.024) }
+    }
+    @keyframes desk-dissolve { 0%,36% { opacity: 1 } to { opacity: 0 } }
+    @keyframes shot-arrive { from { opacity: 0 } to { opacity: 1 } }
+
+    .brand-shot {
+      z-index: 3; background: radial-gradient(ellipse at 50% -8%,#f0ded2,transparent 55%),var(--paper);
+      transition: opacity .36s ease, visibility 0s .36s;
+      --dot-x: 807px;
+      --dot-y: 385px;
+    }
+    .player:is([data-scene="brand"],[data-scene="outro"]) .brand-shot { visibility: visible; opacity: 1; transition-delay: 0s }
+    .brand-name {
+      position: absolute; left: 458px; top: 282px; color: #1b1818;
+      font-size: 113px; font-weight: 800; line-height: 1.1; letter-spacing: -.055em; white-space: nowrap;
+    }
+    .brand-dot, .brand-wash {
+      position: absolute; top: var(--dot-y); left: var(--dot-x); width: 21px; height: 21px;
+      border-radius: 50%; background: var(--orange); margin: -10.5px;
+    }
+    .brand-wash { background: #f6e4da; transform: scale(0) }
+    .brand-caption { position: absolute; inset: 438px 0 auto; text-align: center; color: var(--muted); font-size: 16px; letter-spacing: .15em; visibility: hidden }
+    .player:is([data-scene="brand"],[data-scene="outro"]) .brand-name { animation: wordmark 1.52s .22s both }
+    .player:is([data-scene="brand"],[data-scene="outro"]) .brand-dot { animation: ember 1.52s .22s both }
+    .player[data-scene="brand"] .brand-wash { animation: wash .68s 2s var(--ease) forwards }
+    .player[data-scene="hero"][data-previous="brand"] .brand-wash { transform: scale(90) }
+    .player[data-scene="outro"] .brand-caption { visibility: visible; animation: lift .6s 1.42s var(--ease) both }
+    @keyframes ember {
+      0% { opacity: 0; transform: translate(-445px,-25px) scale(.35) }
+      15% { opacity: 1; transform: translate(-445px,-25px) scale(1) }
+      32% { transform: translate(-355px,-17px) scale(.84) }
+      64% { transform: translate(4px,0) scale(1.18) }
+      81%,100% { transform: translate(0,0) scale(1) }
+    }
+    @keyframes wordmark {
+      0%,32% { clip-path: inset(0 100% 0 0); opacity: .5 }
+      66%,100% { clip-path: inset(0); opacity: 1 }
+    }
+    @keyframes wash { from { transform: scale(.98); background: var(--orange) } to { transform: scale(90); background: #f6e4da } }
+
+    .hero {
+      min-height: 1060px; overflow: hidden; position: relative; isolation: isolate;
+      background: radial-gradient(ellipse at 14% 7%,#efd5cb,transparent 58%),radial-gradient(ellipse at 84% 40%,#f5e4d3,transparent 58%),linear-gradient(#f6f1ed,var(--paper) 86%);
+    }
+    .top { height: 83px; display: flex; align-items: center; justify-content: space-between; padding: 0 67px }
+    .wordmark { font-weight: 850; font-size: 25px; letter-spacing: -.07em; line-height: 1; white-space: nowrap }
+    .wordmark i { color: var(--orange); font-style: normal; margin-left: 3px }
+    .top nav { display: flex; gap: 27px; background: #fffaf8e6; border-radius: 60px; padding: 10px 22px; font-size: 13px }
+    .top nav button { background: transparent; border: 0; padding: 0; color: #4a403c }
+    .top nav button:hover { color: var(--dark-orange) }
+    .dark-btn, .light-btn { display: inline-flex; gap: 8px; align-items: center; justify-content: center; border: 0; border-radius: 50px; padding: 10px 17px; font-size: 13px; font-weight: 700 }
+    .dark-btn { color: #fff; background: #211d20 }
+    .light-btn { color: #211d20; background: var(--white) }
+    .dark-btn:hover, .light-btn:hover { box-shadow: 0 0 0 2px var(--orange) }
+    .intro { text-align: center; padding-top: 30px }
+    .overline { display: inline-flex; align-items: center; gap: 7px; border-radius: 50px; padding: 5px 11px; background: #fff8f1; color: var(--dark-orange); font-size: 12px; font-weight: 700 }
+    .overline b { display: grid; place-items: center; width: 19px; height: 19px; color: white; background: var(--orange); border-radius: 50% }
+    h1 { margin: 12px 0 10px; font-size: 57px; line-height: 1.1; letter-spacing: -.065em; font-weight: 730 }
+    h1 span { display: block }
+    .intro p, .center p { color: var(--muted); font-size: 16px; line-height: 1.65 }
+    .hero-actions { display: flex; gap: 9px; justify-content: center; margin: 17px 0 12px }
+    .flags { display: flex; gap: 20px; justify-content: center; color: #594c44; font-size: 11px }
+    .flags span::before { content: "✓"; color: #2a7648; font-weight: 900; margin-right: 4px }
+    .intro.is-active .headline-line { overflow: hidden }
+    .intro.is-active .headline-line span { animation: headline .78s calc(var(--delay,0s) + .04s) var(--ease) both }
+    @keyframes headline { from { opacity: 0; transform: translateY(72%); filter: blur(8px) } to { opacity: 1; transform: none; filter: none } }
+
+    .dashboard {
+      --enter: .42s; position: relative; margin: 39px 73px 0; padding: 14px;
+      border: 1px solid white; border-radius: 25px; background: #fdfbf8;
+      box-shadow: 0 22px 55px #5a372e29;
+    }
+    .intro.is-active + .dashboard { animation: lift 1.02s .72s var(--ease) both }
+    .dash-top { display: flex; justify-content: space-between; align-items: center; padding: 5px 10px 14px; border-bottom: 1px solid var(--line) }
+    .dash-top .wordmark { font-size: 18px }
+    .dash-top span, .tile small { color: var(--muted); font-size: 12px }
+    .dash-top .quick { min-width: 240px; padding: 5px 12px; background: #f4ede8; border-radius: 30px; text-align: center }
+    .dash-grid { display: grid; grid-template-columns: 242px 1fr 228px; gap: 12px; padding-top: 12px }
+    .tile { min-width: 0; padding: 16px; background: #f9f5f1; border: 1px solid #f1e8e0; border-radius: 16px }
+    .tile h3 { font-size: 16px; line-height: 1.3; margin-bottom: 5px }
+    .item { display: flex; align-items: center; gap: 8px; margin-top: 8px; padding: 10px; border-radius: 9px; background: #fff; font-size: 12px }
+    .dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--orange) }
+    .dot.green { background: #4c9263 }
+    .dot.blue { background: #5975b6 }
+    .dot.purple { background: #8765a9 }
+    .excerpt { margin-top: 11px; padding: 13px 11px; border-radius: 11px; background: #f3e4da; color: #543e35; font-size: 12px }
+    .excerpt b { display: block; margin: 4px 0 }
+    .excerpt mark { padding: 0 2px; background: #fbdac4; color: inherit }
+    .dashboard.is-active .excerpt mark { animation: underline 1.1s 1.35s both }
+    @keyframes underline { from { background: transparent } to { background: #f9cbb0 } }
+    .neuro {
+      height: 306px; position: relative; isolation: isolate; overflow: hidden; display: grid; place-items: center; margin-top: 10px;
+      border-radius: 13px; background: radial-gradient(ellipse at 52% 46%,#f6dbcc,#fbf3ed 72%);
+    }
+    .neuro img { width: 345px; height: 290px; object-fit: contain; filter: drop-shadow(0 16px 17px #7d53383b) }
+    .dashboard.is-active .neuro img { animation: brain-arrive 1.38s .61s var(--ease) both, breathe 4.4s 2s ease-in-out infinite }
+    @keyframes brain-arrive { from { opacity: 0; transform: translateY(18px) scale(.91) } to { opacity: 1; transform: none } }
+    @keyframes breathe { 50% { transform: translateY(-6px) } }
+    .neuro::before {
+      content: ""; position: absolute; z-index: -1; inset: 17px 65px; border-radius: 50%;
+      background: repeating-radial-gradient(ellipse at center,transparent 0 31px,#ad6e4d21 32px,transparent 33px 54px);
+      mask-image: radial-gradient(ellipse,#000 23%,transparent 73%);
+    }
+    .neuro .tag { position: absolute; padding: 6px 9px; border-radius: 9px; background: #fffaf8; box-shadow: 0 4px 13px #67423425; color: #6e4433; font-size: 11px; font-weight: 700 }
+    .tag.one { top: 22%; left: 8% }
+    .tag.two { bottom: 17%; right: 7% }
+    .stat { margin-top: 9px; padding: 10px 12px; border-radius: 11px; background: var(--white); font-size: 12px }
+    .stat b { display: block; color: #272026; font-size: 24px; line-height: 1.16; letter-spacing: -.05em }
+
+    .section { --enter: .56s; height: 720px; overflow: hidden; padding: 58px 72px; background: var(--paper) }
+    .center { text-align: center }
+    .center h2 { margin: 12px 0; font-size: 47px; line-height: 1.18; letter-spacing: -.055em; font-weight: 730 }
+    .metric-section { display: grid; align-content: center; padding-bottom: 91px; background: radial-gradient(ellipse at 50% 0,#f7e8df,transparent 72%),var(--paper) }
+    .metric-section h2 { margin-bottom: 7px; font-size: 43px }
+    .metric-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin: 31px 0 18px }
+    .metric {
+      position: relative; min-height: 154px; padding: 21px 24px; overflow: hidden;
+      background: #fffdfbdf; border: 1px solid #fff; border-radius: 24px; box-shadow: 0 12px 27px #6b462b09;
+    }
+    .metric span { display: block; color: var(--muted); font-size: 13px }
+    .metric strong { display: inline-block; margin-bottom: 4px; font: 650 47px/1.18 "Segoe UI", var(--font); letter-spacing: -.045em; font-variant-numeric: tabular-nums }
+    .metric strong small { font: 650 19px var(--font); letter-spacing: 0 }
+    .metric-section.is-active .metric strong { animation: lift .64s calc(var(--enter) + var(--delay) + .22s) var(--ease) both }
+    .metric-section.is-active .metric::after {
+      content: ""; position: absolute; inset: auto auto 16px 24px; width: 31px; height: 2px; background: var(--orange);
+      transform-origin: left; animation: draw .52s calc(var(--enter) + var(--delay) + .36s) var(--ease) both;
+    }
+    @keyframes draw { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+    .footnote { color: #6e5e56; text-align: center; font-size: 13px }
+    .feature-grid, .role-grid, .plan-grid { display: grid; gap: 15px; margin-top: 33px }
+    .feature-grid, .plan-grid { grid-template-columns: repeat(3,1fr) }
+    .role-grid { grid-template-columns: repeat(4,1fr) }
+    .feature, .role, .plan { min-height: 178px; padding: 23px; background: var(--white); border: 1px solid #fff; border-radius: 18px }
+    .feature h3, .role h3, .plan h3 { margin: 13px 0 7px; font-size: 20px }
+    .feature p, .role p, .plan p { color: var(--muted); font-size: 14px }
+    .icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #f9dfd0; color: var(--dark-orange); font-weight: 750 }
+    .role:nth-child(2) .icon { background: #dfe9fa; color: #284c86 }
+    .role:nth-child(3) .icon { background: #eee4f8; color: #67388d }
+    .role:nth-child(4) .icon { background: #e1ecdd; color: #316c47 }
+    .strip, .ending { display: flex; justify-content: space-between; align-items: center; margin-top: 23px; padding: 20px 26px; border-radius: 19px }
+    .strip { background: #f6e3d6; color: #3f3128; font-size: 14px }
+    .strip b { font-size: 20px }
+    .plan.featured { background: #241e23; color: #fff7ef }
+    .plan.featured p { color: #e0d4ce }
+    .ending { color: #fff7ef; background: linear-gradient(120deg,#b84428,#d7623e); font-size: 14px }
+    .ending strong { font-size: 24px }
+
+    .dark-section { padding: 34px 40px }
+    .ai {
+      height: 652px; display: grid; grid-template-columns: 1fr .91fr; align-items: center; gap: 63px;
+      padding: 55px 68px; border-radius: 35px; color: #fff9f2;
+      background: radial-gradient(ellipse at 0 0,#704331,transparent 55%),radial-gradient(ellipse at 100% 100%,#72482e,transparent 47%),#1c191e;
+    }
+    .ai .overline { background: #ffffff20; color: #ffe0d0 }
+    .ai h2, .mobile-copy h2 { margin: 16px 0 13px; font-size: 51px; line-height: 1.15; letter-spacing: -.05em; font-weight: 730 }
+    .ai p { max-width: 30em; color: #e2d7d0; font-size: 15px }
+    .prompt { margin-top: 10px; padding: 10px 14px; border-radius: 50px; border: 1px solid #ffffff30; background: #ffffff0e; color: #fff3ee; font-size: 13px }
+    .chat { min-height: 399px; position: relative; padding: 14px; border-radius: 24px; background: radial-gradient(ellipse at 68% 32%,#f0d5c1,transparent 65%),#f5ede8; color: #2d2524; box-shadow: 0 18px 46px #0006 }
+    .chat header { display: flex; justify-content: space-between; padding: 7px 8px 13px; border-bottom: 1px solid white; font-size: 13px }
+    .bubble { margin: 13px 24px 0 0; padding: 12px; border-radius: 12px; background: #fffefa; font-size: 13px }
+    .bubble.question { margin: 15px 0 0 29px; background: #251e23; color: white }
+    .bubble small { display: block; margin-top: 7px; color: #875038 }
+    .chat footer { position: absolute; inset: auto 14px 14px; padding: 10px 13px; border-radius: 20px; background: #fffefa; color: #665651; font-size: 13px }
+    .chat footer b { float: right; color: var(--dark-orange) }
+
+    .mobile-section { position: relative; padding: 0; background: #564236 }
+    .phone-camera { transform-origin: 73% 48% }
+    .mobile-section.is-active .phone-camera { animation: phone-drift 4.65s ease-out both }
+    @keyframes phone-drift { to { transform: scale(1.048) } }
+    .mobile-section::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg,#1c1715d9,#2019159c 32%,#211a1600 59%);
+    }
+    .mobile-copy { position: absolute; z-index: 1; top: 214px; left: 80px; max-width: 520px; color: #fff8f1 }
+    .mobile-copy p { max-width: 345px; color: #f2e8df; font-size: 15px }
+    .mobile-copy .overline { background: #38251ec2; color: #ffdfd0; border: 1px solid #ffffff41 }
+    .mobile-copy .light-btn { margin-top: 20px }
+    .phone-screen {
+      position: absolute; top: 7.84%; left: 62.15%; width: 20.49%; height: 78.05%;
+      overflow: hidden; border-radius: 29px; background: #f7f1eb; color: #292020;
+      clip-path: polygon(0 0,100% 0,100% 84.1%,97% 84%,93% 84.5%,89% 86%,87.4% 88.2%,87.2% 91%,89% 94.7%,93.6% 100%,0 100%);
+    }
+    .phone-screen::before { content: ""; position: absolute; z-index: 2; top: 13px; left: 50%; width: 50px; height: 10px; transform: translateX(-50%); background: #211e1c; border-radius: 15px }
+    .phone-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(112deg,#fff3,transparent 32%,#b1917111 73%); pointer-events: none }
+    .phone-status { display: flex; justify-content: space-between; padding: 12px 24px 6px; font-size: 10px; font-weight: 750 }
+    .phone-viewport { position: absolute; inset: 40px 0 0; overflow: hidden }
+    .phone-track { display: flex; height: 100%; transition: transform .65s var(--ease) }
+    .phone-panel { position: relative; flex: 0 0 100%; min-width: 0; padding: 14px 16px; background: linear-gradient(#faeee5 0,#f7f1eb 72%) }
+    .phone-panel .wordmark { font-size: 17px }
+    .phone-panel h3 { margin: 19px 0 6px; font-size: 25px; line-height: 1.2; letter-spacing: -.05em }
+    .phone-panel p { color: var(--muted); font-size: 11px }
+    .phone-note { margin-top: 11px; padding: 11px; border: 1px solid white; border-radius: 11px; background: #fffaf7; font-size: 12px; line-height: 1.5 }
+    .phone-note b { display: block; color: #7e4232; margin-bottom: 4px }
+    .phone-tab { position: absolute; left: 16px; right: 39px; bottom: 62px; padding: 8px 9px; border-radius: 20px; background: #2c2225; color: #fff8f0; font-size: 11px; text-align: center }
+    .phone-tap { position: absolute; right: 22%; bottom: 13%; width: 23px; height: 23px; border: 2px solid #fcd0b8; border-radius: 50%; opacity: 0 }
+    .mobile-section.is-active .phone-tap { animation: tap .64s 2.05s both }
+    .mobile-section.is-active .phone-track { animation: phone-open .69s 2.43s var(--ease) both }
+    .mobile-section[data-phone-view] :is(.phone-track,.phone-tap) { animation: none }
+    .mobile-section[data-phone-view="checklist"] .phone-track { transform: translateX(-100%) }
+    @keyframes phone-open { to { transform: translateX(-100%) } }
+    @keyframes tap { 0% { opacity: 0; transform: scale(.54) } 24% { opacity: .86 } to { opacity: 0; transform: scale(2.12) } }
+
+    .is-active .reveal {
+      animation: lift .78s calc(var(--enter,0s) + var(--delay,0s)) var(--ease) both;
+    }
+    @keyframes lift {
+      from { opacity: 0; transform: translateY(19px) scale(.985); filter: blur(5px) }
+      to { opacity: 1; transform: none; filter: none }
+    }
+    .controls {
+      position: absolute; z-index: 5; inset: auto auto 12px 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 5px; padding: 5px; white-space: nowrap;
+      border: 1px solid #ffffff45; border-radius: 50px; background: #241f24ed; color: #fff; font-size: 12px;
+    }
+    .controls button { border: 0; border-radius: 40px; padding: 5px 10px; background: #fff6ef; color: #211e24; font-size: 12px }
+    .controls button:hover:not(:disabled) { background: #ffdfcd }
+    .controls button:disabled { opacity: .48; cursor: default }
+    .controls output { padding: 0 5px }
+    .record .controls { display: none }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important }
+      .player[data-scene="brand"][data-previous="desk"] .desk-shot { visibility: hidden }
+    }
+  </style>
+</head>
+<body>
+  <div class="player" aria-label="三合医路演播放器">
+    <div class="canvas">
+      <main class="site">
+        <section class="hero" id="hero" aria-label="平台首页">
+          <header class="top">
+            <div class="wordmark">三合医<i>.</i></div>
+            <nav aria-label="演示导航">
+              <button type="button" data-jump="dashboard">研究工作台</button>
+              <button type="button" data-jump="evidence">知识问答</button>
+              <button type="button" data-jump="roles">院内协作</button>
+              <button type="button" data-jump="roadmap">验证计划</button>
+            </nav>
+            <button class="dark-btn" type="button" data-jump="dashboard">查看演示 ↗</button>
+          </header>
+          <div class="intro" id="home-intro">
+            <span class="overline reveal"><b>＋</b> 减药后复发 · 教学研究</span>
+            <h1><span class="headline-line"><span>癫痫复发预测</span></span><span class="headline-line"><span style="--delay:.12s">从可核对的病历开始</span></span></h1>
+            <p class="reveal" style="--delay:.24s">连接教学病历、字段核对与复发风险模型。</p>
+            <div class="hero-actions reveal" style="--delay:.35s">
+              <button class="dark-btn" type="button" data-jump="dashboard">查看研究工作台 ↗</button>
+              <button class="light-btn" type="button" data-jump="evidence">▶ 知识问答</button>
+            </div>
+            <div class="flags reveal" style="--delay:.47s"><span>八项结构化字段</span><span>730 天观察窗口</span><span>人工核对</span></div>
+          </div>
+          <div class="dashboard" id="dashboard">
+            <header class="dash-top">
+              <b class="wordmark">三合医<i>.</i></b><span class="quick">⌕　研究工作台　/　正向预测</span><span>●　教学界面示意</span>
+            </header>
+            <div class="dash-grid">
+              <article class="tile reveal">
+                <h3>病例与字段核对</h3><small>教学病例 · 研究流程</small>
+                <div class="item"><i class="dot blue"></i>导入教学病例</div>
+                <div class="item"><i class="dot purple"></i>核对原文与字段</div>
+                <div class="item"><i class="dot green"></i>人工确认八项输入</div>
+                <div class="item"><i class="dot"></i>查看模型输出</div>
+                <div class="excerpt reveal" style="--delay:.52s">
+                  <small>教学原文片段</small>
+                  <b>脑电图可见<mark>癫痫样放电</mark>。</b>
+                  EEG 癫痫样异常 · 待人工确认
+                </div>
+              </article>
+              <article class="tile reveal" style="--delay:.11s">
+                <h3>减药后复发研究</h3><small>从首次实际减药日起观察</small>
+                <div class="neuro">
+                  <img src="assets/sanhe-brain-illustration.png" alt="脑部示意图">
+                  <span class="tag one reveal" style="--delay:.43s">原文可核对</span>
+                  <span class="tag two reveal" style="--delay:.59s">模型支持范围</span>
+                </div>
+              </article>
+              <article class="tile reveal" style="--delay:.23s">
+                <h3>输入与结果</h3><small>仅供教学与研究联调</small>
+                <div class="stat"><b>08</b>项结构化输入</div>
+                <div class="stat"><b>730</b>天复发观察窗口</div>
+                <div class="item"><i class="dot green"></i>教学合成数据</div>
+                <div class="item"><i class="dot blue"></i>训练支持范围检查</div>
+                <div class="item"><i class="dot purple"></i>保留结果与模型版本</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section metric-section" id="metrics" aria-labelledby="metrics-title">
+          <div class="center reveal">
+            <span class="overline">epi-relapse-730d@0.4.1</span>
+            <h2 id="metrics-title">正向模型的数据与结果</h2>
+            <p>减药后 730 天复发预测 · 教学合成数据</p>
+          </div>
+          <!-- Values come from baseline_runtime/model/model_meta.json for epi-relapse-730d@0.4.1. -->
+          <div class="metric-grid">
+            <article class="metric reveal" style="--delay:.10s"><strong>730 <small>天</small></strong><span>复发观察窗口</span></article>
+            <article class="metric reveal" style="--delay:.19s"><strong>4,000</strong><span>教学合成样本总数</span></article>
+            <article class="metric reveal" style="--delay:.28s"><strong>0.767</strong><span>AUC · 内部测试</span></article>
+            <article class="metric reveal" style="--delay:.37s"><strong>0.1508</strong><span>Brier · 内部测试</span></article>
+          </div>
+          <p class="footnote reveal" style="--delay:.48s">AUC 与 Brier 来自合成数据的内部测试集。真实队列性能待独立验证。</p>
+        </section>
+
+        <section class="section" id="features">
+          <div class="center reveal"><span class="overline">研究场景</span><h2>从病历字段到研究证据</h2><p>核对输入，比较假设情景，追溯资料出处。</p></div>
+          <div class="feature-grid">
+            <article class="feature reveal" style="--delay:.12s"><span class="icon">↗</span><h3>正向预测</h3><p>核对八项输入，查看教学模型输出和训练支持范围。</p></article>
+            <article class="feature reveal" style="--delay:.21s"><span class="icon">⇄</span><h3>逆向情景</h3><p>固定已知事实，比较限定字段变化下的假设情景。</p></article>
+            <article class="feature reveal" style="--delay:.30s"><span class="icon">⊕</span><h3>知识图谱</h3><p>浏览 D13 卒中后癫痫资料、相关实体与证据来源。</p></article>
+          </div>
+          <div class="strip reveal" style="--delay:.39s"><b>研究记录可回看</b><span>保留原文、人工确认和模型版本。</span></div>
+        </section>
+
+        <section class="section dark-section" id="evidence">
+          <div class="ai">
+            <div class="reveal">
+              <span class="overline">✦ 知识问答</span><h2>提出问题，<br>找到可核对的证据</h2>
+              <p>从问题进入 D13 资料，查看原始陈述与来源。</p>
+              <div class="prompt reveal" style="--delay:.23s">⌕　NIHSS 与卒中后癫痫有什么关系？</div>
+              <div class="prompt reveal" style="--delay:.36s">⌕　SeLECT 的评分变量有哪些？</div>
+            </div>
+            <div class="chat reveal" style="--delay:.18s">
+              <header><b>● 研究资料助手</b><span>检索界面示意</span></header>
+              <div class="bubble question reveal" style="--delay:.48s">NIHSS 与卒中后癫痫相关资料在哪里？</div>
+              <div class="bubble reveal" style="--delay:.75s"><b>检索范围 · D13 研究资料</b><br>打开匹配条目，查看原始陈述与来源。<small>证据卡片 ↗　原始资料 ↗</small></div>
+              <div class="bubble reveal" style="--delay:.98s">生成式回答待接入。</div>
+              <footer>⌕　输入研究问题 <b>➜</b></footer>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="roles">
+          <div class="center reveal"><span class="overline">院内研究流程</span><h2>从录入到结果复核</h2><p>每一步都能核对数据来源和操作记录。</p></div>
+          <div class="role-grid">
+            <article class="role reveal" style="--delay:.1s"><span class="icon">01</span><h3>数据录入</h3><p>导入教学数据，检查格式与必填字段。</p></article>
+            <article class="role reveal" style="--delay:.2s"><span class="icon">02</span><h3>人工核对</h3><p>确认字段含义与来源，记录异常。</p></article>
+            <article class="role reveal" style="--delay:.3s"><span class="icon">03</span><h3>模型运行</h3><p>检查研究配置与结果适用范围。</p></article>
+            <article class="role reveal" style="--delay:.4s"><span class="icon">04</span><h3>结果复核</h3><p>按授权查看、复核及导出结果。</p></article>
+          </div>
+        </section>
+
+        <section class="section mobile-section" id="mobile">
+          <div class="phone-camera" aria-hidden="true">
+            <img class="shot-photo" src="assets/sanhe-clinic-phone.png" alt="">
+            <div class="phone-screen">
+              <div class="phone-status"><span>9:41</span><span>▴ ▰</span></div>
+              <div class="phone-viewport"><div class="phone-track">
+                <div class="phone-panel">
+                  <b class="wordmark">三合医<i>.</i></b><h3>我的就诊准备</h3><p>记录近况，整理想问医生的问题。</p>
+                  <div class="phone-note"><b>近期记录</b>整理发生时间和当时的情况</div>
+                  <div class="phone-note"><b>就诊问题清单</b>把想问的问题集中到一处</div>
+                  <div class="phone-tab">打开问题清单　↗</div>
+                </div>
+                <div class="phone-panel">
+                  <b class="wordmark">三合医<i>.</i></b><h3>就诊问题清单</h3><p>就诊时和医生一起核对。</p>
+                  <div class="phone-note"><b>01　复诊资料</b>这次需要带哪些检查报告？</div>
+                  <div class="phone-note"><b>02　发作记录</b>近期出现的情况应该怎么记录？</div>
+                  <div class="phone-note"><b>03　随访安排</b>下次复诊前要准备什么？</div>
+                </div>
+              </div></div>
+              <div class="phone-tap"></div>
+            </div>
+          </div>
+          <div class="mobile-copy">
+            <span class="overline reveal">移动端概念演示</span>
+            <h2 class="reveal" style="--delay:.13s">把想问医生的问题，<br>带到诊室</h2>
+            <p class="reveal" style="--delay:.24s">就诊前整理近期记录和问题清单，见到医生时直接打开。</p>
+            <button class="light-btn reveal" id="open-phone" type="button" style="--delay:.35s" aria-pressed="false">查看就诊清单 ↗</button>
+          </div>
+        </section>
+
+        <section class="section" id="roadmap">
+          <div class="center reveal"><span class="overline">下一阶段</span><h2>从教学联调到独立验证</h2><p>明确字段来源、模型版本与验证边界。</p></div>
+          <div class="plan-grid">
+            <article class="plan reveal" style="--delay:.1s"><span class="icon">01</span><h3>规范字段</h3><p>补齐定义、来源和人工复核流程。</p></article>
+            <article class="plan featured reveal" style="--delay:.2s"><span class="icon">02</span><h3>锁定模型版本</h3><p>在独立样本中验证表现与适用范围。</p></article>
+            <article class="plan reveal" style="--delay:.3s"><span class="icon">03</span><h3>院内协作</h3><p>完善数据接入、权限与研究记录。</p></article>
+          </div>
+          <div class="ending reveal" style="--delay:.4s"><div><strong>三合医 · 癫痫研究平台</strong><p>教学合成模型 · 仅供研究联调，不用于临床决策</p></div><b>谢谢观看</b></div>
+        </section>
+      </main>
+      <div class="brand-shot" aria-hidden="true">
+        <div class="brand-name">三合医</div><div class="brand-dot"></div>
+        <p class="brand-caption">癫痫研究平台 · 仅供研究联调</p>
+        <div class="brand-wash"></div>
+      </div>
+      <div class="desk-shot" aria-hidden="true" inert>
+        <div class="desk-camera">
+          <img class="shot-photo" src="assets/sanhe-clinic-desk.png" alt="">
+          <div class="desk-display"></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls" aria-label="播放控制">
+      <button id="prev" type="button" aria-label="上一幕">←</button>
+      <button id="play" type="button" aria-pressed="false">播放</button>
+      <button id="next" type="button" aria-label="下一幕">→</button>
+      <output id="position" aria-live="off"></output>
+      <button id="full" type="button">全屏</button>
+    </div>
+  </div>
+  <script>
+    const player = document.querySelector(".player");
+    const site = document.querySelector(".site");
+    const hero = document.querySelector("#hero");
+    const mobile = document.querySelector("#mobile");
+    const openPhone = document.querySelector("#open-phone");
+    const phoneTrack = document.querySelector(".phone-track");
+    const play = document.querySelector("#play");
+    const prev = document.querySelector("#prev");
+    const next = document.querySelector("#next");
+    const record = new URLSearchParams(location.search).get("record") === "1";
+    const scenes = [
+      { id: "desk", label: "诊室", duration: 2800 },
+      { id: "brand", label: "三合医", duration: 2700 },
+      { id: "hero", label: "平台首页", target: "home-intro", duration: 3100 },
+      { id: "dashboard", label: "研究工作台", target: "dashboard", offset: 42, duration: 3800 },
+      { id: "metrics", label: "模型数据", target: "metrics", duration: 3400 },
+      { id: "features", label: "研究场景", target: "features", duration: 2900 },
+      { id: "evidence", label: "知识问答", target: "evidence", duration: 3400 },
+      { id: "roles", label: "院内协作", target: "roles", duration: 2800 },
+      { id: "mobile", label: "移动端构想", target: "mobile", duration: 4700 },
+      { id: "roadmap", label: "验证计划", target: "roadmap", duration: 3100 },
+      { id: "return", label: "回到诊室", duration: 2000 },
+      { id: "outro", label: "片尾", duration: 2500 }
+    ];
+
+    // Use the same homepage markup inside the monitor and in the full-frame scene.
+    const monitorHero = hero.cloneNode(true);
+    monitorHero.removeAttribute("id");
+    monitorHero.querySelectorAll("[id]").forEach(element => element.removeAttribute("id"));
+    document.querySelector(".desk-display").append(monitorHero);
+
+    let index = -1;
+    let activeTarget;
+    let playing = false;
+    let timer;
+    let deadline;
+    let remaining;
+
+    function fit() {
+      const scale = Math.min(player.clientWidth / 1280, player.clientHeight / 720);
+      player.style.setProperty("--scale", scale);
+    }
+
+    function stopTimer() {
+      if (timer === undefined) return;
+      clearTimeout(timer);
+      timer = undefined;
+      remaining = Math.max(0, deadline - performance.now());
+    }
+
+    function schedule() {
+      stopTimer();
+      if (!playing || document.hidden) return;
+      deadline = performance.now() + remaining;
+      timer = setTimeout(() => {
+        timer = undefined;
+        if (index < scenes.length - 1) go(index + 1);
+        else setPlaying(false, false);
+      }, remaining);
+    }
+
+    function labelPhone(open) {
+      openPhone.setAttribute("aria-pressed", String(open));
+      openPhone.textContent = open ? "返回就诊准备 ↖" : "查看就诊清单 ↗";
+    }
+
+    function go(to) {
+      const scene = scenes[to];
+      if (!scene || index === to) return;
+      stopTimer();
+      const previous = scenes[index];
+      index = to;
+      remaining = scene.duration;
+      const target = document.getElementById(scene.target);
+      activeTarget?.classList.remove("is-active");
+      activeTarget = target;
+      mobile.removeAttribute("data-phone-view");
+      labelPhone(false);
+      player.removeAttribute("data-frozen");
+      player.dataset.previous = previous?.id ?? "";
+      player.dataset.scene = scene.id;
+      const section = target?.closest("section");
+      for (const item of site.querySelectorAll("section")) item.inert = item !== section;
+      hero.querySelector(".top").inert = scene.id !== "hero";
+      hero.querySelector(".intro").inert = scene.id !== "hero";
+
+      const scrolls = previous?.target && scene.target && Math.abs(scenes.indexOf(previous) - to) === 1;
+      site.classList.toggle("cut", !scrolls);
+      const y = scene.id === "hero" || !target ? 0 : target.offsetTop - (scene.offset ?? 0);
+      site.style.transform = "translate3d(0," + -y + "px,0)";
+      activeTarget?.classList.add("is-active");
+      prev.disabled = to === 0;
+      next.disabled = to === scenes.length - 1;
+      document.querySelector("#position").textContent = (to + 1) + " / " + scenes.length + "　" + scene.label;
+      schedule();
+    }
+
+    function setPlaying(value, freeze = true) {
+      playing = value;
+      if (playing && index === scenes.length - 1) go(0);
+      player.toggleAttribute("data-frozen", !playing && freeze);
+      play.textContent = playing ? "暂停" : "播放";
+      play.setAttribute("aria-pressed", String(playing));
+      schedule();
+    }
+
+    function jump(to) {
+      if (!scenes[to] || to === index) return;
+      setPlaying(false, false);
+      go(to);
+    }
+
+    new ResizeObserver(fit).observe(player);
+    fit();
+    player.classList.toggle("record", record);
+    go(0);
+    if (record) setPlaying(true);
+    player.querySelectorAll(".site [data-jump]").forEach(button => {
+      button.addEventListener("click", () => jump(scenes.findIndex(scene => scene.id === button.dataset.jump)));
+    });
+    openPhone.addEventListener("click", () => {
+      const open = openPhone.getAttribute("aria-pressed") === "false";
+      mobile.dataset.phoneView = open ? "checklist" : "home";
+      labelPhone(open);
+    });
+    phoneTrack.addEventListener("animationend", event => {
+      if (event.animationName === "phone-open") labelPhone(true);
+    });
+    prev.addEventListener("click", () => jump(index - 1));
+    next.addEventListener("click", () => jump(index + 1));
+    play.addEventListener("click", () => setPlaying(!playing));
+    document.querySelector("#full").addEventListener("click", () => {
+      const toggle = document.fullscreenElement ? document.exitFullscreen() : player.requestFullscreen();
+      toggle.catch(() => {});
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (playing) player.toggleAttribute("data-frozen", document.hidden);
+      schedule();
+    });
+    addEventListener("keydown", event => {
+      if (event.key === "ArrowRight") jump(index + 1);
+      if (event.key === "ArrowLeft") jump(index - 1);
+      if (event.code === "Space" && !(event.target instanceof HTMLButtonElement)) {
+        event.preventDefault();
+        setPlaying(!playing);
+      }
+      if (event.key.toLowerCase() === "f") document.querySelector("#full").click();
+    });
+  </script>
+</body>
+</html>

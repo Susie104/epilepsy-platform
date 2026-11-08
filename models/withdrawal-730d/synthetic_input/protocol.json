@@ -1,0 +1,9 @@
+{
+  "origin": "SYNTHETIC_DEMO",
+  "approval": "teaching_fixture",
+  "death_policy": "competing",
+  "index": "first actual dose reduction",
+  "horizon": 730,
+  "endpoint": "first adjudicated recurrence",
+  "patient_per_episode": "first eligible episode only"
+}

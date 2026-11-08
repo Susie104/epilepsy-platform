@@ -1,0 +1,141 @@
+{
+  "source_archive": "C:\\Users\\Susie\\Desktop\\课题组\\司马易\\癫痫\\工作同步\\卒中知识图谱_v0.3_交互版_2026-11-07.zip",
+  "source_archive_sha256": "598752e08d15d974d030d143ca26300865d24c4c68c2fc570575b6effcfb93ce",
+  "version": "0.3-purple-spring-1",
+  "files": [
+    {
+      "path": "05_验证记录/kg_explorer_desktop.png",
+      "source_sha256": "0ac91fa31baec3b61bb37e5bfc0be11d58df0a334f826c6566b3d8848af5648c",
+      "deployed_sha256": "0ac91fa31baec3b61bb37e5bfc0be11d58df0a334f826c6566b3d8848af5648c",
+      "modified": false
+    },
+    {
+      "path": "05_验证记录/kg_explorer_mobile.png",
+      "source_sha256": "98ab84852ca978a0efe16c897001ced9f7302b61db43106ebd0cccb21af9d626",
+      "deployed_sha256": "98ab84852ca978a0efe16c897001ced9f7302b61db43106ebd0cccb21af9d626",
+      "modified": false
+    },
+    {
+      "path": "05_验证记录/kg_explorer_test_results.json",
+      "source_sha256": "9f90e45501cffca36c1aad3897a70412e5a230e21de3dac490a3dcb28532f2f4",
+      "deployed_sha256": "9f90e45501cffca36c1aad3897a70412e5a230e21de3dac490a3dcb28532f2f4",
+      "modified": false
+    },
+    {
+      "path": "assets/sources/癫痫复发预测_数据源指标与边界处理_2026-11-03.md",
+      "source_sha256": "70178bed037fb7e9fcd5bcf4a90f2e9eba6bf15ef4cabb732c7349f7bb763b33",
+      "deployed_sha256": "70178bed037fb7e9fcd5bcf4a90f2e9eba6bf15ef4cabb732c7349f7bb763b33",
+      "modified": false
+    },
+    {
+      "path": "assets/sources/D13_数据字典.xlsx",
+      "source_sha256": "9fcb50497d5b97e0c4662394aa05153e62af45fa8b59847d5ce43f13e365f954",
+      "deployed_sha256": "9fcb50497d5b97e0c4662394aa05153e62af45fa8b59847d5ce43f13e365f954",
+      "modified": false
+    },
+    {
+      "path": "assets/sources/D13_原始论文全文.xml",
+      "source_sha256": "5b826208921b476339d42a121ff09e0b2c06d72a6b70cad148f4cd9c9e128dc5",
+      "deployed_sha256": "5b826208921b476339d42a121ff09e0b2c06d72a6b70cad148f4cd9c9e128dc5",
+      "modified": false
+    },
+    {
+      "path": "assets/sources/SeLECT_original.pdf",
+      "source_sha256": "4f90dd123edff98bc546bb8994033d1b7b6382bf1fa9a285511db2f4f5d53595",
+      "deployed_sha256": "4f90dd123edff98bc546bb8994033d1b7b6382bf1fa9a285511db2f4f5d53595",
+      "modified": false
+    },
+    {
+      "path": "CHANGELOG.md",
+      "source_sha256": "1b5425d1330a728ed044f90526411ee2419dfdb44a5d210a2902482abec19c63",
+      "deployed_sha256": "1b5425d1330a728ed044f90526411ee2419dfdb44a5d210a2902482abec19c63",
+      "modified": false
+    },
+    {
+      "path": "entity_catalog.json",
+      "source_sha256": "c0b7662e1e0dd43e28376f060ddebda8ef1c3d3471759c016672bb8cc0d685d8",
+      "deployed_sha256": "c0b7662e1e0dd43e28376f060ddebda8ef1c3d3471759c016672bb8cc0d685d8",
+      "modified": false
+    },
+    {
+      "path": "evidence_claims.json",
+      "source_sha256": "1e17e970c94ce977a8d9bb6cd6f88648f2b16b809188c558bcb020db2cf8910c",
+      "deployed_sha256": "1e17e970c94ce977a8d9bb6cd6f88648f2b16b809188c558bcb020db2cf8910c",
+      "modified": false
+    },
+    {
+      "path": "graph_seed.json",
+      "source_sha256": "e617842529764fe7139d9bde57fbfb426da88692e29ff9092abeabbf9a6eb1e7",
+      "deployed_sha256": "e617842529764fe7139d9bde57fbfb426da88692e29ff9092abeabbf9a6eb1e7",
+      "modified": false
+    },
+    {
+      "path": "index.html",
+      "source_sha256": "3704c0e6b247fbf787f6054a4264bb7793ba4f0a4a7be6737926d08af03469cd",
+      "deployed_sha256": "885f1f988be9baa39b67cb7391ec47731110e19700290ccc31b8f43d2029d06b",
+      "modified": true
+    },
+    {
+      "path": "query_examples.json",
+      "source_sha256": "2ace7438ea82be75f8f21eed9fa498076f860db78a8fdf9627ebfedc151cf85a",
+      "deployed_sha256": "2ace7438ea82be75f8f21eed9fa498076f860db78a8fdf9627ebfedc151cf85a",
+      "modified": false
+    },
+    {
+      "path": "query_examples.md",
+      "source_sha256": "31b5b19b45107319a73b07dd2e2f6ac4b9391b010b2a986374e4c865aa46ef35",
+      "deployed_sha256": "31b5b19b45107319a73b07dd2e2f6ac4b9391b010b2a986374e4c865aa46ef35",
+      "modified": false
+    },
+    {
+      "path": "query_validation.json",
+      "source_sha256": "7718956789f603e274b0f74492c0caea3d82bc98bd73add30d6826710318b545",
+      "deployed_sha256": "7718956789f603e274b0f74492c0caea3d82bc98bd73add30d6826710318b545",
+      "modified": false
+    },
+    {
+      "path": "README.md",
+      "source_sha256": "f02ebbb3397b0805ad8b140b768bf327a528ece57da74751afd5fe5576c9349c",
+      "deployed_sha256": "05af58070776089731b0cb33d2c7f7b12e51e3a81cc5cd5f9a095ba868e6e4ac",
+      "modified": true
+    },
+    {
+      "path": "schema.json",
+      "source_sha256": "1ca6c9d2cb75f18c708eae052b51c4305151219a62d34ca486fbea815da750b6",
+      "deployed_sha256": "1ca6c9d2cb75f18c708eae052b51c4305151219a62d34ca486fbea815da750b6",
+      "modified": false
+    },
+    {
+      "path": "sources.json",
+      "source_sha256": "99093862dacc735140f64e79297a05248054e6790f8340e81ec7c611ee735fc6",
+      "deployed_sha256": "99093862dacc735140f64e79297a05248054e6790f8340e81ec7c611ee735fc6",
+      "modified": false
+    },
+    {
+      "path": "synonym_map.json",
+      "source_sha256": "2f3d31e034ea9f39329565cdf501dd5a19a217fad682ef142374ed3715dc6098",
+      "deployed_sha256": "2f3d31e034ea9f39329565cdf501dd5a19a217fad682ef142374ed3715dc6098",
+      "modified": false
+    },
+    {
+      "path": "terminology.md",
+      "source_sha256": "724359003d82dbf10c0e04bf73078e71b70a458d028ea02e0f7ea46f6638a16b",
+      "deployed_sha256": "724359003d82dbf10c0e04bf73078e71b70a458d028ea02e0f7ea46f6638a16b",
+      "modified": false
+    },
+    {
+      "path": "validation_report.json",
+      "source_sha256": "33c9d8fc95d8b41c99568197cc69e518bc47757f841f8d05efff7aec17f267a5",
+      "deployed_sha256": "33c9d8fc95d8b41c99568197cc69e518bc47757f841f8d05efff7aec17f267a5",
+      "modified": false
+    }
+  ],
+  "added_files": [
+    "MOTION_INTEGRATION.md",
+    "STYLE_INTEGRATION.md",
+    "assets/neural-background.png",
+    "graph.js",
+    "motion.js",
+    "theme.css"
+  ]
+}

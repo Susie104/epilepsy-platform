@@ -1,0 +1,11 @@
+models/stroke-five-studies/code/* -text
+models/stroke-five-studies/data/d13/data.csv -text
+*.mp4 -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.pdf -text
+*.docx -text
+*.zip -text
+*.sqlite -text
+*.joblib -text

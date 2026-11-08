@@ -1,0 +1,28 @@
+{
+  "mode": "existing",
+  "age_at_index": 30.0,
+  "interval": [
+    0.15,
+    0.45
+  ],
+  "fixed": {
+    "epilepsy_duration_before_remission_years": 4.0,
+    "seizure_free_months": 48.0,
+    "age_at_onset": 12.0,
+    "febrile_seizure_history": 0.0,
+    "seizure_count_before_remission": 8.0,
+    "self_limiting_syndrome": 0.0,
+    "developmental_delay": 0.0,
+    "eeg_epileptiform": null
+  },
+  "unknown_fields": [
+    "eeg_epileptiform"
+  ],
+  "axes": {
+    "eeg_epileptiform": [
+      0.0,
+      1.0
+    ]
+  },
+  "budget": 16
+}

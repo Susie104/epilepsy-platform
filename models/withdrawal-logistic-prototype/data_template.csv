@@ -1,0 +1,3 @@
+epilepsy_duration_before_remission_years,seizure_free_months,age_at_onset,febrile_seizure_history,seizure_count_before_remission,self_limiting_syndrome,developmental_delay,eeg_epileptiform,outcome_2y,patient_id,index_time,index_type,recurrence_date,last_reliable_followup_date,death_date,event_status,censor_days,split,extractor_version
+6,30,14,1,5,0,0,1,1,P001,2024-01-15,start_taper,2024-04-02,2024-04-02,,event,78,development,extractor-v1
+8,36,8,0,2,1,0,0,0,P002,2023-05-10,start_taper,,2025-05-10,,event_free,730,development,extractor-v1

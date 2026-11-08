@@ -1,0 +1,60 @@
+{
+  "version": "0.6",
+  "examples": [
+    {
+      "question": "D13 v0.3校正模型使用哪组特征？",
+      "start_node": "model_d13_s1_lr_platt_v0_3",
+      "relation": "HAS_FEATURE_SET",
+      "expected_targets": [
+        "feature_set_d13_s1_alt_v03",
+        "feature_set_d13_s1_v03_modeling",
+        "feature_set_d13_s2_v03_exploratory",
+        "feature_set_d13_s3_v03_sensitivity"
+      ],
+      "primary_feature_set": "feature_set_d13_s1_v03_modeling"
+    },
+    {
+      "question": "D13 v0.2模型目前是什么状态？",
+      "start_node": "model_d13_s2_lr_platt_v0_2",
+      "superseded_by": "model_d13_s1_lr_platt_v0_3"
+    },
+    {
+      "question": "SeLECT-ASyS和SeLECT-EEG有哪些评分组件？",
+      "models": {
+        "model_select_asys": [
+          "score_component_select_asys_cortical",
+          "score_component_select_asys_laa_sex",
+          "score_component_select_asys_timing_type"
+        ],
+        "model_select_eeg": [
+          "score_component_select_eeg_cortical",
+          "score_component_select_eeg_epileptiform",
+          "score_component_select_eeg_laa",
+          "score_component_select_eeg_mca",
+          "score_component_select_eeg_nihss",
+          "score_component_select_eeg_regional_slow"
+        ]
+      }
+    },
+    {
+      "question": "D13能否计算正式SeLECT？",
+      "start_node": "dataset_d13",
+      "relation": "CANNOT_CALCULATE",
+      "expected_targets": [
+        "model_select_1_0",
+        "model_select_2_0"
+      ]
+    },
+    {
+      "question": "D13有哪些数据质量边界？",
+      "start_node": "dataset_d13",
+      "relation": "HAS_DATA_QUALITY_ISSUE",
+      "expected_count": 11
+    },
+    {
+      "question": "网络逐例数据能否并入D13训练？",
+      "relation": "NOT_MERGED_WITH",
+      "expected_count": 3
+    }
+  ]
+}

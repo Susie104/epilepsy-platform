@@ -1,0 +1,17 @@
+{
+  "integrated_version": "0.6+model-source+five-studies",
+  "graph_archive_sha256": "df21fc2a24224d3fa99b2dd5b2c308dd31ff966125a78fac94ae0c6ba63b6bbd",
+  "model_archive_sha256": "71bdb0f8178ec16fb67b93805ae00e9ab424c73e151d637f83b8a68449e0fa7b",
+  "model_bundle_sha256": "60896dd26ae944f2a89aa13b8a910d8cf7a4d01504c0ccc8efe2a032f9976421",
+  "nodes": 192,
+  "edges": 653,
+  "claims": 57,
+  "sources": 41,
+  "note": "Upstream validation reports describe supplied v0.6; platform adds D13 v0.3 and five package-checked studies. Five-study numbers were not independently re-run.",
+  "five_studies_results_sha256": "bbcd1a25a4b59d5634b8334e2ea3c9b340e4c5969a4f61b9965e0bc1eddbbb50",
+  "five_studies_code_sha256": "f072571ad789ae3d29361445ced2f7b2e6860f0d0b1ff3766c1814b0b3e38d48",
+  "feature_count_corrections": {
+    "S2": "57→62, aligned with model bundle",
+    "S3": "61→66, aligned with model bundle"
+  }
+}

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>癫痫研究平台 · 路演复刻版</title>
+<style>
+:root{--ink:#19171b;--muted:#615954;--paper:#f7f4f1;--orange:#bd4b28;--peach:#f6e3d1;--line:#e5ddd7;--white:#fffdfb}
+*{box-sizing:border-box}
+body{margin:0;background:#151416;color:#fff;font:16px/1.5 "Microsoft YaHei UI","PingFang SC",sans-serif;min-height:100dvh;display:grid;place-items:center}
+button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #ff885b;outline-offset:3px}
+.player{width:min(100vw,calc(100dvh * 16 / 9));aspect-ratio:16/9;position:relative;overflow:hidden;background:#c6c3c0}
+.canvas{position:absolute;width:1280px;height:720px;transform:scale(var(--scale,1));transform-origin:top left;overflow:hidden;background:radial-gradient(ellipse at 42% 29%,#e8e6e2,#b6b3af 78%)}
+.room{position:absolute;inset:0;transition:opacity 1s;pointer-events:none}
+.room::before{content:"";position:absolute;inset:auto 0 0;height:93px;background:linear-gradient(180deg,#9a9187,#433b34 15%,#2d2926)}
+.stand{position:absolute;left:560px;top:530px;width:160px;height:103px;background:linear-gradient(90deg,#29292a,#494849 55%,#272729);box-shadow:1px 0 20px #0004}
+.stand::after{content:"";position:absolute;left:-84px;bottom:-5px;width:328px;height:12px;border-radius:8px;background:linear-gradient(#777371,#292627);box-shadow:0 7px 18px #0007}
+.keys{position:absolute;left:405px;top:653px;width:385px;height:25px;transform:skewX(-25deg);border-radius:9px;background:repeating-linear-gradient(90deg,#323031 0 12px,#484344 12px 15px);box-shadow:0 5px 6px #0008}
+.screen{position:absolute;inset:0;background:#151416;border-radius:0;overflow:hidden;transition:transform 1.15s cubic-bezier(.22,.75,.2,1),border-radius 1.15s,box-shadow 1.15s}
+.screen.monitor{transform:translateY(-52px) scale(.77);border-radius:11px;box-shadow:0 0 0 14px #161617,0 12px 38px 14px #0007}
+.site{position:absolute;top:0;left:0;width:100%;color:var(--ink);background:#f3f0ed;transition:transform 1.22s cubic-bezier(.2,.73,.25,1);will-change:transform}
+.hero{height:1080px;overflow:hidden;background:radial-gradient(ellipse at 12% 2%,#f1d5c9,transparent 64%),radial-gradient(ellipse at 84% 40%,#f5e4d3,transparent 62%),linear-gradient(#f6f2ef,#f3f0ed 82%)}
+.top{height:95px;display:flex;align-items:center;justify-content:space-between;padding:0 76px}
+.wordmark{font:800 25px/1 "Segoe UI",sans-serif;letter-spacing:-.055em;color:#20191a}
+.wordmark i{color:var(--orange);font-style:normal}
+.top nav{display:flex;gap:28px;background:#fffaf7db;padding:12px 24px;border-radius:60px;font-size:13px}
+.top nav button{background:transparent;border:0;padding:0;color:#393134}
+.top-action,.dark-btn,.light-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:50px;padding:10px 20px;font-size:13px;font-weight:700}
+.top-action,.dark-btn{color:#fff;background:#211e24}.light-btn{background:#fffdfb;color:#211e24}
+.hero-copy{text-align:center;padding-top:28px}
+.overline{display:inline-flex;align-items:center;gap:7px;color:var(--orange);background:#fff8f1;border-radius:50px;padding:5px 12px;font-size:12px;font-weight:750;letter-spacing:.04em}
+.overline b{padding:3px 8px;border-radius:50px;background:var(--orange);color:white}
+h1,h2,h3,p{margin:0}
+h1{margin:15px auto 12px;font-size:61px;letter-spacing:-.065em;line-height:1.12;font-weight:680}
+.hero-copy p,.center p{color:var(--muted);line-height:1.65;font-size:16px}
+.hero-actions{display:flex;gap:9px;justify-content:center;margin:18px 0 13px}
+.flags{display:flex;gap:20px;justify-content:center;color:#504942;font-size:11px}
+.flags span::before{content:"✓";color:#257845;font-weight:900;margin-right:4px}
+.dashboard{margin:42px 81px 0;padding:14px;background:#fdfbf8;border:1px solid #fff;border-radius:22px;box-shadow:0 22px 64px #5a372e38}
+.dash-top{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 16px;border-bottom:1px solid #ede5df}
+.dash-top .wordmark{font-size:18px}.dash-top span{font-size:11px;color:#645b55}
+.dash-grid{display:grid;grid-template-columns:1fr 2.05fr 1fr;gap:12px;padding-top:12px}
+.tile{padding:15px;background:#f9f5f1;border:1px solid #eee7e0;border-radius:13px;min-width:0}
+.tile h3{font-size:14px;margin-bottom:11px}
+.tile small,.item small{color:#62564f;font-size:11px}
+.item{display:flex;align-items:center;gap:9px;background:#fff;margin-top:7px;border-radius:8px;padding:10px;font-size:11px}
+.dot{width:9px;height:9px;background:#df825e;border-radius:50%;flex:none}.dot.green{background:#4c9b67}.dot.blue{background:#567acb}.dot.purple{background:#8765cf}
+.neuro{height:265px;position:relative;overflow:hidden;display:grid;place-items:center;border-radius:12px;background:radial-gradient(ellipse at 60% 48%,#efd2be,#faf2eb 70%);margin-top:10px}
+.neuro svg{width:88%;height:88%}.neuro .tag{position:absolute;padding:5px 9px;background:#fff;border-radius:8px;font-size:10px;box-shadow:0 3px 12px #64403321}.tag.one{top:23%;left:12%}.tag.two{bottom:22%;right:7%}
+.stats{display:flex;gap:8px;margin-top:11px}.stats div{flex:1;background:#fff;border-radius:8px;padding:10px}.stats b{display:block;font:650 24px/1 "Segoe UI",sans-serif}
+.center{text-align:center}.center h2{font-size:45px;font-weight:670;letter-spacing:-.055em;line-height:1.2;margin:13px 0}
+.section{height:720px;overflow:hidden;padding:54px 74px;background:#f3f0ed}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:36px 0 0}
+.feature,.role,.plan{background:#fffdfb;border:1px solid #fff;border-radius:16px;padding:23px}
+.feature{height:188px}.feature h3,.role h3,.plan h3{font-size:19px;margin:13px 0 8px}.feature p,.role p,.plan p{color:#635a56;font-size:13px;line-height:1.6}
+.icon{width:34px;height:34px;display:grid;place-items:center;background:#f9dfd0;color:#9f3c22;border-radius:10px;font-weight:750}
+.strip{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding:25px 29px;border-radius:18px;background:#f6e3d6;color:#2b221f}
+.strip b{font-size:21px}.strip span{font-size:13px;color:#5c5049}
+.dark-section{padding:35px 41px;background:#f3f0ed}
+.ai{height:650px;display:grid;grid-template-columns:1fr .88fr;align-items:center;gap:66px;padding:66px 72px;border-radius:35px;background:radial-gradient(ellipse at 0 0,#78442f,transparent 48%),radial-gradient(ellipse at 100% 100%,#7b5036,transparent 43%),#17161c;color:#fff9f2}
+.ai .overline{background:#ffffff19;color:#ffe1d4}
+.ai h2,.mobile-copy h2{font-size:53px;line-height:1.13;letter-spacing:-.055em;margin:18px 0 12px;font-weight:670}
+.ai p{color:#d1c7c0;font-size:14px;max-width:31em}
+.prompt{padding:10px 14px;border:1px solid #ffffff25;border-radius:50px;background:#ffffff0b;color:#fff2eb;margin-top:9px;font-size:12px}
+.chat{min-height:415px;position:relative;padding:13px;border-radius:22px;background:radial-gradient(ellipse at 70% 35%,#efd2bd,transparent 58%),#f1eae4;color:#2d2524;box-shadow:0 18px 46px #0006}
+.chat header{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 12px;font-size:12px;border-bottom:1px solid #fff}
+.bubble{background:#fffefa;margin:15px 12px 0 0;padding:12px;border-radius:12px;font-size:12px;line-height:1.6}
+.bubble.question{margin-left:30px;margin-right:0;background:#211e24;color:#fff}
+.bubble small{display:block;margin-top:6px;color:#875038}
+.chat footer{position:absolute;bottom:13px;left:13px;right:13px;padding:10px 13px;border-radius:20px;background:#fffefa;color:#665651;font-size:12px}
+.chat footer b{float:right;color:var(--orange)}
+.role-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:43px}
+.role{min-height:200px}.role:nth-child(2) .icon{background:#dae4fb;color:#234d9e}.role:nth-child(3) .icon{background:#eee0fc;color:#6c399b}.role:nth-child(4) .icon{background:#dceedd;color:#2b7142}
+.mobile-section{padding:35px 42px}
+.mobile-card{height:650px;border-radius:35px;background:radial-gradient(ellipse at 80% 46%,#efbd9a,#f4e7d4 58%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:52px 98px;overflow:hidden}
+.mobile-copy p{max-width:360px;color:#61524a;font-size:15px}
+.phone{width:253px;height:510px;margin:auto;position:relative;border:8px solid #201d1e;border-radius:40px;background:#fff9f5;box-shadow:24px 27px 42px #7d442c4d;overflow:hidden;transform:rotate(-8deg);color:#211d21}
+.phone::before{content:"";position:absolute;z-index:3;left:74px;top:8px;width:85px;height:19px;border-radius:20px;background:#1d1b1c}
+.phone-art{height:230px;background:linear-gradient(#8b4d3e50,#5a322b8a),url("assets/neural-background.png") center / cover;display:grid;place-items:center;color:#fff4df;font-size:45px}
+.phone-copy{padding:16px}.phone-copy h3{font-size:21px;line-height:1.15;margin:9px 0}.phone-copy p{font-size:12px;color:#635650}
+.phone-copy .dark-btn{margin-top:14px;font-size:11px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:27px}
+.plan{min-height:178px}.plan.featured{background:#211e24;color:#fff8f3}.plan.featured p{color:#ded3cb}
+.ending{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding:24px 29px;background:#b94726;color:#fff7ef;border-radius:19px}.ending strong{font-size:25px}.ending p{font-size:13px}
+.section .reveal{opacity:1}
+.section.animate .reveal{animation:reveal .72s cubic-bezier(.18,.7,.2,1) both;animation-delay:var(--delay,0s)}
+@keyframes reveal{from{opacity:0;transform:translateY(19px) scale(.985)}to{opacity:1;transform:none}}
+.controls{position:absolute;z-index:10;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:5px;border:1px solid #ffffff40;border-radius:50px;background:#221e22e8;color:#fff;white-space:nowrap;font-size:12px}
+.controls button{border:0;border-radius:40px;padding:5px 10px;background:#fff6ef;color:#211e24;font-size:12px}
+.controls button:hover{background:#ffdfcd}.controls output{padding:0 5px}
+.record .controls{display:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="player" aria-label="癫痫研究平台路演播放器">
+  <div class="canvas">
+    <div class="room" aria-hidden="true"><div class="stand"></div><div class="keys"></div></div>
+    <div class="screen monitor">
+      <main class="site">
+        <section class="hero" id="hero" aria-label="平台首页">
+          <header class="top"><div class="wordmark">NEURO<i>.</i></div><nav aria-label="演示导航"><button type="button" data-jump="2">研究工作台</button><button type="button" data-jump="4">知识问答</button><button type="button" data-jump="5">院内协作</button><button type="button" data-jump="7">验证计划</button></nav><button class="top-action" type="button" data-jump="2">查看演示 ↗</button></header>
+          <div class="hero-copy">
+            <span class="overline"><b>研究</b> 抗发作药物减量场景</span>
+            <h1>癫痫复发预测<br>从可核对的病历开始</h1>
+            <p>把减药记录、复发观察和人工确认连进同一条研究流程。<br>面向教学演示与院内研究联调。</p>
+            <div class="hero-actions"><button class="dark-btn" type="button" data-jump="2">查看研究工作台 ↗</button><button class="light-btn" type="button" data-jump="4">▶ 知识问答</button></div>
+            <div class="flags"><span>八项结构化字段</span><span>730 天观察窗口</span><span>人工核对</span></div>
+          </div>
+          <div class="dashboard" id="dashboard">
+            <div class="dash-top"><div class="wordmark">NEURO<i>.</i></div><span>正向预测　 /　 教学界面示意</span><span>研究工作台 ●</span></div>
+            <div class="dash-grid">
+              <div class="tile"><h3>研究流程</h3><div class="item"><i class="dot"></i>导入教学病例</div><div class="item"><i class="dot blue"></i>核对原文与字段</div><div class="item"><i class="dot purple"></i>确认八项输入</div><div class="item"><i class="dot green"></i>查看模型输出</div><div class="item"><i class="dot green"></i>检查训练支持范围</div></div>
+              <div class="tile"><h3>减药后复发风险</h3><small>研究路径示意 · 预测模块</small>
+                <div class="neuro">
+                  <svg viewBox="0 0 400 270" aria-hidden="true">
+                    <g fill="none" stroke="#b56b55" stroke-width="3">
+                      <path d="M198 62c-21-29-55-29-74-7-28-1-48 20-47 47-21 16-20 48 2 63 4 28 33 42 54 35 19 23 44 21 65-2m4-136c21-29 55-29 74-7 28-1 48 20 47 47 21 16 20 48-2 63-4 28-33 42-54 35-19 23-44 21-65-2M200 64v132"/>
+                      <path d="M124 56l19 44-31 40 21 60m10-100 55 20-34 39-31 41m-21-60 52 19 34 39m-119-33 33-25-35-38m199-46-19 44 31 40-21 60m-10-100-55 20 34 39 31 41m21-60-52 19-34 39m119-33-33-25 35-38" opacity=".6"/>
+                    </g>
+                    <g fill="#bd4b28"><circle cx="143" cy="100" r="6"/><circle cx="112" cy="140" r="6"/><circle cx="164" cy="159" r="6"/><circle cx="200" cy="120" r="7"/><circle cx="257" cy="100" r="6"/><circle cx="288" cy="140" r="6"/><circle cx="236" cy="159" r="6"/></g>
+                  </svg><span class="tag one">字段来源</span><span class="tag two">人工核对</span>
+                </div>
+              </div>
+              <div class="tile"><h3>输入与观察</h3><div class="stats"><div><b>08</b><small>结构化字段</small></div><div><b>730</b><small>天观察窗口</small></div></div><div class="item"><i class="dot green"></i>教学合成数据</div><div class="item"><i class="dot"></i>训练支持检查</div><div class="item"><i class="dot purple"></i>结果与模型版本</div></div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="features">
+          <div class="center reveal"><span class="overline">研究场景</span><h2>从字段、到模型、到证据</h2><p>围绕减药后复发研究，把输入、假设和资料来源放进同一套界面。</p></div>
+          <div class="feature-grid">
+            <article class="feature reveal" style="--delay:.12s"><span class="icon">↗</span><h3>正向预测</h3><p>核对八项输入，查看教学模型结果及训练支持范围。</p></article>
+            <article class="feature reveal" style="--delay:.21s"><span class="icon">⇄</span><h3>逆向情景</h3><p>固定已知事实，对比限定字段变化下的假设情景。</p></article>
+            <article class="feature reveal" style="--delay:.30s"><span class="icon">⊕</span><h3>知识图谱</h3><p>查看 D13 卒中后癫痫资料、相关实体与来源。</p></article>
+          </div>
+          <div class="strip reveal" style="--delay:.36s"><b>研究记录可回看</b><span>原文、人工确认与输出版本留在同一条链路中。</span></div>
+        </section>
+        <section class="section dark-section" id="evidence">
+          <div class="ai"><div class="reveal"><span class="overline">✦ 知识问答</span><h2>提出问题，<br>找到可以核对的证据</h2><p>从问题进入 D13 资料，查看原始陈述与来源。这里演示证据检索界面。</p><div class="prompt">⌕　NIHSS 与卒中后癫痫有什么关系？</div><div class="prompt">⌕　SeLECT 的评分变量有哪些？</div><div class="prompt">⌕　查看证据原文与出处</div></div>
+          <div class="chat reveal" style="--delay:.18s"><header><b>● 研究资料助手</b><span>证据检索示意</span></header><div class="bubble question">NIHSS 与卒中后癫痫相关资料在哪里？</div><div class="bubble reveal" style="--delay:.55s"><b>检索范围 · D13 研究资料</b><br>打开匹配条目，查看原始陈述与来源。<small>证据卡片 ↗　原始资料 ↗</small></div><div class="bubble reveal" style="--delay:.85s">生成式回答待接入。</div><footer>⌕　输入研究问题 <b>➜</b></footer></div></div>
+        </section>
+        <section class="section" id="roles">
+          <div class="center reveal"><span class="overline">院内研究流程</span><h2>一条流程，四类工作</h2><p>从资料录入到结果复核，逐步确认数据与权限。</p></div>
+          <div class="role-grid">
+            <article class="role reveal" style="--delay:.1s"><span class="icon">01</span><h3>数据录入</h3><p>导入教学数据，检查格式与必填字段。</p></article>
+            <article class="role reveal" style="--delay:.2s"><span class="icon">02</span><h3>人工核对</h3><p>确认字段含义与来源，记录异常。</p></article>
+            <article class="role reveal" style="--delay:.3s"><span class="icon">03</span><h3>模型运行</h3><p>检查研究配置与结果适用范围。</p></article>
+            <article class="role reveal" style="--delay:.4s"><span class="icon">04</span><h3>结果查看</h3><p>按授权查看、复核及导出结果。</p></article>
+          </div>
+        </section>
+        <section class="section mobile-section" id="mobile">
+          <div class="mobile-card"><div class="mobile-copy reveal"><span class="overline">移动端构想</span><h2>就诊前，整理好<br>想问医生的问题</h2><p>把患者端的范围限定在科普、记录与就诊准备。用药与减药决策由临床医生负责。</p></div>
+          <div class="phone reveal" style="--delay:.17s"><div class="phone-art" aria-hidden="true">⌁</div><div class="phone-copy"><b class="wordmark">NEURO<i>.</i></b><h3>我的就诊准备</h3><p>记录近期情况，整理需要向医生确认的问题。</p><span class="dark-btn">就诊问题清单　↗</span></div></div></div>
+        </section>
+        <section class="section" id="roadmap">
+          <div class="center reveal"><span class="overline">下一阶段</span><h2>从教学演示走向独立验证</h2><p>逐步明确数据来源、模型版本与验证边界。</p></div>
+          <div class="plan-grid"><article class="plan reveal" style="--delay:.1s"><span class="icon">01</span><h3>规范字段</h3><p>补齐定义、来源和人工复核流程。</p></article><article class="plan featured reveal" style="--delay:.2s"><span class="icon">02</span><h3>锁定模型版本</h3><p>在独立样本中验证表现与适用范围。</p></article><article class="plan reveal" style="--delay:.3s"><span class="icon">03</span><h3>院内协作</h3><p>完善数据接入、权限与研究记录。</p></article></div>
+          <div class="ending reveal" style="--delay:.35s"><div><strong>癫痫复发预测研究平台</strong><p>教学合成模型 · 仅供研究联调，不用于临床决策</p></div><b>谢谢观看</b></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="controls" aria-label="播放控制">
+    <button type="button" id="prev" aria-label="上一幕">←</button>
+    <button type="button" id="play" aria-pressed="false">播放</button>
+    <button type="button" id="next" aria-label="下一幕">→</button>
+    <output id="position"></output>
+    <button type="button" id="full">全屏</button>
+  </div>
+</div>
+<script>
+const player = document.querySelector('.player');
+const screen = document.querySelector('.screen');
+const site = document.querySelector('.site');
+const play = document.querySelector('#play');
+const record = new URLSearchParams(location.search).get('record') === '1';
+const scenes = [
+  ['hero',0,true,3200], ['hero',0,false,4400], ['dashboard',-48,false,3700],
+  ['features',0,false,4000], ['evidence',0,false,4700], ['roles',0,false,3300],
+  ['mobile',0,false,3600], ['roadmap',0,false,4200], ['hero',0,true,2600]
+];
+let index = 0;
+let playing = false;
+let timer;
+function fit() {
+  player.style.setProperty('--scale', player.clientWidth / 1280);
+}
+new ResizeObserver(fit).observe(player);
+fit();
+function schedule() {
+  clearTimeout(timer);
+  if (playing && !document.hidden) timer = setTimeout(() => {
+    if (index < scenes.length - 1) go(index + 1);
+    else setPlaying(false);
+  }, scenes[index][3]);
+}
+function go(next) {
+  if (!scenes[next]) return;
+  index = next;
+  const [id, offset, monitor] = scenes[index];
+  const target = document.getElementById(id);
+  screen.classList.toggle('monitor', monitor);
+  site.style.transform = 'translate3d(0,' + (-target.offsetTop - offset) + 'px,0)';
+  document.querySelectorAll('.section.animate').forEach(section => section.classList.remove('animate'));
+  void target.offsetWidth;
+  target.classList.add('animate');
+  document.querySelector('#position').textContent = (index + 1) + ' / ' + scenes.length;
+  schedule();
+}
+function setPlaying(value) {
+  playing = value;
+  if (playing && index === scenes.length - 1) go(0);
+  play.textContent = playing ? '暂停' : '播放';
+  play.setAttribute('aria-pressed', String(playing));
+  schedule();
+}
+function jump(index) { setPlaying(false); go(index); }
+function full() {
+  const toggle = document.fullscreenElement ? document.exitFullscreen() : player.requestFullscreen();
+  toggle.catch(() => {});
+}
+document.querySelectorAll('[data-jump]').forEach(button => button.addEventListener('click', () => jump(Number(button.dataset.jump))));
+document.querySelector('#prev').addEventListener('click', () => jump(index - 1));
+document.querySelector('#next').addEventListener('click', () => jump(index + 1));
+document.querySelector('#full').addEventListener('click', full);
+play.addEventListener('click', () => setPlaying(!playing));
+document.addEventListener('visibilitychange', schedule);
+addEventListener('keydown', event => {
+  if (event.key === 'ArrowRight') jump(index + 1);
+  if (event.key === 'ArrowLeft') jump(index - 1);
+  if (event.key.toLowerCase() === 'f') full();
+  if (event.code === 'Space' && !(event.target instanceof HTMLButtonElement)) {
+    event.preventDefault();
+    setPlaying(!playing);
+  }
+});
+document.body.classList.toggle('record', record);
+go(0);
+if (record) setPlaying(true);
+</script>
+</body>
+</html>

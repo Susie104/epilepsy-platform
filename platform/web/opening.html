@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>癫痫研究平台 · 研究入口</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f5f1fa; --muted:#b8b0c7; --lime:#c2f778; --purple:#bd83df; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC",sans-serif; color:var(--ink); background:#0b0915; }
+    .page { position:relative; min-height:100vh; overflow:hidden; isolation:isolate; background:#0b0915 url('/static/neural-background.png') center/cover no-repeat; }
+    .background-video { position:absolute; inset:0; width:100%; height:100%; z-index:-3; object-fit:cover; object-position:center; pointer-events:none; opacity:0; transition:opacity .45s; }
+    .page.video-playing .background-video { opacity:1; }
+    .page::before { content:""; position:absolute; inset:0; z-index:-2; background:linear-gradient(180deg,rgba(7,6,15,.22),rgba(7,6,15,.44) 48%,rgba(7,6,15,.81)); pointer-events:none; }
+    .page.video-playing #particle-field { opacity:0; }
+    @media(prefers-reduced-motion:reduce) { .background-video { display:none; } }
+    .page::after { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse at 50% 43%,transparent 18%,rgba(9,7,17,.28) 68%,rgba(5,5,11,.62)); pointer-events:none; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:31px 48px; }
+    .brand { display:flex; gap:13px; align-items:center; align-self:center; min-width:0; font-size:clamp(16px,1.4vw,21px); line-height:1.25; letter-spacing:.14em; font-weight:700; }
+    .brand-mark { flex:none; width:clamp(34px,3vw,42px); aspect-ratio:1; border:1px solid var(--purple); border-radius:50%; position:relative; box-shadow:0 0 18px #bd83df55; }
+    .brand-mark::before,.brand-mark::after { content:""; position:absolute; background:var(--lime); border-radius:50%; box-shadow:0 0 11px var(--lime); }
+    .brand-mark::before { width:17%; height:17%; left:18%; top:32%; }
+    .brand-mark::after { width:12%; height:12%; right:18%; bottom:20%; }
+    main { max-width:1420px; margin:0 auto; padding:104px 54px 70px; }
+    .hero { text-align:center; }
+    h1 { margin:0; font-size:clamp(58px,6.6vw,100px); letter-spacing:.025em; line-height:1.12; font-weight:800; text-shadow:0 6px 44px #000a; }
+    .accent { color:var(--lime); }
+    .scenes { display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:15px; margin-top:55px; }
+    .scene { min-height:171px; position:relative; padding:22px 23px; border:1px solid #d1b8e433; border-radius:18px; background:linear-gradient(145deg,#241b34ca,#11101dbb); backdrop-filter:blur(18px); box-shadow:inset 0 1px #ffffff1a,0 14px 40px #0004; overflow:hidden; }
+    .scene-image { position:absolute; inset:-20%; background:url('/static/arch-synapse-poster.png') center/cover no-repeat; pointer-events:none; }
+    .scene-image::after { content:""; position:absolute; inset:0; background:linear-gradient(145deg,#1a1223dc,#0b0a17c9 58%,#080c12dc); }
+    .scene.active { grid-row:span 2; min-height:357px; border-color:#c3f77899; background:linear-gradient(145deg,#2a2742e8,#151725dd 55%,#121919e8); box-shadow:inset 0 1px #ffffff38,0 0 0 1px #aef36c25,0 25px 60px #0009; }
+    .scene.active::before { content:""; position:absolute; width:270px; height:270px; right:-75px; bottom:-98px; border:1px solid #b9f57a40; border-radius:50%; box-shadow:0 0 0 27px #b9f57a09,0 0 0 70px #b9f57a07; }
+    .scene-top { display:flex; justify-content:flex-end; align-items:center; min-height:25px; }
+    .state { padding:6px 10px; border:1px solid #d6bfe13b; border-radius:99px; color:#bdb3c9; background:#ffffff0a; font-family:inherit; letter-spacing:.08em; }
+    .active .state { color:var(--lime); border-color:#c2f77875; background:#b8f56614; }
+    .scene h2 { position:relative; margin:26px 0 8px; font-size:26px; line-height:1.15; letter-spacing:.04em; }
+    .scene p { position:relative; margin:0; color:#aaa2b8; font-size:12px; line-height:1.65; }
+    .scene.active h2 { margin-top:56px; font-size:36px; }
+    .scene.active p { max-width:330px; color:#d2cbdc; font-size:14px; }
+    .actions { position:absolute; left:23px; right:20px; bottom:25px; display:flex; flex-wrap:wrap; gap:10px; }
+    .platform-status { color:var(--muted); font-size:11px; text-align:right; line-height:1.8; }
+    .platform-status a { color:var(--lime); text-decoration:none; }
+    .research-note { color:var(--muted); font-size:11px; text-align:center; margin:25px 0 0; }
+    .cta { display:inline-flex; align-items:center; gap:14px; border:0; padding:13px 16px; border-radius:99px; background:#ecf3e6; color:#11151a; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:.06em; text-decoration:none; box-shadow:0 8px 25px #0007; cursor:pointer; transition:transform .25s,box-shadow .25s; }
+    .cta:hover { transform:translateY(-4px); box-shadow:0 13px 30px #000a,0 0 22px #c2f77845; }
+    .cta.inverse { color:#f6ecff; background:#ba7bdb23; border:1px solid #d3a3eb9c; backdrop-filter:blur(12px); }
+    .cta.inverse:hover { box-shadow:0 13px 30px #000a,0 0 22px #b980db75; }
+    .cta span { font-size:19px; font-weight:400; line-height:13px; }
+    #particle-field { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:-1; opacity:.75; }
+    .hero-title-wrap { perspective:1100px; transform-style:preserve-3d; will-change:transform; }
+    .hero-title-wrap h1 { position:relative; z-index:1; margin:0; }
+    .hero-title-wrap .char { display:inline-block; transform-style:preserve-3d; }
+    .hero { animation:hero-reveal 1.1s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes hero-reveal { from { opacity:0; transform:translateY(44px) scale(.96); filter:blur(9px); } to { opacity:1; transform:none; filter:blur(0); } }
+    .scene { animation:card-reveal .8s cubic-bezier(.2,.8,.2,1) both; transition:transform .35s,border-color .35s,box-shadow .35s; }
+    .scenes > :nth-child(1){animation-delay:.25s}.scenes > :nth-child(2){animation-delay:.34s}.scenes > :nth-child(3){animation-delay:.43s}.scenes > :nth-child(4){animation-delay:.52s}.scenes > :nth-child(5){animation-delay:.61s}.scenes > :nth-child(6){animation-delay:.70s}
+    @keyframes card-reveal { from { opacity:0; transform:translateY(38px) rotateX(7deg); } to { opacity:1; transform:none; } }
+    .scene:hover { transform:translateY(-5px); border-color:#d1b8e477; box-shadow:inset 0 1px #ffffff2a,0 25px 60px #0008; }
+    .scene.active:hover { border-color:#c2f778; }
+    .scene::after { content:""; position:absolute; inset:-100%; background:linear-gradient(100deg,transparent 45%,#ffffff0b 50%,transparent 55%); transform:translateX(-70%); transition:transform .9s; pointer-events:none; }
+    .scene:hover::after { transform:translateX(70%); }
+    .cursor-dot,.cursor-ring { position:fixed; z-index:50; left:0; top:0; border-radius:50%; pointer-events:none; opacity:0; }
+    .cursor-dot { width:6px; height:6px; background:#ebfcd0; box-shadow:0 0 13px #c2f778; }
+    .cursor-ring { width:34px; height:34px; border:1px solid #e5d8ee9c; transition:width .25s,height .25s,opacity .25s; }
+    .cursor-ring.hot { width:55px; height:55px; border-color:#c2f778bb; }
+    .dialog { position:fixed; inset:0; z-index:40; display:grid; place-items:center; padding:24px; background:#04040ab8; backdrop-filter:blur(18px); }
+    .dialog[hidden] { display:none; }
+    .dialog-card { width:min(560px,100%); border:1px solid #b992d58c; border-radius:22px; padding:34px; background:linear-gradient(145deg,#2c213df7,#100e1bf5); box-shadow:0 28px 90px #000b; }
+    .dialog-top { display:flex; justify-content:flex-end; color:#c69be5; font:11px Consolas,monospace; letter-spacing:.18em; }
+    .dialog-close { border:1px solid #ffffff45; border-radius:50%; width:30px; height:30px; color:white; background:transparent; cursor:pointer; }
+    .dialog h2 { font-size:34px; margin:28px 0 12px; }
+    .dialog p { color:#d3cddd; line-height:1.8; font-size:14px; }
+    .dialog .tag { display:inline-block; margin-top:19px; border:1px solid #b992d58c; border-radius:99px; padding:8px 13px; color:#d3a8ed; font-size:12px; }
+    @media(max-width:900px) { header{padding:24px;} main{padding:55px 24px;} .scenes{grid-template-columns:1fr 1fr;} .scene.active{grid-column:span 2;grid-row:auto;min-height:270px;} .scene.active h2{margin-top:30px;} }
+    @media(max-width:560px) { h1{font-size:49px;} .scenes{grid-template-columns:1fr;margin-top:38px;} .scene.active{grid-column:auto;} .scene{min-height:150px;} .scene h2{margin-top:18px;} header{padding-inline:16px;gap:12px;flex-wrap:wrap;} .brand{font-size:15px;gap:8px;letter-spacing:.08em;} }
+    @media(prefers-reduced-motion:reduce) { .page,.hero,.scene { animation:none!important; } .hero-title-wrap,.scene,.cta { transition:none!important; } }
+    body.capture .page,body.capture .hero,body.capture .scene,body.capture .module-shelf,body.capture .focus-layer { animation:none!important; }
+    /* 默认左栏拆分为一个场景和两个知识入口；选中后恢复原大卡片布局。 */
+    .scenes { grid-template-rows:171px 171px; }
+    .scene { min-height:0; cursor:pointer; }
+    .scene.primary { grid-column:1; grid-row:1; }
+    .scene.primary { border-color:#bdf27d77; }
+    .scene.primary h2 { margin-top:25px; }
+    .scene .teaser { color:#aaa2b8; }
+    .scene .expanded-only { display:none; }
+    .scene .open-hint { position:absolute; right:23px; bottom:20px; color:#bda4d4; font-size:11px; opacity:0; transform:translateX(-5px); transition:opacity .25s,transform .25s; }
+    .scene:hover .open-hint,.scene:focus-visible .open-hint { opacity:1; transform:none; }
+    .scene:focus-visible,.module-card:focus-visible { outline:2px solid var(--lime); outline-offset:3px; }
+    .module-shelf { grid-column:1; grid-row:2; display:grid; grid-template-columns:1fr 1fr; gap:15px; min-width:0; }
+    .module-card { position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; width:100%; min-width:0; padding:21px; border:1px solid #b997d658; border-radius:18px; color:#f5effa; text-align:left; background:linear-gradient(145deg,#241a35df,#12101fc7); box-shadow:inset 0 1px #ffffff1d,0 14px 40px #0004; cursor:pointer; transition:transform .3s,border-color .3s,box-shadow .3s; }
+    .module-card:hover { transform:translateY(-5px); border-color:#d7aaf4ab; box-shadow:0 24px 55px #0008,0 0 20px #bc81df22; }
+    .module-card.graph { border-color:#a2d49d65; background:linear-gradient(145deg,#1e2a2edb,#111321cf); }
+    .module-card.graph:hover { border-color:#b9f492a9; }
+    .module-card strong { display:block; font-size:21px; line-height:1.25; letter-spacing:.03em; white-space:nowrap; }
+    .module-card small { color:#afa8bd; font-size:11px; line-height:1.45; }
+    .module-arrow { position:absolute; right:19px; bottom:19px; font-size:20px; color:#dbc0ed; }
+    .module-card.graph .module-arrow { color:var(--lime); }
+    .module-shelf { animation:card-reveal .8s cubic-bezier(.2,.8,.2,1) both; }
+    .focus-layer { position:fixed; inset:0; z-index:30; display:grid; place-items:center; padding:20px; background:#05040a9e; backdrop-filter:blur(4px); animation:focus-dim .35s both; }
+    .focus-layer[hidden] { display:none; }
+    @keyframes focus-dim { from{background:#05040a00;backdrop-filter:blur(0)} to{background:#05040a9e;backdrop-filter:blur(4px)} }
+    .focus-layer .scene.active { grid-column:auto; grid-row:auto; width:min(660px,calc(100vw - 40px)); height:min(430px,calc(100vh - 40px)); min-height:350px; max-height:calc(100vh - 40px); overflow:hidden; cursor:default; box-shadow:inset 0 1px #ffffff38,0 0 0 1px #aef36c25,0 30px 110px #000d; }
+    .focus-media { position:fixed; overflow:hidden; border-radius:18px; pointer-events:none; opacity:0; background:#0b0915 url('/static/arch-synapse-poster.png') center/cover no-repeat; }
+    .focus-media video { position:absolute; inset:-20%; width:140%; height:140%; object-fit:cover; }
+    .focus-layer .scene.active { z-index:1; background:linear-gradient(145deg,#1a1223b8,#0b0a17a8 58%,#080c12c4); backdrop-filter:none; }
+    .focus-layer.media-ready .focus-media { opacity:1; }
+    .focus-layer.media-ready .scene.active .scene-image { display:none; }
+    @media(prefers-reduced-motion:reduce) { .focus-media video { display:none; } }
+    .focus-layer .scene { animation:none!important; }
+    .focus-layer .scene.active .teaser,.focus-layer .scene.active .open-hint { display:none; }
+    .focus-layer .scene.active .state { display:none; }
+    .focus-layer .scene.active .expanded-only { display:block; }
+    .focus-layer .scene.active .detail-description { position:relative; max-width:490px; color:#d2cbdc; font-size:15px; line-height:1.7; }
+    .focus-layer .scene.active h2 { margin-top:72px; font-size:42px; }
+    .scene:not(.primary) h2 { margin-top:26px; }
+    .scene.active h2 { margin-top:50px; }
+    .back-btn { position:absolute; top:22px; right:23px; border:1px solid #ffffff45; border-radius:99px; padding:7px 12px; background:#ffffff0a; color:#f4ecfa; font-size:11px; cursor:pointer; }
+    .scene.active .state { margin-right:95px; }
+    @media(max-width:560px) { .platform-status { max-width:145px; } .focus-layer .scene.active .detail-description { font-size:13px; } .focus-layer .scene.active h2 { margin-top:40px; } .focus-layer .actions { gap:8px; } .focus-layer .cta { padding:11px 13px; font-size:12px; } }
+    .planned-note { position:absolute; left:23px; right:23px; bottom:30px; border-top:1px solid #ffffff24; padding-top:16px; color:#bcb2c8; font-size:12px; line-height:1.6; }
+    @media(max-width:900px) { .scenes{grid-template-rows:auto;} .scene.primary{grid-column:span 2;grid-row:auto;} .module-shelf{grid-column:span 2;grid-row:auto;min-height:155px;} }
+    @media(max-width:560px) { .scene.primary,.module-shelf{grid-column:auto;} .module-shelf{grid-template-columns:1fr 1fr;gap:9px;} .module-card{padding:15px;min-height:145px;} .module-card strong{font-size:17px;white-space:normal;} .module-arrow{right:12px;bottom:13px;} .focus-layer .scene.active{min-height:350px;} .focus-layer .scene.active h2{font-size:31px;margin-top:68px;} }
+  </style>
+  <link rel="stylesheet" href="/static/research-sidebar.css" />
+  <link rel="stylesheet" href="/static/opening-polish.css" />
+  <link rel="stylesheet" href="/static/opening-story.css" />
+  <link rel="stylesheet" href="/static/opening-refine.css" />
+</head>
+<body class="capture">
+  <div class="page" id="chapter-home">
+    <video class="background-video" id="background-video" autoplay muted loop playsinline preload="none" poster="/static/neural-background.png" data-src="/static/neural-background-loop.mp4" aria-hidden="true" tabindex="-1"></video>
+    <canvas id="particle-field" aria-hidden="true"></canvas>
+    <header>
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>癫痫研究平台</span></div>
+      <div class="header-actions"><div class="platform-status"><div id="service-status" role="status">正在连接研究服务…</div><a href="/workspace?view=flow"><svg class="import-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3m-4 4 4-4 4 4"/><path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/></svg><span class="platform-import-label">导入自己的数据 ↗</span></a></div><button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-controls="research-sidebar" aria-expanded="false" aria-label="打开知识问答与设置"><span class="sidebar-toggle-icon" aria-hidden="true"></span><span id="sidebar-toggle-label">知识问答</span></button></div>
+    </header>
+    <main>
+      <div class="hero">
+        <div class="hero-title-wrap" id="hero-title-wrap"><h1 id="hero-title">选择研究<span class="accent">入口</span></h1></div>
+        <a class="hero-scroll-link" href="#chapter-reduction" data-story="explore">向下探索平台 <span aria-hidden="true">↓</span></a>
+      </div>
+      <section class="scenes" id="scene-grid" aria-label="研究入口">
+        <article class="scene primary" data-scene="02" role="button" tabindex="0" aria-label="查看减药后复发场景">
+          <div class="scene-top"><span class="state">教学演示可进入</span></div>
+          <h2>减药后复发</h2><p class="teaser">730 天复发风险 · 八字段录入</p><span class="open-hint">查看场景 ↗</span>
+          <div class="expanded-only"><button class="back-btn" type="button">← 返回入口</button><p class="detail-description">首次实际减低抗发作药物剂量后，探索 730 天内复发风险。</p><div class="actions"><button class="cta" type="button" data-mode="forward">正向预测 <span>↗</span></button><button class="cta inverse" type="button" data-mode="inverse">逆向设计 <span>↗</span></button><a class="cta inverse" href="/workspace?view=flow">批量数据接入 <span>↗</span></a></div></div>
+        </article>
+        <div class="module-shelf" id="module-shelf"><button class="module-card" type="button" data-module="qa"><strong>知识问答</strong><small>按场景检索与来源解读</small><span class="module-arrow">↗</span></button><button class="module-card graph" type="button" data-module="graph"><strong>知识图谱</strong><small>卒中后癫痫 · SeLECT / D13</small><span class="module-arrow">↗</span></button></div>
+        <article class="scene" data-scene="01" role="button" tabindex="0" aria-label="查看首次发作场景"><div class="scene-top"><span class="state">真实队列预测演示</span></div><h2>首次发作</h2><p class="teaser">温州 D 模型 · 首次发作后预测</p><span class="open-hint">查看场景 ↗</span><div class="expanded-only"><button class="back-btn" type="button">← 返回入口</button><p class="detail-description">卒中后 7 天内首次急性症状性发作后，用温州 D 研究的 8 项信息估计后续晚期 PSE；仅供研究演示。</p><div class="actions"><a class="cta" href="/workspace?view=single&amp;scenario=first">正向预测 <span>↗</span></a><a class="cta inverse" href="/knowledge-graph/">研究证据 <span>↗</span></a></div></div></article>
+        <article class="scene" data-scene="03" role="button" tabindex="0" aria-label="查看卒中后癫痫场景"><div class="scene-top"><span class="state">真实队列预测演示</span></div><h2>卒中后癫痫</h2><p class="teaser">D13 冻结模型 · 一年内结局</p><span class="open-hint">查看场景 ↗</span><div class="expanded-only"><button class="back-btn" type="button">← 返回入口</button><p class="detail-description">D13 公开真实队列的冻结模型可按原始编码字段估计一年内继发性癫痫标签；仅供研究演示。</p><div class="actions"><a class="cta" href="/workspace?view=single&amp;scenario=stroke">正向预测 <span>↗</span></a><a class="cta inverse" href="/knowledge-graph/">研究证据 <span>↗</span></a></div></div></article>
+        <article class="scene" data-scene="04" role="button" tabindex="0" aria-label="查看术后发作场景"><div class="scene-top"><span class="state">规划中</span></div><h2>术后发作</h2><p class="teaser">预测模型与字段规则待建立</p><span class="open-hint">查看场景 ↗</span><div class="expanded-only"><button class="back-btn" type="button">← 返回入口</button><p class="detail-description">术后发作场景的预测问题、字段规则与模型尚待建立。</p><div class="planned-note">本场景暂未开放正向预测与逆向设计。</div></div></article>
+        <article class="scene" data-scene="05" role="button" tabindex="0" aria-label="查看长期控制后场景"><div class="scene-top"><span class="state">规划中</span></div><h2>长期控制后</h2><p class="teaser">预测模型与字段规则待建立</p><span class="open-hint">查看场景 ↗</span><div class="expanded-only"><button class="back-btn" type="button">← 返回入口</button><p class="detail-description">长期控制后场景的预测问题、字段规则与模型尚待建立。</p><div class="planned-note">本场景暂未开放正向预测与逆向设计。</div></div></article>
+      </section>
+      <p class="research-note">减药场景为教学合成模型 · 卒中场景为真实队列预测研究演示 · 不用于临床决策</p>
+    </main>
+  </div>
+  <div class="opening-chapters" id="opening-chapters">
+    <section class="story-section story-reduction" id="chapter-reduction" aria-labelledby="prediction-title">
+      <video class="story-reduction-video" muted loop playsinline preload="none" data-src="/static/arch-synapse-loop.mp4" poster="/static/arch-synapse-poster.png" aria-hidden="true" tabindex="-1"></video>
+      <div class="story-inner">
+        <div class="prediction-heading">
+          <div><p class="story-kicker" data-story="chapter01">01 / 06 · 预测场景</p><h2 id="prediction-title" data-story="predictionTitle">预测场景</h2></div>
+          <div class="loop-controls">
+            <button id="prediction-prev" type="button" aria-label="上一个预测场景">←</button>
+            <button id="prediction-next" type="button" aria-label="下一个预测场景">→</button>
+          </div>
+        </div>
+        <div class="prediction-window" id="prediction-carousel"><div class="prediction-track"></div></div>
+        <p class="prediction-note" data-story="reductionNote">教学合成数据用于研究联调；情景差异不代表干预效果。</p>
+      </div>
+    </section>
+    <section class="story-rail-section" id="chapter-data" aria-labelledby="data-title"><div class="story-rail-sticky"><video class="story-rail-video" id="story-rail-video" muted loop playsinline preload="none" data-src="/static/quantum-grid-loop.mp4" poster="/static/neural-background.png" aria-hidden="true"></video><div class="story-inner"><p class="story-kicker" data-story="chapter02">02 / 06 · 数据接入</p><h2 id="data-title" data-story="dataTitle">让每一步都可核对。</h2><p class="story-lede" data-story="dataBody">从 CSV 到结果，按顺序完成预检、字段映射、人工确认、运行与导出。</p><div class="story-carousel-window" id="data-carousel-window"><div class="story-carousel-track" id="data-carousel-track"><article class="story-step"><span>01 / 05</span><h3 data-story="step1Title">导入</h3><p data-story="step1Body">上传演示 CSV，检查文件与基本结构。</p></article><article class="story-step"><span>02 / 05</span><h3 data-story="step2Title">预检</h3><p data-story="step2Body">定位必填、格式、取值范围和重复问题。</p></article><article class="story-step"><span>03 / 05</span><h3 data-story="step3Title">映射与确认</h3><p data-story="step3Body">对齐字段含义，人工核对后再提交运行。</p></article><article class="story-step"><span>04 / 05</span><h3 data-story="step4Title">运行</h3><p data-story="step4Body">查看研究联调结果和训练支持范围。</p></article><article class="story-step"><span>05 / 05</span><h3 data-story="step5Title">导出</h3><p data-story="step5Body">导出带版本和用途标识的结果。</p></article></div></div><div class="story-rail-bottom"><a class="story-link" href="/workspace?view=flow" data-story="dataLink">进入数据工作台 ↗</a><div class="story-rail-controls"><button id="data-prev" type="button" aria-label="上一项">←</button><button id="data-next" type="button" aria-label="下一项">→</button></div></div></div></div></section>
+    <section class="story-section story-knowledge" id="chapter-qa" aria-labelledby="story-qa-title"><video class="story-qa-video" muted loop playsinline preload="none" data-src="/static/arch-synapse-loop.mp4" aria-hidden="true"></video><div class="story-inner story-split"><div><p class="story-kicker" data-story="chapter03">03 / 06 · 知识问答</p><h2 id="story-qa-title"><span data-story="qaTitle">让问题回到</span><em data-story="qaAccent">证据。</em></h2><p class="story-lede" data-story="qaBody">检索已核查的 D13 卒中后癫痫资料，逐条查看原始陈述、核对状态与来源。LLM 生成回答仍待接入。</p><a class="story-link" href="/knowledge-qa/" data-story="qaLink">进入知识问答 ↗</a></div><div class="evidence-tilt-stage"><div class="story-evidence-preview"><div class="evidence-glare" aria-hidden="true"></div><span class="story-preview-label" data-story="previewLabel">EVIDENCE / SOURCE</span><div class="story-preview-question" data-story="previewQuestion">NIHSS 与卒中后癫痫有什么关系？</div><div class="story-preview-line"></div><p data-story="previewAnswer">检索证据 · 查看来源 · 保留原文</p></div></div></div></section>
+    <section class="story-section story-graph" id="chapter-graph" aria-labelledby="story-graph-title"><video class="graph-video" muted loop playsinline preload="none" data-src="/static/future-neural-particles-loop.mp4" aria-hidden="true"></video><div class="story-inner story-split"><div><p class="story-kicker" data-story="chapter04">04 / 06 · 知识图谱</p><h2 id="story-graph-title"><span data-story="graphTitle">把研究资料，</span><em data-story="graphAccent">连起来。</em></h2><p class="story-lede" data-story="graphBody">沿着实体、关系、证据和来源浏览 D13 卒中后癫痫资料；图谱用于研究导览，不直接解释减药模型。</p><a class="story-link" href="/knowledge-graph/" data-story="graphLink">浏览知识图谱 ↗</a></div><div class="story-graph-preview" aria-hidden="true"><span class="graph-node node-center">D13</span><span class="graph-node node-one">SeLECT</span><span class="graph-node node-two">NIHSS</span><span class="graph-node node-three">SOURCE</span><span class="graph-edge edge-one"></span><span class="graph-edge edge-two"></span><span class="graph-edge edge-three"></span></div></div></section>
+    <section class="story-section story-future" id="chapter-future" aria-labelledby="story-future-title"><video class="future-video" muted loop playsinline preload="none" data-src="/static/quantum-grid-loop.mp4" aria-hidden="true"></video><div class="story-inner"><p class="story-kicker" data-story="chapter05">05 / 06 · 未来展望</p><h2 id="story-future-title" data-story="futureTitle">下一步，继续展开。</h2><p class="story-lede" data-story="futureBody">以下场景仍在规划，预测问题、字段规则与模型需逐一建立或验证。</p><div class="future-carousel" id="future-carousel"><article class="future-card"><span>01</span><h3 data-story="future1Title">首次发作</h3><p data-story="future1Body">预测问题、字段规则与模型待建立。</p><small data-story="planned">规划中</small></article><article class="future-card"><span>02</span><h3 data-story="future2Title">卒中后癫痫</h3><p data-story="future2Body">D13 资料可浏览，逐例预测待验证。</p><small data-story="planned">规划中</small></article><article class="future-card"><span>03</span><h3 data-story="future3Title">术后发作</h3><p data-story="future3Body">预测问题、字段规则与模型待建立。</p><small data-story="planned">规划中</small></article><article class="future-card"><span>04</span><h3 data-story="future4Title">长期控制后</h3><p data-story="future4Body">预测问题、字段规则与模型待建立。</p><small data-story="planned">规划中</small></article></div><div class="future-controls"><button id="future-prev" type="button" aria-label="上一项">←</button><button id="future-next" type="button" aria-label="下一项">→</button></div></div></section>
+    <section class="story-section story-closing" id="chapter-closing" aria-labelledby="story-closing-title">
+      <video class="closing-video" muted loop playsinline preload="none" data-src="/static/arch-synapse-loop.mp4" aria-hidden="true"></video>
+      <div class="story-inner closing-inner">
+        <p class="closing-kicker"><span>THANK YOU</span> <strong lang="zh-CN">谢谢</strong></p>
+        <h2 id="story-closing-title">
+          <span class="closing-line"><span data-story="closingFirst">让 AI 成为医生的</span><em data-story="closingAssistant">信息助手</em><span data-story="closingComma">，</span></span>
+          <span class="closing-line"><span data-story="closingSecond">而不是患者的</span><em data-story="closingDecision">决策者</em><span data-story="closingPeriod">。</span></span>
+        </h2>
+        <div class="closing-credit"><strong data-story="closingName">梁苏蕾</strong></div>
+      </div>
+      <div class="closing-marquee" aria-hidden="true">
+        <div class="closing-marquee-track"><div><span>复发预测</span><span class="solid">blue ocean</span><span>个体化减药</span><span class="solid">who can taper safely</span><span>医生在环</span><span class="solid">human-in-the-loop</span></div><div><span>复发预测</span><span class="solid">blue ocean</span><span>个体化减药</span><span class="solid">who can taper safely</span><span>医生在环</span><span class="solid">human-in-the-loop</span></div></div>
+      </div>
+    </section>
+  </div>
+  <nav class="chapter-nav" id="chapter-nav" aria-label="章节导航"><button id="chapter-prev" type="button" aria-label="上一章">↑</button><span id="chapter-indicator">00 / 06</span><span id="chapter-name">研究入口</span><button id="chapter-next" type="button" aria-label="下一章">↓</button></nav>
+  <div class="focus-layer" id="scene-focus" hidden role="dialog" aria-modal="true" aria-label="预测场景详情"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="dialog" id="mode-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="dialog-card"><div class="dialog-top"><button class="dialog-close" type="button" aria-label="关闭">×</button></div><h2 id="dialog-title"></h2><p id="dialog-body"></p><span class="tag" id="dialog-tag"></span></div></div>
+  <aside class="research-sidebar" id="research-sidebar" aria-label="知识问答与设置" hidden>
+    <div class="sidebar-resize" id="sidebar-resize" role="separator" aria-orientation="vertical" aria-label="拖动调整侧栏宽度" aria-valuemin="300" aria-valuemax="760" aria-valuenow="390" tabindex="0"></div>
+    <div class="sidebar-header"><div class="sidebar-heading"><span class="sidebar-overline" id="sidebar-overline">RESEARCH ASSISTANT</span><strong id="sidebar-title">知识问答</strong></div><button class="sidebar-close" id="sidebar-close" type="button" aria-label="关闭侧栏">×</button></div>
+    <div class="sidebar-tabs" role="tablist" aria-label="侧栏视图"><button id="sidebar-tab-qa" class="sidebar-tab active" type="button" role="tab" aria-selected="true" aria-controls="sidebar-qa">知识问答</button><button id="sidebar-tab-settings" class="sidebar-tab" type="button" role="tab" aria-selected="false" aria-controls="sidebar-settings">设置</button></div>
+    <section id="sidebar-qa" class="sidebar-view" role="tabpanel" aria-labelledby="sidebar-tab-qa"><div class="qa-status"><span class="status-dot" aria-hidden="true"></span><span id="qa-status-text">知识库证据检索 · LLM 服务待接入</span></div><p id="qa-intro" class="qa-intro">检索已核对的 D13 卒中后癫痫资料，查看原始证据与来源。此处暂不生成 LLM 回答。</p><form id="qa-form" class="qa-form"><label id="qa-label" for="qa-query">检索知识库</label><div class="qa-input-wrap"><input id="qa-query" type="search" autocomplete="off" maxlength="200" placeholder="例如：NIHSS 与卒中后癫痫" /><button id="qa-submit" type="submit">检索</button></div></form><div class="qa-example-group"><span id="qa-examples-label">试试这些问题</span><div id="qa-examples" class="qa-examples"></div></div><div id="qa-results" class="qa-results" aria-live="polite"></div><p id="qa-scope" class="qa-scope">仅展示 D13 卒中后癫痫资料；不适用于减药后复发个体预测或临床决策。</p></section>
+    <section id="sidebar-settings" class="sidebar-view" role="tabpanel" aria-labelledby="sidebar-tab-settings" hidden><h3 id="settings-title">界面设置</h3><div class="settings-row"><div><strong id="language-label">界面语言</strong><small id="language-help">切换开屏与右侧知识面板</small></div><div class="language-switch" role="group" aria-label="界面语言"><button id="language-zh" type="button" data-lang="zh" aria-pressed="true">中文</button><button id="language-en" type="button" data-lang="en" aria-pressed="false">English</button></div></div><p id="settings-note">语言设置会保存在此浏览器中。知识条目的原始证据保持原文。</p></section>
+  </aside>
+  <script src="/static/research-sidebar.js"></script>
+  <script>
+    (() => {
+      if (!new URLSearchParams(location.search).has('static')) document.body.classList.remove('capture');
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const backgroundVideo = document.getElementById('background-video');
+      const backgroundPage = document.querySelector('.page');
+      let openingVisible = true;
+      backgroundVideo.muted = true;
+      backgroundVideo.defaultMuted = true;
+      function syncBackgroundVideo() {
+        const staticBackground = reduced.matches || document.body.classList.contains('capture');
+        backgroundVideo.autoplay = !staticBackground && !document.hidden && openingVisible;
+        if (staticBackground || document.hidden || !openingVisible) {
+          backgroundVideo.pause();
+          if (staticBackground) backgroundPage.classList.remove('video-playing');
+          return;
+        }
+        if (!backgroundVideo.getAttribute('src')) backgroundVideo.src = backgroundVideo.dataset.src;
+        backgroundVideo.play().catch(() => backgroundPage.classList.remove('video-playing'));
+      }
+      backgroundVideo.addEventListener('playing', () => {
+        if (reduced.matches || document.body.classList.contains('capture') || document.hidden) {
+          syncBackgroundVideo();
+        } else backgroundPage.classList.add('video-playing');
+      });
+      backgroundVideo.addEventListener('error', () => backgroundPage.classList.remove('video-playing'));
+      reduced.addEventListener('change', syncBackgroundVideo);
+      document.addEventListener('visibilitychange', syncBackgroundVideo);
+      new IntersectionObserver(([entry]) => { openingVisible = entry.isIntersecting; syncBackgroundVideo(); }, { rootMargin: '150px' }).observe(backgroundPage);
+      syncBackgroundVideo();
+      const canvas = document.getElementById('particle-field');
+      const ctx = canvas.getContext('2d');
+      const title = document.getElementById('hero-title-wrap');
+      const dot = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+      const mouse = {x:innerWidth/2,y:innerHeight/2,sx:innerWidth/2,sy:innerHeight/2};
+      let width=0,height=0,dpr=1,particles=[];
+      function resize(){
+        dpr=Math.min(devicePixelRatio||1,2); width=innerWidth; height=innerHeight;
+        canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
+        canvas.style.width=width+'px';canvas.style.height=height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+        const count=Math.min(360,Math.max(130,Math.round(width*height/4200)));
+        particles=Array.from({length:count},(_,i)=>({x:Math.random()*width,y:Math.random()*height,phase:Math.random()*6.28,speed:.12+Math.random()*.35,size:.6+Math.random()*1.7,hue:i%4===0?85:275}));
+      }
+      function frame(now){
+        if(document.hidden || !openingVisible){requestAnimationFrame(frame);return;}
+        ctx.clearRect(0,0,width,height);
+        const t=now*.001;
+        mouse.sx+=(mouse.x-mouse.sx)*.035;mouse.sy+=(mouse.y-mouse.sy)*.035;
+        if(!reduced.matches){
+          const driftX=(mouse.sx-width/2)*.012,driftY=(mouse.sy-height/2)*.012;
+          for(const p of particles){
+            const x=p.x+Math.sin(t*p.speed+p.phase)*14+driftX;
+            const y=p.y+Math.cos(t*p.speed*.7+p.phase)*9+driftY;
+            const dx=x-mouse.sx,dy=y-mouse.sy,dist=Math.hypot(dx,dy);
+            const push=dist<125?(125-dist)/125*15:0;
+            const px=x+(dist?dx/dist*push:0),py=y+(dist?dy/dist*push:0);
+            const a=.2+.24*(.5+.5*Math.sin(t*1.2+p.phase));
+            ctx.fillStyle=p.hue===85?'rgba(194,247,120,'+a+')':'rgba(187,132,225,'+a+')';
+            ctx.beginPath();ctx.arc(px,py,p.size,0,6.283);ctx.fill();
+          }
+          title.style.transform='rotateY('+((mouse.sx/width-.5)*-7+Math.sin(t*.26)*2.5).toFixed(2)+'deg) rotateX('+((mouse.sy/height-.5)*3).toFixed(2)+'deg)';
+        }
+        requestAnimationFrame(frame);
+      }
+      addEventListener('resize',resize);resize();requestAnimationFrame(frame);
+      addEventListener('pointermove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;dot.style.opacity='1';ring.style.opacity='1';dot.style.transform='translate('+(e.clientX-3)+'px,'+(e.clientY-3)+'px)';});
+      let rx=mouse.x,ry=mouse.y;function cursor(){rx+=(mouse.x-rx)*.16;ry+=(mouse.y-ry)*.16;ring.style.transform='translate('+(rx-17)+'px,'+(ry-17)+'px)';requestAnimationFrame(cursor)}requestAnimationFrame(cursor);
+      document.querySelectorAll('button').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('hot'));el.addEventListener('mouseleave',()=>ring.classList.remove('hot'))});
+      const page=document.querySelector('.page');
+      const scenes=[...document.querySelectorAll('#scene-grid .scene')];
+      [...scenes,...document.querySelectorAll('.module-card')].forEach(el=>{const still=document.createElement('span');still.className='scene-image';still.setAttribute('aria-hidden','true');el.prepend(still)});
+      const byId=Object.fromEntries(scenes.map(el=>[el.dataset.scene,el]));
+      const focusLayer=document.getElementById('scene-focus');
+      let focusSource=null,focusCard=null,focusMedia=null,focusVideo=null,closing=false;
+      function alignFocusMedia(){
+        if(!focusCard||!focusMedia)return;
+        const box=focusCard.getBoundingClientRect();
+        Object.assign(focusMedia.style,{left:box.left+'px',top:box.top+'px',width:box.width+'px',height:box.height+'px'});
+      }
+      addEventListener('resize',alignFocusMedia);
+      function syncFocusVideo(){
+        if(!focusVideo)return;
+        if(document.hidden||reduced.matches){focusVideo.pause();focusLayer.classList.remove('media-ready');return}
+        focusVideo.play().catch(()=>focusLayer.classList.remove('media-ready'));
+      }
+      reduced.addEventListener('change',syncFocusVideo);
+      document.addEventListener('visibilitychange',syncFocusVideo);
+      function startFocusVideo(card){
+        if(focusCard!==card||closing||reduced.matches||document.body.classList.contains('capture'))return;
+        focusVideo=document.createElement('video');
+        focusVideo.muted=true;focusVideo.defaultMuted=true;focusVideo.loop=true;focusVideo.playsInline=true;
+        focusVideo.preload='none';focusVideo.poster='/static/arch-synapse-poster.png';
+        focusVideo.setAttribute('aria-hidden','true');focusVideo.tabIndex=-1;
+        focusVideo.addEventListener('playing',()=>{if(focusCard===card&&!closing)focusLayer.classList.add('media-ready')});
+        focusVideo.addEventListener('error',()=>focusLayer.classList.remove('media-ready'));
+        focusMedia.appendChild(focusVideo);
+        focusVideo.src='/static/arch-synapse-loop.mp4';
+        syncFocusVideo();
+      }
+      function openFocus(source){
+        if(!focusLayer.hidden)return;
+        const start=source.getBoundingClientRect();
+        focusSource=source;source.setAttribute('aria-expanded','true');
+        focusCard=source.cloneNode(true);focusCard.classList.add('active');focusCard.classList.remove('primary');focusCard.removeAttribute('role');focusCard.removeAttribute('tabindex');
+        focusMedia=document.createElement('div');focusMedia.className='focus-media';focusMedia.setAttribute('aria-hidden','true');
+        focusLayer.append(focusMedia,focusCard);focusLayer.hidden=false;page.inert=true;alignFocusMedia();
+        const end=focusCard.getBoundingClientRect();
+        if(!reduced.matches&&!document.body.classList.contains('capture')){
+          const card=focusCard;
+          const motion=focusCard.animate([{transform:`translate(${start.left-end.left}px,${start.top-end.top}px) scale(${start.width/end.width},${start.height/end.height})`,transformOrigin:'top left',opacity:.6},{transform:'translate(0,0) scale(1,1)',transformOrigin:'top left',opacity:1}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'});
+          motion.finished.then(()=>startFocusVideo(card)).catch(()=>{});
+        }
+        focusCard.querySelector('.back-btn').addEventListener('click',closeFocus);
+        focusCard.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>showDialog(b.dataset.mode)));
+        focusCard.querySelector('.back-btn').focus();
+      }
+      async function closeFocus(){
+        if(focusLayer.hidden||closing)return;closing=true;
+        focusLayer.classList.remove('media-ready');
+        if(focusVideo){focusVideo.pause();focusVideo.removeAttribute('src');focusVideo.load();focusVideo=null}
+        if(!reduced.matches&&!document.body.classList.contains('capture')){
+          const a=focusCard.getBoundingClientRect(),b=focusSource.getBoundingClientRect();
+          const motion=focusCard.animate([{transform:'translate(0,0) scale(1,1)',opacity:1},{transform:`translate(${b.left-a.left}px,${b.top-a.top}px) scale(${b.width/a.width},${b.height/a.height})`,opacity:.5}],{duration:440,easing:'cubic-bezier(.4,0,.8,.2)'});
+          await motion.finished.catch(()=>{});
+        }
+        focusLayer.replaceChildren();focusLayer.hidden=true;page.inert=false;focusMedia=null;
+        focusSource.setAttribute('aria-expanded','false');focusSource.focus();focusSource=null;focusCard=null;closing=false;
+      }
+      scenes.forEach(el=>{el.setAttribute('aria-expanded','false');el.addEventListener('click',()=>openFocus(el));el.addEventListener('keydown',e=>{if(e.target===el&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openFocus(el)}})});
+      focusLayer.addEventListener('click',e=>{if(e.target===focusLayer)closeFocus()});
+      const initialScene=new URLSearchParams(location.search).get('scene');if(initialScene&&byId[initialScene])openFocus(byId[initialScene]);
+      const dialog=document.getElementById('mode-dialog');
+      const content={forward:['正向预测','录入该场景的八项结构化字段，人工确认后查看 730 天复发风险与训练支持信息。当前后端已具备教学合成数据联调接口。','当前可联调 · 教学合成数据'],inverse:['逆向设计','设定目标风险区间、固定事实与允许变化的字段，探索模型下的假设情景。此入口展示产品路径；逆向算法已有交付，页面尚待接入。情景差异不代表干预效果。','页面待接入 · 研究情景演示'],qa:['LLM 知识问答','按场景检索已核对的知识与来源，再组织回答。当前开屏展示入口；真实 LLM 服务尚待接入与验证。','入口预览 · LLM 服务待接入'],graph:['知识图谱','浏览字段、来源、证据和关系。现有 D13 知识库可作为研究导览素材；关系与规则需要明确适用场景，不直接解释减药模型。','入口预览 · D13 研究资料']};
+      function showDialog(key){
+        if(key==='graph') { location.assign('/knowledge-graph/'); return; }
+        if(key==='forward'||key==='inverse') { location.assign('/workspace?view=single&scenario='+(key==='inverse'?'reverse':'forward')); return; }
+        if(key==='qa') { location.assign('/knowledge-qa/'); return; }
+        const c=content[key];document.getElementById('dialog-title').textContent=c[0];document.getElementById('dialog-body').textContent=c[1];document.getElementById('dialog-tag').textContent=c[2];dialog.hidden=false;document.querySelector('.dialog-close').focus()
+      }
+      fetch('/readyz').then(r=>{if(!r.ok)throw new Error();return r.json()}).then(s=>{
+        document.getElementById('service-status').textContent=s.model_integrity?'研究服务已连接':'模型校验未通过';
+      }).catch(()=>{document.getElementById('service-status').textContent='服务暂不可用，请检查本机启动状态'});
+      document.querySelectorAll('[data-module]').forEach(b=>b.addEventListener('click',()=>showDialog(b.dataset.module)));
+      function close(){dialog.hidden=true}document.querySelector('.dialog-close').addEventListener('click',close);dialog.addEventListener('click',e=>{if(e.target===dialog)close()});addEventListener('keydown',e=>{if(e.key==='Escape'){if(!dialog.hidden)close();else if(!focusLayer.hidden)closeFocus()}});
+    })();
+  </script>
+  <script src="/static/opening-story.js"></script>
+  <script src="/static/opening-refine.js"></script>
+</body>
+</html>

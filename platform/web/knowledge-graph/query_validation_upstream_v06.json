@@ -1,0 +1,35 @@
+{
+  "version": "0.6",
+  "nodes": 187,
+  "edges": 633,
+  "duplicate_nodes": [],
+  "duplicate_semantic_edges": [],
+  "dangling_edges": [],
+  "domain_range_errors": [],
+  "required_attribute_errors": [],
+  "unknown_source_ids": [],
+  "unknown_claim_ids": [],
+  "clinical_relations_without_locator": [],
+  "model_metric_consistency": {
+    "stored_auc": 0.8914527849369989,
+    "metrics_auc": 0.8914527849369989,
+    "stored_auprc": 0.2865507599699314,
+    "metrics_auprc": 0.2865507599699314
+  },
+  "feature_set_counts": {
+    "feature_set_d13_s1_v03_modeling": 28,
+    "feature_set_d13_s2_v03_exploratory": 57,
+    "feature_set_d13_s3_v03_sensitivity": 61,
+    "feature_set_d13_s1_alt_v03": 30
+  },
+  "asys_components": 3,
+  "eeg_components": 6,
+  "network_datasets": [
+    "network_dataset_wenzhou_167",
+    "network_dataset_suzhou_anhui_149",
+    "network_dataset_winder_28"
+  ],
+  "network_not_merged": 3,
+  "modified_formula_status": "partially_verified_from_public_abstract",
+  "passed": true
+}

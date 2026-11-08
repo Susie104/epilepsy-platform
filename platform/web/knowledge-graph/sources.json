@@ -1,0 +1,371 @@
+[
+  {
+    "source_id": "SRC_PAPER",
+    "source_type": "论文",
+    "title": "Predictive models for secondary epilepsy in patients with acute ischemic stroke within one year",
+    "origin": "eLife 2024",
+    "identifier": "10.7554/eLife.98759",
+    "url": "https://doi.org/10.7554/eLife.98759",
+    "verification": "已核对开放全文"
+  },
+  {
+    "source_id": "SRC_DRYAD",
+    "source_type": "公开数据",
+    "title": "D13 卒中后癫痫数据集",
+    "origin": "Dryad 第 8 版",
+    "identifier": "10.5061/dryad.w0vt4b92c",
+    "url": "https://doi.org/10.5061/dryad.w0vt4b92c",
+    "verification": "文件大小与 SHA-256 已与官方清单核对一致"
+  },
+  {
+    "source_id": "SRC_CODE",
+    "source_type": "分析代码",
+    "title": "Lasso-ML 原始分析代码",
+    "origin": "GitHub",
+    "identifier": "conanan/lasso-ml",
+    "url": "https://github.com/conanan/lasso-ml",
+    "verification": "已核对 README 与缺失值处理脚本"
+  },
+  {
+    "source_id": "SRC_DICTIONARY",
+    "source_type": "项目资料",
+    "title": "D13 数据字典",
+    "origin": "项目整理",
+    "identifier": "D13_数据字典.xlsx",
+    "url": "",
+    "verification": "75 个字段与公开 CSV 完全对应，统计已复算"
+  },
+  {
+    "source_id": "SRC_MODEL",
+    "source_type": "分析结果",
+    "title": "D13 第一版二分类模型输出",
+    "origin": "项目整理",
+    "identifier": "results_metrics_full.csv",
+    "url": "",
+    "verification": "完整数据与去重数据的性能及校准结果"
+  },
+  {
+    "source_id": "SRC_BOUNDARY",
+    "source_type": "研究规范",
+    "title": "数据源指标与边界处理",
+    "origin": "项目整理",
+    "identifier": "2026-11-03",
+    "url": "",
+    "verification": "已整理预测起点、结局、缺失和竞争风险边界"
+  },
+  {
+    "source_id": "SRC_HANDOFF",
+    "source_type": "研究规范",
+    "title": "数据交接与多机一致性说明",
+    "origin": "项目整理",
+    "identifier": "v1.0",
+    "url": "",
+    "verification": "已整理多机复现、患者级拆分和LLM证据规范"
+  },
+  {
+    "source_id": "BEHGI2010",
+    "source_type": "定义/综述",
+    "title": "Recommendation for a definition of acute symptomatic seizure",
+    "origin": "Beghi E, et al. Epilepsia. 2010;51(4):671-675.",
+    "identifier": "10.1111/j.1528-1167.2009.02285.x",
+    "url": "https://doi.org/10.1111/j.1528-1167.2009.02285.x",
+    "verification": "已核对：Results"
+  },
+  {
+    "source_id": "FISHER2014",
+    "source_type": "定义/综述",
+    "title": "ILAE official report: a practical clinical definition of epilepsy",
+    "origin": "Fisher RS, et al. Epilepsia. 2014;55(4):475-482.",
+    "identifier": "10.1111/epi.12550",
+    "url": "https://doi.org/10.1111/epi.12550",
+    "verification": "已核对：Abstract, practical definition; paper pp. 475-482"
+  },
+  {
+    "source_id": "FISHER2017",
+    "source_type": "定义/综述",
+    "title": "Operational classification of seizure types by the International League Against Epilepsy",
+    "origin": "Fisher RS, et al. Epilepsia. 2017;58(4):522-530.",
+    "identifier": "10.1111/epi.13670",
+    "url": "https://doi.org/10.1111/epi.13670",
+    "verification": "已核对：Abstract, operational classification changes"
+  },
+  {
+    "source_id": "GALOVIC2021",
+    "source_type": "定义/综述",
+    "title": "Seizures and Epilepsy After Stroke: Epidemiology, Biomarkers and Management",
+    "origin": "Galovic M, et al. Drugs Aging. 2021;38(4):285-299.",
+    "identifier": "10.1007/s40266-021-00837-7",
+    "url": "https://doi.org/10.1007/s40266-021-00837-7",
+    "verification": "已核对：Introduction; Electroencephalogram After Stroke; Management of Acute Symptomatic Seizures"
+  },
+  {
+    "source_id": "D13PAPER",
+    "source_type": "定义/综述",
+    "title": "Predictive models for secondary epilepsy in patients with acute ischemic stroke within one year",
+    "origin": "Liu J, et al. eLife. 2024;13:RP98759.",
+    "identifier": "10.7554/eLife.98759",
+    "url": "https://doi.org/10.7554/eLife.98759",
+    "verification": "已核对：Materials and methods; Results"
+  },
+  {
+    "source_id": "PROJECTBOUNDARY",
+    "source_type": "定义/综述",
+    "title": "癫痫复发预测：数据源指标与边界处理",
+    "origin": "项目内部研究规范，2026-11-03",
+    "identifier": "项目边界规范",
+    "url": "",
+    "verification": "已核对：第1节、第5节、第6节、第8节"
+  },
+  {
+    "source_id": "GALOVIC2018",
+    "source_type": "原始开发与外部验证",
+    "title": "Galovic M, et al. Lancet Neurol. 2018;17(2):143-152.",
+    "origin": "SeLECT系列研究核查",
+    "identifier": "10.1016/S1474-4422(17)30404-0",
+    "url": "https://doi.org/10.1016/S1474-4422(17)30404-0",
+    "verification": "已核对原文位置：Methods, Results, Panel 1, Tables 2-3, Figure 2"
+  },
+  {
+    "source_id": "SINKA2023",
+    "source_type": "SeLECT 2.0更新",
+    "title": "Sinka L, et al. JAMA Neurol. 2023;80(6):605-613.",
+    "origin": "SeLECT系列研究核查",
+    "identifier": "10.1001/jamaneurol.2023.0611",
+    "url": "https://doi.org/10.1001/jamaneurol.2023.0611",
+    "verification": "已核对原文位置：Methods, Results, Table 3, Figure 2, Strengths and Limitations"
+  },
+  {
+    "source_id": "MELETTI2024",
+    "source_type": "修改版SeLECT 2.0",
+    "title": "Meletti S, et al. Epilepsia. 2024;65(11):3234-3243.",
+    "origin": "SeLECT系列研究核查",
+    "identifier": "10.1111/epi.18114",
+    "url": "https://doi.org/10.1111/epi.18114",
+    "verification": "已核对原文位置：Abstract and Results"
+  },
+  {
+    "source_id": "SCHUBERT2025_ASYS",
+    "source_type": "SeLECT-ASyS更新",
+    "title": "Schubert KM, et al. Stroke. 2025;56(7):1748-1757.",
+    "origin": "SeLECT系列研究核查",
+    "identifier": "10.1161/STROKEAHA.124.050045",
+    "url": "https://doi.org/10.1161/STROKEAHA.124.050045",
+    "verification": "已核对原文位置：Abstract and Results"
+  },
+  {
+    "source_id": "SCHUBERT2025_EEG",
+    "source_type": "SeLECT-EEG更新",
+    "title": "Schubert KM, et al. Ann Neurol. 2025;98:814-825.",
+    "origin": "SeLECT系列研究核查",
+    "identifier": "10.1002/ana.27301",
+    "url": "https://doi.org/10.1002/ana.27301",
+    "verification": "已核对原文位置：Abstract and Results"
+  },
+  {
+    "source_id": "AYAZ2025_REVIEW",
+    "source_type": "系统综述",
+    "title": "Ayaz A, et al. Epilepsy Behav. 2025;173:110794.",
+    "origin": "SeLECT系列研究核查",
+    "identifier": "10.1016/j.yebeh.2025.110794",
+    "url": "https://doi.org/10.1016/j.yebeh.2025.110794",
+    "verification": "已核对原文位置：Abstract, Tables 1-2, Discussion"
+  },
+  {
+    "source_id": "SELECT_VAL_001",
+    "source_type": "验证研究",
+    "title": "Galovic 2018",
+    "origin": "Switzerland; Austria; Germany; Italy",
+    "identifier": "10.1016/S1474-4422(17)30404-0",
+    "url": "https://doi.org/10.1016/S1474-4422(17)30404-0",
+    "verification": "已核查摘要/结果：开发1200例；外部验证1169例；总体C=0.77；Austria 0.78，Germany 0.74，Italy 0.81"
+  },
+  {
+    "source_id": "SELECT_VAL_002",
+    "source_type": "验证研究",
+    "title": "Abraira 2019",
+    "origin": "Spain",
+    "identifier": "10.1016/j.seizure.2019.04.022",
+    "url": "https://doi.org/10.1016/j.seizure.2019.04.022",
+    "verification": "已核查摘要/结果：发生与未发生PSE者SeLECT评分无显著差异，P=0.635"
+  },
+  {
+    "source_id": "SELECT_VAL_003",
+    "source_type": "验证研究",
+    "title": "Shen 2021",
+    "origin": "China",
+    "identifier": "10.2147/NDT.S324271",
+    "url": "https://doi.org/10.2147/NDT.S324271",
+    "verification": "已核查摘要/结果：SeLECT AUC=0.756；加IL-1β后AUC=0.933"
+  },
+  {
+    "source_id": "SELECT_VAL_004",
+    "source_type": "验证研究",
+    "title": "Dinç 2023",
+    "origin": "Turkey",
+    "identifier": "10.1055/s-0043-1767764",
+    "url": "https://doi.org/10.1055/s-0043-1767764",
+    "verification": "已核查摘要/结果：SeLECT AUC=0.893；加入糖尿病和脑白质疏松后AUC=0.955"
+  },
+  {
+    "source_id": "SELECT_VAL_005",
+    "source_type": "验证研究",
+    "title": "Gruber 2023",
+    "origin": "Austria",
+    "identifier": "10.1007/s00415-023-11966-x",
+    "url": "https://doi.org/10.1007/s00415-023-11966-x",
+    "verification": "已核查摘要/结果：PSE组与非PSE组SeLECT中位数均为4分，P=0.682"
+  },
+  {
+    "source_id": "SELECT_VAL_006",
+    "source_type": "验证研究",
+    "title": "Sinka 2023",
+    "origin": "Switzerland; Austria; Germany; Italy; Portugal; Spain; Colombia",
+    "identifier": "10.1001/jamaneurol.2023.0611",
+    "url": "https://doi.org/10.1001/jamaneurol.2023.0611",
+    "verification": "已核查摘要/结果：乐观校正C≈0.77；与SeLECT原版总体接近；提高极高风险病例捕获"
+  },
+  {
+    "source_id": "SELECT_VAL_007",
+    "source_type": "验证研究",
+    "title": "Tanaka 2023",
+    "origin": "Japan",
+    "identifier": "10.1002/ana.26497",
+    "url": "https://doi.org/10.1002/ana.26497",
+    "verification": "已核查摘要/结果：SeLECT AUC=0.78；加皮质表面铁沉积后AUC=0.84"
+  },
+  {
+    "source_id": "SELECT_VAL_008",
+    "source_type": "验证研究",
+    "title": "Meletti 2024",
+    "origin": "Italy",
+    "identifier": "10.1111/epi.18114",
+    "url": "https://doi.org/10.1111/epi.18114",
+    "verification": "已核查摘要/结果：36、48、60个月时间依赖AUC约0.88，原版约0.84；净重分类改善"
+  },
+  {
+    "source_id": "SELECT_VAL_009",
+    "source_type": "验证研究",
+    "title": "Yu 2024",
+    "origin": "China",
+    "identifier": "10.1016/j.eplepsyres.2024.107397",
+    "url": "https://doi.org/10.1016/j.eplepsyres.2024.107397",
+    "verification": "已核查摘要/结果：SeLECT AUC≈0.828，但敏感度约0.15、特异度约0.974；Naive Bayes AUC≈0.831，敏感度0.90、特异度0.672"
+  },
+  {
+    "source_id": "SELECT_VAL_010",
+    "source_type": "验证研究",
+    "title": "Gruber 2025",
+    "origin": "Austria",
+    "identifier": "10.1111/ene.70154",
+    "url": "https://doi.org/10.1111/ene.70154",
+    "verification": "已核查摘要/结果：仍然无法区分PSE组与非PSE组，中位数均为4分"
+  },
+  {
+    "source_id": "SELECT_VAL_011",
+    "source_type": "验证研究",
+    "title": "Schubert 2025 SeLECT-ASyS",
+    "origin": "Switzerland; Argentina; Japan; multicenter SeLECT registry",
+    "identifier": "10.1161/STROKEAHA.124.050045",
+    "url": "https://doi.org/10.1161/STROKEAHA.124.050045",
+    "verification": "已核查摘要/结果：开发C=0.68 vs 旧模型0.58；外部验证C=0.70 vs 0.50，但P=0.18"
+  },
+  {
+    "source_id": "SELECT_VAL_012",
+    "source_type": "验证研究",
+    "title": "Schubert 2025 SeLECT-EEG",
+    "origin": "Switzerland; Germany; Italy; Belgium; Portugal",
+    "identifier": "10.1002/ana.27301",
+    "url": "https://doi.org/10.1002/ana.27301",
+    "verification": "已核查摘要/结果：C=0.75 vs SeLECT2.0 0.71，P<0.001"
+  },
+  {
+    "source_id": "SELECT_VAL_013",
+    "source_type": "验证研究",
+    "title": "Verburgt 2025",
+    "origin": "Netherlands",
+    "identifier": "10.1001/jamaneurol.2025.0465",
+    "url": "https://doi.org/10.1001/jamaneurol.2025.0465",
+    "verification": "已核查摘要/结果：C=0.78（0.71-0.84）；5年累计风险3.7%；各评分预测风险总体偏高，但置信区间多重叠"
+  },
+  {
+    "source_id": "SELECT_VAL_014",
+    "source_type": "验证研究",
+    "title": "Janský 2026",
+    "origin": "Czech Republic; Austria",
+    "identifier": "10.1097/MD.0000000000047067",
+    "url": "https://doi.org/10.1097/MD.0000000000047067",
+    "verification": "已核查摘要/结果：SeLECT AUC=0.668；用出院NIHSS修改后AUC=0.715"
+  },
+  {
+    "source_id": "SELECT_VAL_015",
+    "source_type": "验证研究",
+    "title": "Leung 2026 IsCHEMiA comparison",
+    "origin": "United States; Hong Kong; Japan",
+    "identifier": "10.1212/WNL.0000000000214486",
+    "url": "https://doi.org/10.1212/WNL.0000000000214486",
+    "verification": "已核查摘要/结果：IsCHEMiA C=0.848 versus SeLECT C=0.782 across validation"
+  },
+  {
+    "source_id": "SRC_NETWORK_WENZHOU",
+    "source_type": "网络公开逐例数据",
+    "title": "Wenzhou post-stroke seizure cohort, 167 records",
+    "origin": "Lin et al., Frontiers in Aging Neuroscience",
+    "identifier": "10.3389/fnagi.2021.707732",
+    "url": "https://doi.org/10.3389/fnagi.2021.707732",
+    "verification": "网络公开附件，CC BY；167例中111例缺血性卒中"
+  },
+  {
+    "source_id": "SRC_NETWORK_SUZHOU",
+    "source_type": "网络公开逐例数据",
+    "title": "Suzhou/Anhui acute ischemic stroke cohort, 149 records",
+    "origin": "Liu et al., Mendeley Data",
+    "identifier": "10.17632/gnvp2s43cx.1",
+    "url": "https://data.mendeley.com/datasets/gnvp2s43cx/1",
+    "verification": "网络公开数据，CC BY 4.0；有NIHSS、TOAST、日期和90天mRS，无癫痫结局"
+  },
+  {
+    "source_id": "SRC_NETWORK_WINDER",
+    "source_type": "网络公开逐例表",
+    "title": "Winder 28 published cases",
+    "origin": "Journal of Neuroimaging",
+    "identifier": "10.1111/jon.13110",
+    "url": "https://doi.org/10.1111/jon.13110",
+    "verification": "网络公开论文表1，CC BY-NC；28例，缺发作时间和随访"
+  },
+  {
+    "source_id": "SRC_NETWORK_FEASIBILITY_20261107",
+    "source_type": "项目核实记录",
+    "title": "温州100例字段可行性验证",
+    "origin": "本项目对网络公开数据的二次审计",
+    "identifier": "2026-11-07-v1.0",
+    "url": "",
+    "verification": "25个最小核心字段：直接6、可推导5、部分可推导3、缺失11"
+  },
+  {
+    "source_id": "SRC_D13_V03",
+    "source_type": "项目模型归档",
+    "title": "D13-S1-LR-Platt-v0.3 模型卡",
+    "origin": "D13 校正版 v0.3 交付包",
+    "identifier": "D13-S1-LR-Platt-v0.3",
+    "url": "/knowledge-graph/assets/sources/D13_v0.3_模型卡.md",
+    "verification": "模型卡、指标与模型包指纹已交叉核对；未独立重跑或临床验证"
+  },
+  {
+    "source_id": "SRC_FIVE_ARCH_RESULTS_20261107",
+    "source_type": "项目结果汇编",
+    "title": "卒中后癫痫五套算法架构 · 跑数结果汇编",
+    "origin": "三合医研发团队 · 河南大学 · 2026-11-07 交付包",
+    "identifier": "bbcd1a25a4b59d5634b8334e2ea3c9b340e4c5969a4f61b9965e0bc1eddbbb50",
+    "url": "/knowledge-graph/assets/sources/五套算法架构_跑数结果汇编.pdf",
+    "verification": "已核对交付包页面、队列和任务定义；未独立复跑，非外部临床验证"
+  },
+  {
+    "source_id": "SRC_FIVE_ARCH_CODE_20261107",
+    "source_type": "项目代码汇编",
+    "title": "卒中后癫痫五套算法架构 · 代码汇编",
+    "origin": "三合医研发团队 · 河南大学 · 2026-11-07 交付包",
+    "identifier": "f072571ad789ae3d29361445ced2f7b2e6860f0d0b1ff3766c1814b0b3e38d48",
+    "url": "/knowledge-graph/assets/sources/五套算法架构_代码汇编.pdf",
+    "verification": "已核对交付包页面、队列和任务定义；未独立复跑，非外部临床验证"
+  }
+]

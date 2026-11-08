@@ -1,0 +1,11 @@
+﻿patient_id,episode_id,recurrence_date,death_date,last_followup_date,review_status
+DEMO-0000,DEMO-0000-E1,2022-03-17,,2022-03-17,approved
+DEMO-0001,DEMO-0001-E1,,,2022-12-24,approved
+DEMO-0002,DEMO-0002-E1,,,2022-02-22,approved
+DEMO-0003,DEMO-0003-E1,,,2025-03-09,approved
+DEMO-0004,DEMO-0004-E1,,,2022-02-28,approved
+DEMO-0005,DEMO-0005-E1,,,2022-01-05,approved
+DEMO-0006,DEMO-0006-E1,,2020-08-25,2020-08-25,approved
+DEMO-0007,DEMO-0007-E1,,,2023-02-21,approved
+DEMO-0008,DEMO-0008-E1,,,2022-07-31,approved
+DEMO-0009,DEMO-0009-E1,2021-05-16,,2021-05-16,approved

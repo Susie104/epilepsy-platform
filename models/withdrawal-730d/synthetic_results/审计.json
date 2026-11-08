@@ -1,0 +1,28 @@
+{
+  "origin": "SYNTHETIC_DEMO",
+  "n": 260,
+  "train": 195,
+  "test": 65,
+  "split_overlap": 0,
+  "recurrence": 74,
+  "death": 31,
+  "early_censored": 97,
+  "median_followup": 355.5,
+  "missing_by_field": {
+    "epilepsy_duration_before_remission_years": 18,
+    "seizure_free_months": 28,
+    "age_at_onset": 23,
+    "febrile_seizure_history": 23,
+    "seizure_count_before_remission": 23,
+    "self_limiting_syndrome": 24,
+    "developmental_delay": 19,
+    "eeg_epileptiform": 31
+  },
+  "model_sha256": "3eefcfc66de9e62c15aa0cc666b3e0a0b10e5630d855bc2319562aeed716c0e6",
+  "input_hashes": {
+    "protocol.json": "5a3fc466078c000eeb4ccc291c52ef47ac5058ac26242e790d37977624e021f2",
+    "cohort.csv": "4817b90c7de94d38a3135ee6eed36d37ff09736dd6150f2cb0d131c8c8c488a7",
+    "outcomes.csv": "35015d7fcde713e858da0616659a6503ed837c1979f155f8a880a612e55231ec",
+    "baseline_fields.csv": "053baec8eb9614e40eb222303a70634796c9add4f206077a6c9d5589fc712ec0"
+  }
+}

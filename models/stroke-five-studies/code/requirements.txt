@@ -1,0 +1,7 @@
+# D13 三场景建模 服务器 venv 依赖（安装后以 env_record.txt 实际版本为准）
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+lightgbm>=4.3
+matplotlib>=3.8
+joblib>=1.3

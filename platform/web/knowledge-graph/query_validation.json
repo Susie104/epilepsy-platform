@@ -1,0 +1,7 @@
+{
+  "version": "0.6-platform-integrated",
+  "examples": 6,
+  "all_start_nodes_exist": true,
+  "source_model_card_available": true,
+  "passed": true
+}

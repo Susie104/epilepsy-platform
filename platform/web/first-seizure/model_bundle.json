@@ -1,0 +1,112 @@
+{
+  "model_id": "WENZHOU-D-CORE8-LR-FULL-2026-11-08",
+  "source_sha256": "98d04a5eb44813e223f9150913637ccc9368d20e1adff80edb11a6bd1af900d4",
+  "model_provenance": "Study D core-eight LR specification refitted on all 167 deidentified cases after reproducing the reported repeated CV anchors",
+  "population": "Stroke patients with an acute symptomatic seizure within seven days after stroke in the Wenzhou cohort",
+  "outcome": "Later post-stroke epilepsy during variable follow-up; no fixed risk horizon",
+  "n": 167,
+  "events": 49,
+  "feature_order": [
+    "age",
+    "stroke_type",
+    "interval_gt3",
+    "multiple_seizures",
+    "status_epilepticus",
+    "nihss",
+    "cortical",
+    "eeg_epileptic"
+  ],
+  "labels": {
+    "age": "首次发作时年龄（岁）",
+    "stroke_type": "卒中类型（0 出血性 / 1 缺血性）",
+    "interval_gt3": "首次发作距卒中超过 3 天",
+    "multiple_seizures": "早期多次发作",
+    "status_epilepticus": "癫痫持续状态",
+    "nihss": "NIHSS 评分",
+    "cortical": "皮层受累",
+    "eeg_epileptic": "EEG 癫痫样放电"
+  },
+  "binary_fields": [
+    "stroke_type",
+    "interval_gt3",
+    "multiple_seizures",
+    "status_epilepticus",
+    "cortical",
+    "eeg_epileptic"
+  ],
+  "ranges": {
+    "age": {
+      "min": 23.0,
+      "max": 91.0
+    },
+    "stroke_type": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "interval_gt3": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "multiple_seizures": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "status_epilepticus": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "nihss": {
+      "min": 0.0,
+      "max": 30.0
+    },
+    "cortical": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "eeg_epileptic": {
+      "min": 0.0,
+      "max": 1.0
+    }
+  },
+  "medians": {
+    "age": 65.0,
+    "stroke_type": 1.0,
+    "interval_gt3": 0.0,
+    "multiple_seizures": 0.0,
+    "status_epilepticus": 0.0,
+    "nihss": 6.0,
+    "cortical": 1.0,
+    "eeg_epileptic": 0.0
+  },
+  "continuous_preprocessing": {
+    "age": {
+      "lower": 29.94,
+      "upper": 85.68,
+      "mean": 64.50443113772457,
+      "sd": 12.540883732662392
+    },
+    "nihss": {
+      "lower": 0.0,
+      "upper": 28.0,
+      "mean": 8.263473053892216,
+      "sd": 7.670773206828062
+    }
+  },
+  "coefficients": {
+    "age": 0.1109369550086955,
+    "stroke_type": -0.21560177302001324,
+    "interval_gt3": 1.4220944308619856,
+    "multiple_seizures": 1.69405751654081,
+    "status_epilepticus": 0.4225690263260268,
+    "nihss": 0.40848042670444246,
+    "cortical": -0.2531214109824867,
+    "eeg_epileptic": 0.996437174841041
+  },
+  "intercept": -1.3602780171778828,
+  "cross_validation": {
+    "design": "Repeated stratified 5-fold x 10",
+    "auroc": 0.7100830162573504,
+    "auprc": 0.5331234258627499,
+    "brier": 0.1824929377071411
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>知识问答 · 癫痫研究平台</title>
+  <link rel="stylesheet" href="/static/knowledge-qa.css?v=20261108-enter" />
+</head>
+<body>
+  <div class="qa-page">
+    <div class="qa-video-layer" aria-hidden="true">
+      <video id="qa-video" autoplay muted loop playsinline preload="metadata" poster="/static/arch-synapse-poster.png">
+        <source src="/static/arch-synapse-loop.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <header class="qa-header">
+      <a class="qa-brand" href="/"><span class="qa-brand-mark" aria-hidden="true"></span><span data-i18n="brand">癫痫研究平台</span></a>
+      <nav class="qa-nav" aria-label="页面导航">
+        <a href="/" data-i18n="home">研究入口</a>
+        <a href="/knowledge-graph/" data-i18n="graph">知识图谱</a>
+        <button id="qa-language" type="button" aria-label="切换语言">EN</button>
+      </nav>
+    </header>
+    <main>
+      <section class="qa-hero" aria-labelledby="qa-title">
+        <div class="qa-hero-inner">
+          <h1 id="qa-title"><span data-i18n="headline1">让问题回到</span><em data-i18n="headline2">证据</em></h1>
+          <form id="qa-search-form" class="qa-composer">
+            <div class="qa-composer-body"><label class="sr-only" for="qa-question" data-i18n="questionLabel">输入研究问题</label><textarea id="qa-question" rows="3" maxlength="200" data-i18n-placeholder="placeholder" placeholder="例如：NIHSS 与卒中后癫痫有什么关系？"></textarea><button class="qa-submit" type="submit" aria-label="检索证据"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button></div>
+            <div class="qa-composer-bottom"><span data-i18n="sourceOnly">仅供研究参考</span><span id="qa-counter">0 / 200</span></div>
+          </form>
+          <div class="qa-prompts"><span data-i18n="suggested">试试这些问题</span><div id="qa-prompt-list"></div></div>
+        </div>
+        <a class="qa-scroll-cue" href="#qa-results-section" data-i18n="scrollCue">向下查看证据 ↓</a>
+      </section>
+      <section id="qa-results-section" class="qa-results-section" hidden aria-labelledby="qa-results-title">
+        <div class="qa-results-inner"><div class="qa-results-head"><p data-i18n="resultsKicker">SOURCE LED EXPLORATION</p><h2 id="qa-results-title" data-i18n="resultsTitle">检索结果</h2><span id="qa-result-count"></span></div><div id="qa-results" class="qa-results" aria-live="polite"></div></div>
+      </section>
+    </main>
+    <footer class="qa-footer"><span data-i18n="footer">研究资料导览 · 来源可追溯</span><a href="/knowledge-graph/" data-i18n="openGraph">进入知识图谱 ↗</a></footer>
+  </div>
+  <script src="/static/knowledge-qa.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+{
+  "desktop": {
+    "errors": [],
+    "modelNodes": 18,
+    "modelHasSixComponents": true,
+    "modelHasStudies": true,
+    "d13MappingRows": 6,
+    "d13IssueCards": 9,
+    "d13HasBounds": true,
+    "localSourceLinks": 6,
+    "outcomeHasDefinition": true,
+    "outcomeHasPending": true,
+    "variableSearch": true,
+    "studySearch": true,
+    "pathResults": [
+      {
+        "pathId": "select-1",
+        "guideVisible": true,
+        "title": "从0到9分的原版模型开始",
+        "stepText": "SeLECT 1.0由NIHSS、大动脉粥样硬化病因、早期发作、皮质受累和MCA供血区梗死五部分组成。",
+        "steps": 5
+      },
+      {
+        "pathId": "select-2",
+        "guideVisible": true,
+        "title": "2.0把最高分从9扩展到13",
+        "stepText": "SeLECT 2.0保留了原版结构，并把早期发作拆成短发作3分和早期癫痫持续状态7分。",
+        "steps": 5
+      },
+      {
+        "pathId": "d13",
+        "guideVisible": true,
+        "title": "先看D13究竟是什么",
+        "stepText": "D13是经过筛选、已随机森林插补的公开研究表，不是连续卒中人群，也没有患者ID和事件日期。",
+        "steps": 6
+      },
+      {
+        "pathId": "early-late",
+        "guideVisible": true,
+        "title": "急性症状性发作",
+        "stepText": "卒中后7天内的临床发作通常作为卒中急性损伤相关事件处理，不等同于卒中后癫痫。",
+        "steps": 6
+      },
+      {
+        "pathId": "competing-risk",
+        "guideVisible": true,
+        "title": "主结局必须有发生时间",
+        "stepText": "累计发生函数不仅需要是否发生，还需要首次事件日期和随访起点。",
+        "steps": 6
+      }
+    ],
+    "overflow": {
+      "body": 1440,
+      "doc": 1440,
+      "viewport": 1440
+    },
+    "passed": true
+  },
+  "mobile": {
+    "errors": [],
+    "modelNodes": 9,
+    "modelHasSixComponents": true,
+    "modelHasStudies": true,
+    "d13MappingRows": 6,
+    "d13IssueCards": 9,
+    "d13HasBounds": true,
+    "localSourceLinks": 6,
+    "outcomeHasDefinition": true,
+    "outcomeHasPending": true,
+    "variableSearch": true,
+    "studySearch": true,
+    "pathResults": [
+      {
+        "pathId": "select-1",
+        "guideVisible": true,
+        "title": "从0到9分的原版模型开始",
+        "stepText": "SeLECT 1.0由NIHSS、大动脉粥样硬化病因、早期发作、皮质受累和MCA供血区梗死五部分组成。",
+        "steps": 5
+      },
+      {
+        "pathId": "select-2",
+        "guideVisible": true,
+        "title": "2.0把最高分从9扩展到13",
+        "stepText": "SeLECT 2.0保留了原版结构，并把早期发作拆成短发作3分和早期癫痫持续状态7分。",
+        "steps": 5
+      },
+      {
+        "pathId": "d13",
+        "guideVisible": true,
+        "title": "先看D13究竟是什么",
+        "stepText": "D13是经过筛选、已随机森林插补的公开研究表，不是连续卒中人群，也没有患者ID和事件日期。",
+        "steps": 6
+      },
+      {
+        "pathId": "early-late",
+        "guideVisible": true,
+        "title": "急性症状性发作",
+        "stepText": "卒中后7天内的临床发作通常作为卒中急性损伤相关事件处理，不等同于卒中后癫痫。",
+        "steps": 6
+      },
+      {
+        "pathId": "competing-risk",
+        "guideVisible": true,
+        "title": "主结局必须有发生时间",
+        "stepText": "累计发生函数不仅需要是否发生，还需要首次事件日期和随访起点。",
+        "steps": 6
+      }
+    ],
+    "overflow": {
+      "body": 390,
+      "doc": 390,
+      "viewport": 390
+    },
+    "passed": true
+  }
+}
